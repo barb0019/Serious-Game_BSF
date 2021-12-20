@@ -1,8 +1,6 @@
 import Game from './Game.js';
 import Scene from './Scene.js';
 import ScoringObject from './ScoringObject.js';
-import Garbage from './Garbage.js';
-import Egg from './Egg.js';
 import Player from './Player.js';
 import PowerUp from './PowerUp.js';
 import GameOver from './GameOver.js';
@@ -27,10 +25,6 @@ export default class Level extends Scene {
     super(game);
     this.scoringObjects = [];
 
-    // Create garbage items
-    for (let i = 0; i < Game.randomNumber(3, 10); i++) {
-      this.scoringObjects.push(this.createScoringObject());
-    }
 
     // Create player
     this.player = new Player(this.game.canvas.width, this.game.canvas.height);
@@ -39,18 +33,7 @@ export default class Level extends Scene {
     this.countUntilNextItem = 300;
   }
 
-  private createScoringObject(): Garbage {
-    const selector = Game.randomNumber(0, 100);
-    if (selector < 10) {
-      return new PowerUp(this.game.canvas.width, this.game.canvas.height);
-    }
-    if (selector < 25) {
-      return new Egg(this.game.canvas.width, this.game.canvas.height);
-    }
-    return new Garbage(this.game.canvas.width, this.game.canvas.height);
-  }
-
-  /**
+    /**
    * Removes scoring objects from the game based on box collision detection.
    *
    * Read for more info about filter function: https://alligator.io/js/filter-array-method/
@@ -111,9 +94,7 @@ export default class Level extends Scene {
     if (this.countUntilNextItem <= 0) {
       const choice = Game.randomNumber(0, 10);
 
-      if (choice < 5) {
-        this.scoringObjects.push(this.createScoringObject());
-      }
+
 
       // Reset the timer with a count between 2 and 4 seconds on a
       // decent computer
