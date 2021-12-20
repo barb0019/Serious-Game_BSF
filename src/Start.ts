@@ -59,8 +59,8 @@ export default class Start extends Scene {
     // Show score
     const centerX = this.game.canvas.width / 2;
     this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
-    this.game.writeTextToCanvas(`Ready ${this.game.getUser().getName()}`, 48, centerX,
-      450, 'center', 'yellow');
+    this.game.writeTextToCanvas(`Ready ${this.game.getUser().getName()} and 2`, 48, centerX,
+      450, 'center', 'black');
     this.game.writeTextToCanvas("Type 'space' to start", 48, centerX,
       550, 'center', 'white');
   }
