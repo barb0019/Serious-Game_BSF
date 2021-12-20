@@ -5,7 +5,7 @@ export default class UserData {
     constructor() {
         this.level = 1;
         this.score = 0;
-        this.name = 'Player 1';
+        this.name = 'Player 1 and 2';
     }
     getName() {
         return this.name;
