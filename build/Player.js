@@ -10,6 +10,12 @@ export default class Player extends GameItem {
         this.yVel = 3;
         this.keyboard = new KeyListener();
     }
+    setXPos(xPos) {
+        this.xPos = xPos;
+    }
+    setYPos(yPos) {
+        this.yPos = yPos;
+    }
     move(canvas) {
         const minX = 0;
         const maxX = canvas.width - this.img.width;

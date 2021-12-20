@@ -5,6 +5,7 @@ import Player from './Player.js';
 import PowerUp from './PowerUp.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
+import Platform from './platform.js';
 
 export default class Level extends Scene {
   // Garbage items (the player needs to pick these up)
@@ -12,6 +13,9 @@ export default class Level extends Scene {
 
   // Player
   private player: Player;
+
+  // platform
+  private platform: Platform[];
 
   // Amount of frames until the next item
   private countUntilNextItem: number;
@@ -27,33 +31,43 @@ export default class Level extends Scene {
 
     // Create player
     this.player = new Player(this.game.canvas.width, this.game.canvas.height);
+    this.platform = [];
+
+    this.makePlatforms();
 
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
   }
 
   /**
-   * Removes scoring objects from the game based on box collision detection.
    *
-   * Read for more info about filter function: https://alligator.io/js/filter-array-method/
    */
-  private cleanUpScoringObjects() {
-    // create a new array with garbage item that are still on the screen
-    // (filter the clicked garbage item out of the array garbage items)
-    this.scoringObjects = this.scoringObjects.filter(
-      (element) => {
-        const collides = this.player.collidesWith(element);
-        if (collides) {
-          this.game.getUser().addScore(element.getScore());
-          if (element instanceof PowerUp) {
-            const powerUp = element as PowerUp;
-            powerUp.applyTo(this.player);
-          }
-        }
-        return !collides;
-      },
-    );
+  public makePlatforms(): void {
+    this.platform.push(new Platform(250, 250, 10, 20, Game.loadNewImage('./assets/img/egg.png')));
   }
+
+  // /**
+  //  * Removes scoring objects from the game based on box collision detection.
+  //  *
+  //  * Read for more info about filter function: https://alligator.io/js/filter-array-method/
+  //  */
+  // private cleanUpScoringObjects() {
+  //   // create a new array with garbage item that are still on the screen
+  //   // (filter the clicked garbage item out of the array garbage items)
+  //   this.scoringObjects = this.scoringObjects.filter(
+  //     (element) => {
+  //       const collides = this.player.collidesWith(element);
+  //       if (collides) {
+  //         this.game.getUser().addScore(element.getScore());
+  //         if (element instanceof PowerUp) {
+  //           const powerUp = element as PowerUp;
+  //           powerUp.applyTo(this.player);
+  //         }
+  //       }
+  //       return !collides;
+  //     },
+  //   );
+  // }
 
   private hasWon(): boolean {
     const user = this.game.getUser();
@@ -85,9 +99,13 @@ export default class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
+    this.platform.forEach((element) => {
+      element.collidesWith(this.player);
+    });
+
     // Player cleans up garbage
     if (this.player.isCleaning()) {
-      this.cleanUpScoringObjects();
+      // this.cleanUpScoringObjects();
     }
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
@@ -128,5 +146,8 @@ export default class Level extends Scene {
       element.draw(this.game.ctx);
     });
     this.player.draw(this.game.ctx);
+    for (let i = 0; i < this.platform.length; i++) {
+      this.platform[i].draw(this.game.ctx);
+    }
   }
 }

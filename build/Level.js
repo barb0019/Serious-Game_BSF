@@ -1,31 +1,24 @@
 import Game from './Game.js';
 import Scene from './Scene.js';
 import Player from './Player.js';
-import PowerUp from './PowerUp.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
+import Platform from './platform.js';
 export default class Level extends Scene {
     scoringObjects;
     player;
+    platform;
     countUntilNextItem;
     constructor(game) {
         super(game);
         this.scoringObjects = [];
         this.player = new Player(this.game.canvas.width, this.game.canvas.height);
+        this.platform = [];
+        this.makePlatforms();
         this.countUntilNextItem = 300;
     }
-    cleanUpScoringObjects() {
-        this.scoringObjects = this.scoringObjects.filter((element) => {
-            const collides = this.player.collidesWith(element);
-            if (collides) {
-                this.game.getUser().addScore(element.getScore());
-                if (element instanceof PowerUp) {
-                    const powerUp = element;
-                    powerUp.applyTo(this.player);
-                }
-            }
-            return !collides;
-        });
+    makePlatforms() {
+        this.platform.push(new Platform(250, 250, 10, 20, Game.loadNewImage('./assets/img/egg.png')));
     }
     hasWon() {
         const user = this.game.getUser();
@@ -35,8 +28,10 @@ export default class Level extends Scene {
         this.player.move(this.game.canvas);
     }
     update(elapsed) {
+        this.platform.forEach((element) => {
+            element.collidesWith(this.player);
+        });
         if (this.player.isCleaning()) {
-            this.cleanUpScoringObjects();
         }
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);
@@ -59,6 +54,9 @@ export default class Level extends Scene {
             element.draw(this.game.ctx);
         });
         this.player.draw(this.game.ctx);
+        for (let i = 0; i < this.platform.length; i++) {
+            this.platform[i].draw(this.game.ctx);
+        }
     }
 }
 //# sourceMappingURL=Level.js.map
