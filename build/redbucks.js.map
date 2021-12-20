@@ -1,0 +1,1 @@
+{"version":3,"file":"redbucks.js","sourceRoot":"","sources":["../src/redbucks.ts"],"names":[],"mappings":"AAAA,OAAO,aAAa,MAAM,oBAAoB,CAAC;AAE/C,MAAM,CAAC,OAAO,OAAO,QAAS,SAAQ,aAAa;IAMjD,YAAmB,IAAY,EAAE,IAAY;QAC3C,KAAK,CAAC,uBAAuB,EAAE,IAAI,GAAG,EAAE,EAAE,IAAI,GAAG,EAAE,EAAE,CAAC,CAAC,CAAC;IAC1D,CAAC;CACF"}
