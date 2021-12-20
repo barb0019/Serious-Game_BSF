@@ -47,22 +47,6 @@ export default abstract class GameItem {
     return this.xPos;
   }
 
-/**
- *
- * @param xPos x position of the player
- */
-  public setXPos(xPos: number): void {
-    this.xPos = xPos;
-  }
-
-  /**
-   *
-   * @param yPos
-   */
-  public setYPos(yPos: number): void {
-    this.yPos = yPos;
-  }
-
   /**
    * getYPos
    *

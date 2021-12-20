@@ -22,6 +22,24 @@ export default class Player extends GameItem {
   }
 
   /**
+   *
+   * @param xPos x position of the player
+   */
+ public setXPos(xPos: number): void {
+  this.xPos = xPos;
+}
+
+/**
+ *set y pos of the player
+ *
+ * @param yPos y position of the player
+ */
+public setYPos(yPos: number): void {
+  this.yPos = yPos;
+}
+  /**
+
+  /**
    * Moves the player depending on which arrow key is pressed. Player is bound
    * to the canvas and cannot move outside of it
    *

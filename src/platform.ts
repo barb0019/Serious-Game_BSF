@@ -38,6 +38,7 @@ export default class Platform {
    * @returns Wheter the platform collides with the player or not
    */
   public collidesWith(player: Player): boolean {
+    // sets the current pos of the player to be used next frame for collision detection
     this.xPosPrevious.push(player.getXPos());
     this.yPosPrevious.push(player.getYPos());
 
@@ -45,11 +46,12 @@ export default class Platform {
     && this.xPos + this.img.width > player.getXPos()
     && this.yPos < player.getYPos() + player.getImageHeight()
     && this.yPos + this.img.height > player.getYPos()) {
+      // make the player go back to where he was so he doesn't fall through
       player.setXPos(this.xPosPrevious[1]);
       player.setYPos(this.yPosPrevious[1]);
+      // removes the previous position of the player so it can add a new previous position
       this.xPosPrevious.splice(1, 1);
       this.yPosPrevious.splice(1, 1);
-      // make the player go back to where he was so he doesn't fall through
       return true;
     }
 
