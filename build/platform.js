@@ -13,8 +13,10 @@ export default class Platform {
         this.width = width;
         this.height = height;
         this.img = img;
-        this.xPosPrevious = [this.player.getXPos()];
-        this.yPosPrevious = [this.player.getYPos()];
+        this.xPosPrevious = [];
+        this.yPosPrevious = [];
+        this.xPosPrevious.push(0);
+        this.yPosPrevious.push(0);
     }
     collidesWith(player) {
         this.xPosPrevious.push(player.getXPos());
@@ -23,8 +25,8 @@ export default class Platform {
             && this.xPos + this.img.width > player.getXPos()
             && this.yPos < player.getYPos() + player.getImageHeight()
             && this.yPos + this.img.height > player.getYPos()) {
-            player.setXPos(this.xPosPrevious[1]);
-            player.setYPos(this.yPosPrevious[1]);
+            player.setXPos(this.xPosPrevious[1] - (player.getImageWidth() - this.img.width));
+            player.setYPos(this.yPosPrevious[1] - (player.getImageHeight() - this.img.height));
             this.xPosPrevious.splice(1, 1);
             this.yPosPrevious.splice(1, 1);
             return true;
