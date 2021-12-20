@@ -7,6 +7,6 @@ export default class Redbucks extends ScoringObject {
    * @param maxY the max value of the X position
    */
   public constructor(maxX: number, maxY: number) {
-    super('./assets/img/reds.png', maxX - 50, maxY - 70, 0);
+    super('./assets/img/red.png', maxX - 2, maxY - 50, 0);
   }
 }
