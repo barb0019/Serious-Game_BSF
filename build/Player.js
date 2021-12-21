@@ -22,6 +22,12 @@ export default class Player extends GameItem {
     getYVel() {
         return this.yVel;
     }
+    getXPos() {
+        return this.xPos;
+    }
+    getYPos() {
+        return this.yPos;
+    }
     increaseSpeed(size) {
         this.xVel += size;
         this.yVel += size;

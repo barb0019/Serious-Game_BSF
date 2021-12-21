@@ -48,10 +48,12 @@ export default class Platform {
    */
   public collidesWith(player: Player): boolean {
     // sets the current pos of the player to be used next frame for collision detection
+
+    // TODO make this work for 2 players
     this.xPosPrevious.push(player.getXPos());
     this.yPosPrevious.push(player.getYPos());
-    // console.log(this.xPosPrevious);
-    // console.log(this.yPosPrevious);
+    console.log(this.xPosPrevious);
+    console.log(this.yPosPrevious);
 
     // checks if there is collision with the entire object
     if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()

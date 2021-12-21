@@ -60,8 +60,10 @@ export default class Level extends Scene {
         }
     }
     update(elapsed) {
-        this.platform.forEach((element, index) => {
-            element.collidesWith(this.player[index]);
+        this.platform.forEach((element) => {
+            for (let i = 0; i < this.player.length; i++) {
+                element.collidesWith(this.player[i]);
+            }
         });
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);

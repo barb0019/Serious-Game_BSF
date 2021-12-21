@@ -122,8 +122,10 @@ export default class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
-    this.platform.forEach((element, index) => {
-    element.collidesWith(this.player[index]);
+    this.platform.forEach((element) => {
+      for (let i = 0; i < this.player.length; i++) {
+        element.collidesWith(this.player[i]);
+      }
     });
 
     // Player removes objects
@@ -170,7 +172,6 @@ export default class Level extends Scene {
     });
     for (let i = 0; i < this.player.length; i++) {
       this.player[i].draw(this.game.ctx);
-
     }
     for (let i = 0; i < this.platform.length; i++) {
       this.platform[i].draw(this.game.ctx);
