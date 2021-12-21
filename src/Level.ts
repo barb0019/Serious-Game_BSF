@@ -107,7 +107,7 @@ export default class Level extends Scene {
 
     // Player cleans up garbage
     if (this.player.isCleaning()) {
-      // this.cleanUpScoringObjects();
+      this.cleanUpScoringObjects();
     }
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
