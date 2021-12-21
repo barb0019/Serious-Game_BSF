@@ -16,6 +16,12 @@ export default class Player extends GameItem {
     setYPos(yPos) {
         this.yPos = yPos;
     }
+    getXVel() {
+        return this.xVel;
+    }
+    getYVel() {
+        return this.yVel;
+    }
     move(canvas) {
         const minX = 0;
         const maxX = canvas.width - this.img.width;

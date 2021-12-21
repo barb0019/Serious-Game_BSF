@@ -21,14 +21,14 @@ export default class Platform {
     collidesWith(player) {
         this.xPosPrevious.push(player.getXPos());
         this.yPosPrevious.push(player.getYPos());
-        if (this.xPos < player.getXPos() + player.getImageWidth() + 3
-            && this.xPos + this.width > player.getXPos() - 3
+        if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
+            && this.xPos + this.width > player.getXPos() - player.getXVel()
             && this.yPos < player.getYPos() + player.getImageHeight()
             && this.yPos + this.height > player.getYPos()) {
             if (this.yPos + this.height > player.getYPos() + player.getImageHeight()
                 && this.xPos < player.getXPos() + player.getImageWidth()
                 && this.xPos + this.width > player.getXPos()) {
-                player.setYPos(this.yPosPrevious[0] - 3);
+                player.setYPos(this.yPosPrevious[0] - player.getYVel());
                 console.log('top');
                 this.xPosPrevious.splice(0, 1);
                 this.yPosPrevious.splice(0, 1);
@@ -37,18 +37,18 @@ export default class Platform {
             if (this.yPos < player.getYPos()
                 && this.xPos + this.width > player.getXPos()
                 && this.xPos < player.getXPos() + player.getImageWidth()) {
-                player.setYPos(this.yPosPrevious[0] + 3);
+                player.setYPos(this.yPosPrevious[0] + player.getYVel());
                 console.log('bottom');
                 this.xPosPrevious.splice(0, 1);
                 this.yPosPrevious.splice(0, 1);
                 return true;
             }
             if (this.xPos + this.width > player.getXPos()) {
-                player.setXPos(this.xPosPrevious[0] - 3);
+                player.setXPos(this.xPosPrevious[0] - player.getXVel());
                 console.log('left');
             }
             if (this.xPos < player.getXPos() + player.getImageWidth()) {
-                player.setXPos(this.xPosPrevious[0] + 3);
+                player.setXPos(this.xPosPrevious[0] + player.getXVel());
                 console.log('right');
             }
             this.xPosPrevious.splice(0, 1);
