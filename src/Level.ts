@@ -107,7 +107,7 @@ export default class Level extends Scene {
       element.collidesWith(this.player);
     });
 
-    // Player cleans up garbage
+    // Player removes objects
     if (this.player.isHitting()) {
       this.removeScoringObjects();
     }
