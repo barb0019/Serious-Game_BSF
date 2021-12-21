@@ -1,5 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
+import ScoringObject from './ScoringObject.js';
 
 export default class Player extends GameItem {
   private xVel: number;
@@ -101,6 +102,7 @@ export default class Player extends GameItem {
    * @returns true if this object collides with the specified other object
    */
   public collidesWith(other: GameItem): boolean {
+    console.log('collision');
     return this.xPos < other.getXPos() + other.getImageWidth()
     && this.xPos + this.img.width > other.getXPos()
     && this.yPos < other.getYPos() + other.getImageHeight()

@@ -1,11 +1,11 @@
 import Game from './Game.js';
 import Scene from './Scene.js';
 import Player from './Player.js';
+import PowerUp from './PowerUp.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
 import Platform from './platform.js';
 import Bluebucks from './bluebucks.js';
-import Redbucks from './redbucks.js';
 export default class Level extends Scene {
     scoringObjects;
     player;
@@ -14,15 +14,27 @@ export default class Level extends Scene {
     constructor(game) {
         super(game);
         this.scoringObjects = [];
+        this.scoringObjects.push(new Bluebucks(250, 250));
         this.player = new Player(this.game.canvas.width, this.game.canvas.height);
         this.platform = [];
-        this.scoringObjects.push(new Bluebucks(1250, 150));
-        this.scoringObjects.push(new Redbucks(750, 100));
         this.makePlatforms();
         this.countUntilNextItem = 300;
     }
     makePlatforms() {
         this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/egg.png')));
+    }
+    cleanUpScoringObjects() {
+        this.scoringObjects = this.scoringObjects.filter((element) => {
+            const collides = this.player.collidesWith(element);
+            if (collides) {
+                this.game.getUser().addScore(element.getScore());
+                if (element instanceof PowerUp) {
+                    const powerUp = element;
+                    powerUp.applyTo(this.player);
+                }
+            }
+            return !collides;
+        });
     }
     hasWon() {
         const user = this.game.getUser();
@@ -36,6 +48,7 @@ export default class Level extends Scene {
             element.collidesWith(this.player);
         });
         if (this.player.isCleaning()) {
+            this.cleanUpScoringObjects();
         }
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);
