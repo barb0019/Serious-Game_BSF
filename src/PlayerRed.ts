@@ -1,12 +1,9 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
+import Player from './Player.js';
 import ScoringObject from './ScoringObject.js';
 
-export default class PlayerRed extends GameItem {
-  private xVel: number;
-
-  private yVel: number;
-
+export default class PlayerRed extends Player {
   // KeyboardListener so the player can move
   private keyboard: KeyListener;
 
@@ -17,40 +14,7 @@ export default class PlayerRed extends GameItem {
    */
   public constructor(maxX: number, maxY: number) {
     super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92);
-    this.xVel = 3;
-    this.yVel = 3;
     this.keyboard = new KeyListener();
-  }
-
-  /**
-   *
-   * @param xPos x position of the player
-   */
-  public setXPos(xPos: number): void {
-    this.xPos = xPos;
-  }
-
-  /**
-   *set y pos of the player
-   *
-   * @param yPos y position of the player
-   */
-  public setYPos(yPos: number): void {
-    this.yPos = yPos;
-  }
-
-  /**
-   * @returns The x velocity number
-   */
-  public getXVel(): number {
-    return this.xVel;
-  }
-
-  /**
-   * @returns The y velocity number
-   */
-  public getYVel(): number {
-    return this.yVel;
   }
 
   /**
@@ -103,14 +67,6 @@ export default class PlayerRed extends GameItem {
 
   /**
    *
-   * @returns true if the player is cleaning up
-   */
-  public isCleaning(): boolean {
-    return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
-  }
-
-  /**
-   *
    * @param other the other GameItem
    * @returns true if this object collides with the specified other object
    */
@@ -120,15 +76,5 @@ export default class PlayerRed extends GameItem {
     && this.xPos + this.img.width > other.getXPos()
     && this.yPos < other.getYPos() + other.getImageHeight()
     && this.yPos + this.img.height > other.getYPos();
-  }
-
-  /**
-   * Increases the speed
-   *
-   * @param size the amount of speed to add
-   */
-  increaseSpeed(size: number): void {
-    this.xVel += size;
-    this.yVel += size;
   }
 }
