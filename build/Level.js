@@ -1,25 +1,25 @@
 import Game from './Game.js';
 import Scene from './Scene.js';
-import Player from './Player.js';
 import PowerUp from './PowerUp.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
 import Platform from './platform.js';
 import VBucks from './VBucks.js';
+import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
 export default class Level extends Scene {
     scoringObjects;
     player;
-    player1;
     platform;
     countUntilNextItem;
     constructor(game) {
         super(game);
         this.scoringObjects = [];
+        this.player = [];
         this.scoringObjects.push(new VBucks(250, 250, 'blue'));
         this.scoringObjects.push(new VBucks(250, 250, 'red'));
-        this.player = new Player(this.game.canvas.width, this.game.canvas.height);
-        this.player1 = new PlayerBlue(this.game.canvas.width, this.game.canvas.height);
+        this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
+        this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
         this.platform = [];
         this.makePlatforms();
         this.countUntilNextItem = 300;
@@ -30,15 +30,19 @@ export default class Level extends Scene {
     }
     removeScoringObjects() {
         this.scoringObjects = this.scoringObjects.filter((element) => {
-            const collides = this.player.collidesWith(element);
-            if (collides) {
-                this.game.getUser().addScore(element.getScore());
-                if (element instanceof PowerUp) {
-                    const powerUp = element;
-                    powerUp.applyTo(this.player);
+            this.player.forEach((player) => {
+                if (player.collidesWith(element)) {
+                    this.game.getUser().addScore(element.getScore());
+                    if (element instanceof PowerUp) {
+                        const powerUp = element;
+                        for (let i = 0; i < this.player.length; i++) {
+                            powerUp.applyTo(this.player[i]);
+                        }
+                    }
+                    return true;
                 }
-            }
-            return !collides;
+                return false;
+            });
         });
     }
     hasWon() {
@@ -46,14 +50,16 @@ export default class Level extends Scene {
         return user.getScore() >= user.getLevel() * 10;
     }
     processInput() {
-        this.player.move(this.game.canvas);
-        this.player1.move(this.game.canvas);
+        for (let i = 0; i < this.player.length; i++) {
+            this.player[i].move(this.game.canvas);
+        }
     }
     update(elapsed) {
         this.platform.forEach((element) => {
-            element.collidesWith(this.player);
+            for (let i = 0; i < this.player.length; i++) {
+                element.collidesWith(this.player[i]);
+            }
         });
-        this.removeScoringObjects();
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);
             this.countUntilNextItem = Game.randomNumber(120, 240);
@@ -74,8 +80,9 @@ export default class Level extends Scene {
         this.scoringObjects.forEach((element) => {
             element.draw(this.game.ctx);
         });
-        this.player.draw(this.game.ctx);
-        this.player1.draw(this.game.ctx);
+        for (let i = 0; i < this.player.length; i++) {
+            this.player[i].draw(this.game.ctx);
+        }
         for (let i = 0; i < this.platform.length; i++) {
             this.platform[i].draw(this.game.ctx);
         }
