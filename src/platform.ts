@@ -69,7 +69,6 @@ export default class Platform {
     return false;
   }
 
-
   /**
    * @param ctx
    */
