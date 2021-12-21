@@ -22,7 +22,7 @@ export default class Level extends Scene {
         this.countUntilNextItem = 300;
     }
     makePlatforms() {
-        this.platform.push(new Platform(250, 250, 10, 20, Game.loadNewImage('./assets/img/egg.png')));
+        this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/egg.png')));
     }
     hasWon() {
         const user = this.game.getUser();

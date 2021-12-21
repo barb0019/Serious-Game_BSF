@@ -21,22 +21,46 @@ export default class Platform {
     collidesWith(player) {
         this.xPosPrevious.push(player.getXPos());
         this.yPosPrevious.push(player.getYPos());
-        if (this.xPos < player.getXPos() + player.getImageWidth()
-            && this.xPos + this.img.width > player.getXPos()
+        if (this.xPos < player.getXPos() + player.getImageWidth() + 3
+            && this.xPos + this.width > player.getXPos() - 3
             && this.yPos < player.getYPos() + player.getImageHeight()
-            && this.yPos + this.img.height > player.getYPos()) {
-            player.setXPos(this.xPosPrevious[1] - (player.getImageWidth() - this.img.width));
-            player.setYPos(this.yPosPrevious[1] - (player.getImageHeight() - this.img.height));
-            this.xPosPrevious.splice(1, 1);
-            this.yPosPrevious.splice(1, 1);
+            && this.yPos + this.height > player.getYPos()) {
+            if (this.yPos + this.height > player.getYPos() + player.getImageHeight()
+                && this.xPos < player.getXPos() + player.getImageWidth()
+                && this.xPos + this.width > player.getXPos()) {
+                player.setYPos(this.yPosPrevious[0] - 3);
+                console.log('top');
+                this.xPosPrevious.splice(0, 1);
+                this.yPosPrevious.splice(0, 1);
+                return true;
+            }
+            if (this.yPos < player.getYPos()
+                && this.xPos + this.width > player.getXPos()
+                && this.xPos < player.getXPos() + player.getImageWidth()) {
+                player.setYPos(this.yPosPrevious[0] + 3);
+                console.log('bottom');
+                this.xPosPrevious.splice(0, 1);
+                this.yPosPrevious.splice(0, 1);
+                return true;
+            }
+            if (this.xPos + this.width > player.getXPos()) {
+                player.setXPos(this.xPosPrevious[0] - 3);
+                console.log('left');
+            }
+            if (this.xPos < player.getXPos() + player.getImageWidth()) {
+                player.setXPos(this.xPosPrevious[0] + 3);
+                console.log('right');
+            }
+            this.xPosPrevious.splice(0, 1);
+            this.yPosPrevious.splice(0, 1);
             return true;
         }
-        this.xPosPrevious.splice(1, 1);
-        this.yPosPrevious.splice(1, 1);
+        this.xPosPrevious.splice(0, 1);
+        this.yPosPrevious.splice(0, 1);
         return false;
     }
     draw(ctx) {
-        ctx.drawImage(this.img, this.xPos, this.yPos);
+        ctx.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
     }
 }
 //# sourceMappingURL=platform.js.map

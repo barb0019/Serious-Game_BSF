@@ -18,11 +18,11 @@ export default class Platform {
   private player: Player;
 
   /**
-   * @param xPos
-   * @param yPos
-   * @param width
-   * @param height
-   * @param img
+   * @param xPos the x position of the platform on the canvas
+   * @param yPos the y position of the platform on the canvas
+   * @param width the width of the image on the canvas
+   * @param height the height of the image on the canvas
+   * @param img the img of the platform
    */
   public constructor(xPos: number,
     yPos: number,
@@ -47,33 +47,73 @@ export default class Platform {
    * @returns Wheter the platform collides with the player or not
    */
   public collidesWith(player: Player): boolean {
-  // sets the current pos of the player to be used next frame for collision detection
+    // sets the current pos of the player to be used next frame for collision detection
     this.xPosPrevious.push(player.getXPos());
     this.yPosPrevious.push(player.getYPos());
+    // console.log(this.xPosPrevious);
+    // console.log(this.yPosPrevious);
 
-    if (this.xPos < player.getXPos() + player.getImageWidth()
-    && this.xPos + this.img.width > player.getXPos()
-    && this.yPos < player.getYPos() + player.getImageHeight()
-    && this.yPos + this.img.height > player.getYPos()) {
+    // TODO make the 3 the player velocity
     // make the player go back to where he was so he doesn't fall through
-      player.setXPos(this.xPosPrevious[1] - (player.getImageWidth() - this.img.width));
-      player.setYPos(this.yPosPrevious[1] - (player.getImageHeight() - this.img.height));
-      // removes the previous positsof the player so it can add a new previous position
-      this.xPosPrevious.splice(1, 1);
-      this.yPosPrevious.splice(1, 1);
+    // checks if there is collision with the entire object
+    if (this.xPos < player.getXPos() + player.getImageWidth() + 3
+    && this.xPos + this.width > player.getXPos() - 3
+    && this.yPos < player.getYPos() + player.getImageHeight()
+    && this.yPos + this.height > player.getYPos()) {
+      // TODO Make it so that if it hits the top the left and bottom don't trigger,
+      // but that always happens due the above if, and else if breaks it from the side
+      if (this.yPos + this.height > player.getYPos() + player.getImageHeight()
+      && this.xPos < player.getXPos() + player.getImageWidth()
+      && this.xPos + this.width > player.getXPos()) {
+        // moves you up, so prevents you from going through the top
+        // collision top
+        player.setYPos(this.yPosPrevious[0] - 3);
+        console.log('top');
+        this.xPosPrevious.splice(0, 1);
+        this.yPosPrevious.splice(0, 1);
+        return true;
+        // TODO set gravity to 0 so you stop falling
+      }
+      if (this.yPos < player.getYPos()
+      && this.xPos + this.width > player.getXPos()
+      && this.xPos < player.getXPos() + player.getImageWidth()) {
+        // moves you down, so prevents you from going through the bottom
+        // collision bottom
+        player.setYPos(this.yPosPrevious[0] + 3);
+        console.log('bottom');
+        this.xPosPrevious.splice(0, 1);
+        this.yPosPrevious.splice(0, 1);
+        return true;
+      }
+      if (this.xPos + this.width > player.getXPos()) {
+        // moves you left, so prevents you from going through the left
+        // collision left
+        player.setXPos(this.xPosPrevious[0] - 3);
+        console.log('left');
+      }
+      if (this.xPos < player.getXPos() + player.getImageWidth()) {
+        // moves you right, so prevents you from going through the right
+        // collision right
+        player.setXPos(this.xPosPrevious[0] + 3);
+        console.log('right');
+      }
+
+      // removes the previous position of the player so it can add a new previous position
+      this.xPosPrevious.splice(0, 1);
+      this.yPosPrevious.splice(0, 1);
       return true;
     }
 
-    this.xPosPrevious.splice(1, 1);
-    this.yPosPrevious.splice(1, 1);
+    // removes the previous position of the player so it can add a new previous position
+    this.xPosPrevious.splice(0, 1);
+    this.yPosPrevious.splice(0, 1);
     return false;
   }
 
-
   /**
-   * @param ctx
+   * @param ctx ctx
    */
   public draw(ctx: CanvasRenderingContext2D): void {
-    ctx.drawImage(this.img, this.xPos, this.yPos);
+    ctx.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
   }
 }

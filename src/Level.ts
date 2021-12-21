@@ -47,7 +47,7 @@ export default class Level extends Scene {
    *
    */
   public makePlatforms(): void {
-    this.platform.push(new Platform(250, 250, 10, 20, Game.loadNewImage('./assets/img/egg.png')));
+    this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/egg.png')));
   }
 
   // /**
