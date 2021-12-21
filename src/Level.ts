@@ -114,9 +114,9 @@ export default class Level extends Scene {
     });
 
     // Player removes objects
-    if (this.player.isHitting()) {
+
       this.removeScoringObjects();
-    }
+
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
       const choice = Game.randomNumber(0, 10);

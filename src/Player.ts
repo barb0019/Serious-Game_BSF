@@ -101,13 +101,7 @@ export default class Player extends GameItem {
     }
   }
 
-  /**
-   *
-   * @returns true if the player is hitting the object
-   */
-  public isHitting(): boolean {
-    return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
-  }
+
 
   /**
    *

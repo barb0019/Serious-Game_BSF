@@ -52,9 +52,6 @@ export default class Player extends GameItem {
             }
         }
     }
-    isHitting() {
-        return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
-    }
     collidesWith(other) {
         console.log('collision');
         return this.xPos < other.getXPos() + other.getImageWidth()

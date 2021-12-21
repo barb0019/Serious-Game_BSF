@@ -53,9 +53,7 @@ export default class Level extends Scene {
         this.platform.forEach((element) => {
             element.collidesWith(this.player);
         });
-        if (this.player.isHitting()) {
-            this.removeScoringObjects();
-        }
+        this.removeScoringObjects();
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);
             this.countUntilNextItem = Game.randomNumber(120, 240);
