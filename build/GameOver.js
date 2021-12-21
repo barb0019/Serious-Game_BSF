@@ -10,7 +10,7 @@ export default class GameOver extends Scene {
         this.shouldStart = false;
     }
     processInput() {
-        if (this.keyboard.isKeyDown(KeyListener.KEY_C)) {
+        if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
             this.shouldStart = true;
         }
     }
@@ -23,10 +23,10 @@ export default class GameOver extends Scene {
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
         const centerX = this.game.canvas.width / 2;
-        this.game.writeTextToCanvas('Game Over', 128, centerX, 250, 'center', 'red');
+        this.game.writeTextToCanvas('Game Over', 128, centerX, 250, 'center', 'black');
         const msg = `${this.game.getUser().getName()} score: ${this.game.getUser().getScore()}`;
-        this.game.writeTextToCanvas(msg, 48, centerX, 450, 'center', 'yellow');
-        this.game.writeTextToCanvas("Type 'c' to continue", 48, centerX, 550, 'center', 'white');
+        this.game.writeTextToCanvas(msg, 48, centerX, 450, 'center', 'black');
+        this.game.writeTextToCanvas("Type 'space' to continue", 48, centerX, 550, 'center', 'black');
     }
 }
 //# sourceMappingURL=GameOver.js.map
