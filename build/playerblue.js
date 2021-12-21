@@ -1,6 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
-export default class PlayerBLue extends GameItem {
+export default class PlayerBlue extends GameItem {
     xVel;
     yVel;
     keyboard;
@@ -27,25 +27,25 @@ export default class PlayerBLue extends GameItem {
         const maxX = canvas.width - this.img.width;
         const minY = 0;
         const maxY = canvas.height - this.img.height;
-        if (this.keyboard.isKeyDown(KeyListener.KEY_RIGHT) && this.xPos < maxX) {
+        if (this.keyboard.isKeyDown(KeyListener.KEY_D) && this.xPos < maxX) {
             this.xPos += this.xVel;
             if (this.xPos > maxX) {
                 this.xPos = maxX;
             }
         }
-        if (this.keyboard.isKeyDown(KeyListener.KEY_LEFT) && this.xPos > minX) {
+        if (this.keyboard.isKeyDown(KeyListener.KEY_A) && this.xPos > minX) {
             this.xPos -= this.xVel;
             if (this.xPos < minX) {
                 this.xPos = minX;
             }
         }
-        if (this.keyboard.isKeyDown(KeyListener.KEY_UP) && this.yPos > minY) {
+        if (this.keyboard.isKeyDown(KeyListener.KEY_W) && this.yPos > minY) {
             this.yPos -= this.yVel;
             if (this.yPos < minY) {
                 this.yPos = minY;
             }
         }
-        if (this.keyboard.isKeyDown(KeyListener.KEY_DOWN) && this.yPos < maxY) {
+        if (this.keyboard.isKeyDown(KeyListener.KEY_S) && this.yPos < maxY) {
             this.yPos += this.yVel;
             if (this.yPos > maxY) {
                 this.yPos = maxY;
@@ -67,4 +67,4 @@ export default class PlayerBLue extends GameItem {
         this.yVel += size;
     }
 }
-//# sourceMappingURL=PlayerBlue.js.map
+//# sourceMappingURL=playerblue.js.map

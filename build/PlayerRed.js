@@ -1,6 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
-export default class Player extends GameItem {
+export default class PlayerRed extends GameItem {
     xVel;
     yVel;
     keyboard;
