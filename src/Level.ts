@@ -50,28 +50,28 @@ export default class Level extends Scene {
     this.platform.push(new Platform(250, 250, 10, 20, Game.loadNewImage('./assets/img/egg.png')));
   }
 
-  // /**
-  //  * Removes scoring objects from the game based on box collision detection.
-  //  *
-  //  * Read for more info about filter function: https://alligator.io/js/filter-array-method/
-  //  */
-  // private cleanUpScoringObjects() {
-  //   // create a new array with garbage item that are still on the screen
-  //   // (filter the clicked garbage item out of the array garbage items)
-  //   this.scoringObjects = this.scoringObjects.filter(
-  //     (element) => {
-  //       const collides = this.player.collidesWith(element);
-  //       if (collides) {
-  //         this.game.getUser().addScore(element.getScore());
-  //         if (element instanceof PowerUp) {
-  //           const powerUp = element as PowerUp;
-  //           powerUp.applyTo(this.player);
-  //         }
-  //       }
-  //       return !collides;
-  //     },
-  //   );
-  // }
+  /**
+   * Removes scoring objects from the game based on box collision detection.
+   *
+   * Read for more info about filter function: https://alligator.io/js/filter-array-method/
+   */
+  private cleanUpScoringObjects() {
+    // create a new array with garbage item that are still on the screen
+    // (filter the clicked garbage item out of the array garbage items)
+    this.scoringObjects = this.scoringObjects.filter(
+      (element) => {
+        const collides = this.player.collidesWith(element);
+        if (collides) {
+          this.game.getUser().addScore(element.getScore());
+          if (element instanceof PowerUp) {
+            const powerUp = element as PowerUp;
+            powerUp.applyTo(this.player);
+          }
+        }
+        return !collides;
+      },
+    );
+  }
 
   private hasWon(): boolean {
     const user = this.game.getUser();

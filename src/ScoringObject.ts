@@ -14,6 +14,7 @@ export default abstract class ScoringObject extends GameItem {
     score: number) {
     super(imageSrc, maxX, maxY);
     this.score = score;
+
   }
 
   /**

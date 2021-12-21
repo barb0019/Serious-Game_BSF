@@ -50,6 +50,7 @@ export default class Player extends GameItem {
         return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
     }
     collidesWith(other) {
+        console.log('collision');
         return this.xPos < other.getXPos() + other.getImageWidth()
             && this.xPos + this.img.width > other.getXPos()
             && this.yPos < other.getYPos() + other.getImageHeight()
