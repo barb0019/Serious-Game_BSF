@@ -40,6 +40,19 @@ export default class Player extends GameItem {
   }
 
   /**
+   * @returns The x velocity number
+   */
+  public getXVel(): number {
+    return this.xVel;
+  }
+
+  /**
+   * @returns The y velocity number
+   */
+  public getYVel(): number {
+    return this.yVel;
+  }
+
   /**
    * Moves the player depending on which arrow key is pressed. Player is bound
    * to the canvas and cannot move outside of it

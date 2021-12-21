@@ -56,18 +56,16 @@ export default class Platform {
     // TODO make the 3 the player velocity
     // make the player go back to where he was so he doesn't fall through
     // checks if there is collision with the entire object
-    if (this.xPos < player.getXPos() + player.getImageWidth() + 3
-    && this.xPos + this.width > player.getXPos() - 3
+    if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
+    && this.xPos + this.width > player.getXPos() - player.getXVel()
     && this.yPos < player.getYPos() + player.getImageHeight()
     && this.yPos + this.height > player.getYPos()) {
-      // TODO Make it so that if it hits the top the left and bottom don't trigger,
-      // but that always happens due the above if, and else if breaks it from the side
       if (this.yPos + this.height > player.getYPos() + player.getImageHeight()
       && this.xPos < player.getXPos() + player.getImageWidth()
       && this.xPos + this.width > player.getXPos()) {
         // moves you up, so prevents you from going through the top
         // collision top
-        player.setYPos(this.yPosPrevious[0] - 3);
+        player.setYPos(this.yPosPrevious[0] - player.getYVel());
         console.log('top');
         this.xPosPrevious.splice(0, 1);
         this.yPosPrevious.splice(0, 1);
@@ -79,7 +77,7 @@ export default class Platform {
       && this.xPos < player.getXPos() + player.getImageWidth()) {
         // moves you down, so prevents you from going through the bottom
         // collision bottom
-        player.setYPos(this.yPosPrevious[0] + 3);
+        player.setYPos(this.yPosPrevious[0] + player.getYVel());
         console.log('bottom');
         this.xPosPrevious.splice(0, 1);
         this.yPosPrevious.splice(0, 1);
@@ -88,13 +86,13 @@ export default class Platform {
       if (this.xPos + this.width > player.getXPos()) {
         // moves you left, so prevents you from going through the left
         // collision left
-        player.setXPos(this.xPosPrevious[0] - 3);
+        player.setXPos(this.xPosPrevious[0] - player.getXVel());
         console.log('left');
       }
       if (this.xPos < player.getXPos() + player.getImageWidth()) {
         // moves you right, so prevents you from going through the right
         // collision right
-        player.setXPos(this.xPosPrevious[0] + 3);
+        player.setXPos(this.xPosPrevious[0] + player.getXVel());
         console.log('right');
       }
 
