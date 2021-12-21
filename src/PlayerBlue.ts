@@ -2,7 +2,7 @@ import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
 import ScoringObject from './ScoringObject.js';
 
-export default class PlayerBLue extends GameItem {
+export default class PlayerBlue extends GameItem {
   private xVel: number;
 
   private yVel: number;
@@ -67,7 +67,7 @@ export default class PlayerBLue extends GameItem {
     const maxY = canvas.height - this.img.height;
 
     // Moving right
-    if (this.keyboard.isKeyDown(KeyListener.KEY_RIGHT) && this.xPos < maxX) {
+    if (this.keyboard.isKeyDown(KeyListener.KEY_D) && this.xPos < maxX) {
       this.xPos += this.xVel;
       // Limit to the max value
       if (this.xPos > maxX) {
@@ -76,7 +76,7 @@ export default class PlayerBLue extends GameItem {
     }
 
     // Moving left
-    if (this.keyboard.isKeyDown(KeyListener.KEY_LEFT) && this.xPos > minX) {
+    if (this.keyboard.isKeyDown(KeyListener.KEY_A) && this.xPos > minX) {
       this.xPos -= this.xVel;
       // Limit to the max value
       if (this.xPos < minX) {
@@ -85,7 +85,7 @@ export default class PlayerBLue extends GameItem {
     }
 
     // Moving up
-    if (this.keyboard.isKeyDown(KeyListener.KEY_UP) && this.yPos > minY) {
+    if (this.keyboard.isKeyDown(KeyListener.KEY_W) && this.yPos > minY) {
       this.yPos -= this.yVel;
       if (this.yPos < minY) {
         this.yPos = minY;
@@ -93,7 +93,7 @@ export default class PlayerBLue extends GameItem {
     }
 
     // Moving down
-    if (this.keyboard.isKeyDown(KeyListener.KEY_DOWN) && this.yPos < maxY) {
+    if (this.keyboard.isKeyDown(KeyListener.KEY_S) && this.yPos < maxY) {
       this.yPos += this.yVel;
       if (this.yPos > maxY) {
         this.yPos = maxY;

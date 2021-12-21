@@ -2,7 +2,7 @@ import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
 import ScoringObject from './ScoringObject.js';
 
-export default class Player extends GameItem {
+export default class PlayerRed extends GameItem {
   private xVel: number;
 
   private yVel: number;

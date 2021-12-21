@@ -6,9 +6,11 @@ import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
 import Platform from './platform.js';
 import VBucks from './VBucks.js';
+import PlayerBlue from './playerblue.js';
 export default class Level extends Scene {
     scoringObjects;
     player;
+    player1;
     platform;
     countUntilNextItem;
     constructor(game) {
@@ -17,6 +19,7 @@ export default class Level extends Scene {
         this.scoringObjects.push(new VBucks(250, 250, 'blue'));
         this.scoringObjects.push(new VBucks(250, 250, 'red'));
         this.player = new Player(this.game.canvas.width, this.game.canvas.height);
+        this.player1 = new PlayerBlue(this.game.canvas.width, this.game.canvas.height);
         this.platform = [];
         this.makePlatforms();
         this.countUntilNextItem = 300;
@@ -50,6 +53,7 @@ export default class Level extends Scene {
     }
     processInput() {
         this.player.move(this.game.canvas);
+        this.player1.move(this.game.canvas);
     }
     update(elapsed) {
         this.platform.forEach((element) => {
@@ -79,6 +83,7 @@ export default class Level extends Scene {
             element.draw(this.game.ctx);
         });
         this.player.draw(this.game.ctx);
+        this.player1.draw(this.game.ctx);
         for (let i = 0; i < this.platform.length; i++) {
             this.platform[i].draw(this.game.ctx);
         }
