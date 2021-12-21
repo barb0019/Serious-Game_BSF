@@ -6,7 +6,6 @@ import PowerUp from './PowerUp.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
 import Platform from './platform.js';
-import Bluebucks from './bluebucks.js';
 import VBucks from './VBucks.js';
 
 export default class Level extends Scene {
