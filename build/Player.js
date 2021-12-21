@@ -52,7 +52,7 @@ export default class Player extends GameItem {
             }
         }
     }
-    isCleaning() {
+    isHitting() {
         return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
     }
     collidesWith(other) {

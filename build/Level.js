@@ -15,6 +15,7 @@ export default class Level extends Scene {
         super(game);
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(250, 250, 'blue'));
+        this.scoringObjects.push(new VBucks(250, 250, 'red'));
         this.player = new Player(this.game.canvas.width, this.game.canvas.height);
         this.platform = [];
         this.makePlatforms();
@@ -24,7 +25,7 @@ export default class Level extends Scene {
         this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/egg.png')));
         this.platform.push(new Platform(100, 100, 30, 70, Game.loadNewImage('./assets/img/egg.png')));
     }
-    cleanUpScoringObjects() {
+    removeScoringObjects() {
         this.scoringObjects = this.scoringObjects.filter((element) => {
             const collides = this.player.collidesWith(element);
             if (collides) {
@@ -48,8 +49,8 @@ export default class Level extends Scene {
         this.platform.forEach((element) => {
             element.collidesWith(this.player);
         });
-        if (this.player.isCleaning()) {
-            this.cleanUpScoringObjects();
+        if (this.player.isHitting()) {
+            this.removeScoringObjects();
         }
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);

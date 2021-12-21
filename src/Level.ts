@@ -29,7 +29,8 @@ export default class Level extends Scene {
   public constructor(game: Game) {
     super(game);
     this.scoringObjects = [];
-    this.scoringObjects.push(new VBucks(250, 250,'blue'));
+    this.scoringObjects.push(new VBucks(250, 250, 'blue'));
+    this.scoringObjects.push(new VBucks(250, 250, 'red'));
 
     // Create player
     this.player = new Player(this.game.canvas.width, this.game.canvas.height);
@@ -54,9 +55,9 @@ export default class Level extends Scene {
    *
    * Read for more info about filter function: https://alligator.io/js/filter-array-method/
    */
-  private cleanUpScoringObjects() {
-    // create a new array with garbage item that are still on the screen
-    // (filter the clicked garbage item out of the array garbage items)
+  private removeScoringObjects() {
+    // create a new array with item that are still on the screen
+    // (filter the clicked item out of the array items)
     this.scoringObjects = this.scoringObjects.filter(
       (element) => {
         const collides = this.player.collidesWith(element);
@@ -107,8 +108,8 @@ export default class Level extends Scene {
     });
 
     // Player cleans up garbage
-    if (this.player.isCleaning()) {
-      this.cleanUpScoringObjects();
+    if (this.player.isHitting()) {
+      this.removeScoringObjects();
     }
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
