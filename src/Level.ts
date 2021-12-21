@@ -6,7 +6,7 @@ import PowerUp from './PowerUp.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
 import Platform from './platform.js';
-import Bluebucks from './bluebucks.js';
+import VBucks from './VBucks.js';
 
 export default class Level extends Scene {
   // Garbage items (the player needs to pick these up)
@@ -29,7 +29,7 @@ export default class Level extends Scene {
   public constructor(game: Game) {
     super(game);
     this.scoringObjects = [];
-    this.scoringObjects.push(new Bluebucks(250, 250));
+    this.scoringObjects.push(new VBucks(250, 250,'blue'));
 
     // Create player
     this.player = new Player(this.game.canvas.width, this.game.canvas.height);
