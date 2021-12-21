@@ -53,8 +53,6 @@ export default class Platform {
     // console.log(this.xPosPrevious);
     // console.log(this.yPosPrevious);
 
-    // TODO make the 3 the player velocity
-    // make the player go back to where he was so he doesn't fall through
     // checks if there is collision with the entire object
     if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
     && this.xPos + this.width > player.getXPos() - player.getXVel()

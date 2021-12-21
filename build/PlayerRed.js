@@ -1,26 +1,10 @@
-import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
-export default class Player extends GameItem {
-    xVel;
-    yVel;
+import Player from './Player.js';
+export default class PlayerRed extends Player {
     keyboard;
     constructor(maxX, maxY) {
         super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92);
-        this.xVel = 3;
-        this.yVel = 3;
         this.keyboard = new KeyListener();
-    }
-    setXPos(xPos) {
-        this.xPos = xPos;
-    }
-    setYPos(yPos) {
-        this.yPos = yPos;
-    }
-    getXVel() {
-        return this.xVel;
-    }
-    getYVel() {
-        return this.yVel;
     }
     move(canvas) {
         const minX = 0;
@@ -52,19 +36,12 @@ export default class Player extends GameItem {
             }
         }
     }
-    isCleaning() {
-        return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
-    }
     collidesWith(other) {
         console.log('collision');
         return this.xPos < other.getXPos() + other.getImageWidth()
             && this.xPos + this.img.width > other.getXPos()
             && this.yPos < other.getYPos() + other.getImageHeight()
             && this.yPos + this.img.height > other.getYPos();
-    }
-    increaseSpeed(size) {
-        this.xVel += size;
-        this.yVel += size;
     }
 }
 //# sourceMappingURL=PlayerRed.js.map

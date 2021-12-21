@@ -1,12 +1,9 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
+import Player from './Player.js';
 import ScoringObject from './ScoringObject.js';
 
-export default class PlayerBLue extends GameItem {
-  private xVel: number;
-
-  private yVel: number;
-
+export default class PlayerBlue extends Player {
   // KeyboardListener so the player can move
   private keyboard: KeyListener;
 
@@ -17,40 +14,7 @@ export default class PlayerBLue extends GameItem {
    */
   public constructor(maxX: number, maxY: number) {
     super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92);
-    this.xVel = 3;
-    this.yVel = 3;
     this.keyboard = new KeyListener();
-  }
-
-  /**
-   *
-   * @param xPos x position of the player
-   */
-  public setXPos(xPos: number): void {
-    this.xPos = xPos;
-  }
-
-  /**
-   *set y pos of the player
-   *
-   * @param yPos y position of the player
-   */
-  public setYPos(yPos: number): void {
-    this.yPos = yPos;
-  }
-
-  /**
-   * @returns The x velocity number
-   */
-  public getXVel(): number {
-    return this.xVel;
-  }
-
-  /**
-   * @returns The y velocity number
-   */
-  public getYVel(): number {
-    return this.yVel;
   }
 
   /**
@@ -67,7 +31,7 @@ export default class PlayerBLue extends GameItem {
     const maxY = canvas.height - this.img.height;
 
     // Moving right
-    if (this.keyboard.isKeyDown(KeyListener.KEY_RIGHT) && this.xPos < maxX) {
+    if (this.keyboard.isKeyDown(KeyListener.KEY_D) && this.xPos < maxX) {
       this.xPos += this.xVel;
       // Limit to the max value
       if (this.xPos > maxX) {
@@ -76,7 +40,7 @@ export default class PlayerBLue extends GameItem {
     }
 
     // Moving left
-    if (this.keyboard.isKeyDown(KeyListener.KEY_LEFT) && this.xPos > minX) {
+    if (this.keyboard.isKeyDown(KeyListener.KEY_A) && this.xPos > minX) {
       this.xPos -= this.xVel;
       // Limit to the max value
       if (this.xPos < minX) {
@@ -85,7 +49,7 @@ export default class PlayerBLue extends GameItem {
     }
 
     // Moving up
-    if (this.keyboard.isKeyDown(KeyListener.KEY_UP) && this.yPos > minY) {
+    if (this.keyboard.isKeyDown(KeyListener.KEY_W) && this.yPos > minY) {
       this.yPos -= this.yVel;
       if (this.yPos < minY) {
         this.yPos = minY;
@@ -93,20 +57,12 @@ export default class PlayerBLue extends GameItem {
     }
 
     // Moving down
-    if (this.keyboard.isKeyDown(KeyListener.KEY_DOWN) && this.yPos < maxY) {
+    if (this.keyboard.isKeyDown(KeyListener.KEY_S) && this.yPos < maxY) {
       this.yPos += this.yVel;
       if (this.yPos > maxY) {
         this.yPos = maxY;
       }
     }
-  }
-
-  /**
-   *
-   * @returns true if the player is cleaning up
-   */
-  public isCleaning(): boolean {
-    return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
   }
 
   /**
@@ -120,15 +76,5 @@ export default class PlayerBLue extends GameItem {
     && this.xPos + this.img.width > other.getXPos()
     && this.yPos < other.getYPos() + other.getImageHeight()
     && this.yPos + this.img.height > other.getYPos();
-  }
-
-  /**
-   * Increases the speed
-   *
-   * @param size the amount of speed to add
-   */
-  increaseSpeed(size: number): void {
-    this.xVel += size;
-    this.yVel += size;
   }
 }

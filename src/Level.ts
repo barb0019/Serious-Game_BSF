@@ -7,14 +7,18 @@ import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
 import Platform from './platform.js';
 import VBucks from './VBucks.js';
-import FutPack from './FutPack.js';
+import PlayerRed from './PlayerRed.js';
+import PlayerBlue from './playerblue.js';
+import GameItem from './GameItem.js';
 
 export default class Level extends Scene {
   // Garbage items (the player needs to pick these up)
   private scoringObjects: ScoringObject[];
 
   // Player
-  private player: Player;
+  // private player: Player;
+
+  private player: Player[];
 
   // platform
   private platform: Platform[];
@@ -30,13 +34,13 @@ export default class Level extends Scene {
   public constructor(game: Game) {
     super(game);
     this.scoringObjects = [];
+    this.player = [];
     this.scoringObjects.push(new VBucks(250, 250, 'blue'));
     this.scoringObjects.push(new VBucks(250, 250, 'red'));
-    this.scoringObjects.push(new FutPack(250, 250, 'packblue'));
-    this.scoringObjects.push(new FutPack(250, 250, 'packred'));
 
     // Create player
-    this.player = new Player(this.game.canvas.width, this.game.canvas.height);
+    this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
+    this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
     this.platform = [];
 
     this.makePlatforms();
@@ -63,15 +67,19 @@ export default class Level extends Scene {
     // (filter the clicked item out of the array items)
     this.scoringObjects = this.scoringObjects.filter(
       (element) => {
-        const collides = this.player.collidesWith(element);
-        if (collides) {
-          this.game.getUser().addScore(element.getScore());
-          if (element instanceof PowerUp) {
-            const powerUp = element as PowerUp;
-            powerUp.applyTo(this.player);
+        this.player.forEach((player) => {
+          if (player.collidesWith(element)) {
+            this.game.getUser().addScore(element.getScore());
+            if (element instanceof PowerUp) {
+              const powerUp = element as PowerUp;
+              for (let i = 0; i < this.player.length; i++) {
+                powerUp.applyTo(this.player[i]);
+              }
+            }
+            return true;
           }
-        }
-        return !collides;
+          return false;
+        });
       },
     );
   }
@@ -86,7 +94,10 @@ export default class Level extends Scene {
    */
   public processInput(): void {
     // Move the player
-    this.player.move(this.game.canvas);
+    // this.player.move(this.game.canvas);
+    for (let i = 0; i < this.player.length; i++) {
+      this.player[i].move(this.game.canvas);
+    }
   }
 
   /**
@@ -107,13 +118,16 @@ export default class Level extends Scene {
    */
   public update(elapsed: number): Scene {
     this.platform.forEach((element) => {
-      element.collidesWith(this.player);
+      for (let i = 0; i < this.player.length; i++) {
+        element.collidesWith(this.player[i]);
+      }
+
     });
 
     // Player removes objects
-    if (this.player.isHitting()) {
-      this.removeScoringObjects();
-    }
+
+    // this.removeScoringObjects();
+
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
       const choice = Game.randomNumber(0, 10);
@@ -152,7 +166,10 @@ export default class Level extends Scene {
     this.scoringObjects.forEach((element) => {
       element.draw(this.game.ctx);
     });
-    this.player.draw(this.game.ctx);
+    for (let i = 0; i < this.player.length; i++) {
+      this.player[i].draw(this.game.ctx);
+
+    }
     for (let i = 0; i < this.platform.length; i++) {
       this.platform[i].draw(this.game.ctx);
     }
