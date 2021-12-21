@@ -1,6 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
-export default class Player extends GameItem {
+export default class PlayerBLue extends GameItem {
     xVel;
     yVel;
     keyboard;
@@ -52,7 +52,7 @@ export default class Player extends GameItem {
             }
         }
     }
-    isHitting() {
+    isCleaning() {
         return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
     }
     collidesWith(other) {
@@ -67,4 +67,4 @@ export default class Player extends GameItem {
         this.yVel += size;
     }
 }
-//# sourceMappingURL=Player.js.map
+//# sourceMappingURL=PlayerBlue.js.map

@@ -2,7 +2,7 @@ import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
 import ScoringObject from './ScoringObject.js';
 
-export default class Player extends GameItem {
+export default class PlayerBLue extends GameItem {
   private xVel: number;
 
   private yVel: number;
@@ -103,9 +103,9 @@ export default class Player extends GameItem {
 
   /**
    *
-   * @returns true if the player is hitting the object
+   * @returns true if the player is cleaning up
    */
-  public isHitting(): boolean {
+  public isCleaning(): boolean {
     return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
   }
 

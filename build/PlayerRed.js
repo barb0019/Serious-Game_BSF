@@ -52,7 +52,7 @@ export default class Player extends GameItem {
             }
         }
     }
-    isHitting() {
+    isCleaning() {
         return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
     }
     collidesWith(other) {
@@ -67,4 +67,4 @@ export default class Player extends GameItem {
         this.yVel += size;
     }
 }
-//# sourceMappingURL=Player.js.map
+//# sourceMappingURL=PlayerRed.js.map

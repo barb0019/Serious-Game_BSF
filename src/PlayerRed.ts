@@ -103,9 +103,9 @@ export default class Player extends GameItem {
 
   /**
    *
-   * @returns true if the player is hitting the object
+   * @returns true if the player is cleaning up
    */
-  public isHitting(): boolean {
+  public isCleaning(): boolean {
     return this.keyboard.isKeyDown(KeyListener.KEY_SPACE);
   }
 

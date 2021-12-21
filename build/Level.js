@@ -14,6 +14,7 @@ export default class Level extends Scene {
     constructor(game) {
         super(game);
         this.scoringObjects = [];
+        this.scoringObjects.push(new VBucks(250, 250, 'blue'));
         this.scoringObjects.push(new VBucks(250, 250, 'red'));
         this.player = new Player(this.game.canvas.width, this.game.canvas.height);
         this.platform = [];
@@ -21,16 +22,10 @@ export default class Level extends Scene {
         this.countUntilNextItem = 300;
     }
     makePlatforms() {
-        const { canvas } = this.game;
-        this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(100, 100, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(canvas.width - 10, 0, 10, canvas.height, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(0, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(canvas.width / 4, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(canvas.width / 2, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+        this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/egg.png')));
+        this.platform.push(new Platform(100, 100, 30, 70, Game.loadNewImage('./assets/img/egg.png')));
     }
-    checksObjectHitPlayer() {
+    removeScoringObjects() {
         this.scoringObjects = this.scoringObjects.filter((element) => {
             const collides = this.player.collidesWith(element);
             if (collides) {
@@ -54,7 +49,9 @@ export default class Level extends Scene {
         this.platform.forEach((element) => {
             element.collidesWith(this.player);
         });
-        this.checksObjectHitPlayer();
+        if (this.player.isHitting()) {
+            this.removeScoringObjects();
+        }
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);
             this.countUntilNextItem = Game.randomNumber(120, 240);
