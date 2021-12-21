@@ -29,7 +29,7 @@ export default class Level extends Scene {
   public constructor(game: Game) {
     super(game);
     this.scoringObjects = [];
-    this.scoringObjects.push(new Bluebucks(250,250));
+    this.scoringObjects.push(new Bluebucks(250, 250));
 
     // Create player
     this.player = new Player(this.game.canvas.width, this.game.canvas.height);
