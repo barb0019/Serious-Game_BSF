@@ -14,7 +14,7 @@ export default class Level extends Scene {
     constructor(game) {
         super(game);
         this.scoringObjects = [];
-        this.scoringObjects.push(new VBucks(250, 250, 'blue'));
+        this.scoringObjects.push(new VBucks(250, 250, 'red'));
         this.player = new Player(this.game.canvas.width, this.game.canvas.height);
         this.platform = [];
         this.makePlatforms();
@@ -29,7 +29,7 @@ export default class Level extends Scene {
         this.platform.push(new Platform(canvas.width / 2, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     }
-    cleanUpScoringObjects() {
+    checksObjectHitPlayer() {
         this.scoringObjects = this.scoringObjects.filter((element) => {
             const collides = this.player.collidesWith(element);
             if (collides) {
@@ -53,9 +53,7 @@ export default class Level extends Scene {
         this.platform.forEach((element) => {
             element.collidesWith(this.player);
         });
-        if (this.player.isCleaning()) {
-            this.cleanUpScoringObjects();
-        }
+        this.checksObjectHitPlayer();
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);
             this.countUntilNextItem = Game.randomNumber(120, 240);
