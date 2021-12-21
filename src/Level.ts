@@ -123,7 +123,7 @@ export default class Level extends Scene {
 
     // Player removes objects
 
-      this.removeScoringObjects();
+    this.removeScoringObjects();
 
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
