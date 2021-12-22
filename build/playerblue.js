@@ -24,20 +24,16 @@ export default class PlayerBlue extends Player {
             }
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_W) && this.yPos > minY) {
-            this.yPos -= this.yVel;
-            if (this.yPos < minY) {
-                this.yPos = minY;
-            }
-        }
-        if (this.keyboard.isKeyDown(KeyListener.KEY_S) && this.yPos < maxY) {
-            this.yPos += this.yVel;
-            if (this.yPos > maxY) {
-                this.yPos = maxY;
+            if (this.onPlatform) {
+                this.yPos -= this.jumpHeight;
+                if (this.yPos < minY) {
+                    this.yPos = minY;
+                }
+                this.setOnPlatform(false);
             }
         }
     }
     collidesWith(other) {
-        console.log('collision');
         return this.xPos < other.getXPos() + other.getImageWidth()
             && this.xPos + this.img.width > other.getXPos()
             && this.yPos < other.getYPos() + other.getImageHeight()
