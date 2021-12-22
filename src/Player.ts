@@ -19,7 +19,6 @@ export default abstract class Player extends GameItem {
 
   private onPlatform: boolean;
 
-
   /**
    *
    * @param imageSrc
@@ -39,7 +38,9 @@ export default abstract class Player extends GameItem {
     this.gravity = 0;
   }
 
-
+  /**
+   *
+   */
   public increaseGravity():void {
     if (this.count % 8 === 0) {
       // console.log('tesr');
@@ -89,6 +90,9 @@ export default abstract class Player extends GameItem {
     return this.xPos;
   }
 
+  /**
+   * @param gravity
+   */
   public setGravity(gravity: number): void {
     this.gravity = gravity;
   }
