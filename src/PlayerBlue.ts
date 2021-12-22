@@ -2,6 +2,7 @@ import GameItem from './GameItem.js';
 import GameLoop from './GameLoop.js';
 import KeyListener from './KeyListener.js';
 import Player from './Player.js';
+
 export default class PlayerBlue extends Player {
   // KeyboardListener so the player can move
   private keyboard: KeyListener;
@@ -70,7 +71,7 @@ export default class PlayerBlue extends Player {
    * @returns true if this object collides with the specified other object
    */
   public collidesWith(other: GameItem): boolean {
-    console.log('collision');
+    // console.log('collision');
     return this.xPos < other.getXPos() + other.getImageWidth()
     && this.xPos + this.img.width > other.getXPos()
     && this.yPos < other.getYPos() + other.getImageHeight()

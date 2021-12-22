@@ -37,7 +37,6 @@ export default class PlayerRed extends Player {
         }
     }
     collidesWith(other) {
-        console.log('collision');
         return this.xPos < other.getXPos() + other.getImageWidth()
             && this.xPos + this.img.width > other.getXPos()
             && this.yPos < other.getYPos() + other.getImageHeight()

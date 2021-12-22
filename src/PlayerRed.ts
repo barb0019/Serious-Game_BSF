@@ -72,7 +72,7 @@ export default class PlayerRed extends Player {
    * @returns true if this object collides with the specified other object
    */
   public collidesWith(other: GameItem): boolean {
-    console.log('collision');
+    // console.log('collision');
     return this.xPos < other.getXPos() + other.getImageWidth()
     && this.xPos + this.img.width > other.getXPos()
     && this.yPos < other.getYPos() + other.getImageHeight()
