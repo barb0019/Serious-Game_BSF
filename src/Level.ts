@@ -11,6 +11,7 @@ import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
+import Door from './Door.js';
 
 export default class Level extends Scene {
   // Garbage items (the player needs to pick these up)
@@ -27,6 +28,8 @@ export default class Level extends Scene {
   // Amount of frames until the next item
   private countUntilNextItem: number;
 
+  private door:Door;
+
   /**
    * Creates a new instance of this class
    *
@@ -34,6 +37,7 @@ export default class Level extends Scene {
    */
   public constructor(game: Game) {
     super(game);
+    this.door =
     this.scoringObjects = [];
     this.player = [];
     this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
@@ -43,6 +47,7 @@ export default class Level extends Scene {
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
     this.scoringObjects.push(new Star(1050, 450, 'star', 1));
     this.scoringObjects.push(new Star(1150, 450, 'star', 1));
+
 
     // Create player
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
