@@ -60,7 +60,7 @@ export default class Level extends Scene {
     const { canvas } = this.game;
     this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(100, 100, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(100, canvas.height / 1.5, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(1000, canvas.height / 1.5, 75, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
     // the ground
     this.platform.push(new Platform(0, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));

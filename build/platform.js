@@ -19,18 +19,23 @@ export default class Platform {
         const collisionLeft = this.xPos + this.width > player.getXPos();
         player.xPosPrevious.push(player.getXPos());
         player.yPosPrevious.push(player.getYPos());
+        player.setOnPlatform(false);
+        if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
+            && this.xPos + this.width > player.getXPos() - player.getXVel()
+            && this.yPos + player.getImageHeight() / 2 < player.getYPos() + player.getImageHeight()
+            || this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
+                && this.xPos + this.width > player.getXPos() - player.getXVel()
+                && this.yPos < player.getYPos() + player.getImageHeight()
+                && this.yPos + this.height > player.getYPos()) {
+            player.setYPos(this.yPos - this.height);
+            player.setGravity(0);
+            player.setOnPlatform(true);
+            console.log('platform');
+        }
         if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
             && this.xPos + this.width > player.getXPos() - player.getXVel()
             && this.yPos < player.getYPos() + player.getImageHeight()
             && this.yPos + this.height > player.getYPos()) {
-            if (this.yPos + this.height
-                > player.getYPos() + player.getImageHeight() + player.getImageHeight() / 2
-                || this.yPos + this.height
-                    > player.getYPos() + player.getImageHeight() - this.height) {
-                player.setGravity(0);
-                player.setOnPlatform(true);
-                console.log('platform');
-            }
             if (collisionTop
                 && collisionRight
                 && collisionLeft) {
