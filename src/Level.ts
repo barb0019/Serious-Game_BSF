@@ -76,6 +76,7 @@ export default class Level extends Scene {
     this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
   }
 
+
   /**
    * Removes scoring objects from the game based on box collision detection.
    *
@@ -163,7 +164,7 @@ export default class Level extends Scene {
     this.countUntilNextItem -= elapsed;
 
     // Move to level clear screen
-    if (this.hasWon()) {
+    if (this.hasWon()&&this.player[1].collidesWith(this.door)&&this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
 
