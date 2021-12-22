@@ -24,15 +24,12 @@ export default class PlayerRed extends Player {
             }
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_UP) && this.yPos > minY) {
-            this.yPos -= this.yVel;
-            if (this.yPos < minY) {
-                this.yPos = minY;
-            }
-        }
-        if (this.keyboard.isKeyDown(KeyListener.KEY_DOWN) && this.yPos < maxY) {
-            this.yPos += this.yVel;
-            if (this.yPos > maxY) {
-                this.yPos = maxY;
+            if (this.onPlatform) {
+                this.yPos -= this.jumpHeight;
+                if (this.yPos < minY) {
+                    this.yPos = minY;
+                }
+                this.setOnPlatform(false);
             }
         }
     }

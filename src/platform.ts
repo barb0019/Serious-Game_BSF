@@ -62,6 +62,7 @@ export default class Platform {
         > player.getYPos() + player.getImageHeight() - this.height) {
         player.setGravity(0);
         player.setOnPlatform(true);
+        console.log('platform');
       }
       if (collisionTop
         && collisionRight
@@ -72,7 +73,6 @@ export default class Platform {
         console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
-        player.setGravity(0);
         return true;
       }
       if (collisionBottom
@@ -104,6 +104,12 @@ export default class Platform {
       player.yPosPrevious.splice(0, 1);
       return true;
     }
+
+    // if (this.yPos + this.height
+    //   < player.getYPos() + player.getImageHeight() + player.getImageHeight() / 2) {
+    //   player.setOnPlatform(false);
+    //   console.log('not platform');
+    // }
 
     // removes the previous position of the player so it can add a new previous position
     player.xPosPrevious.splice(0, 1);

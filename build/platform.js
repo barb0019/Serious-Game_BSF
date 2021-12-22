@@ -29,6 +29,7 @@ export default class Platform {
                     > player.getYPos() + player.getImageHeight() - this.height) {
                 player.setGravity(0);
                 player.setOnPlatform(true);
+                console.log('platform');
             }
             if (collisionTop
                 && collisionRight
@@ -37,7 +38,6 @@ export default class Platform {
                 console.log('top');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
-                player.setGravity(0);
                 return true;
             }
             if (collisionBottom

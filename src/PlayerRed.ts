@@ -38,6 +38,7 @@ export default class PlayerRed extends Player {
       if (this.xPos > maxX) {
         this.xPos = maxX;
       }
+      // this.setOnPlatform(false);
     }
 
     // Moving left
@@ -47,23 +48,28 @@ export default class PlayerRed extends Player {
       if (this.xPos < minX) {
         this.xPos = minX;
       }
+      // this.setOnPlatform(false);
     }
 
     // Moving up
     if (this.keyboard.isKeyDown(KeyListener.KEY_UP) && this.yPos > minY) {
-      this.yPos -= this.yVel;
-      if (this.yPos < minY) {
-        this.yPos = minY;
+      if (this.onPlatform) {
+        this.yPos -= this.jumpHeight;
+        if (this.yPos < minY) {
+          this.yPos = minY;
+        }
+        this.setOnPlatform(false);
       }
     }
 
-    // Moving down
-    if (this.keyboard.isKeyDown(KeyListener.KEY_DOWN) && this.yPos < maxY) {
-      this.yPos += this.yVel;
-      if (this.yPos > maxY) {
-        this.yPos = maxY;
-      }
-    }
+    // // Moving down
+    // if (this.keyboard.isKeyDown(KeyListener.KEY_DOWN) && this.yPos < maxY) {
+    //   this.yPos += this.yVel;
+    //   if (this.yPos > maxY) {
+    //     this.yPos = maxY;
+    //   }
+    //   this.setOnPlatform(false);
+    // }
   }
 
   /**
@@ -74,8 +80,8 @@ export default class PlayerRed extends Player {
   public collidesWith(other: GameItem): boolean {
     // console.log('collision');
     return this.xPos < other.getXPos() + other.getImageWidth()
-    && this.xPos + this.img.width > other.getXPos()
-    && this.yPos < other.getYPos() + other.getImageHeight()
-    && this.yPos + this.img.height > other.getYPos();
+      && this.xPos + this.img.width > other.getXPos()
+      && this.yPos < other.getYPos() + other.getImageHeight()
+      && this.yPos + this.img.height > other.getYPos();
   }
 }

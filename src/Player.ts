@@ -15,9 +15,13 @@ export default abstract class Player extends GameItem {
 
   private count: number;
 
-  private gravity: number;
+  protected gravity: number;
 
-  private onPlatform: boolean;
+  protected onPlatform: boolean;
+
+  protected jumpHeight: number;
+
+  private static readonly gravityIncrease: number = 1.5;
 
   /**
    *
@@ -29,13 +33,14 @@ export default abstract class Player extends GameItem {
     super(imageSrc, maxX - 76, maxY - 92);
     this.xVel = 3;
     this.yVel = 3;
+    this.jumpHeight = 230;
     this.count = 0;
     this.keyBoard = new KeyListener();
     this.xPosPrevious = [];
     this.yPosPrevious = [];
     this.xPosPrevious.push(0);
     this.yPosPrevious.push(0);
-    this.gravity = 0;
+    this.gravity = 0.7;
   }
 
   /**
@@ -48,8 +53,8 @@ export default abstract class Player extends GameItem {
         this.yPos += this.gravity;
         this.count = 0;
       }
-      this.gravity += 1.5;
-      if (this.gravity > 9.81) {
+      this.gravity += Player.gravityIncrease;
+      if (this.gravity > 75) {
         this.gravity = 9.81;
       }
       this.count += 1;
