@@ -65,6 +65,9 @@ export default class Level extends Scene {
         }
     }
     update(elapsed) {
+        this.player.forEach((element) => {
+            element.increaseGravity();
+        });
         this.platform.forEach((element) => {
             for (let i = 0; i < this.player.length; i++) {
                 element.collidesWith(this.player[i]);

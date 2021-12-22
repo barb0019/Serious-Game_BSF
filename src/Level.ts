@@ -9,7 +9,6 @@ import Platform from './platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
-import GameItem from './GameItem.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 
@@ -128,6 +127,10 @@ export default class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
+    this.player.forEach((element) => {
+      element.increaseGravity();
+    });
+
     this.platform.forEach((element) => {
       for (let i = 0; i < this.player.length; i++) {
         element.collidesWith(this.player[i]);

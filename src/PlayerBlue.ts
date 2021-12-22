@@ -1,8 +1,7 @@
 import GameItem from './GameItem.js';
+import GameLoop from './GameLoop.js';
 import KeyListener from './KeyListener.js';
 import Player from './Player.js';
-import ScoringObject from './ScoringObject.js';
-
 export default class PlayerBlue extends Player {
   // KeyboardListener so the player can move
   private keyboard: KeyListener;
