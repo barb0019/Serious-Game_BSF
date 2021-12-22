@@ -13,9 +13,9 @@ export default abstract class ScoringObject extends GameItem {
    * @param score the score of this scoring object
    * @param type the type of tje object
    */
-  public constructor(imageSrc: string, maxX: number, maxY: number,
+  public constructor(imageSrc: string, xPos: number, yPos: number,
     score: number, type:string) {
-    super(imageSrc, maxX, maxY);
+    super(imageSrc, xPos, yPos);
     this.score = score;
     this.type = type;
   }
