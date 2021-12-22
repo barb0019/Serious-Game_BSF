@@ -11,6 +11,7 @@ import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
+import Door from './Door.js';
 
 export default class Level extends Scene {
   // Garbage items (the player needs to pick these up)
@@ -27,6 +28,8 @@ export default class Level extends Scene {
   // Amount of frames until the next item
   private countUntilNextItem: number;
 
+  private door:Door;
+
   /**
    * Creates a new instance of this class
    *
@@ -34,6 +37,7 @@ export default class Level extends Scene {
    */
   public constructor(game: Game) {
     super(game);
+    this.door = new Door(250, 550, 'DoubleDoor');
     this.scoringObjects = [];
     this.player = [];
     this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
@@ -41,6 +45,9 @@ export default class Level extends Scene {
     this.scoringObjects.push(new FutPack(450, 350, 'packred', -3));
     this.scoringObjects.push(new FutPack(850, 350, 'packblue', -3));
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
+    this.scoringObjects.push(new Star(1050, 450, 'star', 1));
+    this.scoringObjects.push(new Star(1150, 450, 'star', 1));
+
 
     // Create player
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
@@ -98,7 +105,7 @@ export default class Level extends Scene {
 
   private hasWon(): boolean {
     const user = this.game.getUser();
-    return user.getScore() >= user.getLevel() * 10;
+    return user.getScore() >= user.getLevel() * 3;
   }
 
   /**
@@ -176,7 +183,7 @@ export default class Level extends Scene {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
     // Show score
-    const score = `Star: ${this.game.getUser().getScore()}`;
+    const score = `Stars: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);
 
     this.scoringObjects.forEach((element) => {
@@ -188,5 +195,6 @@ export default class Level extends Scene {
     for (let i = 0; i < this.platform.length; i++) {
       this.platform[i].draw(this.game.ctx);
     }
+    this.door.draw(this.game.ctx);
   }
 }

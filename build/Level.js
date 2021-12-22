@@ -9,13 +9,16 @@ import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
+import Door from './Door.js';
 export default class Level extends Scene {
     scoringObjects;
     player;
     platform;
     countUntilNextItem;
+    door;
     constructor(game) {
         super(game);
+        this.door = new Door(250, 550, 'DoubleDoor');
         this.scoringObjects = [];
         this.player = [];
         this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
@@ -23,6 +26,8 @@ export default class Level extends Scene {
         this.scoringObjects.push(new FutPack(450, 350, 'packred', -3));
         this.scoringObjects.push(new FutPack(850, 350, 'packblue', -3));
         this.scoringObjects.push(new Star(950, 450, 'star', 1));
+        this.scoringObjects.push(new Star(1050, 450, 'star', 1));
+        this.scoringObjects.push(new Star(1150, 450, 'star', 1));
         this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
         this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
         this.platform = [];
@@ -55,7 +60,7 @@ export default class Level extends Scene {
     }
     hasWon() {
         const user = this.game.getUser();
-        return user.getScore() >= user.getLevel() * 10;
+        return user.getScore() >= user.getLevel() * 3;
     }
     processInput() {
         for (let i = 0; i < this.player.length; i++) {
@@ -89,7 +94,7 @@ export default class Level extends Scene {
     }
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-        const score = `Star: ${this.game.getUser().getScore()}`;
+        const score = `Stars: ${this.game.getUser().getScore()}`;
         this.game.writeTextToCanvas(score, 36, 120, 50);
         this.scoringObjects.forEach((element) => {
             element.draw(this.game.ctx);
@@ -100,6 +105,7 @@ export default class Level extends Scene {
         for (let i = 0; i < this.platform.length; i++) {
             this.platform[i].draw(this.game.ctx);
         }
+        this.door.draw(this.game.ctx);
     }
 }
 //# sourceMappingURL=Level.js.map
