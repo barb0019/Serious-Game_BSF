@@ -7,7 +7,7 @@ export default class VBucks extends ScoringObject {
    * @param maxY the max value of the Y position
    * @param type type of the v buck
    */
-  public constructor(maxX: number, maxY: number, type:string) {
-    super(`./assets/img/${type}.png`, maxX - 2, maxY - 50, -5, type);
+  public constructor(xPos: number, yPos: number, type:string) {
+    super(`./assets/img/${type}.png`, 750, 350, -5, type);
   }
 }

@@ -14,10 +14,10 @@ export default abstract class GameItem {
    * @param maxX the max value of the X position
    * @param maxY the max value of the X position
    */
-  public constructor(imageSrc: string, maxX: number, maxY: number) {
+  public constructor(imageSrc: string, xPos: number, yPos: number) {
     this.img = Game.loadNewImage(imageSrc);
-    this.xPos = Game.randomNumber(0, maxX);
-    this.yPos = Game.randomNumber(0, maxY);
+    this.xPos = xPos;
+    this.yPos = yPos;
   }
 
   /**
