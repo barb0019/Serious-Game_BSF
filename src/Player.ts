@@ -53,6 +53,18 @@ export default abstract class Player extends GameItem {
   }
 
   /**
+   *
+   * @returns
+   */
+  public getXPos(): number {
+    return this.xPos;
+  }
+
+  public getYPos(): number {
+    return this.yPos;
+  }
+
+  /**
    * Increases the speed
    *
    * @param size the amount of speed to add

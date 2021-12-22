@@ -21,6 +21,8 @@ export default class Platform {
     collidesWith(player) {
         this.xPosPrevious.push(player.getXPos());
         this.yPosPrevious.push(player.getYPos());
+        console.log(this.xPosPrevious);
+        console.log(this.yPosPrevious);
         if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
             && this.xPos + this.width > player.getXPos() - player.getXVel()
             && this.yPos < player.getYPos() + player.getImageHeight()

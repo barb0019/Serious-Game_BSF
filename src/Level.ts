@@ -10,6 +10,8 @@ import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
 import GameItem from './GameItem.js';
+import FutPack from './FutPack.js';
+import Star from './Star.js';
 
 export default class Level extends Scene {
   // Garbage items (the player needs to pick these up)
@@ -37,6 +39,9 @@ export default class Level extends Scene {
     this.player = [];
     this.scoringObjects.push(new VBucks(250, 250, 'blue'));
     this.scoringObjects.push(new VBucks(250, 250, 'red'));
+    this.scoringObjects.push(new FutPack(250, 250, 'packred'));
+    this.scoringObjects.push(new FutPack(250, 250, 'packblue'));
+    this.scoringObjects.push(new Star(250, 250, 'star'));
 
     // Create player
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));

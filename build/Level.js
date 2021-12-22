@@ -7,6 +7,8 @@ import Platform from './platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
+import FutPack from './FutPack.js';
+import Star from './Star.js';
 export default class Level extends Scene {
     scoringObjects;
     player;
@@ -18,6 +20,9 @@ export default class Level extends Scene {
         this.player = [];
         this.scoringObjects.push(new VBucks(250, 250, 'blue'));
         this.scoringObjects.push(new VBucks(250, 250, 'red'));
+        this.scoringObjects.push(new FutPack(250, 250, 'packred'));
+        this.scoringObjects.push(new FutPack(250, 250, 'packblue'));
+        this.scoringObjects.push(new Star(250, 250, 'star'));
         this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
         this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
         this.platform = [];
@@ -28,7 +33,6 @@ export default class Level extends Scene {
         const { canvas } = this.game;
         this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(100, 100, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(canvas.width - 10, 0, 10, canvas.height, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(0, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(canvas.width / 4, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(canvas.width / 2, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
