@@ -1,4 +1,5 @@
 import GameItem from './GameItem.js';
+import GameLoop from './GameLoop.js';
 import KeyListener from './KeyListener.js';
 import Player from './Player.js';
 export default class PlayerBlue extends Player {

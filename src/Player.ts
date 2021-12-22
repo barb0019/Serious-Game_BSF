@@ -1,5 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
+import GameLoop from './GameLoop.js';
 
 export default abstract class Player extends GameItem {
   protected xVel: number;
@@ -12,6 +13,9 @@ export default abstract class Player extends GameItem {
 
   public yPosPrevious: number[];
 
+  private count:number;
+
+
   /**
    *
    * @param imageSrc
@@ -22,11 +26,21 @@ export default abstract class Player extends GameItem {
     super(imageSrc, maxX - 76, maxY - 92);
     this.xVel = 3;
     this.yVel = 3;
+    this.count = 0;
     this.keyBoard = new KeyListener();
     this.xPosPrevious = [];
     this.yPosPrevious = [];
     this.xPosPrevious.push(0);
     this.yPosPrevious.push(0);
+  }
+
+
+  public increaseGravity():void {
+    if (this.count % 8 === 0) {
+      // console.log('tesr');
+      this.yPos += 9.81;
+    }
+      this.count += 1;
   }
 
   /**
