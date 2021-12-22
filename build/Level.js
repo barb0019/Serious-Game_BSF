@@ -73,6 +73,7 @@ export default class Level extends Scene {
                 element.collidesWith(this.player[i]);
             }
         });
+        this.removeScoringObjects();
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);
             this.countUntilNextItem = Game.randomNumber(120, 240);
@@ -88,7 +89,7 @@ export default class Level extends Scene {
     }
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-        const score = `Score: ${this.game.getUser().getScore()}`;
+        const score = `Star: ${this.game.getUser().getScore()}`;
         this.game.writeTextToCanvas(score, 36, 120, 50);
         this.scoringObjects.forEach((element) => {
             element.draw(this.game.ctx);
