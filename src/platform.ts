@@ -11,10 +11,6 @@ export default class Platform {
 
   private img: HTMLImageElement;
 
-  private xPosPrevious: number[];
-
-  private yPosPrevious: number[];
-
   private player: Player;
 
   /**
@@ -34,10 +30,6 @@ export default class Platform {
     this.width = width;
     this.height = height;
     this.img = img;
-    this.xPosPrevious = [];
-    this.yPosPrevious = [];
-    this.xPosPrevious.push(0);
-    this.yPosPrevious.push(0);
   }
 
   /**
@@ -50,10 +42,8 @@ export default class Platform {
     // sets the current pos of the player to be used next frame for collision detection
 
     // TODO make this work for 2 players
-    this.xPosPrevious.push(player.getXPos());
-    this.yPosPrevious.push(player.getYPos());
-    console.log(this.xPosPrevious);
-    console.log(this.yPosPrevious);
+    player.xPosPrevious.push(player.getXPos());
+    player.yPosPrevious.push(player.getYPos());
 
     // checks if there is collision with the entire object
     if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
@@ -65,10 +55,10 @@ export default class Platform {
       && this.xPos + this.width > player.getXPos()) {
         // moves you up, so prevents you from going through the top
         // collision top
-        player.setYPos(this.yPosPrevious[0] - player.getYVel());
+        player.setYPos(player.yPosPrevious[0] - player.getYVel());
         console.log('top');
-        this.xPosPrevious.splice(0, 1);
-        this.yPosPrevious.splice(0, 1);
+        player.xPosPrevious.splice(0, 1);
+        player.yPosPrevious.splice(0, 1);
         return true;
         // TODO set gravity to 0 so you stop falling
       }
@@ -77,34 +67,34 @@ export default class Platform {
       && this.xPos < player.getXPos() + player.getImageWidth()) {
         // moves you down, so prevents you from going through the bottom
         // collision bottom
-        player.setYPos(this.yPosPrevious[0] + player.getYVel());
+        player.setYPos(player.yPosPrevious[0] + player.getYVel());
         console.log('bottom');
-        this.xPosPrevious.splice(0, 1);
-        this.yPosPrevious.splice(0, 1);
+        player.xPosPrevious.splice(0, 1);
+        player.yPosPrevious.splice(0, 1);
         return true;
       }
       if (this.xPos + this.width > player.getXPos()) {
         // moves you left, so prevents you from going through the left
         // collision left
-        player.setXPos(this.xPosPrevious[0] - player.getXVel());
+        player.setXPos(player.xPosPrevious[0] - player.getXVel());
         console.log('left');
       }
       if (this.xPos < player.getXPos() + player.getImageWidth()) {
         // moves you right, so prevents you from going through the right
         // collision right
-        player.setXPos(this.xPosPrevious[0] + player.getXVel());
+        player.setXPos(player.xPosPrevious[0] + player.getXVel());
         console.log('right');
       }
 
       // removes the previous position of the player so it can add a new previous position
-      this.xPosPrevious.splice(0, 1);
-      this.yPosPrevious.splice(0, 1);
+      player.xPosPrevious.splice(0, 1);
+      player.yPosPrevious.splice(0, 1);
       return true;
     }
 
     // removes the previous position of the player so it can add a new previous position
-    this.xPosPrevious.splice(0, 1);
-    this.yPosPrevious.splice(0, 1);
+    player.xPosPrevious.splice(0, 1);
+    player.yPosPrevious.splice(0, 1);
     return false;
   }
 

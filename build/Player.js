@@ -4,11 +4,17 @@ export default class Player extends GameItem {
     xVel;
     yVel;
     keyBoard;
+    xPosPrevious;
+    yPosPrevious;
     constructor(imageSrc, maxX, maxY) {
         super(imageSrc, maxX - 76, maxY - 92);
         this.xVel = 3;
         this.yVel = 3;
         this.keyBoard = new KeyListener();
+        this.xPosPrevious = [];
+        this.yPosPrevious = [];
+        this.xPosPrevious.push(0);
+        this.yPosPrevious.push(0);
     }
     setXPos(xPos) {
         this.xPos = xPos;
@@ -24,9 +30,6 @@ export default class Player extends GameItem {
     }
     getXPos() {
         return this.xPos;
-    }
-    getYPos() {
-        return this.yPos;
     }
     increaseSpeed(size) {
         this.xVel += size;

@@ -8,6 +8,10 @@ export default abstract class Player extends GameItem {
 
   protected keyBoard: KeyListener;
 
+  public xPosPrevious: number[];
+
+  public yPosPrevious: number[];
+
   /**
    *
    * @param imageSrc
@@ -19,6 +23,10 @@ export default abstract class Player extends GameItem {
     this.xVel = 3;
     this.yVel = 3;
     this.keyBoard = new KeyListener();
+    this.xPosPrevious = [];
+    this.yPosPrevious = [];
+    this.xPosPrevious.push(0);
+    this.yPosPrevious.push(0);
   }
 
   /**
@@ -58,10 +66,6 @@ export default abstract class Player extends GameItem {
    */
   public getXPos(): number {
     return this.xPos;
-  }
-
-  public getYPos(): number {
-    return this.yPos;
   }
 
   /**
