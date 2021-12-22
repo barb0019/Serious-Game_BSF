@@ -99,7 +99,7 @@ export default class Level extends Scene {
 
   private hasWon(): boolean {
     const user = this.game.getUser();
-    return user.getScore() >= user.getLevel() * 10;
+    return user.getScore() >= user.getLevel() * 3;
   }
 
   /**
