@@ -21,7 +21,7 @@ export default abstract class Player extends GameItem {
 
   protected jumpHeight: number;
 
-  private static readonly gravityIncrease: number = 1.5;
+  private static readonly gravityIncrease: number = 0.05;
 
   /**
    *
@@ -40,7 +40,7 @@ export default abstract class Player extends GameItem {
     this.yPosPrevious = [];
     this.xPosPrevious.push(0);
     this.yPosPrevious.push(0);
-    this.gravity = 0.7;
+    this.gravity = 0;
   }
 
   /**
@@ -49,13 +49,12 @@ export default abstract class Player extends GameItem {
   public increaseGravity(): void {
     // TODO The count used fucks with the gravity variable, need something else
     if (!this.onPlatform) {
-      if (this.count % 8 === 0) {
-        this.yPos += this.gravity;
-        this.count = 0;
-      }
+      this.yPos += this.gravity;
+      this.count = 0;
+
       this.gravity += Player.gravityIncrease;
-      if (this.gravity > 75) {
-        this.gravity = 9.81;
+      if (this.gravity > 10) {
+        this.gravity = 10;
       }
       this.count += 1;
     }

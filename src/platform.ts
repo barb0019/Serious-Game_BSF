@@ -49,6 +49,13 @@ export default class Platform {
     player.xPosPrevious.push(player.getXPos());
     player.yPosPrevious.push(player.getYPos());
 
+    if (!(this.yPos < player.getYPos() + player.getImageHeight() * 2)
+    && this.xPos < player.getXPos() + player.getImageWidth()
+    && this.xPos + this.width > player.getXPos()) {
+      player.setOnPlatform(false);
+      console.log('air');
+    }
+
     // checks if there is collision with the entire object
     if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
       && this.xPos + this.width > player.getXPos() - player.getXVel()
@@ -56,7 +63,7 @@ export default class Platform {
       && this.yPos + this.height > player.getYPos()) {
       // checks if standing just above platform,
       // or in platform to prevent clipping through the object
-      if (this.yPos + this.height
+      if (this.yPos
         > player.getYPos() + player.getImageHeight() + player.getImageHeight() / 2
         || this.yPos + this.height
         > player.getYPos() + player.getImageHeight() - this.height) {
