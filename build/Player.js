@@ -19,8 +19,7 @@ export default class Player extends GameItem {
         this.yPosPrevious = [];
         this.xPosPrevious.push(0);
         this.yPosPrevious.push(0);
-        this.gravity = 1;
-        this.onPlatform = false;
+        this.gravity = 0;
     }
     increaseGravity() {
         if (!this.onPlatform) {
