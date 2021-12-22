@@ -59,8 +59,8 @@ export default class Platform {
         console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
+        player.setGravity(0);
         return true;
-        // TODO set gravity to 0 so you stop falling
       }
       if (this.yPos < player.getYPos()
       && this.xPos + this.width > player.getXPos()
