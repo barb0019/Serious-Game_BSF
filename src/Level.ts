@@ -9,7 +9,6 @@ import Platform from './platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
-import GameItem from './GameItem.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 
