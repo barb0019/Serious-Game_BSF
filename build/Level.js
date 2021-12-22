@@ -22,7 +22,7 @@ export default class Level extends Scene {
         this.scoringObjects.push(new VBucks(250, 250, 'red'));
         this.scoringObjects.push(new FutPack(250, 250, 'packred'));
         this.scoringObjects.push(new FutPack(250, 250, 'packblue'));
-        this.scoringObjects.push(new Star(250, 1000, 'star'));
+        this.scoringObjects.push(new Star(250, 250, 'star'));
         this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
         this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
         this.platform = [];

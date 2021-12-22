@@ -16,7 +16,5 @@ export default class Star extends ScoringObject {
    */
   public constructor(maxX: number, maxY: number, type:string) {
     super(`./assets/img/${type}.png`, maxX - 2, maxY - 50, 15, type);
-    this.height = maxY - 50;
-    this.width = maxX - 2;
   }
 }
