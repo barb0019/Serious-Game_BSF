@@ -40,7 +40,7 @@ export default class Level extends Scene {
     this.scoringObjects.push(new VBucks(250, 250, 'red'));
     this.scoringObjects.push(new FutPack(250, 250, 'packred'));
     this.scoringObjects.push(new FutPack(250, 250, 'packblue'));
-    this.scoringObjects.push(new Star(250, 250, 'star'));
+    this.scoringObjects.push(new Star(250, 1000, 'star'));
 
     // Create player
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
@@ -70,25 +70,24 @@ export default class Level extends Scene {
    * Removes scoring objects from the game based on box collision detection.
    *
    * Read for more info about filter function: https://alligator.io/js/filter-array-method/
+   *
+   * @param player
    */
-  private removeScoringObjects() {
-    // create a new array with item that are still on the screen
-    // (filter the clicked item out of the array items)
+  private checksIfHit(player:Player) {
+    // create a new array with garbage item that are still on the screen
+    // (filter the clicked garbage item out of the array garbage items)
+
     this.scoringObjects = this.scoringObjects.filter(
       (element) => {
-        this.player.forEach((player) => {
-          if (player.collidesWith(element)) {
-            this.game.getUser().addScore(element.getScore());
-            if (element instanceof PowerUp) {
-              const powerUp = element as PowerUp;
-              for (let i = 0; i < this.player.length; i++) {
-                powerUp.applyTo(this.player[i]);
-              }
-            }
-            return true;
+        const collides = player.collidesWith(element);
+        if (collides) {
+          this.game.getUser().addScore(element.getScore());
+          if (element instanceof PowerUp) {
+            const powerUp = element as PowerUp;
+            powerUp.applyTo(player);
           }
-          return false;
-        });
+        }
+        return !collides;
       },
     );
   }
@@ -137,8 +136,9 @@ export default class Level extends Scene {
     });
 
     // Player removes objects
-
-    // this.removeScoringObjects();
+    for (let i = 0; i < this.player.length; i++) {
+      this.checksIfHit(this.player[i]);
+    }
 
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
@@ -172,7 +172,7 @@ export default class Level extends Scene {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
     // Show score
-    const score = `Score: ${this.game.getUser().getScore()}`;
+    const score = `Star: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);
 
     this.scoringObjects.forEach((element) => {

@@ -37,6 +37,7 @@ export default class Platform {
                 console.log('top');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
+                player.setGravity(0);
                 return true;
             }
             if (collisionBottom

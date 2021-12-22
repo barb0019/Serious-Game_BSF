@@ -1,6 +1,13 @@
+import Player from './Player.js';
 import ScoringObject from './ScoringObject.js';
 
 export default class Star extends ScoringObject {
+  private player: Player;
+
+  private height: number;
+
+  private width: number;
+
   /**
    *
    * @param maxX the max value of the X position
@@ -9,5 +16,7 @@ export default class Star extends ScoringObject {
    */
   public constructor(maxX: number, maxY: number, type:string) {
     super(`./assets/img/${type}.png`, maxX - 2, maxY - 50, 15, type);
+    this.height = maxY - 50;
+    this.width = maxX - 2;
   }
 }

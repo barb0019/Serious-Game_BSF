@@ -22,7 +22,7 @@ export default class Level extends Scene {
         this.scoringObjects.push(new VBucks(250, 250, 'red'));
         this.scoringObjects.push(new FutPack(250, 250, 'packred'));
         this.scoringObjects.push(new FutPack(250, 250, 'packblue'));
-        this.scoringObjects.push(new Star(250, 250, 'star'));
+        this.scoringObjects.push(new Star(250, 1000, 'star'));
         this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
         this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
         this.platform = [];
@@ -38,21 +38,17 @@ export default class Level extends Scene {
         this.platform.push(new Platform(canvas.width / 2, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     }
-    removeScoringObjects() {
+    checksIfHit(player) {
         this.scoringObjects = this.scoringObjects.filter((element) => {
-            this.player.forEach((player) => {
-                if (player.collidesWith(element)) {
-                    this.game.getUser().addScore(element.getScore());
-                    if (element instanceof PowerUp) {
-                        const powerUp = element;
-                        for (let i = 0; i < this.player.length; i++) {
-                            powerUp.applyTo(this.player[i]);
-                        }
-                    }
-                    return true;
+            const collides = player.collidesWith(element);
+            if (collides) {
+                this.game.getUser().addScore(element.getScore());
+                if (element instanceof PowerUp) {
+                    const powerUp = element;
+                    powerUp.applyTo(player);
                 }
-                return false;
-            });
+            }
+            return !collides;
         });
     }
     hasWon() {
@@ -65,14 +61,17 @@ export default class Level extends Scene {
         }
     }
     update(elapsed) {
+        this.player.forEach((element) => {
+            element.increaseGravity();
+        });
         this.platform.forEach((element) => {
             for (let i = 0; i < this.player.length; i++) {
                 element.collidesWith(this.player[i]);
             }
         });
-        this.player.forEach((element) => {
-            element.increaseGravity();
-        });
+        for (let i = 0; i < this.player.length; i++) {
+            this.checksIfHit(this.player[i]);
+        }
         if (this.countUntilNextItem <= 0) {
             const choice = Game.randomNumber(0, 10);
             this.countUntilNextItem = Game.randomNumber(120, 240);
@@ -88,7 +87,7 @@ export default class Level extends Scene {
     }
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-        const score = `Score: ${this.game.getUser().getScore()}`;
+        const score = `Star: ${this.game.getUser().getScore()}`;
         this.game.writeTextToCanvas(score, 36, 120, 50);
         this.scoringObjects.forEach((element) => {
             element.draw(this.game.ctx);
