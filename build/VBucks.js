@@ -1,7 +1,7 @@
 import ScoringObject from './ScoringObject.js';
 export default class VBucks extends ScoringObject {
-    constructor(xPos, yPos, type) {
-        super(`./assets/img/${type}.png`, 750, 350, -5, type);
+    constructor(xPos, yPos, type, points) {
+        super(`./assets/img/${type}.png`, xPos, yPos, points, type);
     }
 }
 //# sourceMappingURL=VBucks.js.map

@@ -7,7 +7,7 @@ export default class FutPack extends ScoringObject {
    * @param yPos the max value of the Y position
    * @param type type of the v buck
    */
-  public constructor(xPos: number, yPos: number, type:string) {
-    super(`./assets/img/${type}.png`, 550, 550, 15, type);
+  public constructor(xPos: number, yPos: number, type:string, points:number) {
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type);
   }
 }
