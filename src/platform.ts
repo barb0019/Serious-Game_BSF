@@ -70,7 +70,7 @@ export default class Platform {
         // moves you up, so prevents you from going through the top
         // collision top
         player.setYPos(player.yPosPrevious[1] - player.getYVel());
-        console.log('top');
+        // console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
         return true;
@@ -104,12 +104,6 @@ export default class Platform {
       player.yPosPrevious.splice(0, 1);
       return true;
     }
-
-    // if (this.yPos + this.height
-    //   < player.getYPos() + player.getImageHeight() + player.getImageHeight() / 2) {
-    //   player.setOnPlatform(false);
-    //   console.log('not platform');
-    // }
 
     // removes the previous position of the player so it can add a new previous position
     player.xPosPrevious.splice(0, 1);
