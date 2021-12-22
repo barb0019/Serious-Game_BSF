@@ -126,14 +126,14 @@ export default class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
-    this.player.forEach((element) => {
-      element.increaseGravity();
-    });
-
     this.platform.forEach((element) => {
       for (let i = 0; i < this.player.length; i++) {
         element.collidesWith(this.player[i]);
       }
+    });
+
+    this.player.forEach((element) => {
+      element.increaseGravity();
     });
 
     // Player removes objects

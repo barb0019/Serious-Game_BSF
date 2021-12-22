@@ -13,36 +13,47 @@ export default class Platform {
         this.img = img;
     }
     collidesWith(player) {
+        const collisionTop = this.yPos + this.height > player.getYPos() + player.getImageHeight();
+        const collisionBottom = this.yPos < player.getYPos();
+        const collisionRight = this.xPos < player.getXPos() + player.getImageWidth();
+        const collisionLeft = this.xPos + this.width > player.getXPos();
         player.xPosPrevious.push(player.getXPos());
         player.yPosPrevious.push(player.getYPos());
         if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
             && this.xPos + this.width > player.getXPos() - player.getXVel()
             && this.yPos < player.getYPos() + player.getImageHeight()
             && this.yPos + this.height > player.getYPos()) {
-            if (this.yPos + this.height > player.getYPos() + player.getImageHeight()
-                && this.xPos < player.getXPos() + player.getImageWidth()
-                && this.xPos + this.width > player.getXPos()) {
-                player.setYPos(player.yPosPrevious[0] - player.getYVel());
+            if (this.yPos + this.height
+                > player.getYPos() + player.getImageHeight() + player.getImageHeight() / 2
+                || this.yPos + this.height
+                    > player.getYPos() + player.getImageHeight() - this.height) {
+                player.setGravity(0);
+                player.setOnPlatform(true);
+            }
+            if (collisionTop
+                && collisionRight
+                && collisionLeft) {
+                player.setYPos(player.yPosPrevious[1] - player.getYVel());
                 console.log('top');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
                 return true;
             }
-            if (this.yPos < player.getYPos()
-                && this.xPos + this.width > player.getXPos()
-                && this.xPos < player.getXPos() + player.getImageWidth()) {
-                player.setYPos(player.yPosPrevious[0] + player.getYVel());
+            if (collisionBottom
+                && collisionRight
+                && collisionLeft) {
+                player.setYPos(player.yPosPrevious[1] + player.getYVel());
                 console.log('bottom');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
                 return true;
             }
-            if (this.xPos + this.width > player.getXPos()) {
-                player.setXPos(player.xPosPrevious[0] - player.getXVel());
+            if (collisionLeft) {
+                player.setXPos(player.xPosPrevious[1] - player.getXVel());
                 console.log('left');
             }
-            if (this.xPos < player.getXPos() + player.getImageWidth()) {
-                player.setXPos(player.xPosPrevious[0] + player.getXVel());
+            if (collisionRight) {
+                player.setXPos(player.xPosPrevious[1] + player.getXVel());
                 console.log('right');
             }
             player.xPosPrevious.splice(0, 1);

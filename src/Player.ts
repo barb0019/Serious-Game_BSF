@@ -1,6 +1,5 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
-import GameLoop from './GameLoop.js';
 
 export default abstract class Player extends GameItem {
   protected xVel: number;
@@ -13,12 +12,11 @@ export default abstract class Player extends GameItem {
 
   public yPosPrevious: number[];
 
-  private count:number;
+  private count: number;
 
   private gravity: number;
 
   private onPlatform: boolean;
-
 
   /**
    *
@@ -26,7 +24,7 @@ export default abstract class Player extends GameItem {
    * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
    */
-  public constructor(imageSrc:string, maxX: number, maxY: number) {
+  public constructor(imageSrc: string, maxX: number, maxY: number) {
     super(imageSrc, maxX - 76, maxY - 92);
     this.xVel = 3;
     this.yVel = 3;
@@ -36,18 +34,26 @@ export default abstract class Player extends GameItem {
     this.yPosPrevious = [];
     this.xPosPrevious.push(0);
     this.yPosPrevious.push(0);
-    this.gravity = 0;
+    this.gravity = 1;
+    this.onPlatform = false;
   }
 
-
-  public increaseGravity():void {
-    if (this.count % 8 === 0) {
-      // console.log('tesr');
-      // Make equation
-      this.yPos += this.gravity;
+  /**
+   * increases the gravity and apllies it to the player
+   */
+  public increaseGravity(): void {
+    // TODO The count used fucks with the gravity variable, need something else
+    if (!this.onPlatform) {
+      if (this.count % 8 === 0) {
+        this.yPos += this.gravity;
+        this.count = 0;
+      }
+      this.gravity += 1.5;
+      if (this.gravity > 9.81) {
+        this.gravity = 9.81;
+      }
+      this.count += 1;
     }
-    this.gravity += 1.3;
-    this.count += 1;
   }
 
   /**
@@ -89,8 +95,18 @@ export default abstract class Player extends GameItem {
     return this.xPos;
   }
 
+  /**
+   * @param gravity
+   */
   public setGravity(gravity: number): void {
     this.gravity = gravity;
+  }
+
+  /**
+   * @param trueOrFalse
+   */
+  public setOnPlatform(trueOrFalse: boolean): void {
+    this.onPlatform = trueOrFalse;
   }
 
   /**
@@ -105,5 +121,5 @@ export default abstract class Player extends GameItem {
 
   abstract move(canvas: HTMLCanvasElement): void;
 
-  abstract collidesWith(other: GameItem):boolean;
+  abstract collidesWith(other: GameItem): boolean;
 }

@@ -40,6 +40,10 @@ export default class Platform {
    */
   public collidesWith(player: Player): boolean {
     // sets the current pos of the player to be used next frame for collision detection
+    const collisionTop = this.yPos + this.height > player.getYPos() + player.getImageHeight();
+    const collisionBottom = this.yPos < player.getYPos();
+    const collisionRight = this.xPos < player.getXPos() + player.getImageWidth();
+    const collisionLeft = this.xPos + this.width > player.getXPos();
 
     // TODO make this work for 2 players
     player.xPosPrevious.push(player.getXPos());
@@ -47,42 +51,50 @@ export default class Platform {
 
     // checks if there is collision with the entire object
     if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
-    && this.xPos + this.width > player.getXPos() - player.getXVel()
-    && this.yPos < player.getYPos() + player.getImageHeight()
-    && this.yPos + this.height > player.getYPos()) {
-      if (this.yPos + this.height > player.getYPos() + player.getImageHeight()
-      && this.xPos < player.getXPos() + player.getImageWidth()
-      && this.xPos + this.width > player.getXPos()) {
+      && this.xPos + this.width > player.getXPos() - player.getXVel()
+      && this.yPos < player.getYPos() + player.getImageHeight()
+      && this.yPos + this.height > player.getYPos()) {
+      // checks if standing just above platform,
+      // or in platform to prevent clipping through the object
+      if (this.yPos + this.height
+        > player.getYPos() + player.getImageHeight() + player.getImageHeight() / 2
+        || this.yPos + this.height
+        > player.getYPos() + player.getImageHeight() - this.height) {
+        player.setGravity(0);
+        player.setOnPlatform(true);
+      }
+      if (collisionTop
+        && collisionRight
+        && collisionLeft) {
         // moves you up, so prevents you from going through the top
         // collision top
-        player.setYPos(player.yPosPrevious[0] - player.getYVel());
+        player.setYPos(player.yPosPrevious[1] - player.getYVel());
         console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
         return true;
-        // TODO set gravity to 0 so you stop falling
       }
-      if (this.yPos < player.getYPos()
-      && this.xPos + this.width > player.getXPos()
-      && this.xPos < player.getXPos() + player.getImageWidth()) {
+      if (collisionBottom
+        && collisionRight
+        && collisionLeft) {
         // moves you down, so prevents you from going through the bottom
         // collision bottom
-        player.setYPos(player.yPosPrevious[0] + player.getYVel());
+        player.setYPos(player.yPosPrevious[1] + player.getYVel());
         console.log('bottom');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
         return true;
       }
-      if (this.xPos + this.width > player.getXPos()) {
+      if (collisionLeft) {
         // moves you left, so prevents you from going through the left
         // collision left
-        player.setXPos(player.xPosPrevious[0] - player.getXVel());
+        player.setXPos(player.xPosPrevious[1] - player.getXVel());
         console.log('left');
       }
-      if (this.xPos < player.getXPos() + player.getImageWidth()) {
+      if (collisionRight) {
         // moves you right, so prevents you from going through the right
         // collision right
-        player.setXPos(player.xPosPrevious[0] + player.getXVel());
+        player.setXPos(player.xPosPrevious[1] + player.getXVel());
         console.log('right');
       }
 

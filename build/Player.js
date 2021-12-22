@@ -19,14 +19,21 @@ export default class Player extends GameItem {
         this.yPosPrevious = [];
         this.xPosPrevious.push(0);
         this.yPosPrevious.push(0);
-        this.gravity = 0;
+        this.gravity = 1;
+        this.onPlatform = false;
     }
     increaseGravity() {
-        if (this.count % 8 === 0) {
-            this.yPos += this.gravity;
+        if (!this.onPlatform) {
+            if (this.count % 8 === 0) {
+                this.yPos += this.gravity;
+                this.count = 0;
+            }
+            this.gravity += 1.5;
+            if (this.gravity > 9.81) {
+                this.gravity = 9.81;
+            }
+            this.count += 1;
         }
-        this.gravity += 1.3;
-        this.count += 1;
     }
     setXPos(xPos) {
         this.xPos = xPos;
@@ -45,6 +52,9 @@ export default class Player extends GameItem {
     }
     setGravity(gravity) {
         this.gravity = gravity;
+    }
+    setOnPlatform(trueOrFalse) {
+        this.onPlatform = trueOrFalse;
     }
     increaseSpeed(size) {
         this.xVel += size;
