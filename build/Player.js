@@ -7,6 +7,8 @@ export default class Player extends GameItem {
     xPosPrevious;
     yPosPrevious;
     count;
+    gravity;
+    onPlatform;
     constructor(imageSrc, maxX, maxY) {
         super(imageSrc, maxX - 76, maxY - 92);
         this.xVel = 3;
@@ -17,11 +19,13 @@ export default class Player extends GameItem {
         this.yPosPrevious = [];
         this.xPosPrevious.push(0);
         this.yPosPrevious.push(0);
+        this.gravity = 0;
     }
     increaseGravity() {
         if (this.count % 8 === 0) {
-            this.yPos += 9.81;
+            this.yPos += this.gravity;
         }
+        this.gravity += 1.3;
         this.count += 1;
     }
     setXPos(xPos) {
@@ -38,6 +42,9 @@ export default class Player extends GameItem {
     }
     getXPos() {
         return this.xPos;
+    }
+    setGravity(gravity) {
+        this.gravity = gravity;
     }
     increaseSpeed(size) {
         this.xVel += size;

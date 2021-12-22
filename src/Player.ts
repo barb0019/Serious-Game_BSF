@@ -15,11 +15,15 @@ export default abstract class Player extends GameItem {
 
   private count:number;
 
+  private gravity: number;
+
+  private onPlatform: boolean;
+
 
   /**
    *
    * @param imageSrc
-   * @param maxX the max value of the X position
+   * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
    */
   public constructor(imageSrc:string, maxX: number, maxY: number) {
@@ -32,15 +36,18 @@ export default abstract class Player extends GameItem {
     this.yPosPrevious = [];
     this.xPosPrevious.push(0);
     this.yPosPrevious.push(0);
+    this.gravity = 0;
   }
 
 
   public increaseGravity():void {
     if (this.count % 8 === 0) {
       // console.log('tesr');
-      this.yPos += 9.81;
+      // Make equation
+      this.yPos += this.gravity;
     }
-      this.count += 1;
+    this.gravity += 1.3;
+    this.count += 1;
   }
 
   /**
@@ -80,6 +87,10 @@ export default abstract class Player extends GameItem {
    */
   public getXPos(): number {
     return this.xPos;
+  }
+
+  public setGravity(gravity: number): void {
+    this.gravity = gravity;
   }
 
   /**
