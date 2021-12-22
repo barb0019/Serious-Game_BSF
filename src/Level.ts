@@ -43,6 +43,7 @@ export default class Level extends Scene {
     this.scoringObjects.push(new FutPack(250, 250, 'packblue'));
     this.scoringObjects.push(new Star(250, 250, 'star'));
 
+
     // Create player
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
     this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
@@ -135,7 +136,7 @@ export default class Level extends Scene {
 
     // Player removes objects
 
-    // this.removeScoringObjects();
+    this.removeScoringObjects();
 
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
@@ -169,7 +170,7 @@ export default class Level extends Scene {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
     // Show score
-    const score = `Score: ${this.game.getUser().getScore()}`;
+    const score = `Star: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);
 
     this.scoringObjects.forEach((element) => {
