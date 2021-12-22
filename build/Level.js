@@ -9,13 +9,16 @@ import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
+import Door from './Door.js';
 export default class Level extends Scene {
     scoringObjects;
     player;
     platform;
     countUntilNextItem;
+    door;
     constructor(game) {
         super(game);
+        this.door = new Door(250, 550, 'DoubleDoor');
         this.scoringObjects = [];
         this.player = [];
         this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
@@ -101,6 +104,7 @@ export default class Level extends Scene {
         for (let i = 0; i < this.platform.length; i++) {
             this.platform[i].draw(this.game.ctx);
         }
+        this.door.draw(this.game.ctx);
     }
 }
 //# sourceMappingURL=Level.js.map

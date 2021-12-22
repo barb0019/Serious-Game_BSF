@@ -9,8 +9,8 @@ export default class Door extends GameItem {
      * @param xPos
      * @param yPos
      */
-  public constructor( xPos: number, yPos: number) {
-super(, xPos, yPos);
+  public constructor(xPos: number, yPos: number, type:string) {
+super(`./assets/img/${type}.png`, xPos, yPos);
   }
 
 
