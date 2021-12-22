@@ -3,11 +3,11 @@ import ScoringObject from './ScoringObject.js';
 export default class VBucks extends ScoringObject {
   /**
    *
-   * @param maxX the max value of the X position
-   * @param maxY the max value of the Y position
+   * @param xPos the max value of the X position
+   * @param yPos the max value of the Y position
    * @param type type of the v buck
    */
-  public constructor(xPos: number, yPos: number, type:string) {
-    super(`./assets/img/${type}.png`, 750, 350, -5, type);
+  public constructor(xPos: number, yPos: number, type:string, points:number) {
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type);
   }
 }
