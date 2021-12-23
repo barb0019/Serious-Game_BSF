@@ -198,6 +198,6 @@ export default class Level extends Scene {
     for (let i = 0; i < this.platform.length; i++) {
       this.platform[i].draw(this.game.ctx);
     }
-    this.door.draw(this.game.ctx);
+    this.door.draw(this.game.ctx, this.player);
   }
 }

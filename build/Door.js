@@ -20,8 +20,13 @@ export default class Door {
     getYPos() {
         return this.yPos;
     }
-    draw(ctx) {
-        ctx.drawImage(this.img, this.xPos, this.yPos, 75, 100);
+    draw(ctx, player) {
+        if (player[0].collidesWith(this) || player[1].collidesWith(this)) {
+            ctx.drawImage(Game.loadNewImage('./assets/img/DoubleDoor1.png'), this.xPos, this.yPos, 75, 100);
+        }
+        else {
+            ctx.drawImage(this.img, this.xPos, this.yPos, 75, 100);
+        }
     }
 }
 //# sourceMappingURL=Door.js.map

@@ -1,4 +1,5 @@
 import Game from './Game.js';
+import Player from './Player.js';
 
 export default class Door {
   private img: HTMLImageElement;
@@ -58,7 +59,11 @@ export default class Door {
   /**
    * @param ctx ctx
    */
-  public draw(ctx: CanvasRenderingContext2D): void {
+  public draw(ctx: CanvasRenderingContext2D,player:Player[]): void {
+if (player[0].collidesWith(this)||player[1].collidesWith(this)) {
+  ctx.drawImage(Game.loadNewImage('./assets/img/DoubleDoor1.png'), this.xPos, this.yPos, 75, 100);
+}else{
     ctx.drawImage(this.img, this.xPos, this.yPos, 75, 100);
+}
   }
 }
