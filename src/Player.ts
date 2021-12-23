@@ -25,6 +25,8 @@ export default abstract class Player extends GameItem {
 
   private static readonly gravityIncrease: number = 0.05;
 
+  protected isJumping: boolean;
+
   /**
    *
    * @param imageSrc
@@ -35,7 +37,7 @@ export default abstract class Player extends GameItem {
     super(imageSrc, maxX - 76, maxY - 92);
     this.xVel = 3;
     this.yVel = 3;
-    this.jumpHeight = 230;
+    this.jumpHeight = 4.5;
     this.count = 0;
     this.keyBoard = new KeyListener();
     this.xPosPrevious = [];
@@ -59,6 +61,20 @@ export default abstract class Player extends GameItem {
         this.gravity = 10;
       }
       this.count += 1;
+    }
+  }
+
+  /**
+   * Makes the character jump
+   */
+  protected jump(): void {
+    if (this.jumpHeight < this.gravity / 2 && !this.onPlatform) {
+      this.yPos -= this.jumpHeight;
+    } else
+    if (!this.onPlatform) {
+      this.yPos -= this.jumpHeight;
+    } else {
+      this.isJumping = false;
     }
   }
 

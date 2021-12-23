@@ -11,11 +11,12 @@ export default class Player extends GameItem {
     onPlatform;
     jumpHeight;
     static gravityIncrease = 0.05;
+    isJumping;
     constructor(imageSrc, maxX, maxY) {
         super(imageSrc, maxX - 76, maxY - 92);
         this.xVel = 3;
         this.yVel = 3;
-        this.jumpHeight = 230;
+        this.jumpHeight = 4.5;
         this.count = 0;
         this.keyBoard = new KeyListener();
         this.xPosPrevious = [];
@@ -33,6 +34,17 @@ export default class Player extends GameItem {
                 this.gravity = 10;
             }
             this.count += 1;
+        }
+    }
+    jump() {
+        if (this.jumpHeight < this.gravity / 2 && !this.onPlatform) {
+            this.yPos -= this.jumpHeight;
+        }
+        else if (!this.onPlatform) {
+            this.yPos -= this.jumpHeight;
+        }
+        else {
+            this.isJumping = false;
         }
     }
     setXPos(xPos) {
