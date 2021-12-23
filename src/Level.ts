@@ -37,7 +37,7 @@ export default class Level extends Scene {
    */
   public constructor(game: Game) {
     super(game);
-    this.door = new Door(250, 550, 'DoubleDoor');
+    this.door = new Door(250, 550, 'DoubleDoor0');
     this.scoringObjects = [];
     this.player = [];
     this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
@@ -74,7 +74,6 @@ export default class Level extends Scene {
     this.platform.push(new Platform(canvas.width / 4, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(canvas.width / 2, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-
 
     // the ground
   }
@@ -199,5 +198,6 @@ export default class Level extends Scene {
       this.platform[i].draw(this.game.ctx);
     }
     this.door.draw(this.game.ctx);
+
   }
 }
