@@ -113,7 +113,6 @@ export default class Platform {
       player.setGravity(0);
       player.setOnPlatform(true);
       console.log('platform');
-      console.log(this);
     }
   }
 

@@ -25,11 +25,14 @@ export default class PlayerBlue extends Player {
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_W) && this.yPos > minY) {
             if (this.onPlatform) {
-                this.yPos -= this.jumpHeight;
-                if (this.yPos < minY) {
-                    this.yPos = minY;
-                }
+                this.isJumping = true;
                 this.setOnPlatform(false);
+            }
+        }
+        if (this.isJumping === true) {
+            this.jump();
+            if (this.yPos < minY) {
+                this.yPos = minY;
             }
         }
     }
