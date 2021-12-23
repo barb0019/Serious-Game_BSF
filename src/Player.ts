@@ -1,6 +1,8 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
 import GameLoop from './GameLoop.js';
+import Door from './Door.js';
+import ScoringObject from './ScoringObject.js';
 
 export default abstract class Player extends GameItem {
   protected xVel: number;
@@ -125,5 +127,5 @@ export default abstract class Player extends GameItem {
 
   abstract move(canvas: HTMLCanvasElement): void;
 
-  abstract collidesWith(other: GameItem): boolean;
+  abstract collidesWith(other: GameItem | Door): boolean;
 }

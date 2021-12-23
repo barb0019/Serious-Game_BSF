@@ -164,7 +164,8 @@ export default class Level extends Scene {
     this.countUntilNextItem -= elapsed;
 
     // Move to level clear screen
-    if (this.hasWon()) {
+    if (this.hasWon()&&this.player[1].collidesWith(this.door)
+    &&this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
 
