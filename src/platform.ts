@@ -49,11 +49,12 @@ export default class Platform {
     player.xPosPrevious.push(player.getXPos());
     player.yPosPrevious.push(player.getYPos());
 
-    if (!(this.yPos < player.getYPos() + player.getImageHeight() * 2)
-    && this.xPos < player.getXPos() + player.getImageWidth()
-    && this.xPos + this.width > player.getXPos()) {
+    if (!(this.yPos < player.getYPos() + player.getImageHeight() * 2)) {
       player.setOnPlatform(false);
       console.log('air');
+      console.log(this.yPos); // 524 w/ console, 704 without console, these are from one of the bottom platforms?????
+      // eslint-disable-next-line max-len
+      console.log(player.getYPos() + player.getImageHeight() * 2); // 472.40000000000026 w/ console, ~593.00... without console
     }
 
     // checks if there is collision with the entire object
@@ -70,6 +71,7 @@ export default class Platform {
         player.setGravity(0);
         player.setOnPlatform(true);
         console.log('platform');
+        console.log(this);
       }
       if (collisionTop
         && collisionRight
@@ -77,7 +79,7 @@ export default class Platform {
         // moves you up, so prevents you from going through the top
         // collision top
         player.setYPos(player.yPosPrevious[1] - player.getYVel());
-        // console.log('top');
+        console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
         return true;

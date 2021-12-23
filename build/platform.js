@@ -19,11 +19,11 @@ export default class Platform {
         const collisionLeft = this.xPos + this.width > player.getXPos();
         player.xPosPrevious.push(player.getXPos());
         player.yPosPrevious.push(player.getYPos());
-        if (!(this.yPos < player.getYPos() + player.getImageHeight() * 2)
-            && this.xPos < player.getXPos() + player.getImageWidth()
-            && this.xPos + this.width > player.getXPos()) {
+        if (!(this.yPos < player.getYPos() + player.getImageHeight() * 2)) {
             player.setOnPlatform(false);
             console.log('air');
+            console.log(this.yPos);
+            console.log(player.getYPos() + player.getImageHeight() * 2);
         }
         if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
             && this.xPos + this.width > player.getXPos() - player.getXVel()
@@ -36,11 +36,13 @@ export default class Platform {
                 player.setGravity(0);
                 player.setOnPlatform(true);
                 console.log('platform');
+                console.log(this);
             }
             if (collisionTop
                 && collisionRight
                 && collisionLeft) {
                 player.setYPos(player.yPosPrevious[1] - player.getYVel());
+                console.log('top');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
                 return true;
