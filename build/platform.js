@@ -19,25 +19,12 @@ export default class Platform {
         const collisionLeft = this.xPos + this.width > player.getXPos();
         player.xPosPrevious.push(player.getXPos());
         player.yPosPrevious.push(player.getYPos());
-        if (!(this.yPos < player.getYPos() + player.getImageHeight() * 2)) {
-            player.setOnPlatform(false);
-            console.log('air');
-            console.log(this.yPos);
-            console.log(player.getYPos() + player.getImageHeight() * 2);
-        }
+        this.checkPlayerheightAbovePlatform(player);
+        this.checkPixelAbovePlatform(player);
         if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
             && this.xPos + this.width > player.getXPos() - player.getXVel()
             && this.yPos < player.getYPos() + player.getImageHeight()
             && this.yPos + this.height > player.getYPos()) {
-            if (this.yPos
-                > player.getYPos() + player.getImageHeight() + player.getImageHeight() / 2
-                || this.yPos + this.height
-                    > player.getYPos() + player.getImageHeight() - this.height) {
-                player.setGravity(0);
-                player.setOnPlatform(true);
-                console.log('platform');
-                console.log(this);
-            }
             if (collisionTop
                 && collisionRight
                 && collisionLeft) {
@@ -71,6 +58,26 @@ export default class Platform {
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
         return false;
+    }
+    checkPixelAbovePlatform(player) {
+        if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
+            && this.xPos + this.width > player.getXPos() - player.getXVel()
+            && this.yPos < player.getYPos() + player.getImageHeight() + 1
+            && this.yPos + this.height > player.getYPos()) {
+            player.setGravity(0);
+            player.setOnPlatform(true);
+            console.log('platform');
+            console.log(this);
+        }
+    }
+    checkPlayerheightAbovePlatform(player) {
+        if (!(this.yPos
+            > player.getYPos() + player.getImageHeight()
+            || this.yPos + this.height
+                > player.getYPos() + player.getImageHeight() - this.height)) {
+            player.setOnPlatform(false);
+            console.log('air');
+        }
     }
     draw(ctx) {
         ctx.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);

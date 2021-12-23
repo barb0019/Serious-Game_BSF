@@ -49,13 +49,8 @@ export default class Platform {
     player.xPosPrevious.push(player.getXPos());
     player.yPosPrevious.push(player.getYPos());
 
-    if (!(this.yPos < player.getYPos() + player.getImageHeight() * 2)) {
-      player.setOnPlatform(false);
-      console.log('air');
-      console.log(this.yPos); // 524 w/ console, 704 without console, these are from one of the bottom platforms?????
-      // eslint-disable-next-line max-len
-      console.log(player.getYPos() + player.getImageHeight() * 2); // 472.40000000000026 w/ console, ~593.00... without console
-    }
+    this.checkPlayerheightAbovePlatform(player);
+    this.checkPixelAbovePlatform(player);
 
     // checks if there is collision with the entire object
     if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
@@ -64,15 +59,6 @@ export default class Platform {
       && this.yPos + this.height > player.getYPos()) {
       // checks if standing just above platform,
       // or in platform to prevent clipping through the object
-      if (this.yPos
-        > player.getYPos() + player.getImageHeight() + player.getImageHeight() / 2
-        || this.yPos + this.height
-        > player.getYPos() + player.getImageHeight() - this.height) {
-        player.setGravity(0);
-        player.setOnPlatform(true);
-        console.log('platform');
-        console.log(this);
-      }
       if (collisionTop
         && collisionRight
         && collisionLeft) {
@@ -107,7 +93,6 @@ export default class Platform {
         player.setXPos(player.xPosPrevious[1] + player.getXVel());
         console.log('right');
       }
-
       // removes the previous position of the player so it can add a new previous position
       player.xPosPrevious.splice(0, 1);
       player.yPosPrevious.splice(0, 1);
@@ -118,6 +103,28 @@ export default class Platform {
     player.xPosPrevious.splice(0, 1);
     player.yPosPrevious.splice(0, 1);
     return false;
+  }
+
+  private checkPixelAbovePlatform(player: Player) {
+    if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
+      && this.xPos + this.width > player.getXPos() - player.getXVel()
+      && this.yPos < player.getYPos() + player.getImageHeight() + 1
+      && this.yPos + this.height > player.getYPos()) {
+      player.setGravity(0);
+      player.setOnPlatform(true);
+      console.log('platform');
+      console.log(this);
+    }
+  }
+
+  private checkPlayerheightAbovePlatform(player: Player) {
+    if (!(this.yPos
+      > player.getYPos() + player.getImageHeight()
+      || this.yPos + this.height
+      > player.getYPos() + player.getImageHeight() - this.height)) {
+      player.setOnPlatform(false);
+      console.log('air');
+    }
   }
 
   /**
