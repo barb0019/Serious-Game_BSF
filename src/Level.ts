@@ -12,6 +12,7 @@ import PlayerBlue from './playerblue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
+import FlyingBuck from './FlyingBuck.js';
 
 export default class Level extends Scene {
   // Garbage items (the player needs to pick these up)
@@ -42,7 +43,7 @@ export default class Level extends Scene {
     this.player = [];
     this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
     this.scoringObjects.push(new VBucks(650, 350, 'red', -3));
-    this.scoringObjects.push(new VBucks(550, 350, 'flyingbuck', -3));
+    this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3));
     this.scoringObjects.push(new FutPack(450, 350, 'packred', -3));
     this.scoringObjects.push(new FutPack(850, 350, 'packblue', -3));
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
