@@ -19,7 +19,7 @@ export default class Level extends Scene {
     door;
     constructor(game) {
         super(game);
-        this.door = new Door(250, 550, 'DoubleDoor0');
+        this.door = new Door(250, 550, 'DoubleDoor');
         this.scoringObjects = [];
         this.player = [];
         this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
