@@ -42,12 +42,12 @@ export default class Level extends Scene {
     this.player = [];
     this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
     this.scoringObjects.push(new VBucks(650, 350, 'red', -3));
+    this.scoringObjects.push(new VBucks(350, 460, 'flyingbuck', -3));
     this.scoringObjects.push(new FutPack(450, 350, 'packred', -3));
     this.scoringObjects.push(new FutPack(850, 350, 'packblue', -3));
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
     this.scoringObjects.push(new Star(1050, 450, 'star', 1));
     this.scoringObjects.push(new Star(1150, 450, 'star', 1));
-
 
     // Create player
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
@@ -164,8 +164,8 @@ export default class Level extends Scene {
     this.countUntilNextItem -= elapsed;
 
     // Move to level clear screen
-    if (this.hasWon()&&this.player[1].collidesWith(this.door)
-    &&this.player[0].collidesWith(this.door)) {
+    if (this.hasWon() && this.player[1].collidesWith(this.door)
+    && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
 
