@@ -83,7 +83,8 @@ export default class Level extends Scene {
             this.countUntilNextItem = Game.randomNumber(120, 240);
         }
         this.countUntilNextItem -= elapsed;
-        if (this.hasWon() && this.player[1].collidesWith(this.door) && this.player[0].collidesWith(this.door)) {
+        if (this.hasWon() && this.player[1].collidesWith(this.door)
+            && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
         if (this.game.getUser().getScore() < 0) {
