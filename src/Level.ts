@@ -48,7 +48,6 @@ export default class Level extends Scene {
     this.scoringObjects.push(new Star(1050, 450, 'star', 1));
     this.scoringObjects.push(new Star(1150, 450, 'star', 1));
 
-
     // Create player
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
     this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
@@ -65,16 +64,17 @@ export default class Level extends Scene {
    */
   public makePlatforms(): void {
     const { canvas } = this.game;
+    this.platform.push(new Platform(0, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(canvas.width / 4, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(canvas.width / 2, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+
     this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(100, 100, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1000, canvas.height / 1.5, 75, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1250, canvas.height / 1.5, 100, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
     // the ground
-    this.platform.push(new Platform(0, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(canvas.width / 4, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(canvas.width / 2, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
   }
 
   /**
@@ -136,14 +136,13 @@ export default class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
+    this.player.forEach((element) => {
+      element.increaseGravity();
+    });
     this.platform.forEach((element) => {
       for (let i = 0; i < this.player.length; i++) {
         element.collidesWith(this.player[i]);
       }
-    });
-
-    this.player.forEach((element) => {
-      element.increaseGravity();
     });
 
     // Player removes objects
@@ -164,8 +163,8 @@ export default class Level extends Scene {
     this.countUntilNextItem -= elapsed;
 
     // Move to level clear screen
-    if (this.hasWon()&&this.player[1].collidesWith(this.door)
-    &&this.player[0].collidesWith(this.door)) {
+    if (this.hasWon() && this.player[1].collidesWith(this.door)
+    && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
 
