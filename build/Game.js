@@ -9,6 +9,7 @@ export default class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
+        this.music();
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.gameLoop = new GameLoop();
@@ -33,6 +34,12 @@ export default class Game {
     }
     static randomNumber(min, max) {
         return Math.round(Math.random() * (max - min) + min);
+    }
+    music() {
+        const music = new Audio('./assets/game-music-7408.mp3');
+        music.play();
+        music.loop = true;
+        music.playbackRate = 1;
     }
 }
 //# sourceMappingURL=Game.js.map

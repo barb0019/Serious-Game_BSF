@@ -21,6 +21,7 @@ export default class Game {
   public constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
+    this.music();
 
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
@@ -91,5 +92,17 @@ export default class Game {
    */
   public static randomNumber(min: number, max: number): number {
     return Math.round(Math.random() * (max - min) + min);
+  }
+
+  /**
+   *
+   */
+  // eslint-disable-next-line class-methods-use-this
+  public music():void {
+    const music = new Audio('./assets/game-music-7408.mp3');
+    music.play();
+    music.loop = true;
+    music.playbackRate = 1;
+    // music.pause();
   }
 }

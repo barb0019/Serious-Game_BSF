@@ -112,7 +112,7 @@ export default class Platform {
       && this.yPos + this.height > player.getYPos()) {
       player.setGravity(0);
       player.setOnPlatform(true);
-      console.log('platform');
+      // console.log('platform');
     }
   }
 
@@ -122,7 +122,7 @@ export default class Platform {
       || this.yPos + this.height
       > player.getYPos() + player.getImageHeight() - this.height)) {
       player.setOnPlatform(false);
-      console.log('air');
+      // console.log('air');
     }
   }
 

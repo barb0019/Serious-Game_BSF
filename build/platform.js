@@ -66,7 +66,6 @@ export default class Platform {
             && this.yPos + this.height > player.getYPos()) {
             player.setGravity(0);
             player.setOnPlatform(true);
-            console.log('platform');
         }
     }
     checkPlayerheightAbovePlatform(player) {
@@ -75,7 +74,6 @@ export default class Platform {
             || this.yPos + this.height
                 > player.getYPos() + player.getImageHeight() - this.height)) {
             player.setOnPlatform(false);
-            console.log('air');
         }
     }
     draw(ctx) {
