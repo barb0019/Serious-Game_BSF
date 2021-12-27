@@ -25,6 +25,7 @@ export default class GameOver extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
       this.shouldStart = true;
+      Game.pauze();
     }
   }
 

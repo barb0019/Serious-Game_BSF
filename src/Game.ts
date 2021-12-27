@@ -11,6 +11,8 @@ export default class Game {
   private user: UserData;
 
   private gameLoop: GameLoop;
+  static music: any;
+
 
   /**
    * Initialize the game
@@ -21,7 +23,7 @@ export default class Game {
   public constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
-    this.music();
+    Game.music = new Audio('./assets/game-music-7408.mp3');
 
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
@@ -94,15 +96,19 @@ export default class Game {
     return Math.round(Math.random() * (max - min) + min);
   }
 
-  /**
-   *
+
+    /**
+   * plays the music
    */
   // eslint-disable-next-line class-methods-use-this
-  public music():void {
-    const music = new Audio('./assets/game-music-7408.mp3');
-    music.play();
-    music.loop = true;
-    music.playbackRate = 1;
+ static play():void {
+
+    this.music.play();
+    this.music.loop = true;
     // music.pause();
+  }
+
+  static pauze():void {
+    this.music.pause();
   }
 }

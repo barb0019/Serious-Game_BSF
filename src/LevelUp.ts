@@ -26,6 +26,7 @@ export default class LevelUp extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_P)) {
       this.shouldStart = true;
+      Game.pauze();
     }
   }
 

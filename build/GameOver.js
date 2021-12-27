@@ -1,3 +1,4 @@
+import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 import Scene from './Scene.js';
 import Start from './Start.js';
@@ -12,6 +13,7 @@ export default class GameOver extends Scene {
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
             this.shouldStart = true;
+            Game.pauze();
         }
     }
     update() {

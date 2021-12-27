@@ -26,6 +26,7 @@ export default class Start extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
       this.shouldStart = true;
+      Game.play();
     }
   }
 

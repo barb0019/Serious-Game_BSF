@@ -1,3 +1,4 @@
+import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 import Level from './Level.js';
 import Scene from './Scene.js';
@@ -12,6 +13,7 @@ export default class LevelUp extends Scene {
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_P)) {
             this.shouldStart = true;
+            Game.pauze();
         }
     }
     update() {
