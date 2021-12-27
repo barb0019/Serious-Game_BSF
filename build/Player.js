@@ -45,6 +45,7 @@ export default class Player extends GameItem {
         }
         else {
             this.isJumping = false;
+            this.jumpMusic();
         }
     }
     setXPos(xPos) {
@@ -71,6 +72,10 @@ export default class Player extends GameItem {
     increaseSpeed(size) {
         this.xVel += size;
         this.yVel += size;
+    }
+    jumpMusic() {
+        const jumpMusic = new Audio('./assets/jumpMusic.mp3');
+        jumpMusic.play();
     }
 }
 //# sourceMappingURL=Player.js.map

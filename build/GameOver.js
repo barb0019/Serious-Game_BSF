@@ -13,7 +13,7 @@ export default class GameOver extends Scene {
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
             this.shouldStart = true;
-            Game.pauze();
+            Game.pause();
         }
     }
     update() {

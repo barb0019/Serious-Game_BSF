@@ -13,7 +13,7 @@ export default class LevelUp extends Scene {
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_P)) {
             this.shouldStart = true;
-            Game.pauze();
+            Game.pause();
         }
     }
     update() {

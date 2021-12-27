@@ -75,6 +75,7 @@ export default abstract class Player extends GameItem {
       this.yPos -= this.jumpHeight;
     } else {
       this.isJumping = false;
+      this.jumpMusic();
     }
   }
 
@@ -144,4 +145,13 @@ export default abstract class Player extends GameItem {
   abstract move(canvas: HTMLCanvasElement): void;
 
   abstract collidesWith(other: GameItem | Door): boolean;
+
+  /**
+   * plays the music of the person jumping
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected jumpMusic():void {
+    const jumpMusic = new Audio('./assets/jumpMusic.mp3');
+    jumpMusic.play();
+  }
 }

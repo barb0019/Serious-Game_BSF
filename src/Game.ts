@@ -11,8 +11,8 @@ export default class Game {
   private user: UserData;
 
   private gameLoop: GameLoop;
-  static music: any;
 
+  static music:HTMLAudioElement;
 
   /**
    * Initialize the game
@@ -96,19 +96,18 @@ export default class Game {
     return Math.round(Math.random() * (max - min) + min);
   }
 
-
-    /**
+  /**
    * plays the music
    */
-  // eslint-disable-next-line class-methods-use-this
- static play():void {
-
+  static play():void {
     this.music.play();
     this.music.loop = true;
-    // music.pause();
   }
 
-  static pauze():void {
+  /**
+   * pause the music
+   */
+  static pause():void {
     this.music.pause();
   }
 }

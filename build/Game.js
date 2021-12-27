@@ -40,7 +40,7 @@ export default class Game {
         this.music.play();
         this.music.loop = true;
     }
-    static pauze() {
+    static pause() {
         this.music.pause();
     }
 }
