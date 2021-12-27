@@ -33,8 +33,8 @@ export default abstract class Player extends GameItem {
    * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
    */
-  public constructor(imageSrc: string, maxX: number, maxY: number) {
-    super(imageSrc, maxX - 76, maxY - 92);
+  public constructor(imageSrc: string, maxX: number, maxY: number, type:string) {
+    super(imageSrc, maxX - 76, maxY - 92, type);
     this.xVel = 3;
     this.yVel = 3;
     this.jumpHeight = 4.5;

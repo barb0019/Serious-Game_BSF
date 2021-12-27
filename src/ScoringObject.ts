@@ -3,7 +3,6 @@ import GameItem from './GameItem.js';
 export default abstract class ScoringObject extends GameItem {
   private score: number;
 
-  private type:string;
 
   /**
    *
@@ -15,9 +14,8 @@ export default abstract class ScoringObject extends GameItem {
    */
   public constructor(imageSrc: string, xPos: number, yPos: number,
     score: number, type:string) {
-    super(imageSrc, xPos, yPos);
+    super(imageSrc, xPos, yPos, type);
     this.score = score;
-    this.type = type;
   }
 
   /**
@@ -27,13 +25,5 @@ export default abstract class ScoringObject extends GameItem {
    */
   public getScore(): number {
     return this.score;
-  }
-  /**
-   * gwt the type
-   *
-   * @returns the type color od the object
-   */
-  public getType():string {
-    return this.type;
   }
 }

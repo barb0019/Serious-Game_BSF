@@ -3,7 +3,7 @@ import Player from './Player.js';
 export default class PlayerRed extends Player {
     keyboard;
     constructor(maxX, maxY) {
-        super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92);
+        super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92, 'red');
         this.keyboard = new KeyListener();
     }
     move(canvas) {
@@ -40,7 +40,8 @@ export default class PlayerRed extends Player {
         return this.xPos < other.getXPos() + other.getImageWidth()
             && this.xPos + this.img.width > other.getXPos()
             && this.yPos < other.getYPos() + other.getImageHeight()
-            && this.yPos + this.img.height > other.getYPos();
+            && this.yPos + this.img.height > other.getYPos()
+            && other.getType() !== 'red';
     }
 }
 //# sourceMappingURL=PlayerRed.js.map

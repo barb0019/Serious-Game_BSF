@@ -7,17 +7,23 @@ export default abstract class GameItem {
 
   protected yPos: number;
 
+  private type:string;
+
   /**
    * Creates a new GameItem on a random position
    *
    * @param imageSrc the src of the image
    * @param maxX the max value of the X position
    * @param maxY the max value of the X position
+   * @param xPos
+   * @param yPos
+   * @param type
    */
-  public constructor(imageSrc: string, xPos: number, yPos: number) {
+  public constructor(imageSrc: string, xPos: number, yPos: number, type:string) {
     this.img = Game.loadNewImage(imageSrc);
     this.xPos = xPos;
     this.yPos = yPos;
+    this.type = type;
   }
 
   /**
@@ -63,5 +69,14 @@ export default abstract class GameItem {
    */
   public draw(ctx: CanvasRenderingContext2D): void {
     ctx.drawImage(this.img, this.xPos, this.yPos);
+  }
+
+  /**
+   * gwt the type
+   *
+   * @returns the type color od the object
+   */
+  public getType():string {
+    return this.type;
   }
 }

@@ -14,7 +14,7 @@ export default class PlayerRed extends Player {
    * @param maxY the max value of the X position
    */
   public constructor(maxX: number, maxY: number) {
-    super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92);
+    super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92, 'red');
     this.keyboard = new KeyListener();
   }
 
@@ -85,6 +85,7 @@ export default class PlayerRed extends Player {
     return this.xPos < other.getXPos() + other.getImageWidth()
       && this.xPos + this.img.width > other.getXPos()
       && this.yPos < other.getYPos() + other.getImageHeight()
-      && this.yPos + this.img.height > other.getYPos();
+      && this.yPos + this.img.height > other.getYPos()
+      && other.getType() !== 'red';
   }
 }

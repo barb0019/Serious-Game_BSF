@@ -12,8 +12,8 @@ export default class Player extends GameItem {
     jumpHeight;
     static gravityIncrease = 0.05;
     isJumping;
-    constructor(imageSrc, maxX, maxY) {
-        super(imageSrc, maxX - 76, maxY - 92);
+    constructor(imageSrc, maxX, maxY, type) {
+        super(imageSrc, maxX - 76, maxY - 92, type);
         this.xVel = 3;
         this.yVel = 3;
         this.jumpHeight = 4.5;
