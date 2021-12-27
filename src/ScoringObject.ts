@@ -28,4 +28,12 @@ export default abstract class ScoringObject extends GameItem {
   public getScore(): number {
     return this.score;
   }
+  /**
+   * gwt the type
+   *
+   * @returns the type color od the object
+   */
+  public getType():string {
+    return this.type;
+  }
 }

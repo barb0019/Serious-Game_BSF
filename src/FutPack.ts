@@ -8,6 +8,6 @@ export default class FutPack extends ScoringObject {
    * @param type type of the v buck
    */
   public constructor(xPos: number, yPos: number, type:string, points:number) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type);
+    super(`./assets/img/pack${type}.png`, xPos, yPos, points, type);
   }
 }
