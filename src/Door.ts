@@ -8,6 +8,8 @@ export default class Door {
 
   private yPos: number;
 
+  private type:string;
+
   /**
    *
    * @param xPos
@@ -18,6 +20,12 @@ export default class Door {
     this.img = Game.loadNewImage(`./assets/img/${type}.png`);
     this.xPos = xPos;
     this.yPos = yPos;
+    this.type = type;
+  }
+
+
+  public getType():string {
+    return this.type;
   }
 
   /**

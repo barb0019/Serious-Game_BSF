@@ -3,10 +3,15 @@ export default class Door {
     img;
     xPos;
     yPos;
+    type;
     constructor(xPos, yPos, type) {
         this.img = Game.loadNewImage(`./assets/img/${type}.png`);
         this.xPos = xPos;
         this.yPos = yPos;
+        this.type = type;
+    }
+    getType() {
+        return this.type;
     }
     getImageHeight() {
         return this.img.height;
