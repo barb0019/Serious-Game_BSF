@@ -1,11 +1,15 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
-import Level from './Level.js';
+import Level2 from './Level.js';
+import Level1 from './Level2.js';
 import Scene from './Scene.js';
 import Start from './Start.js';
 
 export default class LevelUp extends Scene {
   private shouldStart: boolean;
+
+  private levelArray:any[];
+
 
   private keyboard: KeyListener;
 
@@ -18,6 +22,7 @@ export default class LevelUp extends Scene {
     super(game);
     this.keyboard = new KeyListener();
     this.shouldStart = false;
+    this.levelArray = [new Level1(this.game), new Level2(this.game)];
   }
 
   /**
@@ -45,9 +50,9 @@ export default class LevelUp extends Scene {
    *   current scene, just return `null`
    */
   public update(): Scene {
-    if (this.shouldStart) {
+    if (this.shouldStart && this.game.getUser().getLevel() < this.levelArray.length) {
       this.game.getUser().increaseLevel();
-      return new Level(this.game);
+      return this.levelArray[this.game.getUser().getLevel()];
     }
     return null;
   }

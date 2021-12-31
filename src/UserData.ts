@@ -9,7 +9,7 @@ export default class UserData {
    * Creates a new instance of this class
    */
   public constructor() {
-    this.level = 1;
+    this.level = 0;
     this.score = 0;
     this.name = 'Player 1 and 2';
   }

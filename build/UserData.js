@@ -3,7 +3,7 @@ export default class UserData {
     score;
     level;
     constructor() {
-        this.level = 1;
+        this.level = 0;
         this.score = 0;
         this.name = 'Player 1 and 2';
     }

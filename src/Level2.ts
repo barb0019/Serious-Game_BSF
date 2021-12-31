@@ -14,7 +14,7 @@ import Star from './Star.js';
 import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
 
-export default class Level2 extends Scene {
+export default class Level1 extends Scene {
   // Garbage items (the player needs to pick these up)
   private scoringObjects: ScoringObject[];
 
