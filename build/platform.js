@@ -43,6 +43,8 @@ export default class Platform {
                 console.log('bottom');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
+                player.setGravity(10);
+                player.setOnPlatform(false);
                 return true;
             }
             if (collisionLeft) {
@@ -71,8 +73,8 @@ export default class Platform {
             player.setOnPlatform(true);
         }
     }
-    wallJumping(trueOrFalse) {
-        if (trueOrFalse) {
+    wallJumping(onOrOff) {
+        if (onOrOff) {
             this.walljumpCheck = 0;
         }
         else

@@ -84,6 +84,8 @@ export default class Platform {
         console.log('bottom');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
+        player.setGravity(10);
+        player.setOnPlatform(false);
         return true;
       }
       if (collisionLeft) {
@@ -111,6 +113,7 @@ export default class Platform {
   }
 
   private checkPixelAbovePlatform(player: Player) {
+    // the 1 checks for the pixel above the platform
     if (this.xPos < player.getXPos() + player.getImageWidth()
       + player.getXVel() - this.walljumpCheck
       && this.xPos + this.width > player.getXPos() - player.getXVel() + this.walljumpCheck
@@ -123,10 +126,12 @@ export default class Platform {
   }
 
   /**
-   * @param trueOrFalse whether waljumping is true (on) or false(off)
+   * Turn walljumping either on or off
+   *
+   * @param onOrOff whether to turn waljumping on (true) or off (false)
    */
-  public wallJumping(trueOrFalse: boolean): void {
-    if (trueOrFalse) {
+  public wallJumping(onOrOff: boolean): void {
+    if (onOrOff) {
       this.walljumpCheck = 0;
     } else this.walljumpCheck = 10;
   }
