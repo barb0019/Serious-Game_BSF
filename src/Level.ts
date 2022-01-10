@@ -15,7 +15,7 @@ import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
 import SpeedBubble from './SpeedBubble.js';
 
-export default class Level2 extends Scene {
+export default class Level1 extends Scene {
   // Garbage items (the player needs to pick these up)
   private scoringObjects: ScoringObject[];
 
@@ -61,7 +61,8 @@ export default class Level2 extends Scene {
 
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
-    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500);
+    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1],this.player[0]);
+    console.log('level 1');
   }
 
   /**
@@ -108,7 +109,7 @@ export default class Level2 extends Scene {
     );
   }
 
-  private hasWon(): boolean {
+  public hasWon(): boolean {
     const user = this.game.getUser();
     return user.getScore() >= user.getLevel() * 3;
   }
@@ -150,7 +151,7 @@ export default class Level2 extends Scene {
         element.collidesWith(this.player[i]);
       }
     });
-
+// wtf is hier gebeurt
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
@@ -179,7 +180,6 @@ export default class Level2 extends Scene {
     if (this.game.getUser().getScore() < 0) {
       return new GameOver(this.game);
     }
-
     return null;
   }
 

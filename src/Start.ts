@@ -1,12 +1,15 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
-import Level0 from './Level.js';
+import Level1 from './Level.js';
+import Level2 from './Level2.js';
 import Scene from './Scene.js';
 
 export default class Start extends Scene {
   private shouldStart: boolean;
 
   private keyboard: KeyListener;
+
+  private levelsArray: any;
 
   /**
    * Creates a new instance of this class
@@ -18,6 +21,7 @@ export default class Start extends Scene {
     game.reset();
     this.keyboard = new KeyListener();
     this.shouldStart = false;
+    this.levelsArray = [new Level1(game), new Level2(game)];
   }
 
   /**
@@ -45,11 +49,19 @@ export default class Start extends Scene {
    *   current scene, just return `null`
    */
   public update(): Scene {
+    console.log('test with HAM');
+    // ZODRA JE OP DE SPATIE DRUKT WORDT DEZE FUNCTIE GENEGEERt
     if (this.shouldStart) {
-      return new Level0(this.game);
+      console.log('test');
+      if (this.levelsArray[this.game.getUser().getLevel() - 1].hasWon()) { // dit stuk ergens anders
+        this.levelsArray.splice(0, 1);
+        this.levelsArray.hasWon = false;
+      }
+      return this.levelsArray[this.game.getUser().getLevel() - 1]; // nop wrk nit
     }
     return null;
   }
+  // ik heb iets geflikt. het werkt. maar in achterwaardse volgorde.gaA
 
   /**
    * Draw the game so the player can see what happened
