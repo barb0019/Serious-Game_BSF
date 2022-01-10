@@ -179,8 +179,6 @@ export default class Level2 extends Scene {
     if (this.game.getUser().getScore() < 0) {
       return new GameOver(this.game);
     }
-
-
     return null;
   }
 
