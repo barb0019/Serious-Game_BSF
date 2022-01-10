@@ -7,6 +7,8 @@ export default abstract class GameItem {
 
   protected yPos: number;
 
+  protected speed: number;
+
   private type:string;
 
   /**
@@ -24,6 +26,7 @@ export default abstract class GameItem {
     this.xPos = xPos;
     this.yPos = yPos;
     this.type = type;
+    this.speed = 3;
   }
 
   /**
@@ -60,6 +63,14 @@ export default abstract class GameItem {
    */
   public getYPos(): number {
     return this.yPos;
+  }
+
+  /**
+   * get the speed
+   * @returns the speed
+   */
+  public getSpeed(): number {
+    return this.speed;
   }
 
   /**

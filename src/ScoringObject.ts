@@ -27,4 +27,7 @@ export default abstract class ScoringObject extends GameItem {
   public getScore(): number {
     return this.score;
   }
+
+  public move(): void {
+  }
 }

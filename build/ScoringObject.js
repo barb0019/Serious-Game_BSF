@@ -8,5 +8,7 @@ export default class ScoringObject extends GameItem {
     getScore() {
         return this.score;
     }
+    move() {
+    }
 }
 //# sourceMappingURL=ScoringObject.js.map

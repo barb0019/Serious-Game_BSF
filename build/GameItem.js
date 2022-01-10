@@ -3,12 +3,14 @@ export default class GameItem {
     img;
     xPos;
     yPos;
+    speed;
     type;
     constructor(imageSrc, xPos, yPos, type) {
         this.img = Game.loadNewImage(imageSrc);
         this.xPos = xPos;
         this.yPos = yPos;
         this.type = type;
+        this.speed = 3;
     }
     getImageHeight() {
         return this.img.height;
@@ -21,6 +23,9 @@ export default class GameItem {
     }
     getYPos() {
         return this.yPos;
+    }
+    getSpeed() {
+        return this.speed;
     }
     draw(ctx) {
         ctx.drawImage(this.img, this.xPos, this.yPos);
