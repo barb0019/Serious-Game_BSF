@@ -3,6 +3,7 @@ import KeyListener from './KeyListener.js';
 import GameLoop from './GameLoop.js';
 import Door from './Door.js';
 import ScoringObject from './ScoringObject.js';
+import SpeedBubble from './SpeedBubble.js';
 
 export default abstract class Player extends GameItem {
   protected xVel: number;
@@ -23,14 +24,15 @@ export default abstract class Player extends GameItem {
 
   private static readonly gravityIncrease: number = 0.2;
 
+  private static readonly maxGravity: number = 100;
+
   protected isJumping: boolean;
 
   /**
-   *
-   * @param imageSrc
+   * @param imageSrc imageSrc, the actual image used for the player
    * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
-   * @param type
+   * @param type the type of item
    */
   public constructor(imageSrc: string, maxX: number, maxY: number, type:string) {
     super(imageSrc, maxX - 76, maxY - 92, type);
@@ -57,8 +59,8 @@ export default abstract class Player extends GameItem {
       this.gravity += Player.gravityIncrease;
 
       // max speed for the gravity
-      if (this.gravity > 100) {
-        this.gravity = 100;
+      if (this.gravity > Player.maxGravity) {
+        this.gravity = Player.maxGravity;
       }
       this.count += 1;
     }
@@ -154,7 +156,7 @@ export default abstract class Player extends GameItem {
 
   abstract move(canvas: HTMLCanvasElement): void;
 
-  abstract collidesWith(other: GameItem | Door): boolean;
+  abstract collidesWith(other: GameItem | Door |SpeedBubble): boolean;
 
   /**
    * plays the music of the person jumping

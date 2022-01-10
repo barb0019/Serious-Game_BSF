@@ -37,7 +37,7 @@ export default class Level2 extends Scene {
         this.platform = [];
         this.makePlatforms();
         this.countUntilNextItem = 300;
-        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500);
+        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[0], this.player[1]);
     }
     makePlatforms() {
         const { canvas } = this.game;
@@ -89,11 +89,11 @@ export default class Level2 extends Scene {
             this.countUntilNextItem = Game.randomNumber(120, 240);
         }
         this.countUntilNextItem -= elapsed;
+        this.scoringObjects[2].move();
         if (this.hasWon() && this.player[1].collidesWith(this.door)
             && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
-        this.scoringObjects[2].move();
         if (this.game.getUser().getScore() < 0) {
             return new GameOver(this.game);
         }
