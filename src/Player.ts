@@ -118,6 +118,10 @@ export default abstract class Player extends GameItem {
     return this.xPos;
   }
 
+  public getJumpHeight(): number {
+    return this.jumpHeight;
+  }
+
   /**
    * @param gravity
    */
