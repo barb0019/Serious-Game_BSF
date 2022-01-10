@@ -41,7 +41,7 @@ export default class Level2 extends Scene {
     this.door = new Door(250, 550, 'DoubleDoor0');
     this.scoringObjects = [];
     this.player = [];
-    this.scoringObjects.push(new VBucks(250, 450, 'blue', -3));
+    this.scoringObjects.push(new VBucks(250, 350, 'blue', -3));
     this.scoringObjects.push(new VBucks(650, 350, 'red', -3));
     this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3));
     this.scoringObjects.push(new FutPack(450, 350, 'red', -3));

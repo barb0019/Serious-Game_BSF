@@ -39,8 +39,8 @@ export default class Player extends GameItem {
             this.yPos -= this.jumpHeight;
         }
         else {
-            this.isJumping = false;
             this.jumpMusic();
+            this.isJumping = false;
         }
     }
     setXPos(xPos) {
