@@ -47,6 +47,7 @@ export default class Level1 extends Scene {
     this.scoringObjects.push(new VBucks(250, 450, 'blue', -3));
     this.scoringObjects.push(new VBucks(650, 350, 'red', -3));
     this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3));
+    this.scoringObjects.push(new VBucks(500, 400, 'moneymonster', -1));
     this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
     this.scoringObjects.push(new FutPack(850, 350, 'blue', -3));
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
@@ -61,7 +62,7 @@ export default class Level1 extends Scene {
 
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
-    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1],this.player[0]);
+    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0]);
     console.log('level 1');
   }
 
