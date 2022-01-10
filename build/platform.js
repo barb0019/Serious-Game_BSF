@@ -65,7 +65,7 @@ export default class Platform {
         if (this.xPos < player.getXPos() + player.getImageWidth()
             + player.getXVel() - this.walljumpCheck
             && this.xPos + this.width > player.getXPos() - player.getXVel() + this.walljumpCheck
-            && this.yPos < player.getYPos() + player.getImageHeight() + 1
+            && this.yPos < player.getYPos() + player.getImageHeight() + this.walljumpCheck
             && this.yPos + this.height > player.getYPos()) {
             player.setGravity(0);
             player.setOnPlatform(true);
