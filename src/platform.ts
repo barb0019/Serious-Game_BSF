@@ -75,7 +75,7 @@ export default class Platform {
         && collisionLeft) {
         // moves you down, so prevents you from going through the bottom
         // collision bottom
-        player.setYPos(player.yPosPrevious[1] + player.getYVel());
+        player.setYPos(player.yPosPrevious[1] + player.getJumpHeight());
         console.log('bottom');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);

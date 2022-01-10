@@ -63,6 +63,9 @@ export default class Player extends GameItem {
     getXPos() {
         return this.xPos;
     }
+    getJumpHeight() {
+        return this.jumpHeight;
+    }
     setGravity(gravity) {
         this.gravity = gravity;
     }
