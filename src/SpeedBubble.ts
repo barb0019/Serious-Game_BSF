@@ -12,6 +12,7 @@ export default class SpeedBubble {
   */
   public constructor(game:Game, text:string, yCoordinate:number, xCoordinate:number) {
     this.game = game;
+
     this.game.writeTextToCanvas(text, 125, yCoordinate, xCoordinate , 'center', 'red');
   }
 }
