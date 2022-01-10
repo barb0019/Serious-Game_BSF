@@ -23,7 +23,6 @@ export default class Door {
     this.type = type;
   }
 
-
   public getType():string {
     return this.type;
   }

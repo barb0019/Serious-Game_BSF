@@ -10,7 +10,6 @@ export default class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
-        Game.music = new Audio('./assets/game-music-7408.mp3');
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.gameLoop = new GameLoop();
