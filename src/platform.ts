@@ -104,8 +104,8 @@ export default class Platform {
   }
 
   /**
-   * Checks if the player collides with the character
-   * and puts him in the previous position he was before the collision.
+   * Checks if the player collides with the platform
+   * and puts the player in the previous position he was before the collision.
    *
    * @param player the player character
    * @returns boolean of whether the character collided or not
