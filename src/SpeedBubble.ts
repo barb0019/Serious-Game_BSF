@@ -36,8 +36,8 @@ export default class SpeedBubble  {
    * render
    */
   public render(): void {
-    const text =document.getElementById('textarea');
-    text.innerHTML= 'test';
+    const text = document.getElementById('textarea');
+    text.innerHTML = 'test';
     text.style.position = 'center';
     this.game.writeTextToCanvas(this.text, 39, this.yCoordinate, this.xCoordinate, 'center', 'black');
   }
