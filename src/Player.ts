@@ -104,6 +104,13 @@ export default abstract class Player extends GameItem {
   }
 
   /**
+   * @returns current gravity "strength" number
+   */
+  public getGravity(): number {
+    return this.gravity;
+  }
+
+  /**
    *
    * @returns
    */
