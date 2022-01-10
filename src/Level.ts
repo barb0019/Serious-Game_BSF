@@ -61,7 +61,7 @@ export default class Level2 extends Scene {
 
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
-    this.speedBubble = new SpeedBubble(game,'hallo',100,500,this.player[0],this.player[1]);
+    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500);
   }
 
   /**
@@ -173,12 +173,13 @@ export default class Level2 extends Scene {
     && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
-   this.scoringObjects[2].move();
+    this.scoringObjects[2].move();
 
     // Move to gameover screen
     if (this.game.getUser().getScore() < 0) {
       return new GameOver(this.game);
     }
+
     return null;
   }
 

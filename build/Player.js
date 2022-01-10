@@ -10,6 +10,7 @@ export default class Player extends GameItem {
     onPlatform;
     jumpHeight;
     static gravityIncrease = 0.2;
+    static maxGravity = 100;
     isJumping;
     constructor(imageSrc, maxX, maxY, type) {
         super(imageSrc, maxX - 76, maxY - 92, type);
@@ -28,8 +29,8 @@ export default class Player extends GameItem {
             this.yPos += this.gravity;
             this.count = 0;
             this.gravity += Player.gravityIncrease;
-            if (this.gravity > 100) {
-                this.gravity = 100;
+            if (this.gravity > Player.maxGravity) {
+                this.gravity = Player.maxGravity;
             }
             this.count += 1;
         }

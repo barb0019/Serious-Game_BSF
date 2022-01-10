@@ -15,14 +15,42 @@ export default class Platform {
         this.walljumpCheck = 10;
     }
     collidesWith(player) {
-        const collisionTop = this.yPos + this.height > player.getYPos() + player.getImageHeight();
-        const collisionBottom = this.yPos < player.getYPos();
-        const collisionRight = this.xPos < player.getXPos() + player.getImageWidth();
-        const collisionLeft = this.xPos + this.width > player.getXPos();
         player.xPosPrevious.push(player.getXPos());
         player.yPosPrevious.push(player.getYPos());
         this.checkPlayerheightAbovePlatform(player);
         this.checkPixelAbovePlatform(player);
+        return this.checkPlayerInsidePlatform(player);
+    }
+    checkPixelAbovePlatform(player) {
+        if (this.xPos < player.getXPos() + player.getImageWidth()
+            + player.getXVel() - this.walljumpCheck
+            && this.xPos + this.width > player.getXPos() - player.getXVel() + this.walljumpCheck
+            && this.yPos < player.getYPos() + player.getImageHeight() + 1
+            && this.yPos + this.height > player.getYPos()) {
+            player.setGravity(0);
+            player.setOnPlatform(true);
+        }
+    }
+    wallJumping(onOrOff) {
+        if (onOrOff) {
+            this.walljumpCheck = 0;
+        }
+        else
+            this.walljumpCheck = 10;
+    }
+    checkPlayerheightAbovePlatform(player) {
+        if (!(this.yPos
+            > player.getYPos() + player.getImageHeight()
+            || this.yPos + this.height
+                > player.getYPos() + player.getImageHeight() - this.height)) {
+            player.setOnPlatform(false);
+        }
+    }
+    checkPlayerInsidePlatform(player) {
+        const collisionTop = this.yPos + this.height > player.getYPos() + player.getImageHeight();
+        const collisionBottom = this.yPos < player.getYPos();
+        const collisionRight = this.xPos < player.getXPos() + player.getImageWidth();
+        const collisionLeft = this.xPos + this.width > player.getXPos();
         if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
             && this.xPos + this.width > player.getXPos() - player.getXVel()
             && this.yPos < player.getYPos() + player.getImageHeight()
@@ -56,31 +84,6 @@ export default class Platform {
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
         return false;
-    }
-    checkPixelAbovePlatform(player) {
-        if (this.xPos < player.getXPos() + player.getImageWidth()
-            + player.getXVel() - this.walljumpCheck
-            && this.xPos + this.width > player.getXPos() - player.getXVel() + this.walljumpCheck
-            && this.yPos < player.getYPos() + player.getImageHeight() + 1
-            && this.yPos + this.height > player.getYPos()) {
-            player.setGravity(0);
-            player.setOnPlatform(true);
-        }
-    }
-    wallJumping(onOrOff) {
-        if (onOrOff) {
-            this.walljumpCheck = 0;
-        }
-        else
-            this.walljumpCheck = 10;
-    }
-    checkPlayerheightAbovePlatform(player) {
-        if (!(this.yPos
-            > player.getYPos() + player.getImageHeight()
-            || this.yPos + this.height
-                > player.getYPos() + player.getImageHeight() - this.height)) {
-            player.setOnPlatform(false);
-        }
     }
     draw(ctx) {
         ctx.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
