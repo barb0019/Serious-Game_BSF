@@ -169,18 +169,19 @@ export default class Level2 extends Scene {
     // Lower the count until the next item with 1
     this.countUntilNextItem -= elapsed;
 
+    // Move the objects
+    this.scoringObjects[2].move();
+
     // Move to level clear screen
     if (this.hasWon() && this.player[1].collidesWith(this.door)
     && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
-   this.scoringObjects[2].move();
 
     // Move to gameover screen
     if (this.game.getUser().getScore() < 0) {
       return new GameOver(this.game);
     }
-
 
     return null;
   }
