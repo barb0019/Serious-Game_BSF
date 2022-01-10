@@ -13,10 +13,14 @@ import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
+import SpeedBubble from './SpeedBubble.js';
 
 export default class Level2 extends Scene {
   // Garbage items (the player needs to pick these up)
   private scoringObjects: ScoringObject[];
+
+
+  private speedBubble:SpeedBubble;
 
   // Player
   // private player: Player;
@@ -54,11 +58,11 @@ export default class Level2 extends Scene {
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
     this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
     this.platform = [];
-
     this.makePlatforms();
 
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
+    this.speedBubble = new SpeedBubble(game,'test',250,250);
   }
 
   /**
@@ -188,6 +192,7 @@ export default class Level2 extends Scene {
     // Show score
     const score = `Stars: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);
+    this.game.writeTextToCanvas('test',36,250,250,'left','black');
 
     this.scoringObjects.forEach((element) => {
       element.draw(this.game.ctx);

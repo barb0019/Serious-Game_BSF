@@ -11,8 +11,10 @@ import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
+import SpeedBubble from './SpeedBubble.js';
 export default class Level2 extends Scene {
     scoringObjects;
+    speedBubble;
     player;
     platform;
     countUntilNextItem;
@@ -35,6 +37,7 @@ export default class Level2 extends Scene {
         this.platform = [];
         this.makePlatforms();
         this.countUntilNextItem = 300;
+        this.speedBubble = new SpeedBubble(game, 'test', 250, 250);
     }
     makePlatforms() {
         const { canvas } = this.game;
@@ -99,6 +102,7 @@ export default class Level2 extends Scene {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
         const score = `Stars: ${this.game.getUser().getScore()}`;
         this.game.writeTextToCanvas(score, 36, 120, 50);
+        this.game.writeTextToCanvas('test', 36, 250, 250, 'left', 'black');
         this.scoringObjects.forEach((element) => {
             element.draw(this.game.ctx);
         });
