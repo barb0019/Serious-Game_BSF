@@ -53,6 +53,7 @@ export default class Platform {
     player.xPosPrevious.push(player.getXPos());
     player.yPosPrevious.push(player.getYPos());
 
+    // hover for description
     this.checkPlayerheightAbovePlatform(player);
     this.checkPixelAbovePlatform(player);
 
@@ -63,9 +64,7 @@ export default class Platform {
       && this.yPos + this.height > player.getYPos()) {
       // checks if standing just above platform,
       // or in platform to prevent clipping through the object
-      if (collisionTop
-        && collisionRight
-        && collisionLeft) {
+      if (collisionTop && collisionRight && collisionLeft) {
         // moves you up, so prevents you from going through the top
         // the 1 makes it so that it sets 1 pixel above the platform
         // collision top
@@ -75,10 +74,10 @@ export default class Platform {
         player.yPosPrevious.splice(0, 1);
         return true;
       }
-      if (collisionBottom
-        && collisionRight
-        && collisionLeft) {
+      if (collisionBottom && collisionRight && collisionLeft) {
         // moves you down, so prevents you from going through the bottom
+        // also prevents you from jumping again (setOnPlatform(false))
+        // and makes it so there is gravity when you hit it from the bottom
         // collision bottom
         player.setYPos(player.yPosPrevious[1] + player.getJumpHeight());
         console.log('bottom');
@@ -112,6 +111,13 @@ export default class Platform {
     return false;
   }
 
+  /**
+   * Checks if the player is 1 pixel above the platform and turns the gravity off.
+   * This way the player isn't considered in the platform
+   * and won't continually get his position changed.
+   *
+   * @param player the Player class
+   */
   private checkPixelAbovePlatform(player: Player) {
     // the 1 checks for the pixel above the platform
     if (this.xPos < player.getXPos() + player.getImageWidth()
@@ -136,6 +142,13 @@ export default class Platform {
     } else this.walljumpCheck = 10;
   }
 
+  /**
+   * Checks if you are above the platform and makes it so you aren't considered onPlatform in
+   * Player.
+   * Makes it so gravity acitvates when you walk off a floating platform to the left or right
+   *
+   * @param player the Player class
+   */
   private checkPlayerheightAbovePlatform(player: Player) {
     if (!(this.yPos
       > player.getYPos() + player.getImageHeight()

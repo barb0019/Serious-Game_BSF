@@ -80,6 +80,7 @@ export default abstract class Player extends GameItem {
   }
 
   /**
+   * set x pos of the player
    *
    * @param xPos x position of the player
    */
@@ -88,7 +89,7 @@ export default abstract class Player extends GameItem {
   }
 
   /**
-   *set y pos of the player
+   * set y pos of the player
    *
    * @param yPos y position of the player
    */
@@ -111,8 +112,7 @@ export default abstract class Player extends GameItem {
   }
 
   /**
-   *
-   * @returns
+   * @returns current xpos of Player
    */
   public getXPos(): number {
     return this.xPos;
@@ -126,14 +126,18 @@ export default abstract class Player extends GameItem {
   }
 
   /**
-   * @param gravity
+   * Sets the amount of gravity
+   *
+   * @param gravity the amount of gravity, changes how fast you fall. On a platform it's always 0.
    */
   public setGravity(gravity: number): void {
     this.gravity = gravity;
   }
 
   /**
-   * @param trueOrFalse
+   * Sets whether the player is considered on a platform or not
+   *
+   * @param trueOrFalse if it's true or false that the player is on a platform
    */
   public setOnPlatform(trueOrFalse: boolean): void {
     this.onPlatform = trueOrFalse;
