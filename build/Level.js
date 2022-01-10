@@ -37,7 +37,7 @@ export default class Level2 extends Scene {
         this.platform = [];
         this.makePlatforms();
         this.countUntilNextItem = 300;
-        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500);
+        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[0], this.player[1]);
     }
     makePlatforms() {
         const { canvas } = this.game;
