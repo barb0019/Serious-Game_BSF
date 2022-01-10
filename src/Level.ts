@@ -19,7 +19,6 @@ export default class Level2 extends Scene {
   // Garbage items (the player needs to pick these up)
   private scoringObjects: ScoringObject[];
 
-
   private speedBubble:SpeedBubble;
 
   // Player
@@ -62,7 +61,7 @@ export default class Level2 extends Scene {
 
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
-    this.speedBubble = new SpeedBubble(game,'hallo',100,500);
+    this.speedBubble = new SpeedBubble(game,'hallo',100,500,this.player[0],this.player[1]);
   }
 
   /**
