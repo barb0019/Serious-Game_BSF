@@ -27,18 +27,14 @@ export default class Platform {
             && this.xPos + this.width > player.getXPos() - player.getXVel()
             && this.yPos < player.getYPos() + player.getImageHeight()
             && this.yPos + this.height > player.getYPos()) {
-            if (collisionTop
-                && collisionRight
-                && collisionLeft) {
+            if (collisionTop && collisionRight && collisionLeft) {
                 player.setYPos(player.yPosPrevious[1] - 1);
                 console.log('top');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
                 return true;
             }
-            if (collisionBottom
-                && collisionRight
-                && collisionLeft) {
+            if (collisionBottom && collisionRight && collisionLeft) {
                 player.setYPos(player.yPosPrevious[1] + player.getJumpHeight());
                 console.log('bottom');
                 player.xPosPrevious.splice(0, 1);
