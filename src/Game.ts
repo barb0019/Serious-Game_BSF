@@ -100,14 +100,14 @@ export default class Game {
    * plays the music
    */
   static play():void {
-    this.music.play();
-    this.music.loop = true;
+    // this.music.play();
+    // this.music.loop = true;
   }
 
   /**
    * pause the music
    */
   static pause():void {
-    this.music.pause();
+    // this.music.pause();
   }
 }

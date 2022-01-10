@@ -36,11 +36,8 @@ export default class Game {
         return Math.round(Math.random() * (max - min) + min);
     }
     static play() {
-        this.music.play();
-        this.music.loop = true;
     }
     static pause() {
-        this.music.pause();
     }
 }
 //# sourceMappingURL=Game.js.map
