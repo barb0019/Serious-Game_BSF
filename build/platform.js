@@ -28,7 +28,7 @@ export default class Platform {
             if (collisionTop
                 && collisionRight
                 && collisionLeft) {
-                player.setYPos(player.yPosPrevious[1] - player.getYVel());
+                player.setYPos(player.yPosPrevious[1] - 1);
                 console.log('top');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);

@@ -7,8 +7,6 @@ import ScoringObject from './ScoringObject.js';
 export default abstract class Player extends GameItem {
   protected xVel: number;
 
-  protected yVel: number;
-
   protected keyBoard: KeyListener;
 
   public xPosPrevious: number[];
@@ -23,7 +21,7 @@ export default abstract class Player extends GameItem {
 
   protected jumpHeight: number;
 
-  private static readonly gravityIncrease: number = 0.05;
+  private static readonly gravityIncrease: number = 0.2;
 
   protected isJumping: boolean;
 
@@ -32,12 +30,12 @@ export default abstract class Player extends GameItem {
    * @param imageSrc
    * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
+   * @param type
    */
   public constructor(imageSrc: string, maxX: number, maxY: number, type:string) {
     super(imageSrc, maxX - 76, maxY - 92, type);
     this.xVel = 3;
-    this.yVel = 3;
-    this.jumpHeight = 4.5;
+    this.jumpHeight = 9;
     this.count = 0;
     this.keyBoard = new KeyListener();
     this.xPosPrevious = [];
@@ -57,8 +55,8 @@ export default abstract class Player extends GameItem {
       this.count = 0;
 
       this.gravity += Player.gravityIncrease;
-      if (this.gravity > 10) {
-        this.gravity = 10;
+      if (this.gravity > 100) {
+        this.gravity = 100;
       }
       this.count += 1;
     }
@@ -68,9 +66,9 @@ export default abstract class Player extends GameItem {
    * Makes the character jump
    */
   protected jump(): void {
-    if (this.jumpHeight < this.gravity / 2 && !this.onPlatform) {
-      this.yPos -= this.jumpHeight;
-    } else
+    // if (this.jumpHeight < this.gravity / 2 && !this.onPlatform) {
+    //   this.yPos -= this.jumpHeight;
+    // } else
     if (!this.onPlatform) {
       this.yPos -= this.jumpHeight;
     } else {
@@ -104,13 +102,6 @@ export default abstract class Player extends GameItem {
   }
 
   /**
-   * @returns The y velocity number
-   */
-  public getYVel(): number {
-    return this.yVel;
-  }
-
-  /**
    *
    * @returns
    */
@@ -118,6 +109,9 @@ export default abstract class Player extends GameItem {
     return this.xPos;
   }
 
+  /**
+   * @returns jumpheight number
+   */
   public getJumpHeight(): number {
     return this.jumpHeight;
   }
@@ -143,7 +137,6 @@ export default abstract class Player extends GameItem {
    */
   public increaseSpeed(size: number): void {
     this.xVel += size;
-    this.yVel += size;
   }
 
   abstract move(canvas: HTMLCanvasElement): void;

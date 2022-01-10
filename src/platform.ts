@@ -63,8 +63,9 @@ export default class Platform {
         && collisionRight
         && collisionLeft) {
         // moves you up, so prevents you from going through the top
+        // the 1 makes it so that it sets 1 pixel above the platform
         // collision top
-        player.setYPos(player.yPosPrevious[1] - player.getYVel());
+        player.setYPos(player.yPosPrevious[1] - 1);
         console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);

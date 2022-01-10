@@ -2,7 +2,6 @@ import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
 export default class Player extends GameItem {
     xVel;
-    yVel;
     keyBoard;
     xPosPrevious;
     yPosPrevious;
@@ -10,13 +9,12 @@ export default class Player extends GameItem {
     gravity;
     onPlatform;
     jumpHeight;
-    static gravityIncrease = 0.05;
+    static gravityIncrease = 0.2;
     isJumping;
     constructor(imageSrc, maxX, maxY, type) {
         super(imageSrc, maxX - 76, maxY - 92, type);
         this.xVel = 3;
-        this.yVel = 3;
-        this.jumpHeight = 4.5;
+        this.jumpHeight = 9;
         this.count = 0;
         this.keyBoard = new KeyListener();
         this.xPosPrevious = [];
@@ -30,17 +28,14 @@ export default class Player extends GameItem {
             this.yPos += this.gravity;
             this.count = 0;
             this.gravity += Player.gravityIncrease;
-            if (this.gravity > 10) {
-                this.gravity = 10;
+            if (this.gravity > 100) {
+                this.gravity = 100;
             }
             this.count += 1;
         }
     }
     jump() {
-        if (this.jumpHeight < this.gravity / 2 && !this.onPlatform) {
-            this.yPos -= this.jumpHeight;
-        }
-        else if (!this.onPlatform) {
+        if (!this.onPlatform) {
             this.yPos -= this.jumpHeight;
         }
         else {
@@ -57,9 +52,6 @@ export default class Player extends GameItem {
     getXVel() {
         return this.xVel;
     }
-    getYVel() {
-        return this.yVel;
-    }
     getXPos() {
         return this.xPos;
     }
@@ -74,7 +66,6 @@ export default class Player extends GameItem {
     }
     increaseSpeed(size) {
         this.xVel += size;
-        this.yVel += size;
     }
     jumpMusic() {
         const jumpMusic = new Audio('./assets/jumpMusic.mp3');
