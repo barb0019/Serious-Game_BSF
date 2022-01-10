@@ -7,8 +7,6 @@ import ScoringObject from './ScoringObject.js';
 export default abstract class Player extends GameItem {
   protected xVel: number;
 
-  protected yVel: number;
-
   protected keyBoard: KeyListener;
 
   public xPosPrevious: number[];
@@ -37,7 +35,6 @@ export default abstract class Player extends GameItem {
   public constructor(imageSrc: string, maxX: number, maxY: number, type:string) {
     super(imageSrc, maxX - 76, maxY - 92, type);
     this.xVel = 3;
-    this.yVel = 3;
     this.jumpHeight = 9;
     this.count = 0;
     this.keyBoard = new KeyListener();
@@ -105,13 +102,6 @@ export default abstract class Player extends GameItem {
   }
 
   /**
-   * @returns The y velocity number
-   */
-  public getYVel(): number {
-    return this.yVel;
-  }
-
-  /**
    *
    * @returns
    */
@@ -147,7 +137,6 @@ export default abstract class Player extends GameItem {
    */
   public increaseSpeed(size: number): void {
     this.xVel += size;
-    this.yVel += size;
   }
 
   abstract move(canvas: HTMLCanvasElement): void;
