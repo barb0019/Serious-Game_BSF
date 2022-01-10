@@ -173,11 +173,13 @@ export default class Level2 extends Scene {
     && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
+   this.scoringObjects[2].move();
 
     // Move to gameover screen
     if (this.game.getUser().getScore() < 0) {
       return new GameOver(this.game);
     }
+
 
     return null;
   }
