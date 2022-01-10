@@ -13,6 +13,8 @@ export default class Platform {
 
   private player: Player;
 
+  private walljumpCheck: number;
+
   /**
    * @param xPos the x position of the platform on the canvas
    * @param yPos the y position of the platform on the canvas
@@ -30,6 +32,8 @@ export default class Platform {
     this.width = width;
     this.height = height;
     this.img = img;
+    // walljumping is off by default
+    this.walljumpCheck = 10;
   }
 
   /**
@@ -107,14 +111,24 @@ export default class Platform {
   }
 
   private checkPixelAbovePlatform(player: Player) {
-    if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
-      && this.xPos + this.width > player.getXPos() - player.getXVel()
+    if (this.xPos < player.getXPos() + player.getImageWidth()
+      + player.getXVel() - this.walljumpCheck
+      && this.xPos + this.width > player.getXPos() - player.getXVel() + this.walljumpCheck
       && this.yPos < player.getYPos() + player.getImageHeight() + 1
       && this.yPos + this.height > player.getYPos()) {
       player.setGravity(0);
       player.setOnPlatform(true);
       // console.log('platform');
     }
+  }
+
+  /**
+   * @param trueOrFalse whether waljumping is true (on) or false(off)
+   */
+  public wallJumping(trueOrFalse: boolean): void {
+    if (trueOrFalse) {
+      this.walljumpCheck = 0;
+    } else this.walljumpCheck = 10;
   }
 
   private checkPlayerheightAbovePlatform(player: Player) {

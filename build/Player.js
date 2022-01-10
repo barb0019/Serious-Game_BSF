@@ -52,6 +52,9 @@ export default class Player extends GameItem {
     getXVel() {
         return this.xVel;
     }
+    getGravity() {
+        return this.gravity;
+    }
     getXPos() {
         return this.xPos;
     }
