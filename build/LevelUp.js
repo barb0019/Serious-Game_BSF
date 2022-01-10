@@ -22,7 +22,7 @@ export default class LevelUp extends Scene {
     update() {
         if (this.shouldStart && this.game.getUser().getLevel() < this.levelArray.length) {
             this.game.getUser().increaseLevel();
-            return this.levelArray[this.game.getUser().getLevel()];
+            return this.levelArray[this.game.getUser().getLevel() - 1];
         }
         return null;
     }
