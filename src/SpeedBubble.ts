@@ -1,8 +1,7 @@
 import Game from './Game.js';
-import GameItem from './GameItem.js';
 import Player from './Player.js';
 
-export default class SpeedBubble  {
+export default class SpeedBubble {
   private text:string;
 
   private yCoordinate:number;
@@ -17,13 +16,15 @@ export default class SpeedBubble  {
 
   /**
    *
-   * @param game
-   * @param text
-   * @param yCoordinate
-   * @param xCoordinate
+   * @param game the game of the game
+   * @param text the text of the speedbubble
+   * @param yCoordinate y coodinate of the speedbubble
+   * @param xCoordinate x coordinate
+   * @param player1 player 1
+   * @param player2 player 2
    */
   public constructor(game:Game, text:string, yCoordinate:number,
-     xCoordinate:number,player1:Player,player2:Player) {
+    xCoordinate:number, player1:Player, player2:Player) {
     this.game = game;
     this.player1 = player1;
     this.player2 = player2;

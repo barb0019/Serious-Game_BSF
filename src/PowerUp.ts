@@ -2,7 +2,6 @@ import Player from './Player.js';
 import ScoringObject from './ScoringObject.js';
 
 export default class PowerUp extends ScoringObject {
-
   /**
    *
    * @param maxX the max value of the X position

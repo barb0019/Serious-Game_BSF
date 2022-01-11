@@ -10,7 +10,6 @@ export default class PlayerRed extends Player {
         const minX = 0;
         const maxX = canvas.width - this.img.width;
         const minY = 0;
-        const maxY = canvas.height - this.img.height;
         if (this.keyboard.isKeyDown(KeyListener.KEY_RIGHT) && this.xPos < maxX) {
             this.xPos += this.xVel;
             if (this.xPos > maxX) {

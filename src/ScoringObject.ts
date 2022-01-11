@@ -6,10 +6,8 @@ export default abstract class ScoringObject extends GameItem {
   /**
    *
    * @param imageSrc the src of the image
-   * @param maxX the max value of the X position
-   * @param maxY the max value of the X position
-   * @param xPos
-   * @param yPos
+   * @param xPos x position of the object
+   * @param yPos y position of hte object
    * @param score the score of this scoring object
    * @param type the type of tje object
    */
@@ -29,8 +27,9 @@ export default abstract class ScoringObject extends GameItem {
   }
 
   /**
-   *
+   * the object moves
    */
+  // eslint-disable-next-line class-methods-use-this
   public move(): void {
   }
 }

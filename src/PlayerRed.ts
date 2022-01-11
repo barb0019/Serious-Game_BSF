@@ -1,8 +1,6 @@
 import GameItem from './GameItem.js';
-import GameLoop from './GameLoop.js';
 import KeyListener from './KeyListener.js';
 import Player from './Player.js';
-import ScoringObject from './ScoringObject.js';
 
 export default class PlayerRed extends Player {
   // KeyboardListener so the player can move
@@ -29,8 +27,6 @@ export default class PlayerRed extends Player {
     const minX = 0;
     const maxX = canvas.width - this.img.width;
     const minY = 0;
-    const maxY = canvas.height - this.img.height;
-
     // Moving right
     if (this.keyboard.isKeyDown(KeyListener.KEY_RIGHT) && this.xPos < maxX) {
       this.xPos += this.xVel;
