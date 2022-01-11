@@ -3,6 +3,7 @@ import KeyListener from './KeyListener.js';
 import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import Scene from './Scene.js';
+import Shop from './Shop.js';
 import Start from './Start.js';
 
 export default class LevelUp extends Scene {
@@ -11,6 +12,8 @@ export default class LevelUp extends Scene {
   private levelArray:any[];
 
   private keyboard: KeyListener;
+
+  private toShop: boolean;
 
   /**
    * Creates a new instance of this class
@@ -30,6 +33,10 @@ export default class LevelUp extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_P)) {
       this.shouldStart = true;
+      Game.pause();
+    }
+    if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
+      this.toShop = true;
       Game.pause();
     }
   }
@@ -53,6 +60,9 @@ export default class LevelUp extends Scene {
       // this.levelArray.splice(0, 1);
       this.game.getUser().increaseLevel();
       return this.levelArray[this.game.getUser().getLevel() - 1];
+    }
+    if (this.toShop) {
+      return new Shop(this.game);
     }
     return null;
   }
