@@ -25,12 +25,13 @@ export default class Shop extends Scene {
 
   private makingButtons(): void {
     this.buttons = [];
-    this.buttons.push(document.createElement('BUTTON'));
+    this.buttons.push(document.createElement('buy'));
     document.body.appendChild(this.buttons[0]);
     this.buttons[0].innerHTML = 'Buy';
     this.buttons[0].style.position = 'absolute';
-    this.buttons[0].style.left = '100px';
-    this.buttons[0].style.fontSize = '100px';
+    this.buttons[0].style.left = `${window.innerWidth / 2}px`;
+    this.buttons[0].style.top = `${window.innerHeight / 2}px`;
+    this.buttons[0].style.fontSize = '48px';
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -38,7 +39,7 @@ export default class Shop extends Scene {
     console.log('item bought');
   }
 
-  /**
+  /**x
    * @returns The level
    */
   public update(): Scene {
@@ -76,6 +77,5 @@ export default class Shop extends Scene {
     shop.writeTextToCanvas('Y', 20, canvas.width * 0.5, canvas.height / 1.4, 'center', 'dark black');
     shop.writeTextToCanvas('More placeholders', 25, canvas.width * 0.75, canvas.height / 1.5, 'center', 'black');
     shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
-    shop.writeTextToCanvas(this.buttons[0].innerHTML, 30, canvas.width * 0.5, canvas.height * 0.5, 'center', 'black');
   }
 }
