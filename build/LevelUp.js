@@ -25,12 +25,12 @@ export default class LevelUp extends Scene {
         }
     }
     update() {
+        if (this.toShop) {
+            return new Shop(this.game, this.levelArray);
+        }
         if (this.shouldStart && this.game.getUser().getLevel() < this.levelArray.length) {
             this.game.getUser().increaseLevel();
             return this.levelArray[this.game.getUser().getLevel() - 1];
-        }
-        if (this.toShop) {
-            return new Shop(this.game);
         }
         return null;
     }
@@ -41,7 +41,8 @@ export default class LevelUp extends Scene {
         this.game.writeTextToCanvas(line1, 128, centerX, 250, 'center', 'red');
         const msg = `${this.game.getUser().getName()} score: ${this.game.getUser().getScore()}`;
         this.game.writeTextToCanvas(msg, 48, centerX, 450, 'center', 'yellow');
-        this.game.writeTextToCanvas("Type 'p' to proceed to the next level", 48, centerX, 550, 'center', 'white');
+        this.game.writeTextToCanvas("Type 'p' to proceed to the next level", 48, centerX, 550, 'center', 'black');
+        this.game.writeTextToCanvas("Press 'space' to go to the shop", 48, centerX, 600, 'center', 'black');
     }
 }
 //# sourceMappingURL=LevelUp.js.map
