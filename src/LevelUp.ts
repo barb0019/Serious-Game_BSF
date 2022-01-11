@@ -1,6 +1,6 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
-import Level1 from './Level.js';
+import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import Scene from './Scene.js';
 import Start from './Start.js';
@@ -9,7 +9,6 @@ export default class LevelUp extends Scene {
   private shouldStart: boolean;
 
   private levelArray:any[];
-
 
   private keyboard: KeyListener;
 
@@ -50,14 +49,9 @@ export default class LevelUp extends Scene {
    *   current scene, just return `null`
    */
   public update(): Scene {
-
-    // kijks een naar die if waarom zou die het dan niet doen getlevel geeft het level weer waar je bent en als de lengte kleiner is
-    // de if doet het, maar als je de 1e of 2e splicetd win je gelijk het lvl
     if (this.shouldStart && this.game.getUser().getLevel() < this.levelArray.length) {
-      console.log('test 2 elcetirce bogalooo');
-      console.log(this.levelArray); // uh alleen level 1 bestaat
       // this.levelArray.splice(0, 1);
-   this.game.getUser().increaseLevel();
+      this.game.getUser().increaseLevel();
       return this.levelArray[this.game.getUser().getLevel() - 1];
     }
     return null;

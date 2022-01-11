@@ -1,6 +1,6 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
-import Level1 from './Level.js';
+import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import Scene from './Scene.js';
 export default class LevelUp extends Scene {
@@ -21,8 +21,6 @@ export default class LevelUp extends Scene {
     }
     update() {
         if (this.shouldStart && this.game.getUser().getLevel() < this.levelArray.length) {
-            console.log('test 2 elcetirce bogalooo');
-            console.log(this.levelArray);
             this.game.getUser().increaseLevel();
             return this.levelArray[this.game.getUser().getLevel() - 1];
         }
