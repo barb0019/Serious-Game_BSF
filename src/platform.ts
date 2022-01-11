@@ -38,14 +38,13 @@ export default class Platform {
 
   /**
    * Checks if it collides with the player
+   * and makes it so the player doesn't go through the platform.
    *
    * @param player The player character
    * @returns Wheter the platform collides with the player or not
    */
   public collidesWith(player: Player): boolean {
     // sets the current pos of the player to be used next frame for collision detection
-
-    // TODO make this work for 2 players
     player.xPosPrevious.push(player.getXPos());
     player.yPosPrevious.push(player.getYPos());
 
