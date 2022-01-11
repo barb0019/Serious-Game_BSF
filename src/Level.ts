@@ -46,25 +46,30 @@ export default abstract class Level extends Scene {
     this.countUntilNextItem = 300;
   }
 
-/**
- *
- * @param game
- */
-  protected speedbubbles(game:game): void {}
+  /**
+   *
+   *
+   * @param game the game of the game
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected speedbubbles(game:Game): void {}
 
   /**
    *
    */
+  // eslint-disable-next-line class-methods-use-this
   protected players(): void {}
 
   /**
    *
    */
+  // eslint-disable-next-line class-methods-use-this
   protected objects(): void {}
 
   /**
    * Creates platforms
    */
+  // eslint-disable-next-line class-methods-use-this
   protected makePlatforms(): void {}
 
   /**
