@@ -124,9 +124,8 @@ export default class Platform {
       // or in platform to prevent clipping through the object
       if (collisionTop && collisionRight && collisionLeft) {
         // moves you up, so prevents you from going through the top
-        // the 2 makes it so that it sets 2 pixel above the platform
         // collision top
-        player.setYPos(player.yPosPrevious[1] - 2);
+        player.setYPos(this.yPos - player.getImageHeight());
         console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);

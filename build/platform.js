@@ -56,7 +56,7 @@ export default class Platform {
             && this.yPos < player.getYPos() + player.getImageHeight()
             && this.yPos + this.height > player.getYPos()) {
             if (collisionTop && collisionRight && collisionLeft) {
-                player.setYPos(player.yPosPrevious[1] - 2);
+                player.setYPos(this.yPos - player.getImageHeight());
                 console.log('top');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
