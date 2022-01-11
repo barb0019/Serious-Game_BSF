@@ -1,19 +1,14 @@
 import Door from './Door.js';
-import FlyingBuck from './FlyingBuck.js';
-import FutPack from './FutPack.js';
 import Game from './Game.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
 import Platform from './platform.js';
 import Player from './Player.js';
-import PlayerBlue from './playerblue.js';
-import PlayerRed from './PlayerRed.js';
 import PowerUp from './PowerUp.js';
 import Scene from './Scene.js';
 import ScoringObject from './ScoringObject.js';
 import SpeedBubble from './SpeedBubble.js';
-import Star from './Star.js';
-import VBucks from './VBucks.js';
+import Start from './Start.js';
 
 export default abstract class Level extends Scene {
   // Garbage items (the player needs to pick these up)
@@ -57,9 +52,9 @@ export default abstract class Level extends Scene {
    */
   protected speedbubbles(game: Game): void {}
 
-  /**
-   *
-   */
+ /**
+  *
+  */
   protected players(): void {}
 
   /**
@@ -98,9 +93,10 @@ export default abstract class Level extends Scene {
     );
   }
 
-  /**
-   *
-   */
+ /**
+  *
+  * @returns
+  */
   public hasWon(): boolean {
     const user = this.game.getUser();
     return user.getScore() >= user.getLevel() * 3;
