@@ -3,10 +3,12 @@ import KeyListener from './KeyListener.js';
 import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import Scene from './Scene.js';
+import Shop from './Shop.js';
 export default class LevelUp extends Scene {
     shouldStart;
     levelArray;
     keyboard;
+    toShop;
     constructor(game) {
         super(game);
         this.keyboard = new KeyListener();
@@ -18,11 +20,18 @@ export default class LevelUp extends Scene {
             this.shouldStart = true;
             Game.pause();
         }
+        if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
+            this.toShop = true;
+            Game.pause();
+        }
     }
     update() {
         if (this.shouldStart && this.game.getUser().getLevel() < this.levelArray.length) {
             this.game.getUser().increaseLevel();
             return this.levelArray[this.game.getUser().getLevel() - 1];
+        }
+        if (this.toShop) {
+            return new Shop(this.game);
         }
         return null;
     }
