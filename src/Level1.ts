@@ -29,16 +29,25 @@ export default class Level1 extends Level {
     // this.countUntilNextItem = 300;
   }
 
+  /**
+   * @param game
+   */
   protected speedbubbles(game: Game):void {
     this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0]);
   }
 
+  /**
+   *
+   */
   protected players():void {
     this.player = [];
     this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
     this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
   }
 
+  /**
+   *
+   */
   protected objects():void {
     this.door = new Door(250, 550, 'DoubleDoor0');
     this.scoringObjects = [];
@@ -70,5 +79,4 @@ export default class Level1 extends Level {
     this.platform.push(new Platform(canvas.width / 2, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
   }
-
 }

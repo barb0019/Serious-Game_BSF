@@ -12,9 +12,9 @@ export default class Door {
 
   /**
    *
-   * @param xPos
-   * @param yPos
-   * @param type
+   * @param xPos x position of the door
+   * @param yPos y position of the door
+   * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
     this.img = Game.loadNewImage(`./assets/img/${type}.png`);
@@ -24,8 +24,9 @@ export default class Door {
   }
 
   /**
+   * get the type
    *
-   * @returns
+   * @returns the type of the door
    */
   public getType():string {
     return this.type;
@@ -69,7 +70,7 @@ export default class Door {
 
   /**
    * @param ctx ctx
-   * @param player
+   * @param player the array of players
    */
   public draw(ctx: CanvasRenderingContext2D, player:Player[]): void {
     if (player[0].collidesWith(this) && player[1].collidesWith(this)) {
