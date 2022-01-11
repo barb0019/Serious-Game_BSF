@@ -1,10 +1,4 @@
 import Game from './Game.js';
-import Scene from './Scene.js';
-import ScoringObject from './ScoringObject.js';
-import Player from './Player.js';
-import PowerUp from './PowerUp.js';
-import GameOver from './GameOver.js';
-import LevelUp from './LevelUp.js';
 import Platform from './platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
@@ -41,7 +35,9 @@ export default class Level2 extends Level {
   }
 
   /**
-   * @param game
+   * makes the speedbubbles
+   *
+   * @param game the game of the game
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0]);

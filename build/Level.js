@@ -57,7 +57,6 @@ export default class Level extends Scene {
             this.checksIfHit(this.player[i]);
         }
         if (this.countUntilNextItem <= 0) {
-            const choice = Game.randomNumber(0, 10);
             this.countUntilNextItem = Game.randomNumber(120, 240);
         }
         this.countUntilNextItem -= elapsed;

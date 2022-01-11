@@ -8,7 +8,6 @@ import PowerUp from './PowerUp.js';
 import Scene from './Scene.js';
 import ScoringObject from './ScoringObject.js';
 import SpeedBubble from './SpeedBubble.js';
-import Start from './Start.js';
 
 export default abstract class Level extends Scene {
   // Garbage items (the player needs to pick these up)
@@ -47,10 +46,11 @@ export default abstract class Level extends Scene {
     this.countUntilNextItem = 300;
   }
 
-  /**
-   * @param game
-   */
-  protected speedbubbles(game: Game): void {}
+/**
+ *
+ * @param game
+ */
+  protected speedbubbles(game:game): void {}
 
   /**
    *
@@ -72,7 +72,7 @@ export default abstract class Level extends Scene {
    *
    * Read for more info about filter function: https://alligator.io/js/filter-array-method/
    *
-   * @param player
+   * @param player the player of the game
    */
   private checksIfHit(player: Player) {
     // create a new array with garbage item that are still on the screen
@@ -94,8 +94,9 @@ export default abstract class Level extends Scene {
   }
 
   /**
+   * show if you have won
    *
-   * @returns
+   * @returns true or false
    */
   public hasWon(): boolean {
     const user = this.game.getUser();
@@ -146,7 +147,7 @@ export default abstract class Level extends Scene {
 
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
-      const choice = Game.randomNumber(0, 10);
+      // const choice = Game.randomNumber(0, 10);
 
       // Reset the timer with a count between 2 and 4 seconds on a
       // decent computer
