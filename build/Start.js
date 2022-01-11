@@ -26,6 +26,7 @@ export default class Start extends Scene {
             console.log('test');
             if (this.levelsArray[this.game.getUser().getLevel() - 1].hasWon()) {
                 this.levelsArray.splice(0, 1);
+                console.log(this.levelsArray.hasWon);
                 this.levelsArray.hasWon = false;
             }
             return this.levelsArray[this.game.getUser().getLevel() - 1];
