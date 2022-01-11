@@ -9,7 +9,7 @@ import Start from './Start.js';
 export default class LevelUp extends Scene {
   private shouldStart: boolean;
 
-  private levelArray:any[];
+  private levelArray: any[];
 
   private keyboard: KeyListener;
 
@@ -56,13 +56,13 @@ export default class LevelUp extends Scene {
    *   current scene, just return `null`
    */
   public update(): Scene {
+    if (this.toShop) {
+      return new Shop(this.game, this.levelArray);
+    }
     if (this.shouldStart && this.game.getUser().getLevel() < this.levelArray.length) {
       // this.levelArray.splice(0, 1);
       this.game.getUser().increaseLevel();
       return this.levelArray[this.game.getUser().getLevel() - 1];
-    }
-    if (this.toShop) {
-      return new Shop(this.game);
     }
     return null;
   }
@@ -80,6 +80,7 @@ export default class LevelUp extends Scene {
     const msg = `${this.game.getUser().getName()} score: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(msg, 48, centerX, 450, 'center', 'yellow');
     this.game.writeTextToCanvas("Type 'p' to proceed to the next level", 48, centerX,
-      550, 'center', 'white');
+      550, 'center', 'black');
+    this.game.writeTextToCanvas("Press 'space' to go to the shop", 48, centerX, 600, 'center', 'black');
   }
 }
