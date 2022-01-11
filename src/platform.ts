@@ -112,8 +112,8 @@ export default class Platform {
   private checkPlayerInsidePlatform(player: Player) {
     const collisionTop = this.yPos + this.height > player.getYPos() + player.getImageHeight();
     const collisionBottom = this.yPos < player.getYPos();
-    const collisionRight = this.xPos < player.getXPos() + player.getImageWidth();
-    const collisionLeft = this.xPos + this.width > player.getXPos();
+    const collisionRight = this.xPos < player.getXPos() + player.getImageWidth() - 10;
+    const collisionLeft = this.xPos + this.width > player.getXPos() + 10;
 
     // checks if there is collision with the entire object
     if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
@@ -124,9 +124,9 @@ export default class Platform {
       // or in platform to prevent clipping through the object
       if (collisionTop && collisionRight && collisionLeft) {
         // moves you up, so prevents you from going through the top
-        // the 1 makes it so that it sets 1 pixel above the platform
+        // the 2 makes it so that it sets 2 pixel above the platform
         // collision top
-        player.setYPos(player.yPosPrevious[1] - 1);
+        player.setYPos(player.yPosPrevious[1] - 2);
         console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
@@ -149,13 +149,17 @@ export default class Platform {
         // moves you left, so prevents you from going through the left
         // collision left
         player.setXPos(player.xPosPrevious[1] - player.getXVel());
-        // console.log('left');
+        console.log('left');
       }
       if (collisionRight) {
         // moves you right, so prevents you from going through the right
         // collision right
         player.setXPos(player.xPosPrevious[1] + player.getXVel());
-        // console.log('right');
+        console.log('right');
+      }
+      if (collisionRight && collisionLeft) {
+        player.setXPos(player.xPosPrevious[1] - player.getXVel());
+        console.log('corner');
       }
       // removes the previous position of the player so it can add a new previous position
       player.xPosPrevious.splice(0, 1);
