@@ -1,1 +1,0 @@
-{"version":3,"file":"bluebucks.js","sourceRoot":"","sources":["../src/bluebucks.ts"],"names":[],"mappings":"AAAA,OAAO,aAAa,MAAM,oBAAoB,CAAC;AAE/C,MAAM,CAAC,OAAO,OAAO,SAAU,SAAQ,aAAa;IAMlD,YAAmB,IAAY,EAAE,IAAY;QAC3C,KAAK,CAAC,uBAAuB,EAAE,IAAI,GAAG,CAAC,EAAE,IAAI,GAAG,EAAE,EAAE,CAAC,CAAC,EAAC,MAAM,CAAC,CAAC;IACjE,CAAC;CACF"}

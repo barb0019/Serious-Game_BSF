@@ -24,7 +24,7 @@ export default class LevelUp extends Scene {
     super(game);
     this.keyboard = new KeyListener();
     this.shouldStart = false;
-    this.levelArray = [new Level1(this.game), new Level2(this.game)];
+    this.levelArray = [new Level1(this.game)];
   }
 
   /**
