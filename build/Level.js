@@ -19,11 +19,8 @@ export default class Level extends Scene {
         this.countUntilNextItem = 300;
     }
     speedbubbles(game) { }
-    ;
     players() { }
-    ;
     objects() { }
-    ;
     makePlatforms() { }
     checksIfHit(player) {
         this.scoringObjects = this.scoringObjects.filter((element) => {
