@@ -178,11 +178,11 @@ export default class Level2 extends Level {
   //     // Lower the count until the next item with 1
   //     this.countUntilNextItem -= elapsed;
 
-      // // Move to level clear screen
-      // if (this.hasWon() && this.player[1].collidesWith(this.door)
-      // && this.player[0].collidesWith(this.door)) {
-      //   return new LevelUp(this.game);
-      // }
+  // // Move to level clear screen
+  // if (this.hasWon() && this.player[1].collidesWith(this.door)
+  // && this.player[0].collidesWith(this.door)) {
+  //   return new LevelUp(this.game);
+  // }
 
   //     // Move to gameover screen
   //     if (this.game.getUser().getScore() < 0) {

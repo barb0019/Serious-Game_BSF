@@ -52,9 +52,9 @@ export default abstract class Level extends Scene {
    */
   protected speedbubbles(game: Game): void {}
 
- /**
-  *
-  */
+  /**
+   *
+   */
   protected players(): void {}
 
   /**
@@ -93,10 +93,10 @@ export default abstract class Level extends Scene {
     );
   }
 
- /**
-  *
-  * @returns
-  */
+  /**
+   *
+   * @returns
+   */
   public hasWon(): boolean {
     const user = this.game.getUser();
     return user.getScore() >= user.getLevel() * 3;
