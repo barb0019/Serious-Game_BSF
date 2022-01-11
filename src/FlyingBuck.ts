@@ -10,7 +10,7 @@ export default class FlyingBuck extends ScoringObject {
    * @param xPos the max value of the X position
    * @param yPos the max value of the Y position
    * @param type type of the v buck
-   * @param points
+   * @param points points that you lose of win if you collide with object
    */
   public constructor(xPos: number, yPos: number, type:string, points:number) {
     super(`./assets/img/${type}.png`, xPos, yPos, points, type);
@@ -20,9 +20,9 @@ export default class FlyingBuck extends ScoringObject {
   }
 
   /**
-   * g
+   * move the flying vbucks
    */
-  public move() {
+  public move():void {
     this.xPos += this.flyingSpeed;
     this.timer += 1;
     if (this.timer > 20) {

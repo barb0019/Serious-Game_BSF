@@ -41,8 +41,8 @@ export default class Shop extends Scene {
       document.body.appendChild(this.buttons[i]);
     }
     this.buttons[0].style.left = `${50}px`;
-    this.buttons[1].style.left = `${100}`;
-    this.buttons[2].style.left = `${150}`;
+    this.buttons[1].style.left = `${400}`;
+    this.buttons[2].style.left = `${750}`;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -50,13 +50,18 @@ export default class Shop extends Scene {
     console.log(`item bought, number ${i}`);
   }
 
-  /**x
+  /**
+   * x
+   *
    * @returns The level
    */
   public update(): Scene {
     if (this.continueGame && this.game.getUser().getLevel() < this.levelArray.length) {
       // this.levelArray.splice(0, 1);
       this.game.getUser().increaseLevel();
+      for (let i = 0; i < this.buttons.length; i++) {
+        this.buttons[i].innerHTML = '';
+      }
       return this.levelArray[this.game.getUser().getLevel() - 1];
     }
     return null;

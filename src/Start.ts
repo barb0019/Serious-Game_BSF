@@ -1,6 +1,5 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
-import Level from './Level.js';
 import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import Scene from './Scene.js';

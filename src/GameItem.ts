@@ -15,11 +15,9 @@ export default abstract class GameItem {
    * Creates a new GameItem on a random position
    *
    * @param imageSrc the src of the image
-   * @param maxX the max value of the X position
-   * @param maxY the max value of the X position
-   * @param xPos
-   * @param yPos
-   * @param type
+   * @param xPos x position of the gameitem
+   * @param yPos y position of the gameitem
+   * @param type type of the gameitem
    */
   public constructor(imageSrc: string, xPos: number, yPos: number, type:string) {
     this.img = Game.loadNewImage(imageSrc);
@@ -67,6 +65,7 @@ export default abstract class GameItem {
 
   /**
    * get the speed
+   *
    * @returns the speed
    */
   public getSpeed(): number {
