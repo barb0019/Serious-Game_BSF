@@ -28,6 +28,9 @@ export default class Shop extends Scene {
             });
             document.body.appendChild(this.buttons[i]);
         }
+        this.makingButtonsFancy();
+    }
+    makingButtonsFancy() {
         this.buttons[0].style.left = `${50}px`;
         this.buttons[1].style.left = `${400}`;
         this.buttons[2].style.left = `${750}`;
