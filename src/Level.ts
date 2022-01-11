@@ -15,7 +15,7 @@ import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
 import SpeedBubble from './SpeedBubble.js';
 
-export default class Level2 extends Scene {
+export default class Level1 extends Scene {
   // Garbage items (the player needs to pick these up)
   private scoringObjects: ScoringObject[];
 
@@ -47,6 +47,7 @@ export default class Level2 extends Scene {
     this.scoringObjects.push(new VBucks(250, 450, 'blue', -3));
     this.scoringObjects.push(new VBucks(650, 350, 'red', -3));
     this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3));
+    this.scoringObjects.push(new VBucks(500, 400, 'moneymonster', -1));
     this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
     this.scoringObjects.push(new FutPack(850, 350, 'blue', -3));
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
@@ -61,7 +62,8 @@ export default class Level2 extends Scene {
 
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
-    this.speedBubble = new SpeedBubble(game,'hallo',100,500,this.player[0],this.player[1]);
+    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0]);
+    console.log('level 1');
   }
 
   /**
@@ -108,7 +110,7 @@ export default class Level2 extends Scene {
     );
   }
 
-  private hasWon(): boolean {
+  public hasWon(): boolean {
     const user = this.game.getUser();
     return user.getScore() >= user.getLevel() * 3;
   }
@@ -150,7 +152,7 @@ export default class Level2 extends Scene {
         element.collidesWith(this.player[i]);
       }
     });
-
+// wtf is hier gebeurt
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
@@ -168,20 +170,17 @@ export default class Level2 extends Scene {
     // Lower the count until the next item with 1
     this.countUntilNextItem -= elapsed;
 
-    // Move the objects
-    this.scoringObjects[2].move();
-
     // Move to level clear screen
     if (this.hasWon() && this.player[1].collidesWith(this.door)
     && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
+    this.scoringObjects[2].move();
 
     // Move to gameover screen
     if (this.game.getUser().getScore() < 0) {
       return new GameOver(this.game);
     }
-
     return null;
   }
 

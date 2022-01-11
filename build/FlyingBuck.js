@@ -10,7 +10,7 @@ export default class FlyingBuck extends ScoringObject {
     move() {
         this.xPos += this.flyingSpeed;
         this.timer += 1;
-        if (this.timer > 200) {
+        if (this.timer > 20) {
             this.timer = 0;
             this.flyingSpeed = -this.flyingSpeed;
         }

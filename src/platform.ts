@@ -149,13 +149,13 @@ export default class Platform {
         // moves you left, so prevents you from going through the left
         // collision left
         player.setXPos(player.xPosPrevious[1] - player.getXVel());
-        console.log('left');
+        // console.log('left');
       }
       if (collisionRight) {
         // moves you right, so prevents you from going through the right
         // collision right
         player.setXPos(player.xPosPrevious[1] + player.getXVel());
-        console.log('right');
+        // console.log('right');
       }
       // removes the previous position of the player so it can add a new previous position
       player.xPosPrevious.splice(0, 1);
