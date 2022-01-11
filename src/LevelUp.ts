@@ -23,7 +23,7 @@ export default class LevelUp extends Scene {
     super(game);
     this.keyboard = new KeyListener();
     this.shouldStart = false;
-    this.levelArray = [new Level1(this.game), new Level1(this.game)];
+    // this.levelArray = [new Level1(this.game), new Level1(this.game)];
   }
 
   /**
@@ -56,12 +56,15 @@ export default class LevelUp extends Scene {
    */
   public update(): Scene {
     if (this.toShop) {
-      return new Shop(this.game, this.levelArray);
+      return new Shop(this.game, this.game.getCurrentLevel());
     }
-    if (this.shouldStart && this.game.getUser().getLevel() < this.levelArray.length) {
+    if (this.shouldStart && this.game.getUser().getLevel() +1 <= 2) {
+
       // this.levelArray.splice(0, 1);
+      console.log(this.game.getUser().getLevel());
       this.game.getUser().increaseLevel();
-      return this.levelArray[this.game.getUser().getLevel() - 1];
+      console.log('test');
+      return this.game.getCurrentLevel();
     }
     return null;
   }

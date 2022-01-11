@@ -21,7 +21,8 @@ export default class Start extends Scene {
     game.reset();
     this.keyboard = new KeyListener();
     this.shouldStart = false;
-    this.levelsArray = [new Level1(game), new Level2(game)];
+    // this.levelsArray = [new Level1(game), new Level2(game)];
+    console.log(this.game.getCurrentLevel());
   }
 
   /**
@@ -53,12 +54,12 @@ export default class Start extends Scene {
     // ZODRA JE OP DE SPATIE DRUKT WORDT DEZE FUNCTIE GENEGEERt
     if (this.shouldStart) {
       console.log('test');
-      if (this.levelsArray[this.game.getUser().getLevel() - 1].hasWon()) { // dit stuk ergens anders
+      if (this.game.getCurrentLevel().hasWon()) { // dit stuk ergens anders
         this.levelsArray.splice(0, 1);
-        console.log(this.levelsArray.hasWon);
+        // console.log(this.levelsArray.hasWon);
         this.levelsArray.hasWon = false;
       }
-      return this.levelsArray[this.game.getUser().getLevel() - 1]; // nop wrk nit
+      return this.game.getCurrentLevel(); // nop wrk nit
     }
     return null;
   }

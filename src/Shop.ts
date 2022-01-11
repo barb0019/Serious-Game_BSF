@@ -15,7 +15,7 @@ export default class Shop extends Scene {
    * @param game THE game
    * @param levelArray the array of the levels within
    */
-  public constructor(game: Game, levelArray: any[]) {
+  public constructor(game: Game, levelArray: any) {
     super(game);
     this.levelArray = levelArray;
     this.keyboard = new KeyListener();
@@ -60,13 +60,13 @@ export default class Shop extends Scene {
    * @returns The level
    */
   public update(): Scene {
-    if (this.continueGame && this.game.getUser().getLevel() < this.levelArray.length) {
+    if (this.continueGame && this.game.getUser().getLevel() < this.game.getCurrentLevel.length) {
       // this.levelArray.splice(0, 1);
       this.game.getUser().increaseLevel();
       for (let i = 0; i < this.buttons.length; i++) {
         this.buttons[i].innerHTML = '';
       }
-      return this.levelArray[this.game.getUser().getLevel() - 1];
+      return this.game.getCurrentLevel();
     }
     return null;
   }

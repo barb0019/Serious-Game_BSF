@@ -63,6 +63,7 @@ export default class UserData {
    * increaseLevel
    */
   public increaseLevel(): void {
+    console.log('+1');
     this.level += 1;
   }
 }

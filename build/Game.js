@@ -1,4 +1,6 @@
 import GameLoop from './GameLoop.js';
+import Level1 from './Level1.js';
+import Level2 from './Level2.js';
 import Start from './Start.js';
 import UserData from './UserData.js';
 export default class Game {
@@ -38,6 +40,14 @@ export default class Game {
     static play() {
     }
     static pause() {
+    }
+    getCurrentLevel() {
+        switch (this.user.getLevel()) {
+            case 1: return new Level1(this);
+            case 2: return new Level2(this);
+            case 3: return new Level2(this);
+            default: return null;
+        }
     }
 }
 //# sourceMappingURL=Game.js.map

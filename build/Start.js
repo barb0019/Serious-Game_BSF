@@ -1,7 +1,5 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
-import Level1 from './Level1.js';
-import Level2 from './Level2.js';
 import Scene from './Scene.js';
 export default class Start extends Scene {
     shouldStart;
@@ -12,7 +10,7 @@ export default class Start extends Scene {
         game.reset();
         this.keyboard = new KeyListener();
         this.shouldStart = false;
-        this.levelsArray = [new Level1(game), new Level2(game)];
+        console.log(this.game.getCurrentLevel());
     }
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
@@ -24,12 +22,11 @@ export default class Start extends Scene {
         console.log('test with HAM');
         if (this.shouldStart) {
             console.log('test');
-            if (this.levelsArray[this.game.getUser().getLevel() - 1].hasWon()) {
+            if (this.game.getCurrentLevel().hasWon()) {
                 this.levelsArray.splice(0, 1);
-                console.log(this.levelsArray.hasWon);
                 this.levelsArray.hasWon = false;
             }
-            return this.levelsArray[this.game.getUser().getLevel() - 1];
+            return this.game.getCurrentLevel();
         }
         return null;
     }

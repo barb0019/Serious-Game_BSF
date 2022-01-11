@@ -39,12 +39,12 @@ export default class Shop extends Scene {
         console.log(`item bought, number ${i}`);
     }
     update() {
-        if (this.continueGame && this.game.getUser().getLevel() < this.levelArray.length) {
+        if (this.continueGame && this.game.getUser().getLevel() < this.game.getCurrentLevel.length) {
             this.game.getUser().increaseLevel();
             for (let i = 0; i < this.buttons.length; i++) {
                 this.buttons[i].innerHTML = '';
             }
-            return this.levelArray[this.game.getUser().getLevel() - 1];
+            return this.game.getCurrentLevel();
         }
         return null;
     }
