@@ -41,9 +41,30 @@ export default class Level1 extends Scene {
    */
   public constructor(game: Game) {
     super(game);
+    this.objects();
+    // Create player
+    this.players();
+    // create platforms
+    this.makePlatforms();
+    // make speedbubbles
+    this.speedbubbles(game);
+    // Take about 5 seconds on a decent computer to show next item
+    this.countUntilNextItem = 300;
+  }
+
+  private speedbubbles(game: Game) {
+    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0]);
+  }
+
+  private players() {
+    this.player = [];
+    this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
+    this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
+  }
+
+  private objects() {
     this.door = new Door(250, 550, 'DoubleDoor0');
     this.scoringObjects = [];
-    this.player = [];
     this.scoringObjects.push(new VBucks(250, 450, 'blue', -3));
     this.scoringObjects.push(new VBucks(650, 350, 'red', -3));
     this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3));
@@ -53,17 +74,6 @@ export default class Level1 extends Scene {
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
     this.scoringObjects.push(new Star(1050, 450, 'star', 1));
     this.scoringObjects.push(new Star(1150, 450, 'star', 1));
-
-    // Create player
-    this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
-    this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
-    this.platform = [];
-    this.makePlatforms();
-
-    // Take about 5 seconds on a decent computer to show next item
-    this.countUntilNextItem = 300;
-    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0]);
-    console.log('level 1');
   }
 
   /**
@@ -71,7 +81,7 @@ export default class Level1 extends Scene {
    */
   public makePlatforms(): void {
     const { canvas } = this.game;
-
+    this.platform = [];
     this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(100, 100, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1000, canvas.height / 1.5, 75, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
@@ -152,7 +162,6 @@ export default class Level1 extends Scene {
         element.collidesWith(this.player[i]);
       }
     });
-// wtf is hier gebeurt
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
