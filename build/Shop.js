@@ -14,19 +14,28 @@ export default class Shop extends Scene {
     }
     makingButtons() {
         this.buttons = [];
-        this.buttons.push(document.createElement('buy'));
-        document.body.appendChild(this.buttons[0]);
-        this.buttons[0].innerHTML = 'Buy';
-        this.buttons[0].style.position = 'absolute';
-        this.buttons[0].style.left = `${window.innerWidth / 2}px`;
-        this.buttons[0].style.top = `${window.innerHeight / 2}px`;
-        this.buttons[0].style.fontSize = '48px';
+        this.buttons.push(document.createElement('item1'));
+        this.buttons.push(document.createElement('item2'));
+        this.buttons.push(document.createElement('item3'));
+        for (let i = 0; i < this.buttons.length; i++) {
+            console.log(this.buttons);
+            this.buttons[i].innerHTML = 'Buy';
+            this.buttons[i].style.position = 'absolute';
+            this.buttons[i].style.top = `${window.innerHeight / 1.5}px`;
+            this.buttons[i].style.fontSize = '20px';
+            this.buttons[i].addEventListener('click', () => {
+                this.buy(i);
+            });
+            document.body.appendChild(this.buttons[i]);
+        }
+        this.buttons[0].style.left = `${50}px`;
+        this.buttons[1].style.left = `${100}`;
+        this.buttons[2].style.left = `${150}`;
     }
-    buy() {
-        console.log('item bought');
+    buy(i) {
+        console.log(`item bought, number ${i}`);
     }
     update() {
-        this.buttons[0].addEventListener('click', this.buy);
         if (this.continueGame && this.game.getUser().getLevel() < this.levelArray.length) {
             this.game.getUser().increaseLevel();
             return this.levelArray[this.game.getUser().getLevel() - 1];
