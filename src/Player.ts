@@ -2,6 +2,7 @@ import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
 import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
+import Game from './Game.js';
 
 export default abstract class Player extends GameItem {
   protected xVel: number;
@@ -26,14 +27,17 @@ export default abstract class Player extends GameItem {
 
   protected isJumping: boolean;
 
+  protected game: Game;
+
   /**
    * @param imageSrc imageSrc, the actual image used for the player
    * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
    * @param type the type of item
    */
-  public constructor(imageSrc: string, maxX: number, maxY: number, type:string) {
+  public constructor(imageSrc: string, maxX: number, maxY: number, type:string, game: Game) {
     super(imageSrc, maxX - 76, maxY - 92, type);
+    this.game = game;
     this.xVel = 9;
     this.jumpHeight = Player.gravityIncrease * 50;
     this.count = 0;
@@ -43,6 +47,16 @@ export default abstract class Player extends GameItem {
     this.xPosPrevious.push(0);
     this.yPosPrevious.push(0);
     this.gravity = 0;
+    this.checkBoughtItems();
+  }
+
+  public checkBoughtItems() {
+    const boughtItems = this.game.getBoughtItems();
+    for (let i = 0; i < boughtItems.length; i++) {
+      if (boughtItems[i] === 0) {
+        this.jumpHeight *= 1.2;
+      }
+    }
   }
 
   /**

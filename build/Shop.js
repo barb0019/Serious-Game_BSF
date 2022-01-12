@@ -33,16 +33,18 @@ export default class Shop extends Scene {
     buttonPos() {
         const canvasOffshoot = 10;
         this.buttons[0].style.left = `${window.innerWidth * 0.25 - canvasOffshoot}px`;
-        console.log(this.buttons[0]);
         this.buttons[1].style.left = `${window.innerWidth * 0.5 - canvasOffshoot}px`;
-        console.log(this.buttons[1]);
         this.buttons[2].style.left = `${window.innerWidth * 0.75 - canvasOffshoot}px`;
-        console.log(this.buttons[2]);
     }
     buy(itemNumber) {
-        console.log(`item bought, number ${itemNumber}`);
-        if (itemNumber === 0) {
+        for (let i = 0; i < this.buttons.length; i++) {
+            if (itemNumber === this.game.getBoughtItems()[i]) {
+                console.log(`item number ${itemNumber} has already been bought`);
+                return;
+            }
         }
+        console.log(`item bought, number ${itemNumber}`);
+        this.game.setBoughtItems(itemNumber);
     }
     update() {
         if (this.continueGame && this.game.getUser().getLevel() <= 2) {
