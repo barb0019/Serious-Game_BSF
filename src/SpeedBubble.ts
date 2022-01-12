@@ -41,13 +41,6 @@ private yCoordinate:number;
    * @param canvas
    */
   public render(canvas:HTMLCanvasElement): void {
-    this.game.writeTextToCanvas(this.text, 20,this.xCoordinate + this.getImageWidth()/2, this.yCoordinate+this.getImageHeight()/2, 'center', 'black');
+    this.game.writeTextToCanvas(this.text, 15,this.xCoordinate + this.getImageWidth()/2, this.yCoordinate+this.getImageHeight()/2, 'center', 'blue');
   }
-
-  // /**
-  //  * @param ctx ctx
-  //  */
-  // public draw(ctx: CanvasRenderingContext2D): void {
-  //   ctx.drawImage(this.img, this.yPos, this.xPos, this.width, this.height);
-  // }
 }

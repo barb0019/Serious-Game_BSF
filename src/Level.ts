@@ -200,14 +200,7 @@ export default abstract class Level extends Scene {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
 
-    for (let i = 0; i < this.speedBubble.length; i++) {
-      if (this.player[0].collidesWith(this.speedBubble[i])
-        || this.player[1].collidesWith(this.speedBubble[i])) {
-        // console.log(this.speedBubble);
-        this.speedBubble[i].draw(this.game.ctx);
-        this.speedBubble[i].render(this.game.canvas);
-      }
-    }
+
 
     // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
 
@@ -224,5 +217,15 @@ export default abstract class Level extends Scene {
       this.platform[i].draw(this.game.ctx);
     }
     this.door.draw(this.game.ctx, this.player);
+
+    for (let i = 0; i < this.speedBubble.length; i++) {
+      if (this.player[0].collidesWith(this.speedBubble[i])
+        || this.player[1].collidesWith(this.speedBubble[i])) {
+        // console.log(this.speedBubble);
+             this.speedBubble[i].render(this.game.canvas);
+      }
+    }
   }
+
+
 }

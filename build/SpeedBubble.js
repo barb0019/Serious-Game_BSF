@@ -14,7 +14,7 @@ export default class SpeedBubble extends Enemies {
         this.yCoordinate = yCoordinate;
     }
     render(canvas) {
-        this.game.writeTextToCanvas(this.text, 20, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', 'black');
+        this.game.writeTextToCanvas(this.text, 15, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', 'blue');
     }
 }
 //# sourceMappingURL=SpeedBubble.js.map
