@@ -66,7 +66,7 @@ export default class Level extends Scene {
         }
         this.scoringObjects[1].move();
         this.scoringObjects[2].move();
-        if (this.game.getUser().getScore() < 0) {
+        if (this.game.getUser().getAlive() === false) {
             return new GameOver(this.game);
         }
         return null;

@@ -2,7 +2,7 @@ import ScoringObject from './ScoringObject.js';
 export default class VBucks extends ScoringObject {
     timer;
     constructor(xPos, yPos, type, points) {
-        super(`./assets/img/${type}.png`, xPos, yPos, points, type);
+        super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
         this.timer = 0;
         this.flyingSpeed = 5;
     }
