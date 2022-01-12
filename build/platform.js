@@ -43,7 +43,6 @@ export default class Platform {
             > player.getYPos() + player.getImageHeight()
             || this.yPos + this.height
                 > player.getYPos() + player.getImageHeight() - this.height)) {
-            player.setOnPlatform(false);
         }
     }
     checkPlayerInsidePlatform(player) {
@@ -68,7 +67,6 @@ export default class Platform {
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
                 player.setGravity(10);
-                player.setOnPlatform(false);
                 return true;
             }
             if (collisionLeft) {
