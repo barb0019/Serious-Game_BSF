@@ -22,8 +22,8 @@ export default class Level1 extends Level {
     }
     players() {
         this.player = [];
-        this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
-        this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
+        this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height, this.game));
+        this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height, this.game));
     }
     objects() {
         this.door = new Door(250, 550, 'DoubleDoor0');
