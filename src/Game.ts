@@ -18,6 +18,8 @@ export default class Game {
 
   static music:HTMLAudioElement;
 
+  private boughtItems: number[];
+
   /**
    * Initialize the game
    *
@@ -31,10 +33,19 @@ export default class Game {
 
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
+    this.boughtItems = [];
 
     // Start the game cycle
     this.gameLoop = new GameLoop();
     this.gameLoop.start(new Start(this));
+  }
+
+  public setBoughtItems(itemNumber: number): void {
+    this.boughtItems.push(itemNumber);
+  }
+
+  public getBoughtItems(): number[] {
+    return this.boughtItems;
   }
 
   /**
