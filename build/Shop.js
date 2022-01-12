@@ -18,28 +18,41 @@ export default class Shop extends Scene {
         this.buttons.push(document.createElement('item2'));
         this.buttons.push(document.createElement('item3'));
         for (let i = 0; i < this.buttons.length; i++) {
-            console.log(this.buttons);
             this.buttons[i].innerHTML = 'Buy';
             this.buttons[i].style.position = 'absolute';
-            this.buttons[i].style.top = `${window.innerHeight / 1.5}px`;
+            this.buttons[i].style.top = `${window.innerHeight / 1.5 + 10}px`;
             this.buttons[i].style.fontSize = '20px';
             this.buttons[i].addEventListener('click', () => {
                 this.buy(i);
             });
+            for (let j = 0; j < this.game.getBoughtItems().length; j++) {
+                if (i === this.game.getBoughtItems()[j]) {
+                    this.buttons[i].innerHTML = 'Bought';
+                }
+            }
             document.body.appendChild(this.buttons[i]);
         }
-        this.makingButtonsFancy();
+        this.buttonPos();
     }
-    makingButtonsFancy() {
-        this.buttons[0].style.left = `${50}px`;
-        this.buttons[1].style.left = `${400}`;
-        this.buttons[2].style.left = `${750}`;
+    buttonPos() {
+        const canvasOffshoot = 10;
+        this.buttons[0].style.left = `${window.innerWidth * 0.25 - canvasOffshoot}px`;
+        this.buttons[1].style.left = `${window.innerWidth * 0.5 - canvasOffshoot}px`;
+        this.buttons[2].style.left = `${window.innerWidth * 0.75 - canvasOffshoot}px`;
     }
-    buy(i) {
-        console.log(`item bought, number ${i}`);
+    buy(itemNumber) {
+        for (let i = 0; i < this.buttons.length; i++) {
+            if (itemNumber === this.game.getBoughtItems()[i]) {
+                console.log(`item number ${itemNumber} has already been bought`);
+                return;
+            }
+        }
+        console.log(`item bought, number ${itemNumber}`);
+        this.game.setBoughtItems(itemNumber);
+        this.buttons[itemNumber].innerHTML = 'Bought';
     }
     update() {
-        if (this.continueGame && this.game.getUser().getLevel() < this.game.getCurrentLevel.length) {
+        if (this.continueGame && this.game.getUser().getLevel() <= 2) {
             this.game.getUser().increaseLevel();
             for (let i = 0; i < this.buttons.length; i++) {
                 this.buttons[i].innerHTML = '';
@@ -60,11 +73,8 @@ export default class Shop extends Scene {
         shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
         shop.writeTextToCanvas('Press enter to leave', 70, this.game.canvas.width / 2, canvas.height / 3, 'center', 'black');
         shop.writeTextToCanvas('Double jump', 25, canvas.width / 4, canvas.height / 1.5, 'center', 'black');
-        shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
-        shop.writeTextToCanvas('Rocket', 25, canvas.width * 0.5, canvas.height / 1.5, 'center', 'dark black');
-        shop.writeTextToCanvas('Y', 20, canvas.width * 0.5, canvas.height / 1.4, 'center', 'dark black');
+        shop.writeTextToCanvas('Rocket', 25, canvas.width * 0.5, canvas.height / 1.5, 'center', 'black');
         shop.writeTextToCanvas('More placeholders', 25, canvas.width * 0.75, canvas.height / 1.5, 'center', 'black');
-        shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
     }
 }
 //# sourceMappingURL=Shop.js.map
