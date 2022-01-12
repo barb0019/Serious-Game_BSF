@@ -3,7 +3,7 @@ import Player from './Player.js';
 export default class PlayerRed extends Player {
     keyboard;
     constructor(maxX, maxY, game) {
-        super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92, 'red', game);
+        super('./assets/img/redKid.png', maxX - 76, maxY - 92, 'red', game);
         this.keyboard = new KeyListener();
     }
     move(canvas) {

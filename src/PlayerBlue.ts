@@ -13,7 +13,7 @@ export default class PlayerBlue extends Player {
    * @param maxY the max value of the X position
    */
   public constructor(maxX: number, maxY: number, game: Game) {
-    super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92, 'blue', game);
+    super('./assets/img/blueKid.png', maxX - 76, maxY - 92, 'blue', game);
     this.keyboard = new KeyListener();
   }
 

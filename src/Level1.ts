@@ -35,7 +35,7 @@ export default class Level1 extends Level {
    * @param game the game of the game (legendarische tekst)(*Φ皿Φ*)
    */
   protected speedbubbles(game: Game):void {
-    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 400, this.player[1], this.player[0],750,300);
+    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 400, this.player[1], this.player[0], 750, 300);
   }
 
   /**

@@ -40,9 +40,9 @@ export default class SpeedBubble extends GameItem {
   /**
    * render
    */
-  public render(): void {
-    this.game.writeTextToCanvas(this.text, 39, this.yPos, this.xPos-50, 'center', 'black');
-  }
+  public render(canvas:HTMLCanvasElement): void {
+    this.game.writeTextToCanvas(this.text, 39,canvas.height-this.img.height/2 ,canvas.height-this.img.height, 'center', 'black');
+  } 
 
   /**
    * @param ctx ctx
