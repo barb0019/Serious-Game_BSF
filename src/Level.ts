@@ -13,7 +13,7 @@ export default abstract class Level extends Scene {
   // Garbage items (the player needs to pick these up)
   protected scoringObjects: ScoringObject[];
 
-  protected speedBubble: SpeedBubble;
+  protected speedBubble: SpeedBubble[];
 
   // Player
   // private player: Player;
@@ -185,15 +185,17 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-    console.log(this.player[0].collidesWith(this.speedBubble)
-    || this.player[1].collidesWith(this.speedBubble));
-    
-    // if (this.player[0].collidesWith(this.speedBubble)
-    //   || this.player[1].collidesWith(this.speedBubble)) {
+
+    for (let i = 0; i < this.speedBubble.length; i++) {
+      if (this.player[0].collidesWith(this.speedBubble[i])
+      || this.player[1].collidesWith(this.speedBubble[i])) {
       // console.log(this.speedBubble);
-      this.speedBubble.draw(this.game.ctx);
-      this.speedBubble.render(this.game.canvas);
-    // }
+      this.speedBubble[i].draw(this.game.ctx);
+      this.speedBubble[i].render(this.game.canvas);
+    }
+
+    }
+
     // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
 
     // Show score
