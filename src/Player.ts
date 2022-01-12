@@ -118,6 +118,10 @@ export default abstract class Player extends GameItem {
     this.yPos = yPos;
   }
 
+  public getYPos(): number {
+    return this.yPos;
+  }
+
   /**
    * @returns The x velocity number
    */
@@ -162,6 +166,10 @@ export default abstract class Player extends GameItem {
    */
   public setOnPlatform(trueOrFalse: boolean): void {
     this.onPlatform = trueOrFalse;
+  }
+
+  public getOnPlatform(): boolean {
+    return this.onPlatform;
   }
 
   /**

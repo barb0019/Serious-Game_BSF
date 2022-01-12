@@ -64,6 +64,9 @@ export default class Player extends GameItem {
     setYPos(yPos) {
         this.yPos = yPos;
     }
+    getYPos() {
+        return this.yPos;
+    }
     getXVel() {
         return this.xVel;
     }
@@ -81,6 +84,9 @@ export default class Player extends GameItem {
     }
     setOnPlatform(trueOrFalse) {
         this.onPlatform = trueOrFalse;
+    }
+    getOnPlatform() {
+        return this.onPlatform;
     }
     increaseSpeed(size) {
         this.xVel += size;

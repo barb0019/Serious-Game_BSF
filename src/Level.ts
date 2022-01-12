@@ -88,7 +88,6 @@ export default abstract class Level extends Scene {
         const collides = player.collidesWith(element);
         if (collides) {
           this.game.getUser().addScore(element.getScore());
-          this.game.getUser().setDeadorNot(element.getdeadly());
           if (element instanceof PowerUp) {
             const powerUp = element as PowerUp;
             powerUp.applyTo(player);
@@ -137,15 +136,29 @@ export default abstract class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
+    let skipPlayer0 = false;
+    let skipPlayer1 = false;
     this.player.forEach((element) => {
       element.increaseGravity();
     });
-    this.platform.forEach((element) => {
-      // console.log(element);
-      for (let i = 0; i < this.player.length; i++) {
-        element.collidesWith(this.player[i]);
+    for (let i = 0; i < this.platform.length; i++) {
+      if (!skipPlayer0) {
+        if (this.platform[i].collidesWith(this.player[0])) {
+          skipPlayer0 = true;
+        }
       }
-    });
+      if (!skipPlayer1) {
+        if (this.platform[i].collidesWith(this.player[1])) {
+          skipPlayer1 = true;
+        }
+      }
+    }
+    // this.platform.forEach((element) => {
+    //   // console.log(element);
+    //   for (let i = 0; i < this.player.length; i++) {
+    //     element.collidesWith(this.player[i]);
+    //   }
+    // });
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
@@ -168,12 +181,10 @@ export default abstract class Level extends Scene {
       && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
-
-    // this.scoringObjects[1].move();
     this.scoringObjects[2].move();
 
     // Move to gameover screen
-    if (this.game.getUser().getAlive() === false) {
+    if (this.game.getUser().getScore() < 0) {
       return new GameOver(this.game);
     }
     return null;
@@ -185,7 +196,6 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-    this.speedBubble.draw(this.game.ctx);
     this.speedBubble.render(this.game.canvas);
     // Show score
     const score = `Stars: ${this.game.getUser().getScore()}`;
