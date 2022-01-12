@@ -52,7 +52,7 @@ export default class Level1 extends Level {
    *
    */
   protected objects():void {
-    this.door = new Door(1500, 50, 'DoubleDoor0');
+    this.door = new Door(1400, 50, 'DoubleDoor0');
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(790, 160, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(1250, 200, 'red', -3, this.game));
@@ -73,7 +73,7 @@ export default class Level1 extends Level {
     const { canvas } = this.game;
     this.platform = [];
     this.platform.push(new Platform(250, 350, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(1450, 150, 150, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(1350, 150, 150, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(600, 500, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(650, 200, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1100, 250, 250, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
