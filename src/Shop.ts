@@ -33,25 +33,32 @@ export default class Shop extends Scene {
       console.log(this.buttons);
       this.buttons[i].innerHTML = 'Buy';
       this.buttons[i].style.position = 'absolute';
-      this.buttons[i].style.top = `${window.innerHeight / 1.5}px`;
+      this.buttons[i].style.top = `${window.innerHeight / 1.5 + 10}px`;
       this.buttons[i].style.fontSize = '20px';
       this.buttons[i].addEventListener('click', () => {
         this.buy(i);
       });
       document.body.appendChild(this.buttons[i]);
     }
-    this.makingButtonsFancy();
+    this.buttonPos();
   }
 
-  private makingButtonsFancy() {
-    this.buttons[0].style.left = `${50}px`;
-    this.buttons[1].style.left = `${400}`;
-    this.buttons[2].style.left = `${750}`;
+  private buttonPos() {
+    const canvasOffshoot = 10;
+    this.buttons[0].style.left = `${window.innerWidth * 0.25 - canvasOffshoot}px`;
+    console.log(this.buttons[0]);
+    this.buttons[1].style.left = `${window.innerWidth * 0.5 - canvasOffshoot}px`;
+    console.log(this.buttons[1]);
+    this.buttons[2].style.left = `${window.innerWidth * 0.75 - canvasOffshoot}px`;
+    console.log(this.buttons[2]);
   }
 
   // eslint-disable-next-line class-methods-use-this
-  private buy(i: number): void {
-    console.log(`item bought, number ${i}`);
+  private buy(itemNumber: number): void {
+    console.log(`item bought, number ${itemNumber}`);
+    if (itemNumber === 0) {
+
+    }
   }
 
   /**
@@ -60,7 +67,7 @@ export default class Shop extends Scene {
    * @returns The level
    */
   public update(): Scene {
-    if (this.continueGame && this.game.getUser().getLevel() < this.game.getCurrentLevel.length) {
+    if (this.continueGame && this.game.getUser().getLevel() <= 2) {
       // this.levelArray.splice(0, 1);
       this.game.getUser().increaseLevel();
       for (let i = 0; i < this.buttons.length; i++) {
@@ -91,10 +98,10 @@ export default class Shop extends Scene {
     shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
     shop.writeTextToCanvas('Press enter to leave', 70, this.game.canvas.width / 2, canvas.height / 3, 'center', 'black');
     shop.writeTextToCanvas('Double jump', 25, canvas.width / 4, canvas.height / 1.5, 'center', 'black');
-    shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
-    shop.writeTextToCanvas('Rocket', 25, canvas.width * 0.5, canvas.height / 1.5, 'center', 'dark black');
-    shop.writeTextToCanvas('Y', 20, canvas.width * 0.5, canvas.height / 1.4, 'center', 'dark black');
+    // shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
+    shop.writeTextToCanvas('Rocket', 25, canvas.width * 0.5, canvas.height / 1.5, 'center', 'black');
+    // shop.writeTextToCanvas('Y', 20, canvas.width * 0.5, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('More placeholders', 25, canvas.width * 0.75, canvas.height / 1.5, 'center', 'black');
-    shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
+    // shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
   }
 }

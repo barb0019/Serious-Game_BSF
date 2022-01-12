@@ -34,7 +34,7 @@ export default abstract class Player extends GameItem {
    */
   public constructor(imageSrc: string, maxX: number, maxY: number, type:string) {
     super(imageSrc, maxX - 76, maxY - 92, type);
-    this.xVel = 3;
+    this.xVel = 9;
     this.jumpHeight = Player.gravityIncrease * 50;
     this.count = 0;
     this.keyBoard = new KeyListener();
