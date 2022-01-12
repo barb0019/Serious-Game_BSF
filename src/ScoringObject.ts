@@ -12,6 +12,7 @@ export default abstract class ScoringObject extends GameItem {
    * @param yPos y position of hte object
    * @param score the score of this scoring object
    * @param type the type of tje object
+   * @param alive
    */
   public constructor(imageSrc: string, xPos: number, yPos: number,
     score: number, type:string, alive:boolean) {
@@ -36,12 +37,12 @@ export default abstract class ScoringObject extends GameItem {
   public move(): void {
   }
 
-/**
+  /**
    *
    *
    * @returns
    */
- public getdeadly(): boolean {
-  return this.alive;
-}
+  public getdeadly(): boolean {
+    return this.alive;
+  }
 }
