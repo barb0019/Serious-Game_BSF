@@ -66,12 +66,11 @@ export default class Shop extends Scene {
     this.game.setBoughtItems(itemNumber);
     this.buttons[itemNumber].innerHTML = 'Bought';
     if (itemNumber === 2) {
-      this.buttons[itemNumber].innerHTML = 'YOOOOOOOOOOOOOOOOOOOOO';
+      this.buttons[itemNumber].innerHTML = 'YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO';
     }
   }
 
   /**
-   * x
    *
    * @returns The level
    */
