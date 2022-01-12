@@ -13,6 +13,7 @@ export default class VBucks extends ScoringObject {
    * @param points
    */
   public constructor(xPos: number, yPos: number, type:string, points:number) {
+<<<<<<< HEAD
     super(`./assets/img/${type}.png`, xPos, yPos, points, type);
 
     this.timer = 0;
@@ -26,5 +27,8 @@ export default class VBucks extends ScoringObject {
       this.timer = 0;
       this.flyingSpeed = +this.flyingSpeed;
     }
+=======
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
+>>>>>>> 3d0fbae35c2cccf5ae5369c2c90dd473f5a47f01
   }
 }

@@ -3,7 +3,7 @@ export default class FlyingBuck extends ScoringObject {
     timer;
     flyingSpeed;
     constructor(xPos, yPos, type, points) {
-        super(`./assets/img/${type}.png`, xPos, yPos, points, type);
+        super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
         this.timer = 0;
         this.flyingSpeed = 3;
     }
