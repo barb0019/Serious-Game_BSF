@@ -1,10 +1,10 @@
 import Enemies from './Enemies.js';
 export default class VBucks extends Enemies {
     timer;
-    constructor(xPos, yPos, type, points) {
-        super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
+    constructor(xPos, yPos, type, points, game) {
+        super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
         this.timer = 0;
-        this.flyingSpeed = 4;
+        this.flyingSpeed += 4;
     }
     move() {
         this.xPos -= this.flyingSpeed;

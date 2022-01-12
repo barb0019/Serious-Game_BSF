@@ -1,4 +1,5 @@
 import Enemies from './Enemies.js';
+import Game from './Game.js';
 import ScoringObject from './ScoringObject.js';
 
 export default class VBucks extends Enemies {
@@ -11,11 +12,11 @@ export default class VBucks extends Enemies {
    * @param type type of the v buck
    * @param points
    */
-  public constructor(xPos: number, yPos: number, type:string, points:number) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
+  public constructor(xPos: number, yPos: number, type:string, points:number, game: Game) {
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
 
     this.timer = 0;
-    this.flyingSpeed = 4;
+    this.flyingSpeed += 4;
   }
 
   /**
