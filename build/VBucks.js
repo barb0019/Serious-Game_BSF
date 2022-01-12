@@ -4,7 +4,7 @@ export default class VBucks extends Enemies {
     constructor(xPos, yPos, type, points) {
         super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
         this.timer = 0;
-        this.flyingSpeed = 6.5;
+        this.flyingSpeed = 4;
     }
     move() {
         this.xPos -= this.flyingSpeed;
