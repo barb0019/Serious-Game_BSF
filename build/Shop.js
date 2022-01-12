@@ -72,9 +72,9 @@ export default class Shop extends Scene {
         this.game.ctx.clearRect(0, 0, canvas.width, canvas.height);
         shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
         shop.writeTextToCanvas('Press enter to leave', 70, this.game.canvas.width / 2, canvas.height / 3, 'center', 'black');
-        shop.writeTextToCanvas('Double jump', 25, canvas.width / 4, canvas.height / 1.5, 'center', 'black');
-        shop.writeTextToCanvas('Rocket', 25, canvas.width * 0.5, canvas.height / 1.5, 'center', 'black');
-        shop.writeTextToCanvas('More placeholders', 25, canvas.width * 0.75, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('Jumpboost', 25, canvas.width / 4, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('Speed', 25, canvas.width * 0.5, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('Placeholders', 25, canvas.width * 0.75, canvas.height / 1.5, 'center', 'black');
     }
 }
 //# sourceMappingURL=Shop.js.map

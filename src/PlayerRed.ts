@@ -1,3 +1,4 @@
+import Game from './Game.js';
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
 import Player from './Player.js';
@@ -11,8 +12,8 @@ export default class PlayerRed extends Player {
    * @param maxX the max value of the X position
    * @param maxY the max value of the X position
    */
-  public constructor(maxX: number, maxY: number) {
-    super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92, 'red');
+  public constructor(maxX: number, maxY: number, game: Game) {
+    super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92, 'red', game);
     this.keyboard = new KeyListener();
   }
 
