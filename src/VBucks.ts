@@ -8,6 +8,6 @@ export default class VBucks extends ScoringObject {
    * @param type type of the v buck
    */
   public constructor(xPos: number, yPos: number, type:string, points:number) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type,true);
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type,false);
   }
 }
