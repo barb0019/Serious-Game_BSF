@@ -18,7 +18,6 @@ export default class Shop extends Scene {
         this.buttons.push(document.createElement('item2'));
         this.buttons.push(document.createElement('item3'));
         for (let i = 0; i < this.buttons.length; i++) {
-            console.log(this.buttons);
             this.buttons[i].innerHTML = 'Buy';
             this.buttons[i].style.position = 'absolute';
             this.buttons[i].style.top = `${window.innerHeight / 1.5 + 10}px`;
