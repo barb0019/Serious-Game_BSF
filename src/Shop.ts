@@ -30,8 +30,8 @@ export default class Shop extends Scene {
     this.buttons.push(document.createElement('item3'));
     // TODO only the first buy is visible now for some reason, needs to be all
     for (let i = 0; i < this.buttons.length; i++) {
-      this.buttons[i].innerHTML = 'Buy';
       this.buttons[i].style.position = 'absolute';
+      this.buttons[i].innerHTML = 'Buy';
       this.buttons[i].style.top = `${window.innerHeight / 1.5 + 10}px`;
       this.buttons[i].style.fontSize = '20px';
       this.buttons[i].addEventListener('click', () => {
@@ -65,6 +65,9 @@ export default class Shop extends Scene {
     console.log(`item bought, number ${itemNumber}`);
     this.game.setBoughtItems(itemNumber);
     this.buttons[itemNumber].innerHTML = 'Bought';
+    if (itemNumber === 2) {
+      this.buttons[itemNumber].innerHTML = 'YOOOOOOOOOOOOOOOOOOOOO';
+    }
   }
 
   /**
@@ -107,7 +110,7 @@ export default class Shop extends Scene {
     // shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('Speed', 25, canvas.width * 0.5, canvas.height / 1.5, 'center', 'black');
     // shop.writeTextToCanvas('Y', 20, canvas.width * 0.5, canvas.height / 1.4, 'center', 'black');
-    shop.writeTextToCanvas('Placeholders', 25, canvas.width * 0.75, canvas.height / 1.5, 'center', 'black');
+    shop.writeTextToCanvas('BIG OMEGA GIANT SUPRISE BOX YEEEAH', 25, canvas.width * 0.75, canvas.height / 1.5, 'center', 'black');
     // shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
   }
 }
