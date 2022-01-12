@@ -1,8 +1,10 @@
 import ScoringObject from './ScoringObject.js';
 export default class Enemies extends ScoringObject {
     flyingSpeed;
-    constructor(imageSrc, xPos, yPos, score, type) {
-        super(imageSrc, xPos, yPos, score, type);
+    constructor(imageSrc, xPos, yPos, score, type, alive) {
+        super(imageSrc, xPos, yPos, score, type, alive);
+    }
+    checkBoughtItems() {
     }
     move() { }
 }

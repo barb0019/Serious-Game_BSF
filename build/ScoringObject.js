@@ -2,7 +2,6 @@ import GameItem from './GameItem.js';
 export default class ScoringObject extends GameItem {
     score;
     alive;
-    flyingSpeed;
     constructor(imageSrc, xPos, yPos, score, type, alive) {
         super(imageSrc, xPos, yPos, type);
         this.score = score;
