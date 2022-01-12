@@ -185,8 +185,8 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-    this.speedBubble.render();
     this.speedBubble.draw(this.game.ctx);
+    this.speedBubble.render(this.game.canvas);
     // Show score
     const score = `Stars: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);

@@ -15,8 +15,8 @@ export default class SpeedBubble extends GameItem {
         this.width = width;
         this.height = height;
     }
-    render() {
-        this.game.writeTextToCanvas(this.text, 39, this.yPos, this.xPos - 50, 'center', 'black');
+    render(canvas) {
+        this.game.writeTextToCanvas(this.text, 39, this.yPos + this.img.width / 2, this.xPos + this.height / 2, 'center', 'black');
     }
     draw(ctx) {
         ctx.drawImage(this.img, this.yPos, this.xPos, this.width, this.height);
