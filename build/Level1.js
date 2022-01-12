@@ -6,7 +6,6 @@ import PlayerBlue from './playerblue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
-import FlyingBuck from './FlyingBuck.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 export default class Level1 extends Level {
@@ -29,14 +28,13 @@ export default class Level1 extends Level {
     objects() {
         this.door = new Door(1500, 50, 'DoubleDoor0');
         this.scoringObjects = [];
-        this.scoringObjects.push(new VBucks(250, 450, 'blue', -3, this.game));
-        this.scoringObjects.push(new VBucks(1000, 200, 'red', -3, this.game));
-        this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3, this.game));
-        this.scoringObjects.push(new VBucks(500, 400, 'moneymonster', -1, this.game));
-        this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
-        this.scoringObjects.push(new Star(950, 450, 'star', 1));
-        this.scoringObjects.push(new Star(1050, 450, 'star', 1));
-        this.scoringObjects.push(new Star(1150, 450, 'star', 1));
+        this.scoringObjects.push(new VBucks(790, 160, 'blue', -3, this.game));
+        this.scoringObjects.push(new VBucks(1250, 200, 'red', -3, this.game));
+        this.scoringObjects.push(new FutPack(400, 280, 'red', -3));
+        this.scoringObjects.push(new FutPack(600, 430, 'blue', -3));
+        this.scoringObjects.push(new Star(700, 450, 'star', 1));
+        this.scoringObjects.push(new Star(280, 300, 'star', 1));
+        this.scoringObjects.push(new Star(1150, 200, 'star', 1));
     }
     makePlatforms() {
         const { canvas } = this.game;
