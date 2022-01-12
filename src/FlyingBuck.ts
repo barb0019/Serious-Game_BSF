@@ -1,4 +1,5 @@
 import Enemies from './Enemies.js';
+import Game from './Game.js';
 import ScoringObject from './ScoringObject.js';
 
 export default class FlyingBuck extends Enemies {
@@ -11,11 +12,11 @@ export default class FlyingBuck extends Enemies {
    * @param type type of the v buck
    * @param points points that you lose of win if you collide with object
    */
-  public constructor(xPos: number, yPos: number, type:string, points:number) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
+  public constructor(xPos: number, yPos: number, type:string, points:number, game: Game) {
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
 
     this.timer = 0;
-    this.flyingSpeed = 3;
+    this.flyingSpeed += 3;
   }
 
   /**
