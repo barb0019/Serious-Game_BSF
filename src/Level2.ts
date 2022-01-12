@@ -41,7 +41,7 @@ export default class Level2 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
-    this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0],100,50));
+    this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 500,100,50));
   }
 
   /**
