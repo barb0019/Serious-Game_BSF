@@ -58,8 +58,7 @@ export default class LevelUp extends Scene {
     if (this.toShop) {
       return new Shop(this.game, this.game.getCurrentLevel());
     }
-    if (this.shouldStart && this.game.getUser().getLevel() +1 <= 2) {
-
+    if (this.shouldStart && this.game.getUser().getLevel() + 1 <= 2) {
       // this.levelArray.splice(0, 1);
       console.log(this.game.getUser().getLevel());
       this.game.getUser().increaseLevel();

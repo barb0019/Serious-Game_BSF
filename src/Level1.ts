@@ -18,6 +18,7 @@ export default class Level1 extends Level {
    */
   public constructor(game: Game) {
     super(game);
+
     this.objects();
     // Create player
     this.players();

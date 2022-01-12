@@ -187,62 +187,62 @@ export default abstract class Player extends GameItem {
   }
 }
 
-  // /**
-  //  * @param canvas
-  //  */
-  // public move(canvas: HTMLCanvasElement): void {
-  //   let keys = [];
-  //   const klisten = KeyListener;
-  //   if (this.type === 'blue') {
-  //     keys = [klisten.KEY_D, klisten.KEY_A, klisten.KEY_W, klisten.KEY_S];
-  //   } else {
-  //     keys = [klisten.KEY_RIGHT, klisten.KEY_LEFT, klisten.KEY_UP, klisten.KEY_DOWN];
-  //   }
+// /**
+//  * @param canvas
+//  */
+// public move(canvas: HTMLCanvasElement): void {
+//   let keys = [];
+//   const klisten = KeyListener;
+//   if (this.type === 'blue') {
+//     keys = [klisten.KEY_D, klisten.KEY_A, klisten.KEY_W, klisten.KEY_S];
+//   } else {
+//     keys = [klisten.KEY_RIGHT, klisten.KEY_LEFT, klisten.KEY_UP, klisten.KEY_DOWN];
+//   }
 
-  //   // Set the limit values
-  //   const minX = 0;
-  //   const maxX = canvas.width - this.img.width;
-  //   const minY = 0;
-  //   // Moving right
-  //   if (this.keyBoard.isKeyDown(keys[0]) && this.xPos < maxX) {
-  //     this.xPos += this.xVel;
-  //     // Limit to the max value
-  //     if (this.xPos > maxX) {
-  //       this.xPos = maxX;
-  //     }
-  //   }
+//   // Set the limit values
+//   const minX = 0;
+//   const maxX = canvas.width - this.img.width;
+//   const minY = 0;
+//   // Moving right
+//   if (this.keyBoard.isKeyDown(keys[0]) && this.xPos < maxX) {
+//     this.xPos += this.xVel;
+//     // Limit to the max value
+//     if (this.xPos > maxX) {
+//       this.xPos = maxX;
+//     }
+//   }
 
-  //   // Moving left
-  //   if (this.keyBoard.isKeyDown(keys[1]) && this.xPos > minX) {
-  //     this.xPos -= this.xVel;
-  //     // Limit to the max value
-  //     if (this.xPos < minX) {
-  //       this.xPos = minX;
-  //     }
-  //     // this.setOnPlatform(false);
-  //   }
+//   // Moving left
+//   if (this.keyBoard.isKeyDown(keys[1]) && this.xPos > minX) {
+//     this.xPos -= this.xVel;
+//     // Limit to the max value
+//     if (this.xPos < minX) {
+//       this.xPos = minX;
+//     }
+//     // this.setOnPlatform(false);
+//   }
 
-  //   // Moving up
-  //   if (this.keyBoard.isKeyDown(keys[2]) && this.yPos > minY) {
-  //     if (this.onPlatform) {
-  //       this.isJumping = true;
-  //       this.setOnPlatform(false);
-  //     }
-  //   }
+//   // Moving up
+//   if (this.keyBoard.isKeyDown(keys[2]) && this.yPos > minY) {
+//     if (this.onPlatform) {
+//       this.isJumping = true;
+//       this.setOnPlatform(false);
+//     }
+//   }
 
-  //   if (this.isJumping === true) {
-  //     this.jump();
-  //     if (this.yPos < minY) {
-  //       this.yPos = minY;
-  //     }
-  //   }
+//   if (this.isJumping === true) {
+//     this.jump();
+//     if (this.yPos < minY) {
+//       this.yPos = minY;
+//     }
+//   }
 
-  //   // // Moving down
-  //   // if (this.keyBoard.isKeyDown(KeyListener.KEY_S) && this.yPos < maxY) {
-  //   //   this.yPos += this.yVel;
-  //   //   if (this.yPos > maxY) {
-  //   //     this.yPos = maxY;
-  //   //   }
-  //   //   this.setOnPlatform(false);
-  //   // }
-  // }
+//   // // Moving down
+//   // if (this.keyBoard.isKeyDown(KeyListener.KEY_S) && this.yPos < maxY) {
+//   //   this.yPos += this.yVel;
+//   //   if (this.yPos > maxY) {
+//   //     this.yPos = maxY;
+//   //   }
+//   //   this.setOnPlatform(false);
+//   // }
+// }
