@@ -5,8 +5,10 @@ export default class Shop extends Scene {
     levelArray;
     buttons;
     continueGame;
+    credits;
     constructor(game, levelArray) {
         super(game);
+        this.credits = 2;
         this.levelArray = levelArray;
         this.keyboard = new KeyListener();
         this.continueGame = false;
@@ -14,10 +16,16 @@ export default class Shop extends Scene {
     }
     makingButtons() {
         this.buttons = [];
+        const shoplist = ['jumpboost', 'speedboost', 'w.i.p.', 'score & enemy'];
         this.buttons.push(document.createElement('item1'));
         this.buttons.push(document.createElement('item2'));
         this.buttons.push(document.createElement('item3'));
         this.buttons.push(document.createElement('item4'));
+        for (let i = 0; i < this.buttons.length; i++) {
+            if (shoplist[i] !== undefined) {
+                this.buttons[i].id = shoplist[i];
+            }
+        }
         for (let i = 0; i < this.buttons.length; i++) {
             this.buttons[i].style.position = 'absolute';
             this.buttons[i].innerHTML = 'Buy';
@@ -42,6 +50,10 @@ export default class Shop extends Scene {
         }
     }
     buy(itemNumber) {
+        if (this.credits <= 0) {
+            console.log('not enough credits');
+            return;
+        }
         for (let i = 0; i < this.buttons.length; i++) {
             if (itemNumber === this.game.getBoughtItems()[i]) {
                 console.log(`item number ${itemNumber} has already been bought`);
@@ -50,9 +62,10 @@ export default class Shop extends Scene {
         }
         console.log(`item bought, number ${itemNumber}`);
         this.game.setBoughtItems(itemNumber);
+        this.credits -= 1;
         this.buttons[itemNumber].innerHTML = 'Bought';
         if (itemNumber === 2) {
-            this.buttons[itemNumber].innerHTML = 'YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO';
+            this.buttons[itemNumber].innerHTML = 'hehe';
         }
     }
     update() {
@@ -77,9 +90,11 @@ export default class Shop extends Scene {
         this.game.ctx.clearRect(0, 0, canvas.width, canvas.height);
         shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
         shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3, 'center', 'black');
-        shop.writeTextToCanvas('Jumpboost', 25, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.5, 'center', 'black');
-        shop.writeTextToCanvas('Speed', 25, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.5, 'center', 'black');
-        shop.writeTextToCanvas('BIG OMEGA GIANT SUPRISE BOX YEEEAH', 25, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
+        shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('BIGOMEGAGIANTSUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('Score&difficulty (w.i.p.)', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.5, 'center', 'black');
     }
 }
 //# sourceMappingURL=Shop.js.map

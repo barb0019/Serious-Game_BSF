@@ -5,8 +5,6 @@ export default abstract class ScoringObject extends GameItem {
 
   private alive:boolean;
 
-  protected flyingSpeed: number;
-
   /**
    *
    * @param imageSrc the src of the image

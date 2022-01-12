@@ -169,7 +169,7 @@ export default abstract class Level extends Scene {
       return new LevelUp(this.game);
     }
 
-    this.scoringObjects[1].move();
+    // this.scoringObjects[1].move();
     this.scoringObjects[2].move();
 
     // Move to gameover screen

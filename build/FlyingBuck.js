@@ -1,5 +1,5 @@
-import ScoringObject from './ScoringObject.js';
-export default class FlyingBuck extends ScoringObject {
+import Enemies from './Enemies.js';
+export default class FlyingBuck extends Enemies {
     timer;
     constructor(xPos, yPos, type, points) {
         super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);

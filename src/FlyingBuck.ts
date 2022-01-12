@@ -1,6 +1,7 @@
+import Enemies from './Enemies.js';
 import ScoringObject from './ScoringObject.js';
 
-export default class FlyingBuck extends ScoringObject {
+export default class FlyingBuck extends Enemies {
   private timer: number;
 
   /**
@@ -11,7 +12,7 @@ export default class FlyingBuck extends ScoringObject {
    * @param points points that you lose of win if you collide with object
    */
   public constructor(xPos: number, yPos: number, type:string, points:number) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type,false);
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
 
     this.timer = 0;
     this.flyingSpeed = 3;

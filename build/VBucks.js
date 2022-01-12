@@ -1,10 +1,10 @@
-import ScoringObject from './ScoringObject.js';
-export default class VBucks extends ScoringObject {
+import Enemies from './Enemies.js';
+export default class VBucks extends Enemies {
     timer;
     constructor(xPos, yPos, type, points) {
         super(`./assets/img/${type}.png`, xPos, yPos, points, type, false);
         this.timer = 0;
-        this.flyingSpeed = 6.5;
+        this.flyingSpeed = 4;
     }
     move() {
         this.xPos -= this.flyingSpeed;
