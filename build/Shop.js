@@ -25,6 +25,11 @@ export default class Shop extends Scene {
             this.buttons[i].addEventListener('click', () => {
                 this.buy(i);
             });
+            for (let j = 0; j < this.game.getBoughtItems().length; j++) {
+                if (i === this.game.getBoughtItems()[j]) {
+                    this.buttons[i].innerHTML = 'Bought';
+                }
+            }
             document.body.appendChild(this.buttons[i]);
         }
         this.buttonPos();
@@ -44,6 +49,7 @@ export default class Shop extends Scene {
         }
         console.log(`item bought, number ${itemNumber}`);
         this.game.setBoughtItems(itemNumber);
+        this.buttons[itemNumber].innerHTML = 'Bought';
     }
     update() {
         if (this.continueGame && this.game.getUser().getLevel() <= 2) {
