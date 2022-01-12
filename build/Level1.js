@@ -29,10 +29,10 @@ export default class Level1 extends Level {
         this.door = new Door(250, 550, 'DoubleDoor0');
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(250, 450, 'blue', -3));
-        this.scoringObjects.push(new VBucks(650, 350, 'red', -3));
+        this.scoringObjects.push(new VBucks(945, 200, 'red', -3));
         this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3));
         this.scoringObjects.push(new VBucks(500, 400, 'moneymonster', -1));
-        this.scoringObjects.push(new VBucks(750, 350, 'finalboss', -3));
+        this.scoringObjects.push(new VBucks(950, 200, 'finalboss', -3));
         this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
         this.scoringObjects.push(new FutPack(850, 350, 'blue', -3));
         this.scoringObjects.push(new Star(950, 450, 'star', 1));
