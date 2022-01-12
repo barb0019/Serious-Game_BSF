@@ -1,15 +1,20 @@
 import GameItem from './GameItem.js';
 export default class ScoringObject extends GameItem {
     score;
+    alive;
     flyingSpeed;
-    constructor(imageSrc, xPos, yPos, score, type) {
+    constructor(imageSrc, xPos, yPos, score, type, alive) {
         super(imageSrc, xPos, yPos, type);
         this.score = score;
+        this.alive = alive;
     }
     getScore() {
         return this.score;
     }
     move() {
+    }
+    getdeadly() {
+        return this.alive;
     }
 }
 //# sourceMappingURL=ScoringObject.js.map
