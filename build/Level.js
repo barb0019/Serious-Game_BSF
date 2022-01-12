@@ -27,6 +27,7 @@ export default class Level extends Scene {
             const collides = player.collidesWith(element);
             if (collides) {
                 this.game.getUser().addScore(element.getScore());
+                this.game.getUser().setDeadorNot(element.getdeadly());
                 if (element instanceof PowerUp) {
                     const powerUp = element;
                     powerUp.applyTo(player);
