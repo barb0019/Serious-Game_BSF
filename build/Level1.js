@@ -18,7 +18,11 @@ export default class Level1 extends Level {
         this.speedbubbles(game);
     }
     speedbubbles(game) {
+<<<<<<< Updated upstream
         this.speedBubble = new SpeedBubble(game, 'hallo', 400, 400, this.player[1], this.player[0], 350, 300);
+=======
+        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 300, this.player[1], this.player[0], 300, 100);
+>>>>>>> Stashed changes
     }
     players() {
         this.player = [];

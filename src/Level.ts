@@ -185,7 +185,10 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     this.speedBubble.draw(this.game.ctx);
     this.speedBubble.render(this.game.canvas);
     // Show score
