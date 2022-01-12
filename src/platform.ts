@@ -66,6 +66,7 @@ export default class Platform {
    * This way the player isn't considered in the platform
    * and won't continually get his position changed.
    *
+   * @returns boolean of whether the player is 1 pixel above the platform
    * @param player the Player class
    */
   private checkPixelAbovePlatform(player: Player): boolean {
