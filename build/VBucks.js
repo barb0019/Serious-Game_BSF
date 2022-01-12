@@ -8,7 +8,7 @@ export default class VBucks extends ScoringObject {
         this.flyingSpeed = 5;
     }
     move() {
-        this.xPos += this.flyingSpeed;
+        this.xPos -= this.flyingSpeed;
         this.timer += 1;
         if (this.timer > 150) {
             this.timer = 0;
