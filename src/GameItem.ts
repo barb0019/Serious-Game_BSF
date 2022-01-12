@@ -9,7 +9,7 @@ export default abstract class GameItem {
 
   protected speed: number;
 
-  private type:string;
+  protected type:string;
 
   /**
    * Creates a new GameItem on a random position
