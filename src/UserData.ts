@@ -5,6 +5,8 @@ export default class UserData {
 
   private level: number;
 
+  private alive:boolean;
+
   /**
    * Creates a new instance of this class
    */
@@ -12,6 +14,7 @@ export default class UserData {
     this.level = 1;
     this.score = 0;
     this.name = 'Player 1 and 2';
+    this.alive= true;
   }
 
   /**
@@ -65,5 +68,22 @@ export default class UserData {
   public increaseLevel(): void {
     console.log('+1');
     this.level += 1;
+  }
+
+  /**
+   * get if you are really dead
+   *
+   * @returns if you dead or not
+   */
+  public getAlive():boolean {
+    return this.alive;
+  }
+
+  /**
+   *
+   */
+
+  public setDeadorNot(boolean:boolean):void {
+    this.alive = boolean;
   }
 }
