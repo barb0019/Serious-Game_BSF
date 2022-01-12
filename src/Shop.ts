@@ -11,12 +11,15 @@ export default class Shop extends Scene {
 
   private continueGame: boolean;
 
+  private credits: number;
+
   /**
    * @param game THE game
    * @param levelArray the array of the levels within
    */
   public constructor(game: Game, levelArray: any) {
     super(game);
+    this.credits = 2;
     this.levelArray = levelArray;
     this.keyboard = new KeyListener();
     this.continueGame = false;
@@ -63,6 +66,10 @@ export default class Shop extends Scene {
 
   // eslint-disable-next-line class-methods-use-this
   private buy(itemNumber: number): void {
+    if (this.credits <= 0) {
+      console.log('not enough credits');
+      return;
+    }
     for (let i = 0; i < this.buttons.length; i++) {
       if (itemNumber === this.game.getBoughtItems()[i]) {
         console.log(`item number ${itemNumber} has already been bought`);
@@ -71,6 +78,7 @@ export default class Shop extends Scene {
     }
     console.log(`item bought, number ${itemNumber}`);
     this.game.setBoughtItems(itemNumber);
+    this.credits -= 1;
     this.buttons[itemNumber].innerHTML = 'Bought';
     if (itemNumber === 2) {
       this.buttons[itemNumber].innerHTML = 'hehe';
@@ -114,6 +122,7 @@ export default class Shop extends Scene {
 
     shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
     shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3, 'center', 'black');
+    shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
     shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.5, 'center', 'black');
     // shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.5, 'center', 'black');
