@@ -12,7 +12,7 @@ export default class FlyingBuck extends Enemies {
    * @param points points that you lose of win if you collide with object
    */
   public constructor(xPos: number, yPos: number, type:string, points:number) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type);
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type,false);
 
     this.timer = 0;
     this.flyingSpeed = 3;

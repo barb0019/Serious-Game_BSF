@@ -12,10 +12,10 @@ export default class VBucks extends Enemies {
    * @param points
    */
   public constructor(xPos: number, yPos: number, type:string, points:number) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type);
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type,false);
 
     this.timer = 0;
-    this.flyingSpeed = 5;
+    this.flyingSpeed = 6.5;
   }
 
   /**
