@@ -33,7 +33,6 @@ export default class Shop extends Scene {
     for (let i = 0; i < this.buttons.length; i++) {
       if (shoplist[i] !== undefined) {
         this.buttons[i].id = shoplist[i];
-        console.log(this.buttons[i].id);
       }
     }
     // TODO only the first buy is visible now for some reason, needs to be all

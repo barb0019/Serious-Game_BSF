@@ -22,7 +22,6 @@ export default class Shop extends Scene {
         for (let i = 0; i < this.buttons.length; i++) {
             if (shoplist[i] !== undefined) {
                 this.buttons[i].id = shoplist[i];
-                console.log(this.buttons[i].id);
             }
         }
         for (let i = 0; i < this.buttons.length; i++) {
