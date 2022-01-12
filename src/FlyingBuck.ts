@@ -1,6 +1,7 @@
+import Enemies from './Enemies.js';
 import ScoringObject from './ScoringObject.js';
 
-export default class FlyingBuck extends ScoringObject {
+export default class FlyingBuck extends Enemies {
   private timer: number;
 
   /**

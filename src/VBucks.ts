@@ -1,6 +1,7 @@
+import Enemies from './Enemies.js';
 import ScoringObject from './ScoringObject.js';
 
-export default class VBucks extends ScoringObject {
+export default class VBucks extends Enemies {
   private timer: number;
 
   /**

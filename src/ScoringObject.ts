@@ -3,8 +3,6 @@ import GameItem from './GameItem.js';
 export default abstract class ScoringObject extends GameItem {
   private score: number;
 
-  protected flyingSpeed: number;
-
   /**
    *
    * @param imageSrc the src of the image
