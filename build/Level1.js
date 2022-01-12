@@ -30,7 +30,7 @@ export default class Level1 extends Level {
     objects() {
         this.door = new Door(1400, 50, 'DoubleDoor0');
         this.scoringObjects = [];
-        this.scoringObjects.push(new VBucks(790, 130, 'blue', -3, this.game));
+        this.scoringObjects.push(new VBucks(780, 130, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(1200, 200, 'red', -3, this.game));
         this.scoringObjects.push(new FutPack(300, 280, 'red', -3));
         this.scoringObjects.push(new FutPack(600, 390, 'blue', -3));
@@ -44,7 +44,7 @@ export default class Level1 extends Level {
         this.platform.push(new Platform(150, 350, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(1350, 150, 150, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(560, 450, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(630, 170, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+        this.platform.push(new Platform(620, 170, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(1100, 250, 250, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(1000, canvas.height / 1.5, 75, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(1250, canvas.height / 1.5, 100, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
