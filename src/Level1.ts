@@ -59,7 +59,7 @@ export default class Level1 extends Level {
     this.scoringObjects.push(new VBucks(500, 400, 'moneymonster', -1));
     // this.scoringObjects.push(new VBucks(950, 200, 'finalboss', -3));
     this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
-    this.scoringObjects.push(new FutPack(850, 350, 'blue', -3));
+    // this.scoringObjects.push(new FutPack(850, 350, 'blue', -3));
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
     this.scoringObjects.push(new Star(1050, 450, 'star', 1));
     this.scoringObjects.push(new Star(1150, 450, 'star', 1));
@@ -72,7 +72,7 @@ export default class Level1 extends Level {
     const { canvas } = this.game;
     this.platform = [];
     this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(100, 100, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(1500, 130, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(600, 400, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(600, 200, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1100, 250, 250, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
