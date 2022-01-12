@@ -27,6 +27,7 @@ export default class Level extends Scene {
             const collides = player.collidesWith(element);
             if (collides) {
                 this.game.getUser().addScore(element.getScore());
+                this.game.getUser().setDeadorNot(element.getdeadly());
                 if (element instanceof PowerUp) {
                     const powerUp = element;
                     powerUp.applyTo(player);
@@ -73,7 +74,7 @@ export default class Level extends Scene {
             && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
-        if (this.game.getUser().getScore() < 0) {
+        if (this.game.getUser().getAlive() === false) {
             return new GameOver(this.game);
         }
         return null;
