@@ -16,7 +16,7 @@ export default class VBucks extends ScoringObject {
     super(`./assets/img/${type}.png`, xPos, yPos, points, type);
 
     this.timer = 0;
-    this.flyingSpeed = 3;
+    this.flyingSpeed = 5;
   }
 
   /**
@@ -25,9 +25,9 @@ export default class VBucks extends ScoringObject {
   public move():void {
     this.xPos += this.flyingSpeed;
     this.timer += 1;
-    if (this.timer > 200) {
+    if (this.timer > 150) {
       this.timer = 0;
-      this.xPos = 300;
+      this.xPos = 750;
     }
   }
 }
