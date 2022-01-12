@@ -3,7 +3,7 @@ import GameItem from './GameItem.js';
 export default abstract class ScoringObject extends GameItem {
   private score: number;
 
-  private deadly:boolean;
+  private alive:boolean;
 
   /**
    *
@@ -14,10 +14,10 @@ export default abstract class ScoringObject extends GameItem {
    * @param type the type of tje object
    */
   public constructor(imageSrc: string, xPos: number, yPos: number,
-    score: number, type:string, deadly:boolean) {
+    score: number, type:string, alive:boolean) {
     super(imageSrc, xPos, yPos, type);
     this.score = score;
-    this.deadly = deadly;
+    this.alive = alive;
   }
 
   /**
@@ -42,6 +42,6 @@ export default abstract class ScoringObject extends GameItem {
    * @returns
    */
  public getdeadly(): boolean {
-  return this.deadly;
+  return this.alive;
 }
 }

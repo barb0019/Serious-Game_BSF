@@ -1,11 +1,11 @@
 import GameItem from './GameItem.js';
 export default class ScoringObject extends GameItem {
     score;
-    deadly;
-    constructor(imageSrc, xPos, yPos, score, type, deadly) {
+    alive;
+    constructor(imageSrc, xPos, yPos, score, type, alive) {
         super(imageSrc, xPos, yPos, type);
         this.score = score;
-        this.deadly = deadly;
+        this.alive = alive;
     }
     getScore() {
         return this.score;
@@ -13,7 +13,7 @@ export default class ScoringObject extends GameItem {
     move() {
     }
     getdeadly() {
-        return this.deadly;
+        return this.alive;
     }
 }
 //# sourceMappingURL=ScoringObject.js.map
