@@ -88,6 +88,7 @@ export default abstract class Level extends Scene {
         const collides = player.collidesWith(element);
         if (collides) {
           this.game.getUser().addScore(element.getScore());
+          this.game.getUser().setDeadorNot(element.getdeadly());
           if (element instanceof PowerUp) {
             const powerUp = element as PowerUp;
             powerUp.applyTo(player);
@@ -167,10 +168,11 @@ export default abstract class Level extends Scene {
       && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
+    this.scoringObjects[1].move();
     this.scoringObjects[2].move();
 
     // Move to gameover screen
-    if (this.game.getUser().getScore() < 0) {
+    if (this.game.getUser().getAlive() === false) {
       return new GameOver(this.game);
     }
     return null;

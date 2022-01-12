@@ -4,7 +4,7 @@ export default class Star extends ScoringObject {
     height;
     width;
     constructor(xPos, yPos, type, points) {
-        super(`./assets/img/${type}.png`, xPos, yPos, points, type);
+        super(`./assets/img/${type}.png`, xPos, yPos, points, type, true);
     }
 }
 //# sourceMappingURL=Star.js.map
