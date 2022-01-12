@@ -13,7 +13,7 @@ export default abstract class Level extends Scene {
   // Garbage items (the player needs to pick these up)
   protected scoringObjects: ScoringObject[];
 
-  protected speedBubble: SpeedBubble;
+  protected speedBubble: SpeedBubble[];
 
   // Player
   // private player: Player;
@@ -52,25 +52,25 @@ export default abstract class Level extends Scene {
    * @param game the game of the game
    */
   // eslint-disable-next-line class-methods-use-this
-  protected speedbubbles(game:Game): void {}
+  protected speedbubbles(game: Game): void { }
 
   /**
    *
    */
   // eslint-disable-next-line class-methods-use-this
-  protected players(): void {}
+  protected players(): void { }
 
   /**
    *
    */
   // eslint-disable-next-line class-methods-use-this
-  protected objects(): void {}
+  protected objects(): void { }
 
   /**
    * Creates platforms
    */
   // eslint-disable-next-line class-methods-use-this
-  protected makePlatforms(): void {}
+  protected makePlatforms(): void { }
 
   /**
    * Removes scoring objects from the game based on box collision detection.
@@ -181,7 +181,9 @@ export default abstract class Level extends Scene {
       && this.player[0].collidesWith(this.door)) {
       return new LevelUp(this.game);
     }
-    this.scoringObjects[2].move();
+
+    // this.scoringObjects[1].move();
+    // this.scoringObjects[2].move();
 
     // Move to gameover screen
     if (this.game.getUser().getScore() < 0) {
@@ -196,7 +198,18 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-    this.speedBubble.render(this.game.canvas);
+
+    for (let i = 0; i < this.speedBubble.length; i++) {
+      if (this.player[0].collidesWith(this.speedBubble[i])
+        || this.player[1].collidesWith(this.speedBubble[i])) {
+        // console.log(this.speedBubble);
+        this.speedBubble[i].draw(this.game.ctx);
+        this.speedBubble[i].render(this.game.canvas);
+      }
+    }
+
+    // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
+
     // Show score
     const score = `Stars: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);

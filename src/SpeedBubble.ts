@@ -1,15 +1,19 @@
 import Game from './Game.js';
 import Player from './Player.js';
 import GameItem from './GameItem.js';
+import Enemies from './Enemies.js';
 
-export default class SpeedBubble extends GameItem {
+export default class SpeedBubble extends Enemies {
   private text:string;
 
   private player1:Player;
 
   private player2:Player;
 
-  private game:Game;
+
+private xCoordinate:number;
+
+private yCoordinate:number;
 
   private width:number;
 
@@ -28,13 +32,14 @@ export default class SpeedBubble extends GameItem {
    */
   public constructor(game:Game, text:string, yCoordinate:number,
     xCoordinate:number, player1:Player, player2:Player, width:number, height:number) {
-    super('./assets/img/textcloud.png', xCoordinate, yCoordinate, 'speedbubble');
-    this.game = game;
+    super('./assets/img/textcloud.png', xCoordinate, yCoordinate,0, 'speedbubble',true,game);
     this.player1 = player1;
     this.player2 = player2;
     this.text = text;
     this.width = width;
     this.height = height;
+    this.xCoordinate =xCoordinate;
+    this.yCoordinate = yCoordinate;
   }
 
   /**
@@ -43,13 +48,13 @@ export default class SpeedBubble extends GameItem {
    * @param canvas
    */
   public render(canvas:HTMLCanvasElement): void {
-    this.game.writeTextToCanvas(this.text, 39, this.yPos + this.img.width / 2, this.xPos + this.height/2, 'center', 'black');
+    this.game.writeTextToCanvas(this.text, 39,this.xCoordinate+ this.getImageWidth()/2, this.yCoordinate+this.getImageHeight()/2, 'center', 'black');
   }
 
-  /**
-   * @param ctx ctx
-   */
-  public draw(ctx: CanvasRenderingContext2D): void {
-    ctx.drawImage(this.img, this.yPos, this.xPos, this.width, this.height);
-  }
+  // /**
+  //  * @param ctx ctx
+  //  */
+  // public draw(ctx: CanvasRenderingContext2D): void {
+  //   ctx.drawImage(this.img, this.yPos, this.xPos, this.width, this.height);
+  // }
 }
