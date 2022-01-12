@@ -17,6 +17,7 @@ export default class Shop extends Scene {
         this.buttons.push(document.createElement('item1'));
         this.buttons.push(document.createElement('item2'));
         this.buttons.push(document.createElement('item3'));
+        this.buttons.push(document.createElement('item4'));
         for (let i = 0; i < this.buttons.length; i++) {
             this.buttons[i].style.position = 'absolute';
             this.buttons[i].innerHTML = 'Buy';
@@ -36,9 +37,9 @@ export default class Shop extends Scene {
     }
     buttonPos() {
         const canvasOffshoot = 10;
-        this.buttons[0].style.left = `${window.innerWidth * 0.25 - canvasOffshoot}px`;
-        this.buttons[1].style.left = `${window.innerWidth * 0.5 - canvasOffshoot}px`;
-        this.buttons[2].style.left = `${window.innerWidth * 0.75 - canvasOffshoot}px`;
+        for (let i = 0; i < this.buttons.length; i++) {
+            this.buttons[i].style.left = `${(window.innerWidth / this.buttons.length) * i + 150 - canvasOffshoot}px`;
+        }
     }
     buy(itemNumber) {
         for (let i = 0; i < this.buttons.length; i++) {
@@ -71,13 +72,14 @@ export default class Shop extends Scene {
     }
     render() {
         const { canvas } = this.game;
+        const offLeftSide = 150;
         const shop = this.game;
         this.game.ctx.clearRect(0, 0, canvas.width, canvas.height);
         shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
-        shop.writeTextToCanvas('Press enter to leave', 70, this.game.canvas.width / 2, canvas.height / 3, 'center', 'black');
-        shop.writeTextToCanvas('Jumpboost', 25, canvas.width / 4, canvas.height / 1.5, 'center', 'black');
-        shop.writeTextToCanvas('Speed', 25, canvas.width * 0.5, canvas.height / 1.5, 'center', 'black');
-        shop.writeTextToCanvas('BIG OMEGA GIANT SUPRISE BOX YEEEAH', 25, canvas.width * 0.75, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3, 'center', 'black');
+        shop.writeTextToCanvas('Jumpboost', 25, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('Speed', 25, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+        shop.writeTextToCanvas('BIG OMEGA GIANT SUPRISE BOX YEEEAH', 25, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.5, 'center', 'black');
     }
 }
 //# sourceMappingURL=Shop.js.map

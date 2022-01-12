@@ -1,7 +1,6 @@
 import ScoringObject from './ScoringObject.js';
 export default class FlyingBuck extends ScoringObject {
     timer;
-    flyingSpeed;
     constructor(xPos, yPos, type, points) {
         super(`./assets/img/${type}.png`, xPos, yPos, points, type);
         this.timer = 0;

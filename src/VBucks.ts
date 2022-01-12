@@ -3,8 +3,6 @@ import ScoringObject from './ScoringObject.js';
 export default class VBucks extends ScoringObject {
   private timer: number;
 
-  private flyingSpeed: number;
-
   /**
    *
    * @param xPos the max value of the X position
