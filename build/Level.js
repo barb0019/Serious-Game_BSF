@@ -72,6 +72,8 @@ export default class Level extends Scene {
     }
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
+        console.log(this.player[0].collidesWith(this.speedBubble)
+            || this.player[1].collidesWith(this.speedBubble));
         this.speedBubble.draw(this.game.ctx);
         this.speedBubble.render(this.game.canvas);
         const score = `Stars: ${this.game.getUser().getScore()}`;

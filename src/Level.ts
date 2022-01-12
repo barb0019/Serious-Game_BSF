@@ -185,8 +185,8 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-    // console.log(this.player[0].collidesWith(this.speedBubble)
-    // || this.player[1].collidesWith(this.speedBubble))
+    console.log(this.player[0].collidesWith(this.speedBubble)
+    || this.player[1].collidesWith(this.speedBubble));
     
     // if (this.player[0].collidesWith(this.speedBubble)
     //   || this.player[1].collidesWith(this.speedBubble)) {
