@@ -14,7 +14,7 @@ export default class Player extends GameItem {
     isJumping;
     constructor(imageSrc, maxX, maxY, type) {
         super(imageSrc, maxX - 76, maxY - 92, type);
-        this.xVel = 3;
+        this.xVel = 9;
         this.jumpHeight = Player.gravityIncrease * 50;
         this.count = 0;
         this.keyBoard = new KeyListener();
