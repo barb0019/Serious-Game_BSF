@@ -18,12 +18,12 @@ export default class Level1 extends Level {
         this.speedbubbles(game);
     }
     speedbubbles(game) {
-        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0]);
+        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 400, this.player[1], this.player[0], 750, 300);
     }
     players() {
         this.player = [];
-        this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height, this.game));
-        this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height, this.game));
+        this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
+        this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
     }
     objects() {
         this.door = new Door(250, 550, 'DoubleDoor0');

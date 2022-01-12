@@ -2,8 +2,8 @@ import KeyListener from './KeyListener.js';
 import Player from './Player.js';
 export default class PlayerRed extends Player {
     keyboard;
-    constructor(maxX, maxY, game) {
-        super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92, 'red', game);
+    constructor(maxX, maxY) {
+        super('./assets/img/character_robot_walk0.png', maxX - 76, maxY - 92, 'red');
         this.keyboard = new KeyListener();
     }
     move(canvas) {

@@ -50,6 +50,8 @@ export default class Start extends Scene {
    *   current scene, just return `null`
    */
   public update(): Scene {
+    console.log('test with HAM');
+    // ZODRA JE OP DE SPATIE DRUKT WORDT DEZE FUNCTIE GENEGEERt
     if (this.shouldStart) {
       console.log('test');
       if (this.game.getCurrentLevel().hasWon()) { // dit stuk ergens anders
@@ -61,6 +63,7 @@ export default class Start extends Scene {
     }
     return null;
   }
+  // ik heb iets geflikt. het werkt. maar in achterwaardse volgorde.gaA
 
   /**
    * Draw the game so the player can see what happened

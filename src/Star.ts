@@ -16,6 +16,6 @@ export default class Star extends ScoringObject {
    * @param points amount of point a object is
    */
   public constructor(xPos: number, yPos: number, type:string, points: number) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type, true);
+    super(`./assets/img/${type}.png`, xPos, yPos, points, type);
   }
 }

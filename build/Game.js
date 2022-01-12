@@ -9,21 +9,13 @@ export default class Game {
     user;
     gameLoop;
     static music;
-    boughtItems;
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        this.boughtItems = [];
         this.gameLoop = new GameLoop();
         this.gameLoop.start(new Start(this));
-    }
-    setBoughtItems(itemNumber) {
-        this.boughtItems.push(itemNumber);
-    }
-    getBoughtItems() {
-        return this.boughtItems;
     }
     getUser() {
         return this.user;

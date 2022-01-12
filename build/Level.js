@@ -27,7 +27,6 @@ export default class Level extends Scene {
             const collides = player.collidesWith(element);
             if (collides) {
                 this.game.getUser().addScore(element.getScore());
-                this.game.getUser().setDeadorNot(element.getdeadly());
                 if (element instanceof PowerUp) {
                     const powerUp = element;
                     powerUp.applyTo(player);
@@ -65,9 +64,8 @@ export default class Level extends Scene {
             && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
-        this.scoringObjects[1].move();
         this.scoringObjects[2].move();
-        if (this.game.getUser().getAlive() === false) {
+        if (this.game.getUser().getScore() < 0) {
             return new GameOver(this.game);
         }
         return null;
@@ -75,6 +73,7 @@ export default class Level extends Scene {
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
         this.speedBubble.render();
+        this.speedBubble.draw(this.game.ctx);
         const score = `Stars: ${this.game.getUser().getScore()}`;
         this.game.writeTextToCanvas(score, 36, 120, 50);
         this.scoringObjects.forEach((element) => {

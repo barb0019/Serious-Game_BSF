@@ -12,11 +12,9 @@ export default class Player extends GameItem {
     static gravityIncrease = 0.2;
     static maxGravity = 100;
     isJumping;
-    game;
-    constructor(imageSrc, maxX, maxY, type, game) {
+    constructor(imageSrc, maxX, maxY, type) {
         super(imageSrc, maxX - 76, maxY - 92, type);
-        this.game = game;
-        this.xVel = 9;
+        this.xVel = 3;
         this.jumpHeight = Player.gravityIncrease * 50;
         this.count = 0;
         this.keyBoard = new KeyListener();
@@ -25,15 +23,6 @@ export default class Player extends GameItem {
         this.xPosPrevious.push(0);
         this.yPosPrevious.push(0);
         this.gravity = 0;
-        this.checkBoughtItems();
-    }
-    checkBoughtItems() {
-        const boughtItems = this.game.getBoughtItems();
-        for (let i = 0; i < boughtItems.length; i++) {
-            if (boughtItems[i] === 0) {
-                this.jumpHeight *= 1.2;
-            }
-        }
     }
     increaseGravity() {
         if (!this.onPlatform) {

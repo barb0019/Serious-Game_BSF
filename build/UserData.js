@@ -2,12 +2,10 @@ export default class UserData {
     name;
     score;
     level;
-    alive;
     constructor() {
         this.level = 1;
         this.score = 0;
         this.name = 'Player 1 and 2';
-        this.alive = true;
     }
     getName() {
         return this.name;
@@ -27,12 +25,6 @@ export default class UserData {
     increaseLevel() {
         console.log('+1');
         this.level += 1;
-    }
-    getAlive() {
-        return this.alive;
-    }
-    setDeadorNot(boolean) {
-        this.alive = boolean;
     }
 }
 //# sourceMappingURL=UserData.js.map

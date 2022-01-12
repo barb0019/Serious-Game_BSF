@@ -40,7 +40,7 @@ export default class Level2 extends Level {
    * @param game the game of the game
    */
   protected speedbubbles(game: Game): void {
-    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0]);
+    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, this.player[1], this.player[0],100,50);
   }
 
   /**
@@ -49,8 +49,8 @@ export default class Level2 extends Level {
   protected players(): void {
     this.player = [];
     // Create player
-    this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height, this.game));
-    this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height, this.game));
+    this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height));
+    this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height));
   }
 
   /**

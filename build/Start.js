@@ -19,6 +19,7 @@ export default class Start extends Scene {
         }
     }
     update() {
+        console.log('test with HAM');
         if (this.shouldStart) {
             console.log('test');
             if (this.game.getCurrentLevel().hasWon()) {
