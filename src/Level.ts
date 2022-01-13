@@ -2,7 +2,7 @@ import Door from './Door.js';
 import Game from './Game.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
-import Platform from './platform.js';
+import Platform from './Platform.js';
 import Player from './Player.js';
 import PowerUp from './PowerUp.js';
 import Scene from './Scene.js';
