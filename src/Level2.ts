@@ -50,19 +50,20 @@ export default class Level2 extends Level {
   protected players(): void {
     this.player = [];
     // Create player
-    this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height, this.game));
-    this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height, this.game));
+    this.player.push(new PlayerRed(150, this.game.canvas.height, this.game));
+    this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
   }
 
   /**
    *
    */
   protected objects(): void {
-    this.door = new Door(250, 550, 'DoubleDoor0');
+    this.door = new Door(1400, 10, 'DoubleDoor0');
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(250, 350, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(650, 350, 'red', -3, this.game));
     this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3, this.game));
+    this.scoringObjects.push(new VBucks(250,280,'red',-3, this.game))
     this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
     this.scoringObjects.push(new FutPack(850, 350, 'blue', -3));
     this.scoringObjects.push(new Star(950, 450, 'star', 1));
@@ -78,9 +79,12 @@ export default class Level2 extends Level {
     this.platform = [];
 
     this.platform.push(new Platform(250, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(100, 100, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(1400, 110, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1000, canvas.height / 1.5, 75, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1250, canvas.height / 1.5, 100, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(200, 570, 300, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+
+
     console.log('LEVEL2');
     // the ground
     this.platform.push(new Platform(0, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));

@@ -7,12 +7,14 @@ export default class Level extends Scene {
     scoringObjects;
     speedBubble;
     player;
+    movingObjects;
     platform;
     countUntilNextItem;
     door;
     constructor(game) {
         super(game);
         this.objects();
+        this.movingobjects();
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
@@ -21,6 +23,7 @@ export default class Level extends Scene {
     speedbubbles(game) { }
     players() { }
     objects() { }
+    movingobjects() { }
     makePlatforms() { }
     checksIfHit(player) {
         this.scoringObjects = this.scoringObjects.filter((element) => {
@@ -74,6 +77,7 @@ export default class Level extends Scene {
             && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
+        this.scoringObjects[2].move();
         if (this.game.getUser().getAlive() === false) {
             return new GameOver(this.game);
         }
