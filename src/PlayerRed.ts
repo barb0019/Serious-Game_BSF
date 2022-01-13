@@ -19,63 +19,6 @@ export default class PlayerRed extends Player {
   }
 
   /**
-   * Moves the player depending on which arrow key is pressed. Player is bound
-   * to the canvas and cannot move outside of it
-   *
-   * @param canvas the canvas to move over, for max x and y positions
-   */
-  public move(canvas: HTMLCanvasElement): void {
-    // Set the limit values
-    const minX = 0;
-    const maxX = canvas.width - this.img.width;
-    const minY = 0;
-    // Moving right
-    if (this.keyboard.isKeyDown(KeyListener.KEY_RIGHT) && this.xPos < maxX) {
-      this.xPos += this.xVel;
-      this.setImage('./assets/img/RedKidLookRight.png');
-      // Limit to the max value
-      if (this.xPos > maxX) {
-        this.xPos = maxX;
-      }
-      // this.setOnPlatform(false);
-    }
-
-    // Moving left
-    if (this.keyboard.isKeyDown(KeyListener.KEY_LEFT) && this.xPos > minX) {
-      this.xPos -= this.xVel;
-      this.setImage('./assets/img/RedKid2.png');
-      // Limit to the max value
-      if (this.xPos < minX) {
-        this.xPos = minX;
-      }
-      // this.setOnPlatform(false);
-    }
-
-    // Moving up
-    if (this.keyboard.isKeyDown(KeyListener.KEY_UP) && this.yPos > minY) {
-      if (this.onPlatform) {
-        this.isJumping = true;
-        this.setOnPlatform(false);
-      }
-    }
-    if (this.isJumping === true) {
-      this.jump();
-      if (this.yPos < minY) {
-        this.yPos = minY;
-      }
-    }
-
-    // // Moving down
-    // if (this.keyboard.isKeyDown(KeyListener.KEY_DOWN) && this.yPos < maxY) {
-    //   this.yPos += this.yVel;
-    //   if (this.yPos > maxY) {
-    //     this.yPos = maxY;
-    //   }
-    //   this.setOnPlatform(false);
-    // }
-  }
-
-  /**
    *
    * @param other the other GameItem
    * @returns true if this object collides with the specified other object
