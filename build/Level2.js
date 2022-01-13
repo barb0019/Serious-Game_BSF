@@ -23,8 +23,8 @@ export default class Level2 extends Level {
     }
     players() {
         this.player = [];
-        this.player.push(new PlayerRed(this.game.canvas.width, this.game.canvas.height, this.game));
-        this.player.push(new PlayerBlue(this.game.canvas.width, this.game.canvas.height, this.game));
+        this.player.push(new PlayerRed(150, this.game.canvas.height, this.game));
+        this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
     }
     objects() {
         this.door = new Door(250, 550, 'DoubleDoor0');
@@ -32,6 +32,7 @@ export default class Level2 extends Level {
         this.scoringObjects.push(new VBucks(250, 350, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(650, 350, 'red', -3, this.game));
         this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3, this.game));
+        this.scoringObjects.push(new VBucks(250, 280, 'red', -3, this.game));
         this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
         this.scoringObjects.push(new FutPack(850, 350, 'blue', -3));
         this.scoringObjects.push(new Star(950, 450, 'star', 1));
