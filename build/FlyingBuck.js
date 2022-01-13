@@ -4,12 +4,12 @@ export default class FlyingBuck extends Enemies {
     constructor(xPos, yPos, type, points, game) {
         super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
         this.timer = 0;
-        this.flyingSpeed += 2;
+        this.flyingSpeed += 1.50;
     }
     move() {
         this.xPos += this.flyingSpeed;
         this.timer += 1;
-        if (this.timer > 120) {
+        if (this.timer > 200) {
             this.timer = 0;
             this.flyingSpeed = -this.flyingSpeed;
         }

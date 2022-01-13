@@ -184,7 +184,7 @@ export default abstract class Level extends Scene {
     }
 
     // this.scoringObjects[1].move();
-    // this.scoringObjects[2].move();
+    this.scoringObjects[2].move();
 
     // Move to gameover screen
     if (this.game.getUser().getAlive() === false) {
