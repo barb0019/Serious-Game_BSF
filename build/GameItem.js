@@ -12,6 +12,9 @@ export default class GameItem {
         this.type = type;
         this.speed = 3;
     }
+    setImage(img) {
+        this.img = Game.loadNewImage(img);
+    }
     getImageHeight() {
         return this.img.height;
     }

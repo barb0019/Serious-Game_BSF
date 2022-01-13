@@ -5,6 +5,7 @@ export default class PlayerBlue extends Player {
     constructor(maxX, maxY, game) {
         super('./assets/img/blueKid.png', maxX - 76, maxY - 92, 'blue', game);
         this.keyboard = new KeyListener();
+        this.imgSrc = './assets/img/blueKid.png';
     }
     move(canvas) {
         const minX = 0;
@@ -12,12 +13,14 @@ export default class PlayerBlue extends Player {
         const minY = 0;
         if (this.keyboard.isKeyDown(KeyListener.KEY_D) && this.xPos < maxX) {
             this.xPos += this.xVel;
+            this.setImage('./assets/img/BlueKidLookRight.png');
             if (this.xPos > maxX) {
                 this.xPos = maxX;
             }
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_A) && this.xPos > minX) {
             this.xPos -= this.xVel;
+            this.setImage('./assets/img/blueKid.png');
             if (this.xPos < minX) {
                 this.xPos = minX;
             }

@@ -29,6 +29,8 @@ export default abstract class Player extends GameItem {
 
   protected game: Game;
 
+  protected imgSrc: string;
+
   /**
    * @param imageSrc imageSrc, the actual image used for the player
    * @param maxX the max value of the X positiond
