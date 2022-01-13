@@ -41,10 +41,20 @@ export default class Game {
     this.gameLoop.start(new Start(this));
   }
 
+  /**
+   * Sets which items are bought to be saved for later
+   *
+   * @param itemNumber The number of the item, each number represents a different item
+   */
   public setBoughtItems(itemNumber: number): void {
     this.boughtItems.push(itemNumber);
   }
 
+  /**
+   * Get an array of the items that have been bought represented by their number
+   *
+   * @returns an array of which items have been bought by their item number
+   */
   public getBoughtItems(): number[] {
     return this.boughtItems;
   }
