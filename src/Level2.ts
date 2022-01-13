@@ -87,7 +87,8 @@ export default class Level2 extends Level {
     this.platform.push(new Platform(200, 530, 300, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(700, 450, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1150, 380, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(700, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')))
+    this.platform.push(new Platform(700, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(1150, 200, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
     console.log('LEVEL2');
     // the ground

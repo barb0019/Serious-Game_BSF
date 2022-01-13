@@ -32,6 +32,7 @@ export default class Level3 extends Level {
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(780, 130, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(1200, 200, 'red', -3, this.game));
+        this.scoringObjects.push(new VBucks(950, 200, 'finalboss', -3, this.game));
         this.scoringObjects.push(new FutPack(300, 280, 'red', -3));
         this.scoringObjects.push(new FutPack(600, 390, 'blue', -3));
         this.scoringObjects.push(new Star(700, 400, 'star', 1));
