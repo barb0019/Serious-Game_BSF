@@ -1,11 +1,12 @@
 import Scene from './Scene.js';
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
+import Level from './Level.js';
 
 export default class Shop extends Scene {
   private keyboard: KeyListener;
 
-  private levelArray: any[];
+  private levelArray: Level;
 
   private buttons: HTMLElement[];
 
@@ -17,7 +18,7 @@ export default class Shop extends Scene {
    * @param game THE game
    * @param levelArray the array of the levels within
    */
-  public constructor(game: Game, levelArray: any) {
+  public constructor(game: Game, levelArray: Level) {
     super(game);
     this.credits = 2;
     this.levelArray = levelArray;
