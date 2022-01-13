@@ -17,14 +17,10 @@ export default class Level1 extends Level {
         this.speedbubbles(game);
     }
     speedbubbles(game) {
-<<<<<<< HEAD
-        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 550, 300, 100);
-=======
         this.speedBubble = [];
         this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
         this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
         this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
->>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
     }
     players() {
         this.player = [];

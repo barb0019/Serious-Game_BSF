@@ -199,17 +199,6 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-<<<<<<< HEAD
-    // console.log(this.player[0].collidesWith(this.speedBubble)
-    // || this.player[1].collidesWith(this.speedBubble));
-
-    if (this.player[0].collidesWith(this.speedBubble)
-      || this.player[1].collidesWith(this.speedBubble)) {
-      console.log(this.speedBubble);
-      this.speedBubble.draw(this.game.ctx);
-      this.speedBubble.render();
-    }
-=======
 
     for (let i = 0; i < this.speedBubble.length; i++) {
       if (this.player[0].collidesWith(this.speedBubble[i])
@@ -219,7 +208,6 @@ export default abstract class Level extends Scene {
       }
     }
 
->>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
     // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
 
     // Show score
