@@ -45,4 +45,4 @@ export default class PlayerBlue extends Player {
             && other.getType() !== 'blue';
     }
 }
-//# sourceMappingURL=playerblue.js.map
+//# sourceMappingURL=PlayerBlue.js.map
