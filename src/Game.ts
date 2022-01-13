@@ -2,7 +2,6 @@ import GameLoop from './GameLoop.js';
 import Level from './Level.js';
 import Level1 from './Level1.js';
 import Level2 from './Level2.js';
-import Scene from './Scene.js';
 import Start from './Start.js';
 import UserData from './UserData.js';
 import Level3 from './Level3.js';

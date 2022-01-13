@@ -1,7 +1,5 @@
 import Enemies from './Enemies.js';
 import Game from './Game.js';
-import ScoringObject from './ScoringObject.js';
-
 export default class FlyingBuck extends Enemies {
   private timer: number;
 
@@ -11,6 +9,7 @@ export default class FlyingBuck extends Enemies {
    * @param yPos the max value of the Y position
    * @param type type of the v buck
    * @param points points that you lose of win if you collide with object
+   * @param game the game of the game
    */
   public constructor(xPos: number, yPos: number, type:string, points:number, game: Game) {
     super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);

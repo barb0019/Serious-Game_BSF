@@ -20,7 +20,7 @@ export default class VBucks extends Enemies {
   }
 
   /**
-   *
+   * move the vbucks
    */
   public move():void {
     this.xPos -= this.flyingSpeed;
