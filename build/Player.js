@@ -5,7 +5,6 @@ export default class Player extends GameItem {
     keyBoard;
     xPosPrevious;
     yPosPrevious;
-    count;
     gravity;
     onPlatform;
     jumpHeight;
@@ -18,7 +17,6 @@ export default class Player extends GameItem {
         this.game = game;
         this.xVel = 5;
         this.jumpHeight = Player.gravityIncrease * 50;
-        this.count = 0;
         this.keyBoard = new KeyListener();
         this.xPosPrevious = [];
         this.yPosPrevious = [];
@@ -41,12 +39,10 @@ export default class Player extends GameItem {
     increaseGravity() {
         if (!this.onPlatform) {
             this.yPos += this.gravity;
-            this.count = 0;
             this.gravity += Player.gravityIncrease;
             if (this.gravity > Player.maxGravity) {
                 this.gravity = Player.maxGravity;
             }
-            this.count += 1;
         }
     }
     jump() {

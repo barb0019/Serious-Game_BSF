@@ -13,8 +13,6 @@ export default abstract class Player extends GameItem {
 
   public yPosPrevious: number[];
 
-  private count: number;
-
   protected gravity: number;
 
   protected onPlatform: boolean;
@@ -41,7 +39,6 @@ export default abstract class Player extends GameItem {
     this.game = game;
     this.xVel = 5;
     this.jumpHeight = Player.gravityIncrease * 50;
-    this.count = 0;
     this.keyBoard = new KeyListener();
     this.xPosPrevious = [];
     this.yPosPrevious = [];
@@ -73,7 +70,6 @@ export default abstract class Player extends GameItem {
     // TODO The count used fucks with the gravity variable, need something else
     if (!this.onPlatform) {
       this.yPos += this.gravity;
-      this.count = 0;
 
       this.gravity += Player.gravityIncrease;
 
@@ -81,7 +77,6 @@ export default abstract class Player extends GameItem {
       if (this.gravity > Player.maxGravity) {
         this.gravity = Player.maxGravity;
       }
-      this.count += 1;
     }
   }
 

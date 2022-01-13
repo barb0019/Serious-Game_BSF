@@ -20,8 +20,6 @@ export default abstract class Level extends Scene {
 
   protected player: Player[];
 
-  protected movingObjects:ScoringObject[];
-
   // platform
   protected platform: Platform[];
 
@@ -38,7 +36,6 @@ export default abstract class Level extends Scene {
   public constructor(game: Game) {
     super(game);
     this.objects();
-    this.movingobjects();
     // Create player
     this.players();
     // create platforms
@@ -68,8 +65,6 @@ export default abstract class Level extends Scene {
    */
   // eslint-disable-next-line class-methods-use-this
   protected objects(): void { }
-
-  protected movingobjects():void {}
 
   /**
    * Creates platforms
@@ -189,7 +184,7 @@ export default abstract class Level extends Scene {
     }
 
     // this.scoringObjects[1].move();
-    this.scoringObjects[2].move();
+    // this.scoringObjects[2].move();
 
     // Move to gameover screen
     if (this.game.getUser().getAlive() === false) {
@@ -204,6 +199,18 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
+
+    for (let i = 0; i < this.speedBubble.length; i++) {
+      if (this.player[0].collidesWith(this.speedBubble[i])
+        || this.player[1].collidesWith(this.speedBubble[i])) {
+        // console.log(this.speedBubble);
+        this.speedBubble[i].draw(this.game.ctx);
+        this.speedBubble[i].render(this.game.canvas);
+      }
+    }
+
+    // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
+
     // Show score
     const score = `Stars: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);
@@ -217,15 +224,5 @@ export default abstract class Level extends Scene {
       this.platform[i].draw(this.game.ctx);
     }
     this.door.draw(this.game.ctx, this.player);
-
-    for (let i = 0; i < this.speedBubble.length; i++) {
-      if (this.player[0].collidesWith(this.speedBubble[i])
-        || this.player[1].collidesWith(this.speedBubble[i])) {
-        // console.log(this.speedBubble);
-        this.speedBubble[i].render(this.game.canvas);
-      }
-    }
   }
-
-
 }
