@@ -74,6 +74,7 @@ export default class Level extends Scene {
             && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
+        this.scoringObjects[2].move();
         if (this.game.getUser().getAlive() === false) {
             return new GameOver(this.game);
         }
@@ -81,15 +82,12 @@ export default class Level extends Scene {
     }
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-<<<<<<< HEAD
-        if (this.player[0].collidesWith(this.speedBubble)
-            || this.player[1].collidesWith(this.speedBubble)) {
-            console.log(this.speedBubble);
-            this.speedBubble.draw(this.game.ctx);
-            this.speedBubble.render();
+        for (let i = 0; i < this.speedBubble.length; i++) {
+            if (this.player[0].collidesWith(this.speedBubble[i])
+                || this.player[1].collidesWith(this.speedBubble[i])) {
+                this.speedBubble[i].render(this.game.canvas);
+            }
         }
-=======
->>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
         const score = `Stars: ${this.game.getUser().getScore()}`;
         this.game.writeTextToCanvas(score, 36, 120, 50);
         this.scoringObjects.forEach((element) => {
@@ -102,12 +100,6 @@ export default class Level extends Scene {
             this.platform[i].draw(this.game.ctx);
         }
         this.door.draw(this.game.ctx, this.player);
-        for (let i = 0; i < this.speedBubble.length; i++) {
-            if (this.player[0].collidesWith(this.speedBubble[i])
-                || this.player[1].collidesWith(this.speedBubble[i])) {
-                this.speedBubble[i].render(this.game.canvas);
-            }
-        }
     }
 }
 //# sourceMappingURL=Level.js.map

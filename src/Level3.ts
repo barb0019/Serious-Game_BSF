@@ -1,5 +1,5 @@
 import Game from './Game.js';
-import Platform from './platform.js';
+import Platform from './Platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
@@ -10,7 +10,7 @@ import FlyingBuck from './FlyingBuck.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 
-export default class Level1 extends Level {
+export default class Level3 extends Level {
   /**
    * Creates a new instance of this class
    *
@@ -36,14 +36,10 @@ export default class Level1 extends Level {
    * @param game the game of the game (legendarische tekst)(*Φ皿Φ*)
    */
   protected speedbubbles(game: Game):void {
-<<<<<<< HEAD
-    this.speedBubble = new SpeedBubble(game, 'hallo', 100, 550, 300, 100);
-=======
     this.speedBubble = [];
     this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
     this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
     this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
->>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
   }
 
   /**
@@ -65,7 +61,7 @@ export default class Level1 extends Level {
     this.scoringObjects.push(new VBucks(1200, 200, 'red', -3, this.game));
     // this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3, this.game));
     // this.scoringObjects.push(new VBucks(500, 400, 'moneymonster', -1, this.game));
-    // this.scoringObjects.push(new VBucks(950, 200, 'finalboss', -3));
+    this.scoringObjects.push(new VBucks(950, 200, 'finalboss', -3,this.game));
     this.scoringObjects.push(new FutPack(300, 280, 'red', -3));
     this.scoringObjects.push(new FutPack(600, 390, 'blue', -3));
     this.scoringObjects.push(new Star(700, 400, 'star', 1));

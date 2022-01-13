@@ -1,5 +1,5 @@
 import Game from './Game.js';
-import Platform from './platform.js';
+import Platform from './Platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
@@ -8,7 +8,7 @@ import Star from './Star.js';
 import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
-export default class Level1 extends Level {
+export default class Level3 extends Level {
     constructor(game) {
         super(game);
         this.objects();
@@ -17,14 +17,10 @@ export default class Level1 extends Level {
         this.speedbubbles(game);
     }
     speedbubbles(game) {
-<<<<<<< HEAD
-        this.speedBubble = new SpeedBubble(game, 'hallo', 100, 550, 300, 100);
-=======
         this.speedBubble = [];
         this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
         this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
         this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
->>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
     }
     players() {
         this.player = [];
@@ -36,6 +32,7 @@ export default class Level1 extends Level {
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(780, 130, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(1200, 200, 'red', -3, this.game));
+        this.scoringObjects.push(new VBucks(950, 200, 'finalboss', -3, this.game));
         this.scoringObjects.push(new FutPack(300, 280, 'red', -3));
         this.scoringObjects.push(new FutPack(600, 390, 'blue', -3));
         this.scoringObjects.push(new Star(700, 400, 'star', 1));
@@ -58,4 +55,4 @@ export default class Level1 extends Level {
         this.platform.push(new Platform(canvas.width * 0.75, canvas.height - 50, canvas.width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     }
 }
-//# sourceMappingURL=Level1.js.map
+//# sourceMappingURL=Level3.js.map

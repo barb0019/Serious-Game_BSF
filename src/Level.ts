@@ -184,7 +184,7 @@ export default abstract class Level extends Scene {
     }
 
     // this.scoringObjects[1].move();
-    // this.scoringObjects[2].move();
+    this.scoringObjects[2].move();
 
     // Move to gameover screen
     if (this.game.getUser().getAlive() === false) {
@@ -211,7 +211,13 @@ export default abstract class Level extends Scene {
     }
 =======
 
-
+    for (let i = 0; i < this.speedBubble.length; i++) {
+      if (this.player[0].collidesWith(this.speedBubble[i])
+        || this.player[1].collidesWith(this.speedBubble[i])) {
+        // console.log(this.speedBubble);
+        this.speedBubble[i].render(this.game.canvas);
+      }
+    }
 
 >>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
     // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
@@ -229,15 +235,5 @@ export default abstract class Level extends Scene {
       this.platform[i].draw(this.game.ctx);
     }
     this.door.draw(this.game.ctx, this.player);
-
-    for (let i = 0; i < this.speedBubble.length; i++) {
-      if (this.player[0].collidesWith(this.speedBubble[i])
-        || this.player[1].collidesWith(this.speedBubble[i])) {
-        // console.log(this.speedBubble);
-             this.speedBubble[i].render(this.game.canvas);
-      }
-    }
   }
-
-
 }

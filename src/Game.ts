@@ -5,6 +5,7 @@ import Level2 from './Level2.js';
 import Scene from './Scene.js';
 import Start from './Start.js';
 import UserData from './UserData.js';
+import Level3 from './Level3.js';
 
 export default class Game {
   // Necessary canvas attributes
@@ -40,10 +41,20 @@ export default class Game {
     this.gameLoop.start(new Start(this));
   }
 
+  /**
+   * Sets which items are bought to be saved for later
+   *
+   * @param itemNumber The number of the item, each number represents a different item
+   */
   public setBoughtItems(itemNumber: number): void {
     this.boughtItems.push(itemNumber);
   }
 
+  /**
+   * Get an array of the items that have been bought represented by their number
+   *
+   * @returns an array of which items have been bought by their item number
+   */
   public getBoughtItems(): number[] {
     return this.boughtItems;
   }
@@ -134,9 +145,9 @@ export default class Game {
    */
   public getCurrentLevel(): Level {
     switch (this.user.getLevel()) {
-      case 1: return new Level1(this);
-      case 2: return new Level2(this);
-      case 3: return new Level2(this);
+      case 1: return new Level2(this);
+      case 2: return new Level1(this);
+      case 3: return new Level3(this);
       default: return null;
     }
   }

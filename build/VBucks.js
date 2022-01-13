@@ -11,7 +11,7 @@ export default class VBucks extends Enemies {
         this.timer += 1;
         if (this.timer > 150) {
             this.timer = 0;
-            this.xPos = 945;
+            this.flyingSpeed = -this.flyingSpeed;
         }
     }
 }

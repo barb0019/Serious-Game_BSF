@@ -14,7 +14,7 @@ export default class PlayerRed extends Player {
    * @param game
    */
   public constructor(maxX: number, maxY: number, game: Game) {
-    super('./assets/img/redKid.png', maxX - 76, maxY - 92, 'red', game);
+    super('./assets/img/RedKid2.png', maxX - 76, maxY - 92, 'red', game);
     this.keyboard = new KeyListener();
   }
 
@@ -32,6 +32,7 @@ export default class PlayerRed extends Player {
     // Moving right
     if (this.keyboard.isKeyDown(KeyListener.KEY_RIGHT) && this.xPos < maxX) {
       this.xPos += this.xVel;
+      this.setImage('./assets/img/RedKidLookRight.png');
       // Limit to the max value
       if (this.xPos > maxX) {
         this.xPos = maxX;
@@ -42,6 +43,7 @@ export default class PlayerRed extends Player {
     // Moving left
     if (this.keyboard.isKeyDown(KeyListener.KEY_LEFT) && this.xPos > minX) {
       this.xPos -= this.xVel;
+      this.setImage('./assets/img/RedKid2.png');
       // Limit to the max value
       if (this.xPos < minX) {
         this.xPos = minX;
