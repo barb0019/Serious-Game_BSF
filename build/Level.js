@@ -85,7 +85,6 @@ export default class Level extends Scene {
         for (let i = 0; i < this.speedBubble.length; i++) {
             if (this.player[0].collidesWith(this.speedBubble[i])
                 || this.player[1].collidesWith(this.speedBubble[i])) {
-                this.speedBubble[i].draw(this.game.ctx);
                 this.speedBubble[i].render(this.game.canvas);
             }
         }

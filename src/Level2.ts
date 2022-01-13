@@ -65,7 +65,7 @@ export default class Level2 extends Level {
     this.scoringObjects.push(new FlyingBuck(550, 150, 'flyingbuck', -3, this.game));
     this.scoringObjects.push(new VBucks(250, 280, 'red', -3, this.game));
     this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
-    this.scoringObjects.push(new FutPack(1150, 350, 'blue', -3));
+    this.scoringObjects.push(new FutPack(1150, 300, 'blue', -3));
     this.scoringObjects.push(new Star(350, 600, 'star', 1));
     this.scoringObjects.push(new Star(1250, 340, 'star', 1));
     this.scoringObjects.push(new Star(350, 150, 'star', 1));

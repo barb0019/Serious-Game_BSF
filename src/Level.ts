@@ -204,7 +204,6 @@ export default abstract class Level extends Scene {
       if (this.player[0].collidesWith(this.speedBubble[i])
         || this.player[1].collidesWith(this.speedBubble[i])) {
         // console.log(this.speedBubble);
-        this.speedBubble[i].draw(this.game.ctx);
         this.speedBubble[i].render(this.game.canvas);
       }
     }
