@@ -1,5 +1,5 @@
 import Game from './Game.js';
-import Platform from './platform.js';
+import Platform from './Platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './playerblue.js';
