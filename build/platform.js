@@ -18,7 +18,7 @@ export default class Platform {
         let collision = false;
         player.xPosPrevious.push(player.getXPos());
         player.yPosPrevious.push(player.getYPos());
-        this.checkPlayerheightAbovePlatform(player);
+        player.setOnPlatform(false);
         if (this.checkPixelAbovePlatform(player)) {
             collision = true;
         }
@@ -45,14 +45,6 @@ export default class Platform {
         }
         else
             this.walljumpCheck = 10;
-    }
-    checkPlayerheightAbovePlatform(player) {
-        if (!(this.yPos
-            > player.getYPos() + player.getImageHeight()
-            || this.yPos + this.height
-                > player.getYPos() + player.getImageHeight() - this.height)) {
-            player.setOnPlatform(false);
-        }
     }
     checkPlayerInsidePlatform(player) {
         const collisionTop = this.yPos + this.height > player.getYPos() + player.getImageHeight();

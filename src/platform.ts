@@ -50,7 +50,8 @@ export default class Platform {
     player.yPosPrevious.push(player.getYPos());
 
     // hover for description
-    this.checkPlayerheightAbovePlatform(player);
+    // this.checkPlayerheightAbovePlatform(player);
+    player.setOnPlatform(false);
     if (this.checkPixelAbovePlatform(player)) {
       collision = true;
     }
@@ -102,15 +103,17 @@ export default class Platform {
    *
    * @param player the Player class
    */
-  private checkPlayerheightAbovePlatform(player: Player) {
-    if (!(this.yPos
-      > player.getYPos() + player.getImageHeight()
-      || this.yPos + this.height
-      > player.getYPos() + player.getImageHeight() - this.height)) {
-      player.setOnPlatform(false);
-      // console.log('air');
-    }
-  }
+
+  // Doesn't work correctly
+  // private checkPlayerheightAbovePlatform(player: Player) {
+  //   if (!(this.yPos
+  //     > player.getYPos() + player.getImageHeight()
+  //     || this.yPos + this.height
+  //     > player.getYPos() + player.getImageHeight() - this.height)) {
+  //     player.setOnPlatform(false);
+  //     // console.log('air');
+  //   }
+  // }
 
   /**
    * Checks if the player collides with the platform
