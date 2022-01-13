@@ -19,7 +19,7 @@ export default class Level2 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
-        this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 500, 100, 50));
+        this.speedBubble.push(new SpeedBubble(game, 'dit is een vliegende vbuck pas dus op', 120, 600, 100, 500));
     }
     players() {
         this.player = [];
@@ -30,11 +30,12 @@ export default class Level2 extends Level {
         this.door = new Door(1400, 10, 'DoubleDoor0');
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(347, 110, 'blue', -3, this.game));
-        this.scoringObjects.push(new VBucks(650, 350, 'red', -3, this.game));
+        this.scoringObjects.push(new VBucks(700, 400, 'blue', -3, this.game));
         this.scoringObjects.push(new FlyingBuck(550, 150, 'flyingbuck', -3, this.game));
-        this.scoringObjects.push(new VBucks(250, 280, 'red', -3, this.game));
-        this.scoringObjects.push(new FutPack(450, 350, 'red', -3));
-        this.scoringObjects.push(new FutPack(1150, 300, 'blue', -3));
+        this.scoringObjects.push(new VBucks(230, 490, 'red', -3, this.game));
+        this.scoringObjects.push(new FutPack(450, 450, 'blue', -3));
+        this.scoringObjects.push(new FutPack(1150, 300, 'red', -3));
+        this.scoringObjects.push(new FlyingBuck(1250, 75, 'moneymonster', -3, this.game));
         this.scoringObjects.push(new Star(350, 600, 'star', 1));
         this.scoringObjects.push(new Star(1250, 340, 'star', 1));
         this.scoringObjects.push(new Star(350, 150, 'star', 1));
@@ -47,7 +48,7 @@ export default class Level2 extends Level {
         this.platform.push(new Platform(250, 200, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(1400, 110, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(200, 530, 300, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(710, 450, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+        this.platform.push(new Platform(730, 450, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(1150, 380, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(700, 250, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(1150, 150, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
