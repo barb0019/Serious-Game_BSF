@@ -16,8 +16,6 @@ export default abstract class Level extends Scene {
   protected speedBubble: SpeedBubble[];
 
   // Player
-  // private player: Player;
-
   protected player: Player[];
 
   // platform
@@ -47,11 +45,11 @@ export default abstract class Level extends Scene {
   }
 
   /**
-   *
+   *makes de speedbubbles
    *
    * @param game the game of the game
    */
-  // eslint-disable-next-line class-methods-use-this
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected speedbubbles(game: Game): void { }
 
   /**
@@ -88,7 +86,7 @@ export default abstract class Level extends Scene {
         const collides = player.collidesWith(element);
         if (collides) {
           this.game.getUser().addScore(element.getScore());
-          this.game.getUser().setDeadorNot(element.getdeadly());
+          this.game.getUser().setDeadorNot(element.getAlive());
           if (element instanceof PowerUp) {
             const powerUp = element as PowerUp;
             powerUp.applyTo(player);
@@ -219,7 +217,7 @@ export default abstract class Level extends Scene {
       if (this.player[0].collidesWith(this.speedBubble[i])
         || this.player[1].collidesWith(this.speedBubble[i])) {
         // console.log(this.speedBubble);
-        this.speedBubble[i].render(this.game.canvas);
+        this.speedBubble[i].render();
       }
     }
   }

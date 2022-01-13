@@ -12,6 +12,7 @@ export default abstract class ScoringObject extends GameItem {
    * @param yPos y position of hte object
    * @param score the score of this scoring object
    * @param type the type of tje object
+   * @param alive shows if the players are alive
    */
   public constructor(imageSrc: string, xPos: number, yPos: number,
     score: number, type:string, alive:boolean) {
@@ -37,11 +38,11 @@ export default abstract class ScoringObject extends GameItem {
   }
 
   /**
+   * get alive
    *
-   *
-   * @returns
+   * @returns true or false
    */
-   public getdeadly(): boolean {
+  public getAlive(): boolean {
     return this.alive;
   }
 }

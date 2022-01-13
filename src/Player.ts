@@ -32,7 +32,7 @@ export default abstract class Player extends GameItem {
    * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
    * @param type the type of item
-   * @param game
+   * @param game the game of the game
    */
   public constructor(imageSrc: string, maxX: number, maxY: number, type: string, game: Game) {
     super(imageSrc, maxX - 76, maxY - 92, type);
@@ -114,7 +114,9 @@ export default abstract class Player extends GameItem {
   }
 
   /**
+   * get the y position
    *
+   * @returns the y position
    */
   public getYPos(): number {
     return this.yPos;
@@ -167,7 +169,9 @@ export default abstract class Player extends GameItem {
   }
 
   /**
+   * get if you on a platform
    *
+   * @returns true or false
    */
   public getOnPlatform(): boolean {
     return this.onPlatform;
@@ -196,7 +200,9 @@ export default abstract class Player extends GameItem {
   }
 
   /**
-   * @param canvas
+   * moves the players
+   *
+   * @param canvas the canvas of the game
    */
   public move(canvas: HTMLCanvasElement): void {
     let keys = [];

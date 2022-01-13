@@ -6,7 +6,6 @@ import PlayerBlue from './PlayerBlue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
-import FlyingBuck from './FlyingBuck.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 

@@ -13,7 +13,7 @@ export default class UserData {
   public constructor() {
     this.level = 1;
     this.score = 0;
-    this.alive= true;
+    this.alive = true;
     this.name = 'Player 1 and 2';
   }
 
@@ -70,21 +70,20 @@ export default class UserData {
     this.level += 1;
   }
 
-
-
   /**
    * get if you are really dead
    *
    * @returns if you dead or not
    */
-   public getAlive():boolean {
+  public getAlive():boolean {
     return this.alive;
   }
 
   /**
+   * set the player alive or dead
    *
+   * @param boolean true or false
    */
-
   public setDeadorNot(boolean:boolean):void {
     this.alive = boolean;
   }

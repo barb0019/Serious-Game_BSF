@@ -1,7 +1,5 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
-import Level1 from './Level1.js';
-import Level2 from './Level2.js';
 import Scene from './Scene.js';
 
 export default class Start extends Scene {
@@ -50,20 +48,15 @@ export default class Start extends Scene {
    *   current scene, just return `null`
    */
   public update(): Scene {
-    console.log('test with HAM');
-    // ZODRA JE OP DE SPATIE DRUKT WORDT DEZE FUNCTIE GENEGEERt
     if (this.shouldStart) {
-      console.log('test');
-      if (this.game.getCurrentLevel().hasWon()) { // dit stuk ergens anders
+      if (this.game.getCurrentLevel().hasWon()) {
         this.levelsArray.splice(0, 1);
-        // console.log(this.levelsArray.hasWon);
         this.levelsArray.hasWon = false;
       }
-      return this.game.getCurrentLevel(); // nop wrk nit
+      return this.game.getCurrentLevel();
     }
     return null;
   }
-  // ik heb iets geflikt. het werkt. maar in achterwaardse volgorde.gaA
 
   /**
    * Draw the game so the player can see what happened
