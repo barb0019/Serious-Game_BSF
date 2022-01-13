@@ -39,7 +39,7 @@ export default class Level2 extends Level {
         this.scoringObjects.push(new Star(1050, 450, 'star', 1));
         this.scoringObjects.push(new Star(350, 600, 'star', 1));
         this.scoringObjects.push(new VBucks(275, 600, 'red', -3, this.game));
-        this.scoringObjects.push(new VBucks(420, 600, 'red', -3, this.game));
+        this.scoringObjects.push(new FutPack(420, 600, 'red', -3));
     }
     makePlatforms() {
         const { canvas } = this.game;

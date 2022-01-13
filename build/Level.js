@@ -7,14 +7,12 @@ export default class Level extends Scene {
     scoringObjects;
     speedBubble;
     player;
-    movingObjects;
     platform;
     countUntilNextItem;
     door;
     constructor(game) {
         super(game);
         this.objects();
-        this.movingobjects();
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
@@ -23,7 +21,6 @@ export default class Level extends Scene {
     speedbubbles(game) { }
     players() { }
     objects() { }
-    movingobjects() { }
     makePlatforms() { }
     checksIfHit(player) {
         this.scoringObjects = this.scoringObjects.filter((element) => {
@@ -77,7 +74,6 @@ export default class Level extends Scene {
             && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
-        this.scoringObjects[2].move();
         if (this.game.getUser().getAlive() === false) {
             return new GameOver(this.game);
         }
@@ -85,6 +81,13 @@ export default class Level extends Scene {
     }
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
+        for (let i = 0; i < this.speedBubble.length; i++) {
+            if (this.player[0].collidesWith(this.speedBubble[i])
+                || this.player[1].collidesWith(this.speedBubble[i])) {
+                this.speedBubble[i].draw(this.game.ctx);
+                this.speedBubble[i].render(this.game.canvas);
+            }
+        }
         const score = `Stars: ${this.game.getUser().getScore()}`;
         this.game.writeTextToCanvas(score, 36, 120, 50);
         this.scoringObjects.forEach((element) => {
@@ -97,12 +100,6 @@ export default class Level extends Scene {
             this.platform[i].draw(this.game.ctx);
         }
         this.door.draw(this.game.ctx, this.player);
-        for (let i = 0; i < this.speedBubble.length; i++) {
-            if (this.player[0].collidesWith(this.speedBubble[i])
-                || this.player[1].collidesWith(this.speedBubble[i])) {
-                this.speedBubble[i].render(this.game.canvas);
-            }
-        }
     }
 }
 //# sourceMappingURL=Level.js.map
