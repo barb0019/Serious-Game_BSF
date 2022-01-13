@@ -74,6 +74,7 @@ export default class Level extends Scene {
             && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
+        this.scoringObjects[2].move();
         if (this.game.getUser().getAlive() === false) {
             return new GameOver(this.game);
         }
