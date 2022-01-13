@@ -95,4 +95,4 @@ export default class Platform {
         ctx.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
     }
 }
-//# sourceMappingURL=platform.js.map
+//# sourceMappingURL=Platform.js.map

@@ -6,9 +6,9 @@ import Enemies from './Enemies.js';
 export default class SpeedBubble extends Enemies {
   private text:string;
 
-private xCoordinate:number;
+  private xCoordinate:number;
 
-private yCoordinate:number;
+  private yCoordinate:number;
 
   private width:number;
 
@@ -27,11 +27,11 @@ private yCoordinate:number;
    */
   public constructor(game:Game, text:string, yCoordinate:number,
     xCoordinate:number, width:number, height:number) {
-    super('./assets/img/textcloud.png', xCoordinate, yCoordinate,0, 'speedbubble',true,game);
+    super('./assets/img/textcloud.png', xCoordinate, yCoordinate, 0, 'speedbubble', true, game);
     this.text = text;
     this.width = width;
     this.height = height;
-    this.xCoordinate =xCoordinate;
+    this.xCoordinate = xCoordinate;
     this.yCoordinate = yCoordinate;
   }
 
@@ -41,6 +41,6 @@ private yCoordinate:number;
    * @param canvas
    */
   public render(canvas:HTMLCanvasElement): void {
-    this.game.writeTextToCanvas(this.text, 15,this.xCoordinate + this.getImageWidth()/2, this.yCoordinate+this.getImageHeight()/2, 'center', 'black');
+    this.game.writeTextToCanvas(this.text, 15, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', 'black');
   }
 }
