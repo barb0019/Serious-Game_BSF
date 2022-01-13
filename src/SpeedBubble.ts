@@ -6,9 +6,15 @@ import Enemies from './Enemies.js';
 export default class SpeedBubble extends Enemies {
   private text:string;
 
+<<<<<<< HEAD
   private xCoordinate:number;
 
   private yCoordinate:number;
+=======
+private xCoordinate:number;
+
+private yCoordinate:number;
+>>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
 
   private width:number;
 
@@ -25,7 +31,11 @@ export default class SpeedBubble extends Enemies {
    */
   public constructor(game:Game, text:string, yCoordinate:number,
     xCoordinate:number, width:number, height:number) {
+<<<<<<< HEAD
     super('./assets/img/textcloud.png', xCoordinate, yCoordinate, 0, 'speedbubble', true, game);
+=======
+    super('./assets/img/textcloud.png', xCoordinate, yCoordinate,0, 'speedbubble',true,game);
+>>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
     this.text = text;
     this.width = width;
     this.height = height;
@@ -38,7 +48,12 @@ export default class SpeedBubble extends Enemies {
    *
    * @param canvas
    */
+<<<<<<< HEAD
   public render(): void {
     this.game.writeTextToCanvas(this.text, 39, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', 'black');
+=======
+  public render(canvas:HTMLCanvasElement): void {
+    this.game.writeTextToCanvas(this.text, 15,this.xCoordinate + this.getImageWidth()/2, this.yCoordinate+this.getImageHeight()/2, 'center', 'blue');
+>>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
   }
 }

@@ -40,7 +40,12 @@ export default class Level2 extends Level {
    * @param game the game of the game
    */
   protected speedbubbles(game: Game): void {
+<<<<<<< HEAD
     this.speedBubble = new SpeedBubble(game, 'hallo', 100, 500, 100, 50);
+=======
+    this.speedBubble = [];
+    this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 500,100,50));
+>>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
   }
 
   /**

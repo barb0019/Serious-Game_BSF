@@ -15,11 +15,17 @@ export default class Platform {
         this.walljumpCheck = 10;
     }
     collidesWith(player) {
+        let collision = false;
         player.xPosPrevious.push(player.getXPos());
         player.yPosPrevious.push(player.getYPos());
         this.checkPlayerheightAbovePlatform(player);
-        this.checkPixelAbovePlatform(player);
-        return this.checkPlayerInsidePlatform(player);
+        if (this.checkPixelAbovePlatform(player)) {
+            collision = true;
+        }
+        if (this.checkPlayerInsidePlatform(player)) {
+            collision = true;
+        }
+        return collision;
     }
     checkPixelAbovePlatform(player) {
         if (this.xPos < player.getXPos() + player.getImageWidth()
@@ -29,7 +35,9 @@ export default class Platform {
             && this.yPos + this.height > player.getYPos()) {
             player.setGravity(0);
             player.setOnPlatform(true);
+            return true;
         }
+        return false;
     }
     wallJumping(onOrOff) {
         if (onOrOff) {
@@ -43,6 +51,7 @@ export default class Platform {
             > player.getYPos() + player.getImageHeight()
             || this.yPos + this.height
                 > player.getYPos() + player.getImageHeight() - this.height)) {
+            player.setOnPlatform(false);
         }
     }
     checkPlayerInsidePlatform(player) {
@@ -67,6 +76,7 @@ export default class Platform {
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
                 player.setGravity(10);
+                player.setOnPlatform(false);
                 return true;
             }
             if (collisionLeft) {

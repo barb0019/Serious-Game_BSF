@@ -13,7 +13,7 @@ export default abstract class Level extends Scene {
   // Garbage items (the player needs to pick these up)
   protected scoringObjects: ScoringObject[];
 
-  protected speedBubble: SpeedBubble;
+  protected speedBubble: SpeedBubble[];
 
   // Player
   // private player: Player;
@@ -52,25 +52,25 @@ export default abstract class Level extends Scene {
    * @param game the game of the game
    */
   // eslint-disable-next-line class-methods-use-this
-  protected speedbubbles(game:Game): void {}
+  protected speedbubbles(game: Game): void { }
 
   /**
    *
    */
   // eslint-disable-next-line class-methods-use-this
-  protected players(): void {}
+  protected players(): void { }
 
   /**
    *
    */
   // eslint-disable-next-line class-methods-use-this
-  protected objects(): void {}
+  protected objects(): void { }
 
   /**
    * Creates platforms
    */
   // eslint-disable-next-line class-methods-use-this
-  protected makePlatforms(): void {}
+  protected makePlatforms(): void { }
 
   /**
    * Removes scoring objects from the game based on box collision detection.
@@ -137,15 +137,29 @@ export default abstract class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
+    let skipPlayer0 = false;
+    let skipPlayer1 = false;
     this.player.forEach((element) => {
       element.increaseGravity();
     });
-    this.platform.forEach((element) => {
-      // console.log(element);
-      for (let i = 0; i < this.player.length; i++) {
-        element.collidesWith(this.player[i]);
+    for (let i = 0; i < this.platform.length; i++) {
+      if (!skipPlayer0) {
+        if (this.platform[i].collidesWith(this.player[0])) {
+          skipPlayer0 = true;
+        }
       }
-    });
+      if (!skipPlayer1) {
+        if (this.platform[i].collidesWith(this.player[1])) {
+          skipPlayer1 = true;
+        }
+      }
+    }
+    // this.platform.forEach((element) => {
+    //   // console.log(element);
+    //   for (let i = 0; i < this.player.length; i++) {
+    //     element.collidesWith(this.player[i]);
+    //   }
+    // });
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
@@ -185,6 +199,7 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
+<<<<<<< HEAD
     // console.log(this.player[0].collidesWith(this.speedBubble)
     // || this.player[1].collidesWith(this.speedBubble));
 
@@ -194,6 +209,11 @@ export default abstract class Level extends Scene {
       this.speedBubble.draw(this.game.ctx);
       this.speedBubble.render();
     }
+=======
+
+
+
+>>>>>>> 63243a38292db520f63821b3103e98a3f8212c54
     // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
 
     // Show score
@@ -209,5 +229,15 @@ export default abstract class Level extends Scene {
       this.platform[i].draw(this.game.ctx);
     }
     this.door.draw(this.game.ctx, this.player);
+
+    for (let i = 0; i < this.speedBubble.length; i++) {
+      if (this.player[0].collidesWith(this.speedBubble[i])
+        || this.player[1].collidesWith(this.speedBubble[i])) {
+        // console.log(this.speedBubble);
+             this.speedBubble[i].render(this.game.canvas);
+      }
+    }
   }
+
+
 }

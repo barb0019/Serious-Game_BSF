@@ -44,14 +44,21 @@ export default class Platform {
    * @returns Wheter the platform collides with the player or not
    */
   public collidesWith(player: Player): boolean {
+    let collision = false;
     // sets the current pos of the player to be used next frame for collision detection
     player.xPosPrevious.push(player.getXPos());
     player.yPosPrevious.push(player.getYPos());
 
     // hover for description
     this.checkPlayerheightAbovePlatform(player);
-    this.checkPixelAbovePlatform(player);
-    return this.checkPlayerInsidePlatform(player);
+    if (this.checkPixelAbovePlatform(player)) {
+      collision = true;
+    }
+    if (this.checkPlayerInsidePlatform(player)) {
+      collision = true;
+    }
+
+    return collision;
   }
 
   /**
@@ -59,9 +66,10 @@ export default class Platform {
    * This way the player isn't considered in the platform
    * and won't continually get his position changed.
    *
+   * @returns boolean of whether the player is 1 pixel above the platform
    * @param player the Player class
    */
-  private checkPixelAbovePlatform(player: Player) {
+  private checkPixelAbovePlatform(player: Player): boolean {
     // the 1 checks for the pixel above the platform
     if (this.xPos < player.getXPos() + player.getImageWidth()
       + player.getXVel() - this.walljumpCheck
@@ -71,7 +79,9 @@ export default class Platform {
       player.setGravity(0);
       player.setOnPlatform(true);
       // console.log('platform');
+      return true;
     }
+    return false;
   }
 
   /**
@@ -97,6 +107,7 @@ export default class Platform {
       > player.getYPos() + player.getImageHeight()
       || this.yPos + this.height
       > player.getYPos() + player.getImageHeight() - this.height)) {
+      player.setOnPlatform(false);
       // console.log('air');
     }
   }
@@ -140,6 +151,7 @@ export default class Platform {
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
         player.setGravity(10);
+        player.setOnPlatform(false);
         return true;
       }
       if (collisionLeft) {
