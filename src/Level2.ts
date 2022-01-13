@@ -68,6 +68,8 @@ export default class Level2 extends Level {
     this.scoringObjects.push(new FutPack(1150, 300, 'red', -3));
     this.scoringObjects.push(new FlyingBuck(1010, 580, 'moneymonster', -3, this.game));
     this.scoringObjects.push(new Star(350, 600, 'star', 1));
+    this.scoringObjects.push(new Star(1250, 340, 'star', 1));
+    this.scoringObjects.push(new Star(350, 150, 'star', 1));
     this.scoringObjects.push(new VBucks(275, 600, 'red', -3, this.game));
     this.scoringObjects.push(new FutPack(420, 600, 'red', -3));
   }
@@ -81,8 +83,6 @@ export default class Level2 extends Level {
 
     this.platform.push(new Platform(250, 200, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1400, 110, 75, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(1000, canvas.height / 1.5, 75, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(1250, canvas.height / 1.5, 100, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(200, 530, 300, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(730, 450, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(1150, 380, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
