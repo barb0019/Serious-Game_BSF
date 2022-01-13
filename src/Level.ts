@@ -200,8 +200,6 @@ export default abstract class Level extends Scene {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
 
-
-
     // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
 
     // Show score
