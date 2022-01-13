@@ -246,12 +246,3 @@ export default abstract class Player extends GameItem {
     }
   }
 }
-//   // // Moving down
-//   // if (this.keyBoard.isKeyDown(KeyListener.KEY_S) && this.yPos < maxY) {
-//   //   this.yPos += this.yVel;
-//   //   if (this.yPos > maxY) {
-//   //     this.yPos = maxY;
-//   //   }
-//   //   this.setOnPlatform(false);
-//   // }
-// }
