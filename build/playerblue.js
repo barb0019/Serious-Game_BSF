@@ -3,9 +3,8 @@ import Player from './Player.js';
 export default class PlayerBlue extends Player {
     keyboard;
     constructor(maxX, maxY, game) {
-        super('./assets/img/blueKid.png', maxX - 76, maxY - 92, 'blue', game);
+        super('./assets/img/BlueKid2.png', maxX - 76, maxY - 92, 'blue', game);
         this.keyboard = new KeyListener();
-        this.imgSrc = './assets/img/blueKid.png';
     }
     move(canvas) {
         const minX = 0;
@@ -20,7 +19,7 @@ export default class PlayerBlue extends Player {
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_A) && this.xPos > minX) {
             this.xPos -= this.xVel;
-            this.setImage('./assets/img/blueKid.png');
+            this.setImage('./assets/img/BlueKid2.png');
             if (this.xPos < minX) {
                 this.xPos = minX;
             }

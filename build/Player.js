@@ -13,7 +13,6 @@ export default class Player extends GameItem {
     static maxGravity = 100;
     isJumping;
     game;
-    imgSrc;
     constructor(imageSrc, maxX, maxY, type, game) {
         super(imageSrc, maxX - 76, maxY - 92, type);
         this.game = game;

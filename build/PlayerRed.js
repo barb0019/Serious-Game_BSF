@@ -3,7 +3,7 @@ import Player from './Player.js';
 export default class PlayerRed extends Player {
     keyboard;
     constructor(maxX, maxY, game) {
-        super('./assets/img/redKid.png', maxX - 76, maxY - 92, 'red', game);
+        super('./assets/img/RedKid2.png', maxX - 76, maxY - 92, 'red', game);
         this.keyboard = new KeyListener();
     }
     move(canvas) {
@@ -12,12 +12,14 @@ export default class PlayerRed extends Player {
         const minY = 0;
         if (this.keyboard.isKeyDown(KeyListener.KEY_RIGHT) && this.xPos < maxX) {
             this.xPos += this.xVel;
+            this.setImage('./assets/img/RedKidLookRight.png');
             if (this.xPos > maxX) {
                 this.xPos = maxX;
             }
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_LEFT) && this.xPos > minX) {
             this.xPos -= this.xVel;
+            this.setImage('./assets/img/RedKid2.png');
             if (this.xPos < minX) {
                 this.xPos = minX;
             }
