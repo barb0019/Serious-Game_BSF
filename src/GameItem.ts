@@ -27,6 +27,11 @@ export default abstract class GameItem {
     this.speed = 3;
   }
 
+  /**
+   * set the image of a object
+   *
+   * @param img the img of the gameitem
+   */
   // eslint-disable-next-line class-methods-use-this
   public setImage(img: string): void {
     this.img = Game.loadNewImage(img);

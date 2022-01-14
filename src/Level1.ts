@@ -2,11 +2,10 @@ import Game from './Game.js';
 import Platform from './Platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
-import PlayerBlue from './playerblue.js';
+import PlayerBlue from './PlayerBlue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
-import FlyingBuck from './FlyingBuck.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 

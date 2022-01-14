@@ -12,7 +12,7 @@ export default class ScoringObject extends GameItem {
     }
     move() {
     }
-    getdeadly() {
+    getAlive() {
         return this.alive;
     }
 }

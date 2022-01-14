@@ -32,7 +32,7 @@ export default abstract class Player extends GameItem {
    * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
    * @param type the type of item
-   * @param game
+   * @param game the game of the game
    */
   public constructor(imageSrc: string, maxX: number, maxY: number, type: string, game: Game) {
     super(imageSrc, maxX - 76, maxY - 92, type);
@@ -113,6 +113,11 @@ export default abstract class Player extends GameItem {
     this.yPos = yPos;
   }
 
+  /**
+   * get the y position
+   *
+   * @returns the y position
+   */
   public getYPos(): number {
     return this.yPos;
   }
@@ -163,6 +168,11 @@ export default abstract class Player extends GameItem {
     this.onPlatform = trueOrFalse;
   }
 
+  /**
+   * get if you on a platform
+   *
+   * @returns true or false
+   */
   public getOnPlatform(): boolean {
     return this.onPlatform;
   }
@@ -176,7 +186,7 @@ export default abstract class Player extends GameItem {
     this.xVel += size;
   }
 
-  abstract move(canvas: HTMLCanvasElement): void;
+  // abstract move(canvas: HTMLCanvasElement): void;
 
   abstract collidesWith(other: GameItem | Door | SpeedBubble): boolean;
 
@@ -188,64 +198,57 @@ export default abstract class Player extends GameItem {
     const jumpMusic = new Audio('./assets/jumpMusic.mp3');
     jumpMusic.play();
   }
+
+  /**
+   * moves the players
+   *
+   * @param canvas the canvas of the game
+   */
+  public move(canvas: HTMLCanvasElement): void {
+    let keys = [];
+    const klisten = KeyListener;
+    if (this.getType() === 'blue') {
+      keys = [klisten.KEY_D, klisten.KEY_A, klisten.KEY_W, klisten.KEY_S];
+    } else {
+      keys = [klisten.KEY_RIGHT, klisten.KEY_LEFT, klisten.KEY_UP, klisten.KEY_DOWN];
+    }
+
+    // Set the limit values
+    const minX = 0;
+    const maxX = canvas.width - this.img.width;
+    const minY = 0;
+    // Moving right
+    if (this.keyBoard.isKeyDown(keys[0]) && this.xPos < maxX) {
+      this.xPos += this.xVel;
+      // Limit to the max value
+      if (this.xPos > maxX) {
+        this.xPos = maxX;
+      }
+    }
+
+    // Moving left
+    if (this.keyBoard.isKeyDown(keys[1]) && this.xPos > minX) {
+      this.xPos -= this.xVel;
+      // Limit to the max value
+      if (this.xPos < minX) {
+        this.xPos = minX;
+      }
+    // this.setOnPlatform(false);
+    }
+
+    // Moving up
+    if (this.keyBoard.isKeyDown(keys[2]) && this.yPos > minY) {
+      if (this.onPlatform) {
+        this.isJumping = true;
+        this.setOnPlatform(false);
+      }
+    }
+
+    if (this.isJumping === true) {
+      this.jump();
+      if (this.yPos < minY) {
+        this.yPos = minY;
+      }
+    }
+  }
 }
-
-// /**
-//  * @param canvas
-//  */
-// public move(canvas: HTMLCanvasElement): void {
-//   let keys = [];
-//   const klisten = KeyListener;
-//   if (this.type === 'blue') {
-//     keys = [klisten.KEY_D, klisten.KEY_A, klisten.KEY_W, klisten.KEY_S];
-//   } else {
-//     keys = [klisten.KEY_RIGHT, klisten.KEY_LEFT, klisten.KEY_UP, klisten.KEY_DOWN];
-//   }
-
-//   // Set the limit values
-//   const minX = 0;
-//   const maxX = canvas.width - this.img.width;
-//   const minY = 0;
-//   // Moving right
-//   if (this.keyBoard.isKeyDown(keys[0]) && this.xPos < maxX) {
-//     this.xPos += this.xVel;
-//     // Limit to the max value
-//     if (this.xPos > maxX) {
-//       this.xPos = maxX;
-//     }
-//   }
-
-//   // Moving left
-//   if (this.keyBoard.isKeyDown(keys[1]) && this.xPos > minX) {
-//     this.xPos -= this.xVel;
-//     // Limit to the max value
-//     if (this.xPos < minX) {
-//       this.xPos = minX;
-//     }
-//     // this.setOnPlatform(false);
-//   }
-
-//   // Moving up
-//   if (this.keyBoard.isKeyDown(keys[2]) && this.yPos > minY) {
-//     if (this.onPlatform) {
-//       this.isJumping = true;
-//       this.setOnPlatform(false);
-//     }
-//   }
-
-//   if (this.isJumping === true) {
-//     this.jump();
-//     if (this.yPos < minY) {
-//       this.yPos = minY;
-//     }
-//   }
-
-//   // // Moving down
-//   // if (this.keyBoard.isKeyDown(KeyListener.KEY_S) && this.yPos < maxY) {
-//   //   this.yPos += this.yVel;
-//   //   if (this.yPos > maxY) {
-//   //     this.yPos = maxY;
-//   //   }
-//   //   this.setOnPlatform(false);
-//   // }
-// }

@@ -1,14 +1,14 @@
 import Player from './Player.js';
-export default class PlayerRed extends Player {
+export default class PlayerBlue extends Player {
     constructor(maxX, maxY, game) {
-        super('./assets/img/RedKid2.png', maxX - 76, maxY - 92, 'red', game);
+        super('./assets/img/BlueKid2.png', maxX - 76, maxY - 92, 'blue', game);
     }
     collidesWith(other) {
         return this.xPos < other.getXPos() + other.getImageWidth()
             && this.xPos + this.img.width > other.getXPos()
             && this.yPos < other.getYPos() + other.getImageHeight()
             && this.yPos + this.img.height > other.getYPos()
-            && other.getType() !== 'red';
+            && other.getType() !== 'blue';
     }
 }
-//# sourceMappingURL=PlayerRed.js.map
+//# sourceMappingURL=PlayerBlue.js.map

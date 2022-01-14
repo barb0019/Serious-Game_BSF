@@ -27,7 +27,7 @@ export default class Level extends Scene {
             const collides = player.collidesWith(element);
             if (collides) {
                 this.game.getUser().addScore(element.getScore());
-                this.game.getUser().setDeadorNot(element.getdeadly());
+                this.game.getUser().setDeadorNot(element.getAlive());
                 if (element instanceof PowerUp) {
                     const powerUp = element;
                     powerUp.applyTo(player);
@@ -97,7 +97,7 @@ export default class Level extends Scene {
         for (let i = 0; i < this.speedBubble.length; i++) {
             if (this.player[0].collidesWith(this.speedBubble[i])
                 || this.player[1].collidesWith(this.speedBubble[i])) {
-                this.speedBubble[i].render(this.game.canvas);
+                this.speedBubble[i].render();
             }
         }
     }

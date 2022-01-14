@@ -2,7 +2,6 @@ import GameLoop from './GameLoop.js';
 import Level from './Level.js';
 import Level1 from './Level1.js';
 import Level2 from './Level2.js';
-import Scene from './Scene.js';
 import Start from './Start.js';
 import UserData from './UserData.js';
 import Level3 from './Level3.js';
@@ -30,7 +29,7 @@ export default class Game {
   public constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
-    // Game.music = new Audio('./assets/game-music-7408.mp3');
+    Game.music = new Audio('./assets/game-music-7408.mp3');
 
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
@@ -126,15 +125,15 @@ export default class Game {
    * plays the music
    */
   static play():void {
-    // this.music.play();
-    // this.music.loop = true;
+    this.music.play();
+    this.music.loop = true;
   }
 
   /**
    * pause the music
    */
   static pause():void {
-    // this.music.pause();
+    this.music.pause();
   }
 
   /**

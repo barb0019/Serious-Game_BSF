@@ -1,6 +1,4 @@
 import Game from './Game.js';
-import Player from './Player.js';
-import GameItem from './GameItem.js';
 import Enemies from './Enemies.js';
 
 export default class SpeedBubble extends Enemies {
@@ -20,10 +18,8 @@ export default class SpeedBubble extends Enemies {
    * @param text the text of the speedbubble
    * @param yCoordinate y coodinate of the speedbubble
    * @param xCoordinate x coordinate
-   * @param player1 player 1
-   * @param player2 player 2
-   * @param width
-   * @param height
+   * @param width the max width of the speedbubbles
+   * @param height the max height of the speedbubble
    */
   public constructor(game:Game, text:string, yCoordinate:number,
     xCoordinate:number, width:number, height:number) {
@@ -38,9 +34,8 @@ export default class SpeedBubble extends Enemies {
   /**
    * render
    *
-   * @param canvas
    */
-  public render(canvas:HTMLCanvasElement): void {
+  public render(): void {
     this.game.writeTextToCanvas(this.text, 15, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', 'black');
   }
 }

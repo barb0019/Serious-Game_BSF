@@ -7,13 +7,13 @@ export default abstract class Enemies extends ScoringObject {
   protected game: Game;
 
   /**
-   * @param imageSrc
-   * @param xPos
-   * @param yPos
-   * @param score
-   * @param type
-   * @param alive
-   * @param game
+   * @param imageSrc the image source of the enemy
+   * @param xPos the x position of the enemy
+   * @param yPos the y position of the enemy
+   * @param score the score what you get if you got hit
+   * @param type the type of enemy
+   * @param alive let see if the enemy can kill you
+   * @param game the game of the game
    */
   public constructor(imageSrc: string, xPos: number, yPos: number,
     score: number, type:string, alive: boolean, game: Game) {
@@ -35,9 +35,9 @@ export default abstract class Enemies extends ScoringObject {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   /**
    *
    */
+  // eslint-disable-next-line class-methods-use-this
   public move(): void {}
 }
