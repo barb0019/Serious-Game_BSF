@@ -80,13 +80,13 @@ export default class Level1 extends Level {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     this.platform = [];
-    this.platform.push(new Platform(width * 0.1, 350, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.87, 150, 150, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.36, 450, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.4, 170, 200, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.71, 250, 250, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.65, height / 1.5, 75, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.81, height / 1.5, 100, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.1, 350, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.87, 150, width * 0.1, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.36, 450, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.4, 170, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.71, 250, width * 0.16, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.65, height / 1.5, width * 0.05, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.81, height / 1.5, width * 0.065, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
