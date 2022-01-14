@@ -5,6 +5,7 @@ export default class VBucks extends Enemies {
   private timer: number;
 
   /**
+   *  initilize the vbucks
    *
    * @param xPos the max value of the X position
    * @param yPos the max value of the Y position
