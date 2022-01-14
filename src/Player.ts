@@ -21,8 +21,6 @@ export default abstract class Player extends GameItem {
 
   private static gravityIncrease: number = 0.2;
 
-  public static maxGravity: number = 100;
-
   protected isJumping: boolean;
 
   protected game: Game;
@@ -39,7 +37,6 @@ export default abstract class Player extends GameItem {
     this.game = game;
     Player.gravityIncrease = game.canvas.height * 0.00025;
     this.jumpHeight = Player.gravityIncrease * 50;
-    Player.maxGravity = this.jumpHeight * 10;
     this.xVel = 5;
     this.keyBoard = new KeyListener();
     this.xPosPrevious = [];

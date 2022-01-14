@@ -1,4 +1,3 @@
-import Player from './Player.js';
 export default class Platform {
     xPos;
     yPos;
@@ -68,7 +67,7 @@ export default class Platform {
                 console.log('bottom');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
-                player.setGravity(Player.maxGravity);
+                player.setGravity(player.getJumpHeight());
                 player.setOnPlatform(false);
                 return true;
             }
