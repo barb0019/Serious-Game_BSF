@@ -31,7 +31,7 @@ export default class Game {
     this.ctx = this.canvas.getContext('2d');
     Game.music = new Audio('./assets/game-music-7408.mp3');
 
-    this.canvas.width = window.innerWidth-50;
+    this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
     this.boughtItems = [];
 
