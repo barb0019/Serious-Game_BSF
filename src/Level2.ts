@@ -60,7 +60,7 @@ export default class Level2 extends Level {
   protected objects(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
-    this.door = new Door(width * 0.91, height * 0.0065, 'DoubleDoor0');
+    this.door = new Door(width * 0.911, height * 0.012, 'DoubleDoor0');
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.226, 110, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.456, 400, 'blue', -3, this.game));
@@ -72,8 +72,8 @@ export default class Level2 extends Level {
     this.scoringObjects.push(new Star(width * 0.227, 600, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, 340, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.227, 150, 'star', 1));
-    this.scoringObjects.push(new VBucks(width * 0.179, 600, 'red', -3, this.game));
-    this.scoringObjects.push(new FutPack(width* 0.273, 600, 'red', -3));
+    this.scoringObjects.push(new VBucks(width * 0.179, height * 0.8, 'red', -3, this.game));
+    this.scoringObjects.push(new FutPack(width * 0.273, height * 0.8, 'red', -3));
   }
 
   /**
@@ -82,15 +82,17 @@ export default class Level2 extends Level {
   public makePlatforms(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
+    console.log(height);
+
     this.platform = [];
 
-    this.platform.push(new Platform(width * 0.163, 200, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.9115, 110, width * 0.048, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.130, 530, width * 0.195, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.475, 450, width * 0.2, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.75, 380, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.39, 250, width * 0.19, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.75, 150, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.9115, height * 0.154, width * 0.048, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.130, height * 0.7, width * 0.195, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.475, height * 0.6, width * 0.2, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.75, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.39, height * 0.33, width * 0.19, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.75, height * 0.2, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
     console.log('LEVEL2');
     // the ground
