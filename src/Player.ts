@@ -21,7 +21,7 @@ export default abstract class Player extends GameItem {
 
   private static gravityIncrease: number = 0.2;
 
-  private static maxGravity: number = 100;
+  public static maxGravity: number = 100;
 
   protected isJumping: boolean;
 
@@ -37,10 +37,10 @@ export default abstract class Player extends GameItem {
   public constructor(imageSrc: string, maxX: number, maxY: number, type: string, game: Game) {
     super(imageSrc, maxX - 76, maxY - 92, type);
     this.game = game;
-    // Player.gravityIncrease = game.canvas.height * 0.0002;
-    // Player.maxGravity = game.canvas.height * 0.01;
-    this.xVel = 5;
+    Player.gravityIncrease = game.canvas.height * 0.00025;
     this.jumpHeight = Player.gravityIncrease * 50;
+    Player.maxGravity = this.jumpHeight * 10;
+    this.xVel = 5;
     this.keyBoard = new KeyListener();
     this.xPosPrevious = [];
     this.yPosPrevious = [];
@@ -75,10 +75,11 @@ export default abstract class Player extends GameItem {
 
       this.gravity += Player.gravityIncrease;
 
+      // Breaks it, don't use
       // max speed for the gravity
-      if (this.gravity > Player.maxGravity) {
-        this.gravity = Player.maxGravity;
-      }
+      // if (this.gravity > Player.maxGravity) {
+      // this.gravity = Player.maxGravity;
+      // }
     }
   }
 
