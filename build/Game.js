@@ -15,7 +15,7 @@ export default class Game {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         Game.music = new Audio('./assets/game-music-7408.mp3');
-        this.canvas.width = window.innerWidth;
+        this.canvas.width = window.innerWidth - 50;
         this.canvas.height = window.innerHeight;
         this.boughtItems = [];
         this.gameLoop = new GameLoop();
@@ -56,9 +56,9 @@ export default class Game {
     }
     getCurrentLevel() {
         switch (this.user.getLevel()) {
-            case 1: return new Level1(this);
+            case 3: return new Level1(this);
             case 2: return new Level2(this);
-            case 3: return new Level3(this);
+            case 1: return new Level3(this);
             default: return null;
         }
     }

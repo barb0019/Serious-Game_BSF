@@ -220,6 +220,11 @@ export default abstract class Player extends GameItem {
     // Moving right
     if (this.keyBoard.isKeyDown(keys[0]) && this.xPos < maxX) {
       this.xPos += this.xVel;
+      if (this.getType() === 'blue') {
+        this.setImage('./assets/img/BlueKidLookRight.png');
+      } else {
+        this.setImage('./assets/img/RedKidLookRight.png');
+      }
       // Limit to the max value
       if (this.xPos > maxX) {
         this.xPos = maxX;
@@ -229,11 +234,16 @@ export default abstract class Player extends GameItem {
     // Moving left
     if (this.keyBoard.isKeyDown(keys[1]) && this.xPos > minX) {
       this.xPos -= this.xVel;
+      if (this.getType() === 'blue') {
+        this.setImage('./assets/img/BlueKid2.png');
+      } else {
+        this.setImage('./assets/img/RedKid2.png');
+      }
       // Limit to the max value
       if (this.xPos < minX) {
         this.xPos = minX;
       }
-    // this.setOnPlatform(false);
+      // this.setOnPlatform(false);
     }
 
     // Moving up

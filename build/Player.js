@@ -105,12 +105,24 @@ export default class Player extends GameItem {
         const minY = 0;
         if (this.keyBoard.isKeyDown(keys[0]) && this.xPos < maxX) {
             this.xPos += this.xVel;
+            if (this.getType() === 'blue') {
+                this.setImage('./assets/img/BlueKidLookRight.png');
+            }
+            else {
+                this.setImage('./assets/img/RedKidLookRight.png');
+            }
             if (this.xPos > maxX) {
                 this.xPos = maxX;
             }
         }
         if (this.keyBoard.isKeyDown(keys[1]) && this.xPos > minX) {
             this.xPos -= this.xVel;
+            if (this.getType() === 'blue') {
+                this.setImage('./assets/img/BlueKid2.png');
+            }
+            else {
+                this.setImage('./assets/img/RedKid2.png');
+            }
             if (this.xPos < minX) {
                 this.xPos = minX;
             }

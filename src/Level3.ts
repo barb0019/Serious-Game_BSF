@@ -54,9 +54,9 @@ export default class Level3 extends Level {
    *
    */
   protected objects():void {
-    this.door = new Door(1400, 100, 'DoubleDoor0');
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
+    this.door = new Door(width * 0.92, height * 0.1, 'DoubleDoor0');
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.88, height * 0.2, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.463, height * 0.04, 'red', -3, this.game));
@@ -100,11 +100,11 @@ export default class Level3 extends Level {
     this.platform.push(new Platform(width * 0.85, height * 0.7, width * 0.075, 20, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
     // Door paltform
-    this.platform.push(new Platform(1400, 200, 76, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.91, height * 0.234, width * 0.06, height * 0.05, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // The ground
     this.platform.push(new Platform(0, height - 50, width / 4, height * 0.06, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width / 4, height - 50, width / 4, height * 0.06, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width / 2, height - 50, width / 4, height * 0.06, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.25, height - 50, width / 4, height * 0.06, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.5, height - 50, width / 4, height * 0.06, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.75, height - 50, width / 4, height * 0.06, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
   }
 }
