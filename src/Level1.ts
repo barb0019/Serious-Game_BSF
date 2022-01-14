@@ -10,7 +10,6 @@ import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 
 export default class Level1 extends Level {
-
   /**
    * Creates a new instance of this class
    *
