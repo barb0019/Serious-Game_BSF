@@ -75,7 +75,7 @@ export default class Level extends Scene {
             return new LevelUp(this.game);
         }
         this.scoringObjects[2].move();
-        this.scoringObjects[6].move();
+        this.scoringObjects[6].moveY();
         if (this.game.getUser().getAlive() === false) {
             return new GameOver(this.game);
         }
