@@ -1,17 +1,26 @@
 import Enemies from './Enemies.js';
 export default class FlyingBuck extends Enemies {
-    timer;
+    maxXPos;
+    goingRight;
     constructor(xPos, yPos, type, points, game) {
         super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
-        this.timer = 0;
+        this.goingRight = true;
+        this.maxXPos = this.xPos + game.canvas.width * 0.17;
         this.flyingSpeed += 1.50;
     }
     move() {
         this.xPos += this.flyingSpeed;
-        this.timer += 1;
-        if (this.timer > 200) {
-            this.timer = 0;
+        if (this.goingRight) {
+            if (this.xPos > this.maxXPos) {
+                this.maxXPos = this.xPos - this.game.canvas.width * 0.17;
+                this.flyingSpeed = -this.flyingSpeed;
+                this.goingRight = false;
+            }
+        }
+        else if (this.xPos < this.maxXPos) {
+            this.maxXPos = this.xPos + this.game.canvas.width * 0.17;
             this.flyingSpeed = -this.flyingSpeed;
+            this.goingRight = true;
         }
     }
 }
