@@ -24,7 +24,7 @@ export default class FlyingBuck extends Enemies {
   public move():void {
     this.xPos += this.flyingSpeed;
     this.timer += 1;
-    if (this.timer > 200) {
+    if (this.timer > 100) {
       this.timer = 0;
       this.flyingSpeed = -this.flyingSpeed;
     }
