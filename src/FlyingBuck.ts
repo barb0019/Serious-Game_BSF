@@ -4,6 +4,8 @@ import Game from './Game.js';
 export default class FlyingBuck extends Enemies {
   private maxXPos: number;
 
+  private maxYPos: number;
+
   private goingRight: boolean;
 
   /**
@@ -19,7 +21,8 @@ export default class FlyingBuck extends Enemies {
 
     this.goingRight = true;
     this.maxXPos = this.xPos + game.canvas.width * 0.17;
-    this.flyingSpeed += 1.50;
+    this.maxYPos = this.yPos + game.canvas.width * 0.17;
+    this.flyingSpeed += 2;
   }
 
   /**
@@ -35,6 +38,24 @@ export default class FlyingBuck extends Enemies {
       }
     } else if (this.xPos < this.maxXPos) {
       this.maxXPos = this.xPos + this.game.canvas.width * 0.17;
+      this.flyingSpeed = -this.flyingSpeed;
+      this.goingRight = true;
+    }
+  }
+
+  /**
+   * move the flying vbucks vertically
+   */
+  public moveY(): void {
+    this.yPos += this.flyingSpeed;
+    if (this.goingRight) {
+      if (this.yPos > this.maxYPos) {
+        this.maxYPos = this.yPos - this.game.canvas.width * 0.17;
+        this.flyingSpeed = -this.flyingSpeed;
+        this.goingRight = false;
+      }
+    } else if (this.yPos < this.maxYPos) {
+      this.maxYPos = this.yPos + this.game.canvas.width * 0.17;
       this.flyingSpeed = -this.flyingSpeed;
       this.goingRight = true;
     }

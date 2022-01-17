@@ -68,10 +68,10 @@ export default class Level4 extends Level {
     // this.scoringObjects.push(new VBucks(width * 0.15, height * 0.65, 'red', -3, this.game));
     // this.scoringObjects.push(new FutPack(width * 0.2902, height * 0.6, 'blue', -3));
     // this.scoringObjects.push(new FutPack(width * 0.749, height * 0.4, 'red', -3));
-    // this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.77, 'moneymonster', -3, this.game));
-    // this.scoringObjects.push(new Star(width * 0.227, height * 0.8, 'star', 1));
-    // this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
-    // this.scoringObjects.push(new Star(width * 0.227, height * 0.22, 'star', 1));
+    this.scoringObjects.push(new Star(width * 0.227, height * 0.8, 'star', 1));
+    this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
+    this.scoringObjects.push(new Star(width * 0.227, height * 0.22, 'star', 1));
+    this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.30, 'moneymonster', -3, this.game));
     // this.scoringObjects.push(new VBucks(width * 0.179, height * 0.8, 'red', -3, this.game));
     // this.scoringObjects.push(new FutPack(width * 0.273, height * 0.8, 'red', -3));
   }
@@ -91,7 +91,7 @@ export default class Level4 extends Level {
     this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.195, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.350, height * 0.6, width * 0.2, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // this.platform.push(new Platform(width * 0.75, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.39, height * 0.33, width * 0.19, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.39, height * 0.28, width * 0.19, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.75, height * 0.2, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
     console.log('LEVEL2');
