@@ -45,12 +45,17 @@ export default class Platform {
    */
   public collidesWith(player: Player): boolean {
     let collision = false;
+
+
+    if (!(this.checkCloseToPlayer(player))) {
+      return false;
+    }
+
     // sets the current pos of the player to be used next frame for collision detection
     player.xPosPrevious.push(player.getXPos());
     player.yPosPrevious.push(player.getYPos());
 
     // hover for description
-    // this.checkPlayerheightAbovePlatform(player);
     player.setOnPlatform(false);
     if (this.checkPixelAbovePlatform(player)) {
       collision = true;
@@ -97,23 +102,21 @@ export default class Platform {
   }
 
   /**
-   * Checks if you are above the platform and makes it so you aren't considered onPlatform in
-   * Player.
-   * Makes it so gravity acitvates when you walk off a floating platform to the left or right
+   * Checks if a platform is actually close to the player to continue collision check
    *
-   * @param player the Player class
+   * @param player the player
+   * @returns whether a platform is close or not
    */
-
-  // Doesn't work correctly
-  // private checkPlayerheightAbovePlatform(player: Player) {
-  //   if (!(this.yPos
-  //     > player.getYPos() + player.getImageHeight()
-  //     || this.yPos + this.height
-  //     > player.getYPos() + player.getImageHeight() - this.height)) {
-  //     player.setOnPlatform(false);
-  //     // console.log('air');
-  //   }
-  // }
+  private checkCloseToPlayer(player: Player): boolean {
+    if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel() + 1
+    && this.xPos + this.width > player.getXPos() - player.getXVel() - 1
+    && this.yPos < player.getYPos() + player.getImageHeight() + 1
+    && this.yPos + this.height > player.getYPos() - 1) {
+      // console.log('close');
+      return true;
+    }
+    return false;
+  }
 
   /**
    * Checks if the player collides with the platform

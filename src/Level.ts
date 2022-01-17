@@ -135,29 +135,15 @@ export default abstract class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
-    let skipPlayer0 = false;
-    let skipPlayer1 = false;
     this.player.forEach((element) => {
       element.increaseGravity();
     });
+
     for (let i = 0; i < this.platform.length; i++) {
-      if (!skipPlayer0) {
-        if (this.platform[i].collidesWith(this.player[0])) {
-          skipPlayer0 = true;
-        }
-      }
-      if (!skipPlayer1) {
-        if (this.platform[i].collidesWith(this.player[1])) {
-          skipPlayer1 = true;
-        }
-      }
+      this.platform[i].collidesWith(this.player[0]);
+      this.platform[i].collidesWith(this.player[1]);
     }
-    // this.platform.forEach((element) => {
-    //   // console.log(element);
-    //   for (let i = 0; i < this.player.length; i++) {
-    //     element.collidesWith(this.player[i]);
-    //   }
-    // });
+
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);

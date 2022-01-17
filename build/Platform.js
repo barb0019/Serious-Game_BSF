@@ -16,6 +16,9 @@ export default class Platform {
     }
     collidesWith(player) {
         let collision = false;
+        if (!(this.checkCloseToPlayer(player))) {
+            return false;
+        }
         player.xPosPrevious.push(player.getXPos());
         player.yPosPrevious.push(player.getYPos());
         player.setOnPlatform(false);
@@ -45,6 +48,15 @@ export default class Platform {
         }
         else
             this.walljumpCheck = 10;
+    }
+    checkCloseToPlayer(player) {
+        if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel() + 1
+            && this.xPos + this.width > player.getXPos() - player.getXVel() - 1
+            && this.yPos < player.getYPos() + player.getImageHeight() + 1
+            && this.yPos + this.height > player.getYPos() - 1) {
+            return true;
+        }
+        return false;
     }
     checkPlayerInsidePlatform(player) {
         const collisionTop = this.yPos + this.height > player.getYPos() + player.getImageHeight();
