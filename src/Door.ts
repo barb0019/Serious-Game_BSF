@@ -3,7 +3,6 @@ import InteractingItems from './InteractingItems.js';
 import Player from './Player.js';
 
 export default class Door extends InteractingItems {
-
   /**
    *
    * @param xPos x position of the door

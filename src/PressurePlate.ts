@@ -4,14 +4,6 @@ import Player from './Player.js';
 
 
 export default class PressurePlate extends InteractingItems {
-  // private img: HTMLImageElement;
-
-  // private xPos: number;
-
-  // private yPos: number;
-
-  // private type:string;
-
   /**
    *
    * @param xPos x position of the door
@@ -19,7 +11,7 @@ export default class PressurePlate extends InteractingItems {
    * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
-    super(xPos, yPos, type, './assets/img/ButtonNeutral.png')
+    super(xPos, yPos, type, './assets/img/ButtonNeutral.png');
     this.img = Game.loadNewImage('./assets/img/ButtonNeutral.png');
   }
 
