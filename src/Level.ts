@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import Door from './Door.js';
 import Game from './Game.js';
 import GameOver from './GameOver.js';
@@ -51,8 +52,9 @@ export default abstract class Level extends Scene {
   }
 
   /**
-   *
+   * make pressure plates
    */
+  // eslint-disable-next-line class-methods-use-this
   protected makePressurePlates():void {}
 
   /**
@@ -129,7 +131,11 @@ export default abstract class Level extends Scene {
     }
   }
 
-  protected checksifpressureonthePlate():void{}
+  /**
+   * check if the player collide with pressure plate
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected checksifpressureonthePlate():void {}
 
   /**
    * Advances the game simulation one step. It may run AI and physics (usually
@@ -158,7 +164,6 @@ export default abstract class Level extends Scene {
       this.platform[i].collidesWith(this.player[1]);
     }
 
-
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
@@ -184,7 +189,8 @@ export default abstract class Level extends Scene {
 
     // this.scoringObjects[1].move();
     this.scoringObjects[2].move();
-    // this.platform[6].move();
+    // this.platform[3].moveX();
+    // this.platform[5].moveY();
 
     // Move to gameover screen
     if (this.game.getUser().getAlive() === false) {

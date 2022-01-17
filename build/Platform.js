@@ -17,7 +17,7 @@ export default class Platform {
         this.img = img;
         this.walljumpCheck = 10;
         this.timer = 0;
-        this.flyingSpeed = 4;
+        this.flyingSpeed = 2;
     }
     collidesWith(player) {
         let collision = false;
@@ -54,10 +54,18 @@ export default class Platform {
         else
             this.walljumpCheck = 10;
     }
-    move() {
+    moveX() {
         this.xPos += this.flyingSpeed;
         this.timer += 1;
-        if (this.timer > 200) {
+        if (this.timer > 250) {
+            this.timer = 0;
+            this.flyingSpeed = -this.flyingSpeed;
+        }
+    }
+    moveY() {
+        this.yPos += this.flyingSpeed;
+        this.timer += 1;
+        if (this.timer > 60) {
             this.timer = 0;
             this.flyingSpeed = -this.flyingSpeed;
         }

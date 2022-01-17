@@ -42,7 +42,7 @@ export default class Platform {
     // walljumping is off by default
     this.walljumpCheck = 10;
     this.timer = 0;
-    this.flyingSpeed = 4;
+    this.flyingSpeed = 2;
   }
 
   /**
@@ -112,10 +112,22 @@ export default class Platform {
   /**
    * move the flying vbucks
    */
-  public move():void {
+  public moveX():void {
     this.xPos += this.flyingSpeed;
     this.timer += 1;
-    if (this.timer > 200) {
+    if (this.timer > 250) {
+      this.timer = 0;
+      this.flyingSpeed = -this.flyingSpeed;
+    }
+  }
+
+  /**
+   * move the flying vbucks
+   */
+  public moveY():void {
+    this.yPos += this.flyingSpeed;
+    this.timer += 1;
+    if (this.timer > 60) {
       this.timer = 0;
       this.flyingSpeed = -this.flyingSpeed;
     }
