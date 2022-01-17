@@ -46,7 +46,6 @@ export default class Platform {
   public collidesWith(player: Player): boolean {
     let collision = false;
 
-
     if (!(this.checkCloseToPlayer(player))) {
       return false;
     }

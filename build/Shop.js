@@ -1,9 +1,11 @@
 import Scene from './Scene.js';
+import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 export default class Shop extends Scene {
     keyboard;
     levelArray;
     buttons;
+    itemPopUps;
     continueGame;
     credits;
     constructor(game, levelArray) {
@@ -12,6 +14,7 @@ export default class Shop extends Scene {
         this.levelArray = levelArray;
         this.keyboard = new KeyListener();
         this.continueGame = false;
+        this.itemPopUps = [];
         this.makingButtons();
     }
     makingButtons() {
@@ -64,15 +67,38 @@ export default class Shop extends Scene {
         this.game.setBoughtItems(itemNumber);
         this.credits -= 1;
         this.buttons[itemNumber].innerHTML = 'Bought';
+        this.makeItemPopUp(itemNumber);
         if (itemNumber === 2) {
             this.buttons[itemNumber].innerHTML = 'hehe';
         }
+    }
+    makeItemPopUp(itemNumber) {
+        const canvasOffshoot = 10;
+        const itemPopUpText = [
+            'Usefull test yes very much yes wow amazing coolio much respeccc EPIC ÜBERhaupt',
+            'Cheese',
+            'This item is useless',
+            'Enemy go brrrrrrrrrrrrrr',
+        ];
+        this.itemPopUps.push(document.createElement('boughtItem'));
+        for (let i = 0; i < this.itemPopUps.length; i++) {
+            document.body.appendChild(this.itemPopUps[i]);
+            this.itemPopUps[i].style.position = 'absolute';
+            this.itemPopUps[this.itemPopUps.length - 1].style.left = `${(window.innerWidth / this.buttons.length) * itemNumber + 150 - canvasOffshoot}px`;
+            this.itemPopUps[i].style.top = `${window.innerHeight / 1.5 - 50}px`;
+            this.itemPopUps[i].style.fontSize = '20px';
+            this.itemPopUps[i].style.maxWidth = `${window.innerWidth / this.buttons.length / 2}`;
+        }
+        this.itemPopUps[this.itemPopUps.length - 1].innerHTML = itemPopUpText[itemNumber];
     }
     update() {
         if (this.continueGame && this.game.getUser().getLevel() <= 2) {
             this.game.getUser().increaseLevel();
             for (let i = 0; i < this.buttons.length; i++) {
                 this.buttons[i].innerHTML = '';
+            }
+            for (let i = 0; i < this.itemPopUps.length; i++) {
+                this.itemPopUps[i].innerHTML = '';
             }
             return this.game.getCurrentLevel();
         }
@@ -88,6 +114,7 @@ export default class Shop extends Scene {
         const offLeftSide = 150;
         const shop = this.game;
         this.game.ctx.clearRect(0, 0, canvas.width, canvas.height);
+        shop.ctx.drawImage(Game.loadNewImage('./assets/img/egg.png'), (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.5);
         shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
         shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3, 'center', 'black');
         shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
