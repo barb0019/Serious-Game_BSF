@@ -24,6 +24,9 @@ export default class GameItem {
     getXPos() {
         return this.xPos;
     }
+    setXPos(speed) {
+        this.xPos += speed;
+    }
     getYPos() {
         return this.yPos;
     }
