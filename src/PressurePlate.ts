@@ -80,4 +80,18 @@ export default class PressurePlate {
       ctx.drawImage(this.img, this.xPos, this.yPos, 75, 100);
     }
   }
+
+
+  // /**
+  //  *
+  //  * @param other the other GameItem
+  //  * @returns true if this object collides with the specified other object
+  //  */
+  //  public collidesWith(other: Player): boolean {
+  //   // console.log('collision');
+  //   return this.xPos < other.getXPos() + other.getImageWidth()
+  //     && this.xPos + this.img.width > other.getXPos()
+  //     && this.yPos < other.getYPos() + other.getImageHeight()
+  //     && this.yPos + this.img.height > other.getYPos();
+  // }
 }

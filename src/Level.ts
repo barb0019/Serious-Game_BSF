@@ -129,6 +129,8 @@ export default abstract class Level extends Scene {
     }
   }
 
+  protected checksifpressureonthePlate():void{}
+
   /**
    * Advances the game simulation one step. It may run AI and physics (usually
    * in that order). The return value of this method determines what the `GameLoop`
@@ -149,11 +151,13 @@ export default abstract class Level extends Scene {
     this.player.forEach((element) => {
       element.increaseGravity();
     });
+    this.checksifpressureonthePlate();
 
     for (let i = 0; i < this.platform.length; i++) {
       this.platform[i].collidesWith(this.player[0]);
       this.platform[i].collidesWith(this.player[1]);
     }
+
 
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {

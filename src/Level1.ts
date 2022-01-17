@@ -45,6 +45,15 @@ export default class Level1 extends Level {
     this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
   }
 
+  protected checksifpressureonthePlate(): void {
+    const { width } = this.game.canvas;
+    const { height } = this.game.canvas;
+  if (this.player[0].collidesWith(this.pressurePlate[0])
+  ||this.player[1].collidesWith(this.pressurePlate[0])) {
+    this.platform.push(new Platform(width * 0.1, height * 0.80, width / 8, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+  }
+  }
+
   /**
    *
    */
@@ -62,7 +71,7 @@ export default class Level1 extends Level {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
 
-    this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.26, 'pressure plate'));
+    this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.56, 'pressure plate'));
   }
 
   /**
@@ -101,10 +110,6 @@ export default class Level1 extends Level {
     this.platform.push(new Platform(width * 0.71, height * 0.33, width * 0.16, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.65, height / 1.5, width * 0.05, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.81, height / 1.5, width * 0.065, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    if (this.player[1].collidesWith(this.pressurePlate[0])
-      || this.player[0].collidesWith(this.pressurePlate[0])) {
-      this.platform.push(new Platform(width * 0.1, height * 0.80, width / 8, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    }
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.25, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));

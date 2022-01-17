@@ -48,10 +48,12 @@ export default class Level extends Scene {
             this.player[i].move(this.game.canvas);
         }
     }
+    checksifpressureonthePlate() { }
     update(elapsed) {
         this.player.forEach((element) => {
             element.increaseGravity();
         });
+        this.checksifpressureonthePlate();
         for (let i = 0; i < this.platform.length; i++) {
             this.platform[i].collidesWith(this.player[0]);
             this.platform[i].collidesWith(this.player[1]);
