@@ -53,8 +53,6 @@ export default abstract class Level extends Scene {
     // make speedbubbles
     this.speedbubbles(game);
     this.button = new MuteButton(width * 0.75, height * 0.56,'button');
-    // this.button.addEventListener('click', () => {
-    //   this.MuteorUnMute();
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
   }
@@ -199,7 +197,6 @@ export default abstract class Level extends Scene {
 
     // this.scoringObjects[1].move();
     this.scoringObjects[2].move();
-    this.scoringObjects[6].moveY();
     // this.platform[3].moveX();
     // this.platform[5].moveY();
 
