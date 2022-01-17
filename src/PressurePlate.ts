@@ -19,57 +19,9 @@ export default class PressurePlate extends InteractingItems {
    * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
-    super(xPos,yPos,type,'./assets/img/ButtonNeutral.png')
+    super(xPos, yPos, type, './assets/img/ButtonNeutral.png')
     this.img = Game.loadNewImage('./assets/img/ButtonNeutral.png');
-    // this.xPos = xPos;
-    // this.yPos = yPos;
-    // this.type = type;
   }
-
-  // /**
-  //  * get the type
-  //  *
-  //  * @returns the type of the door
-  //  */
-  // public getType():string {
-  //   return this.type;
-  // }
-
-  // /**
-  //  * getImageHeight
-  //  *
-  //  * @returns the current height of the image.
-  //  */
-  // public getImageHeight(): number {
-  //   return this.img.height;
-  // }
-
-  // /**
-  //  * getImageWidth
-  //  *
-  //  * @returns the current width of the image.
-  //  */
-  // public getImageWidth(): number {
-  //   return this.img.width;
-  // }
-
-  // /**
-  //  * getXPos
-  //  *
-  //  * @returns the current X-position
-  //  */
-  // public getXPos(): number {
-  //   return this.xPos;
-  // }
-
-  // /**
-  //  * getYPos
-  //  *
-  //  * @returns the current Y-position
-  //  */
-  // public getYPos(): number {
-  //   return this.yPos;
-  // }
 
   /**
    * @param ctx ctx
