@@ -5,6 +5,7 @@ import LevelUp from './LevelUp.js';
 import Platform from './Platform.js';
 import Player from './Player.js';
 import PowerUp from './PowerUp.js';
+import PressurePlate from './PressurePlate.js';
 import Scene from './Scene.js';
 import ScoringObject from './ScoringObject.js';
 import SpeedBubble from './SpeedBubble.js';
@@ -26,6 +27,8 @@ export default abstract class Level extends Scene {
 
   protected door: Door;
 
+  protected pressurePlate: PressurePlate[];
+
   /**
    * Creates a new instance of this class
    *
@@ -40,10 +43,14 @@ export default abstract class Level extends Scene {
     this.makePlatforms();
     // make speedbubbles
     this.speedbubbles(game);
+
+    this.makePressurePlates();
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
   }
 
+
+  protected makePressurePlates():void{}
   /**
    *makes de speedbubbles
    *
@@ -197,6 +204,10 @@ export default abstract class Level extends Scene {
     }
     for (let i = 0; i < this.platform.length; i++) {
       this.platform[i].draw(this.game.ctx);
+    }
+
+    for (let i = 0; i < this.pressurePlate.length; i++) {
+      this.pressurePlate[i].draw(this.game.ctx,this.player);
     }
     this.door.draw(this.game.ctx, this.player);
     for (let i = 0; i < this.speedBubble.length; i++) {

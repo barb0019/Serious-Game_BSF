@@ -8,6 +8,7 @@ import Star from './Star.js';
 import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
+import PressurePlate from './PressurePlate.js';
 export default class Level1 extends Level {
     constructor(game) {
         super(game);
@@ -15,6 +16,7 @@ export default class Level1 extends Level {
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
+        this.makePressurePlates();
     }
     speedbubbles(game) {
         this.speedBubble = [];
@@ -33,6 +35,8 @@ export default class Level1 extends Level {
         console.log(width);
         console.log(height);
         this.door = new Door(width * 0.91, 50, 'DoubleDoor0');
+        this.pressurePlate = [];
+        this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.26, 'pressure plate'));
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(width * 0.5, height * 0.16, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.78, height * 0.26, 'red', -3, this.game));
