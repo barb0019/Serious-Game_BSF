@@ -12,6 +12,8 @@ export default class ScoringObject extends GameItem {
     }
     move() {
     }
+    moveY() {
+    }
     getAlive() {
         return this.alive;
     }
