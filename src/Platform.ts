@@ -1,4 +1,5 @@
 import Player from './Player.js';
+import GameItem from './GameItem.js';
 
 export default class Platform {
   private xPos: number;
@@ -14,6 +15,12 @@ export default class Platform {
   private player: Player;
 
   private walljumpCheck: number;
+
+  private timer: number;
+
+  private flyingSpeed: number;
+
+  private gameItem: GameItem;
 
   /**
    * @param xPos the x position of the platform on the canvas
@@ -34,6 +41,8 @@ export default class Platform {
     this.img = img;
     // walljumping is off by default
     this.walljumpCheck = 10;
+    this.timer = 0;
+    this.flyingSpeed = 4;
   }
 
   /**
@@ -98,6 +107,18 @@ export default class Platform {
     if (onOrOff) {
       this.walljumpCheck = 0;
     } else this.walljumpCheck = 10;
+  }
+
+  /**
+   * move the flying vbucks
+   */
+  public move():void {
+    this.xPos += this.flyingSpeed;
+    this.timer += 1;
+    if (this.timer > 200) {
+      this.timer = 0;
+      this.flyingSpeed = -this.flyingSpeed;
+    }
   }
 
   /**

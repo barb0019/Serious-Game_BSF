@@ -94,7 +94,7 @@ export default class Shop extends Scene {
     const itemPopUpText: string[] = [
       'Usefull test yes very much yes wow amazing coolio much respeccc EPIC ÜBERhaupt BEEEEEEEEEEEEEEG JUMP',
       'Player go ZOOOOOOOOM',
-      'This item is useless',
+      'Dit is een foute beslissing die je hebt genomen en nu zijn de enemies moeilijker',
       'Enemy go brrrrrrrrrrrrrr ⫖⫐',
     ];
     this.itemPopUps.push(document.createElement('boughtItem'));
@@ -103,10 +103,10 @@ export default class Shop extends Scene {
     document.body.appendChild(this.itemPopUps[currentItem]);
     this.itemPopUps[currentItem].style.position = 'absolute';
     this.itemPopUps[currentItem].style.left = `${(window.innerWidth / this.buttons.length) * itemNumber + 150 - canvasOffshoot}px`;
-    this.itemPopUps[currentItem].style.top = `${window.innerHeight / 2}px`;
+    this.itemPopUps[currentItem].style.top = `${window.innerHeight / 2 / 1.1}px`;
     this.itemPopUps[currentItem].style.fontSize = '20px';
     this.itemPopUps[currentItem].style.maxWidth = `${window.innerWidth / this.buttons.length / 1.3}px`;
-    this.itemPopUps[currentItem].style.backgroundImage = 'url(./assets/img/egg.png)';
+    this.itemPopUps[currentItem].style.backgroundImage = 'url(https://media1.thehungryjpeg.com/thumbs2/ori_70842_a6fd8ffd7deeb1c56dbcdd154755b5105b7de5e7_seamless-abstract-background-png-jpg.jpg)';
 
     this.itemPopUps[currentItem].innerHTML = itemPopUpText[itemNumber];
   }

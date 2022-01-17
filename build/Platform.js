@@ -6,6 +6,9 @@ export default class Platform {
     img;
     player;
     walljumpCheck;
+    timer;
+    flyingSpeed;
+    gameItem;
     constructor(xPos, yPos, width, height, img) {
         this.xPos = xPos;
         this.yPos = yPos;
@@ -13,6 +16,8 @@ export default class Platform {
         this.height = height;
         this.img = img;
         this.walljumpCheck = 10;
+        this.timer = 0;
+        this.flyingSpeed = 4;
     }
     collidesWith(player) {
         let collision = false;
@@ -48,6 +53,14 @@ export default class Platform {
         }
         else
             this.walljumpCheck = 10;
+    }
+    move() {
+        this.xPos += this.flyingSpeed;
+        this.timer += 1;
+        if (this.timer > 200) {
+            this.timer = 0;
+            this.flyingSpeed = -this.flyingSpeed;
+        }
     }
     checkCloseToPlayer(player) {
         if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel() + 1

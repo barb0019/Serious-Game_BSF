@@ -64,6 +64,10 @@ export default abstract class GameItem {
     return this.xPos;
   }
 
+  public setXPos(speed:number): void {
+    this.xPos += speed;
+  }
+
   /**
    * getYPos
    *
