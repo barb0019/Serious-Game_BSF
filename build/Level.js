@@ -55,17 +55,7 @@ export default class Level extends Scene {
     }
     checksifpressureonthePlate() { }
     update(elapsed) {
-        this.player.forEach((element) => {
-            element.increaseGravity();
-        });
-        this.checksifpressureonthePlate();
-        for (let i = 0; i < this.platform.length; i++) {
-            this.platform[i].collidesWith(this.player[0]);
-            this.platform[i].collidesWith(this.player[1]);
-        }
-        for (let i = 0; i < this.player.length; i++) {
-            this.checksIfHit(this.player[i]);
-        }
+        this.allCollides();
         if (this.countUntilNextItem <= 0) {
             this.countUntilNextItem = Game.randomNumber(120, 240);
         }
@@ -79,6 +69,19 @@ export default class Level extends Scene {
             return new GameOver(this.game);
         }
         return null;
+    }
+    allCollides() {
+        this.player.forEach((element) => {
+            element.increaseGravity();
+        });
+        this.checksifpressureonthePlate();
+        for (let i = 0; i < this.platform.length; i++) {
+            this.platform[i].collidesWith(this.player[0]);
+            this.platform[i].collidesWith(this.player[1]);
+        }
+        for (let i = 0; i < this.player.length; i++) {
+            this.checksIfHit(this.player[i]);
+        }
     }
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);

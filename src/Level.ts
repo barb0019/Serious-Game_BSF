@@ -162,20 +162,7 @@ export default abstract class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
-    this.player.forEach((element) => {
-      element.increaseGravity();
-    });
-    this.checksifpressureonthePlate();
-
-    for (let i = 0; i < this.platform.length; i++) {
-      this.platform[i].collidesWith(this.player[0]);
-      this.platform[i].collidesWith(this.player[1]);
-    }
-
-    // Player removes objects
-    for (let i = 0; i < this.player.length; i++) {
-      this.checksIfHit(this.player[i]);
-    }
+    this.allCollides();
 
     // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
@@ -205,6 +192,24 @@ export default abstract class Level extends Scene {
       return new GameOver(this.game);
     }
     return null;
+  }
+
+
+  private allCollides() :void {
+    this.player.forEach((element) => {
+      element.increaseGravity();
+    });
+    this.checksifpressureonthePlate();
+
+    for (let i = 0; i < this.platform.length; i++) {
+      this.platform[i].collidesWith(this.player[0]);
+      this.platform[i].collidesWith(this.player[1]);
+    }
+
+    // Player removes objects
+    for (let i = 0; i < this.player.length; i++) {
+      this.checksIfHit(this.player[i]);
+    }
   }
 
   /**
