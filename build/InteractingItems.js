@@ -1,5 +1,5 @@
 import Game from './Game.js';
-export default class PressurePlate {
+export default class InteractingItems {
     img;
     xPos;
     yPos;
@@ -25,13 +25,5 @@ export default class PressurePlate {
     getYPos() {
         return this.yPos;
     }
-    draw(ctx, player) {
-        if (player[0].collidesWith(this) || player[1].collidesWith(this)) {
-            ctx.drawImage(Game.loadNewImage('./assets/img/ButtonEnd.png'), this.xPos, this.yPos, 60, 32);
-        }
-        else {
-            ctx.drawImage(this.img, this.xPos, this.yPos, 60, 32);
-        }
-    }
 }
-//# sourceMappingURL=PressurePlate.js.map
+//# sourceMappingURL=InteractingItems.js.map
