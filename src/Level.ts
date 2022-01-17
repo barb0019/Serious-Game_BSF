@@ -3,6 +3,7 @@ import Door from './Door.js';
 import Game from './Game.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
+import MuteButton from './MuteButton.js';
 import Platform from './Platform.js';
 import Player from './Player.js';
 import PowerUp from './PowerUp.js';
@@ -30,6 +31,8 @@ export default abstract class Level extends Scene {
 
   protected pressurePlate: PressurePlate[] = [];
 
+  protected button:MuteButton;
+
   /**
    * Creates a new instance of this class
    *
@@ -37,6 +40,9 @@ export default abstract class Level extends Scene {
    */
   public constructor(game: Game) {
     super(game);
+
+    const { width } = this.game.canvas;
+    const { height } = this.game.canvas;
 
     this.makePressurePlates();
     this.objects();
@@ -46,7 +52,9 @@ export default abstract class Level extends Scene {
     this.makePlatforms();
     // make speedbubbles
     this.speedbubbles(game);
-
+    this.button = new MuteButton(width * 0.75, height * 0.56,'button');
+    // this.button.addEventListener('click', () => {
+    //   this.MuteorUnMute();
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
   }
@@ -82,6 +90,8 @@ export default abstract class Level extends Scene {
    */
   // eslint-disable-next-line class-methods-use-this
   protected makePlatforms(): void { }
+
+
 
   /**
    * Removes scoring objects from the game based on box collision detection.
@@ -223,6 +233,7 @@ export default abstract class Level extends Scene {
     for (let i = 0; i < this.pressurePlate.length; i++) {
       this.pressurePlate[i].draw(this.game.ctx, this.player);
     }
+    this.button.draw(this.game.ctx);
     this.door.draw(this.game.ctx, this.player);
     for (let i = 0; i < this.speedBubble.length; i++) {
       if (this.player[0].collidesWith(this.speedBubble[i])

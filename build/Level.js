@@ -1,6 +1,7 @@
 import Game from './Game.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
+import MuteButton from './MuteButton.js';
 import PowerUp from './PowerUp.js';
 import Scene from './Scene.js';
 export default class Level extends Scene {
@@ -11,13 +12,17 @@ export default class Level extends Scene {
     countUntilNextItem;
     door;
     pressurePlate = [];
+    button;
     constructor(game) {
         super(game);
+        const { width } = this.game.canvas;
+        const { height } = this.game.canvas;
         this.makePressurePlates();
         this.objects();
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
+        this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
         this.countUntilNextItem = 300;
     }
     makePressurePlates() { }
@@ -91,6 +96,7 @@ export default class Level extends Scene {
         for (let i = 0; i < this.pressurePlate.length; i++) {
             this.pressurePlate[i].draw(this.game.ctx, this.player);
         }
+        this.button.draw(this.game.ctx);
         this.door.draw(this.game.ctx, this.player);
         for (let i = 0; i < this.speedBubble.length; i++) {
             if (this.player[0].collidesWith(this.speedBubble[i])
