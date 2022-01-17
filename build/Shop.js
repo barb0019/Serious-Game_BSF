@@ -1,5 +1,4 @@
 import Scene from './Scene.js';
-import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 export default class Shop extends Scene {
     keyboard;
@@ -75,21 +74,21 @@ export default class Shop extends Scene {
     makeItemPopUp(itemNumber) {
         const canvasOffshoot = 10;
         const itemPopUpText = [
-            'Usefull test yes very much yes wow amazing coolio much respeccc EPIC ÜBERhaupt',
-            'Cheese',
+            'Usefull test yes very much yes wow amazing coolio much respeccc EPIC ÜBERhaupt BEEEEEEEEEEEEEEG JUMP',
+            'Player go ZOOOOOOOOM',
             'This item is useless',
-            'Enemy go brrrrrrrrrrrrrr',
+            'Enemy go brrrrrrrrrrrrrr ⫖⫐',
         ];
         this.itemPopUps.push(document.createElement('boughtItem'));
-        for (let i = 0; i < this.itemPopUps.length; i++) {
-            document.body.appendChild(this.itemPopUps[i]);
-            this.itemPopUps[i].style.position = 'absolute';
-            this.itemPopUps[this.itemPopUps.length - 1].style.left = `${(window.innerWidth / this.buttons.length) * itemNumber + 150 - canvasOffshoot}px`;
-            this.itemPopUps[i].style.top = `${window.innerHeight / 1.5 - 50}px`;
-            this.itemPopUps[i].style.fontSize = '20px';
-            this.itemPopUps[i].style.maxWidth = `${window.innerWidth / this.buttons.length / 2}`;
-        }
-        this.itemPopUps[this.itemPopUps.length - 1].innerHTML = itemPopUpText[itemNumber];
+        const currentItem = this.itemPopUps.length - 1;
+        document.body.appendChild(this.itemPopUps[currentItem]);
+        this.itemPopUps[currentItem].style.position = 'absolute';
+        this.itemPopUps[currentItem].style.left = `${(window.innerWidth / this.buttons.length) * itemNumber + 150 - canvasOffshoot}px`;
+        this.itemPopUps[currentItem].style.top = `${window.innerHeight / 2}px`;
+        this.itemPopUps[currentItem].style.fontSize = '20px';
+        this.itemPopUps[currentItem].style.maxWidth = `${window.innerWidth / this.buttons.length / 1.3}px`;
+        this.itemPopUps[currentItem].style.backgroundImage = 'url(./assets/img/egg.png)';
+        this.itemPopUps[currentItem].innerHTML = itemPopUpText[itemNumber];
     }
     update() {
         if (this.continueGame && this.game.getUser().getLevel() <= 2) {
@@ -114,7 +113,6 @@ export default class Shop extends Scene {
         const offLeftSide = 150;
         const shop = this.game;
         this.game.ctx.clearRect(0, 0, canvas.width, canvas.height);
-        shop.ctx.drawImage(Game.loadNewImage('./assets/img/egg.png'), (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.5);
         shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
         shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3, 'center', 'black');
         shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
