@@ -2,7 +2,7 @@ import Game from './Game.js';
 import Player from './Player.js';
 
 
-export default class PressurePlate  {
+export default class PressurePlate {
   private img: HTMLImageElement;
 
   private xPos: number;

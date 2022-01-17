@@ -8,6 +8,7 @@ import Star from './Star.js';
 import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
+import PressurePlate from './PressurePlate.js';
 
 export default class Level3 extends Level {
   /**
@@ -27,6 +28,14 @@ export default class Level3 extends Level {
     this.speedbubbles(game);
     // Take about 5 seconds on a decent computer to show next item
     // this.countUntilNextItem = 300;
+  }
+
+  protected makePressurePlates(): void {
+    this.pressurePlate = [];
+    const { width } = this.game.canvas;
+    const { height } = this.game.canvas;
+
+    // this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.26,'pressure plate'));
   }
 
   /**
