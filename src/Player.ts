@@ -188,7 +188,7 @@ export default abstract class Player extends GameItem {
 
   // abstract move(canvas: HTMLCanvasElement): void;
 
-  abstract collidesWith(other: GameItem | SpeedBubble | InteractingItems ): boolean;
+  abstract collidesWith(other: GameItem | SpeedBubble | InteractingItems): boolean;
 
   /**
    * plays the music of the person jumping

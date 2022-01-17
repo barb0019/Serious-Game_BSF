@@ -15,8 +15,9 @@ export default abstract class InteractingItems {
    * @param xPos x position of the interacting item
    * @param yPos y position of the interacting item
    * @param type type of the interacting item
+   * @param imgSrc imgsource of the interacting item
    */
-  public constructor(xPos: number, yPos: number, type:string,imgSrc:string) {
+  public constructor(xPos: number, yPos: number, type:string, imgSrc:string) {
     this.img = Game.loadNewImage(imgSrc);
     this.xPos = xPos;
     this.yPos = yPos;

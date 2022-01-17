@@ -2,7 +2,6 @@ import Game from './Game.js';
 import InteractingItems from './InteractingItems.js';
 import Player from './Player.js';
 
-
 export default class PressurePlate extends InteractingItems {
   /**
    *

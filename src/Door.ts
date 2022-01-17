@@ -10,7 +10,7 @@ export default class Door extends InteractingItems {
    * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
-    super(xPos, yPos, type,`./assets/img/${type}.png`);
+    super(xPos, yPos, type, `./assets/img/${type}.png`);
   }
 
   /**
