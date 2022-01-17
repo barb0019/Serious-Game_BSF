@@ -52,7 +52,7 @@ export default abstract class Level extends Scene {
     this.makePlatforms();
     // make speedbubbles
     this.speedbubbles(game);
-    this.button = new MuteButton(width * 0.75, height * 0.56,'button');
+    this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
   }
@@ -88,8 +88,6 @@ export default abstract class Level extends Scene {
    */
   // eslint-disable-next-line class-methods-use-this
   protected makePlatforms(): void { }
-
-
 
   /**
    * Removes scoring objects from the game based on box collision detection.
@@ -182,11 +180,7 @@ export default abstract class Level extends Scene {
       return new LevelUp(this.game);
     }
 
-    // this.scoringObjects[1].move();
-    this.scoringObjects[2].move();
-    this.scoringObjects[6].moveY();
-    // this.platform[3].moveX();
-    // this.platform[5].moveY();
+    this.allMove();
 
     // Move to gameover screen
     if (this.game.getUser().getAlive() === false) {
@@ -195,6 +189,13 @@ export default abstract class Level extends Scene {
     return null;
   }
 
+  private allMove():void {
+    this.scoringObjects[2].move();
+    this.scoringObjects[6].moveY();
+    // this.platform[3].moveX();
+    // this.platform[5].moveY();
+    // this.scoringObjects[1].move();
+  }
 
   private allCollides() :void {
     this.player.forEach((element) => {

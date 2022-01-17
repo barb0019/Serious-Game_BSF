@@ -64,12 +64,15 @@ export default class Level extends Scene {
             && this.player[0].collidesWith(this.door)) {
             return new LevelUp(this.game);
         }
-        this.scoringObjects[2].move();
-        this.scoringObjects[6].moveY();
+        this.allMove();
         if (this.game.getUser().getAlive() === false) {
             return new GameOver(this.game);
         }
         return null;
+    }
+    allMove() {
+        this.scoringObjects[2].move();
+        this.scoringObjects[6].moveY();
     }
     allCollides() {
         this.player.forEach((element) => {
