@@ -18,7 +18,7 @@ export default class PressurePlate {
    * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
-    this.img = Game.loadNewImage('./assets/img/titled_yellow_power_icon.png');
+    this.img = Game.loadNewImage('./assets/img/ButtonNeutral.png');
     this.xPos = xPos;
     this.yPos = yPos;
     this.type = type;
@@ -77,7 +77,7 @@ export default class PressurePlate {
     if (player[0].collidesWith(this) || player[1].collidesWith(this)) {
       ctx.drawImage(Game.loadNewImage('./assets/img/titled_yellow_power_icon.png'), this.xPos, this.yPos, 75, 100);
     } else {
-      ctx.drawImage(this.img, this.xPos, this.yPos, 75, 100);
+      ctx.drawImage(this.img, this.xPos, this.yPos, 60, 32);
     }
   }
 

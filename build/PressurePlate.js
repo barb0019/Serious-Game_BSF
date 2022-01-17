@@ -5,7 +5,7 @@ export default class PressurePlate {
     yPos;
     type;
     constructor(xPos, yPos, type) {
-        this.img = Game.loadNewImage('./assets/img/titled_yellow_power_icon.png');
+        this.img = Game.loadNewImage('./assets/img/ButtonNeutral.png');
         this.xPos = xPos;
         this.yPos = yPos;
         this.type = type;
@@ -30,7 +30,7 @@ export default class PressurePlate {
             ctx.drawImage(Game.loadNewImage('./assets/img/titled_yellow_power_icon.png'), this.xPos, this.yPos, 75, 100);
         }
         else {
-            ctx.drawImage(this.img, this.xPos, this.yPos, 75, 100);
+            ctx.drawImage(this.img, this.xPos, this.yPos, 60, 32);
         }
     }
 }
