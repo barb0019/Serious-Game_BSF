@@ -12,11 +12,11 @@ import PressurePlate from './PressurePlate.js';
 export default class Level1 extends Level {
     constructor(game) {
         super(game);
+        this.makePressurePlates();
         this.objects();
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
-        this.makePressurePlates();
     }
     speedbubbles(game) {
         this.speedBubble = [];
@@ -29,14 +29,18 @@ export default class Level1 extends Level {
         this.player.push(new PlayerRed(150, this.game.canvas.height, this.game));
         this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
     }
+    makePressurePlates() {
+        this.pressurePlate = [];
+        const { width } = this.game.canvas;
+        const { height } = this.game.canvas;
+        this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.26, 'pressure plate'));
+    }
     objects() {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
         console.log(width);
         console.log(height);
         this.door = new Door(width * 0.91, 50, 'DoubleDoor0');
-        this.pressurePlate = [];
-        this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.26, 'pressure plate'));
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(width * 0.5, height * 0.16, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.78, height * 0.26, 'red', -3, this.game));
