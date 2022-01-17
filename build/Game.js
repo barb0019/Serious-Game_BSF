@@ -1,5 +1,6 @@
 import GameLoop from './GameLoop.js';
 import Level1 from './Level1.js';
+import Level2 from './Level2.js';
 import Start from './Start.js';
 import UserData from './UserData.js';
 import Level3 from './Level3.js';
@@ -56,7 +57,7 @@ export default class Game {
     getCurrentLevel() {
         switch (this.user.getLevel()) {
             case 1: return new Level3(this);
-            case 2: return new Level3(this);
+            case 2: return new Level2(this);
             case 3: return new Level1(this);
             default: return null;
         }
