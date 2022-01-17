@@ -56,5 +56,9 @@ export default class Level4 extends Level {
         this.platform.push(new Platform(width / 2, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     }
+    allMove() {
+        this.scoringObjects[2].move();
+        this.scoringObjects[6].moveY();
+    }
 }
 //# sourceMappingURL=Level4.js.map

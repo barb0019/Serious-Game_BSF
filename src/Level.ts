@@ -189,13 +189,7 @@ export default abstract class Level extends Scene {
     return null;
   }
 
-  private allMove():void {
-    this.scoringObjects[2].move();
-    this.scoringObjects[6].moveY();
-    // this.platform[3].moveX();
-    // this.platform[5].moveY();
-    // this.scoringObjects[1].move();
-  }
+  abstract allMove():void;
 
   private allCollides() :void {
     this.player.forEach((element) => {

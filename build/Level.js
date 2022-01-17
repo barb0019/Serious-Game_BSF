@@ -70,10 +70,6 @@ export default class Level extends Scene {
         }
         return null;
     }
-    allMove() {
-        this.scoringObjects[2].move();
-        this.scoringObjects[6].moveY();
-    }
     allCollides() {
         this.player.forEach((element) => {
             element.increaseGravity();
