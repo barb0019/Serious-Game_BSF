@@ -3,6 +3,7 @@ import KeyListener from './KeyListener.js';
 import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
 import Game from './Game.js';
+import PressurePlate from './PressurePlate.js';
 
 export default abstract class Player extends GameItem {
   protected xVel: number;
@@ -188,7 +189,7 @@ export default abstract class Player extends GameItem {
 
   // abstract move(canvas: HTMLCanvasElement): void;
 
-  abstract collidesWith(other: GameItem | Door | SpeedBubble): boolean;
+  abstract collidesWith(other: GameItem | Door | SpeedBubble | PressurePlate): boolean;
 
   /**
    * plays the music of the person jumping

@@ -10,14 +10,17 @@ export default class Level extends Scene {
     platform;
     countUntilNextItem;
     door;
+    pressurePlate;
     constructor(game) {
         super(game);
         this.objects();
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
+        this.makePressurePlates();
         this.countUntilNextItem = 300;
     }
+    makePressurePlates() { }
     speedbubbles(game) { }
     players() { }
     objects() { }
@@ -82,6 +85,9 @@ export default class Level extends Scene {
         }
         for (let i = 0; i < this.platform.length; i++) {
             this.platform[i].draw(this.game.ctx);
+        }
+        for (let i = 0; i < this.pressurePlate.length; i++) {
+            this.pressurePlate[i].draw(this.game.ctx, this.player);
         }
         this.door.draw(this.game.ctx, this.player);
         for (let i = 0; i < this.speedBubble.length; i++) {
