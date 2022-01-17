@@ -65,7 +65,7 @@ export default class Level3 extends Level {
   protected objects():void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
-    this.door = new Door(width * 0.905, height * 0.1125, 'DoubleDoor0');
+    this.door = new Door(width * 0.91, height * 0.11, 'DoubleDoor0');
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.88, height * 0.2, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.463, height * 0.04, 'red', -3, this.game));
