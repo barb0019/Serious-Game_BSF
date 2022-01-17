@@ -19,6 +19,8 @@ export default class Level1 extends Level {
   public constructor(game: Game) {
     super(game);
 
+    this.makePressurePlates();
+
     this.objects();
     // Create player
     this.players();
@@ -27,7 +29,7 @@ export default class Level1 extends Level {
     // make speedbubbles
     this.speedbubbles(game);
 
-    this.makePressurePlates();
+
     // Take about 5 seconds on a decent computer to show next item
     // this.countUntilNextItem = 300;
   }
@@ -53,6 +55,14 @@ export default class Level1 extends Level {
     this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
   }
 
+  protected makePressurePlates(): void {
+    this.pressurePlate = [];
+    const { width } = this.game.canvas;
+    const { height } = this.game.canvas;
+
+    this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.26,'pressure plate'));
+  }
+
   /**
    *
    */
@@ -62,9 +72,6 @@ export default class Level1 extends Level {
     console.log(width);
     console.log(height);
     this.door = new Door(width * 0.91, 50, 'DoubleDoor0');
-
-    this.pressurePlate = [];
-    this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.26,'pressure plate'));
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.5, height * 0.16, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.78, height * 0.26, 'red', -3, this.game));

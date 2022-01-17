@@ -10,14 +10,14 @@ export default class Level extends Scene {
     platform;
     countUntilNextItem;
     door;
-    pressurePlate;
+    pressurePlate = [];
     constructor(game) {
         super(game);
+        this.makePressurePlates();
         this.objects();
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
-        this.makePressurePlates();
         this.countUntilNextItem = 300;
     }
     makePressurePlates() { }

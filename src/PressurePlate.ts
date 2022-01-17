@@ -18,7 +18,7 @@ export default class PressurePlate  {
    * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
-    this.img = Game.loadNewImage(`./assets/img/${type}.png`);
+    this.img = Game.loadNewImage('./assets/img/titled_yellow_power_icon.png');
     this.xPos = xPos;
     this.yPos = yPos;
     this.type = type;

@@ -5,7 +5,7 @@ export default class PressurePlate {
     yPos;
     type;
     constructor(xPos, yPos, type) {
-        this.img = Game.loadNewImage(`./assets/img/${type}.png`);
+        this.img = Game.loadNewImage('./assets/img/titled_yellow_power_icon.png');
         this.xPos = xPos;
         this.yPos = yPos;
         this.type = type;
