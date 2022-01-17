@@ -1,14 +1,15 @@
 import Game from './Game.js';
+import InteractingItems from './InteractingItems.js';
 import Player from './Player.js';
 
-export default class Door {
-  private img: HTMLImageElement;
+export default class Door extends InteractingItems {
+  // private img: HTMLImageElement;
 
-  private xPos: number;
+  // private xPos: number;
 
-  private yPos: number;
+  // private yPos: number;
 
-  private type:string;
+  // private type:string;
 
   /**
    *
@@ -17,56 +18,57 @@ export default class Door {
    * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
-    this.img = Game.loadNewImage(`./assets/img/${type}.png`);
-    this.xPos = xPos;
-    this.yPos = yPos;
-    this.type = type;
+    // this.img = Game.loadNewImage(`./assets/img/${type}.png`);
+    super(xPos,yPos,type,`./assets/img/${type}.png`)
+    // this.xPos = xPos;
+    // this.yPos = yPos;
+    // this.type = type;
   }
 
-  /**
-   * get the type
-   *
-   * @returns the type of the door
-   */
-  public getType():string {
-    return this.type;
-  }
+  // /**
+  //  * get the type
+  //  *
+  //  * @returns the type of the door
+  //  */
+  // public getType():string {
+  //   return this.type;
+  // }
 
-  /**
-   * getImageHeight
-   *
-   * @returns the current height of the image.
-   */
-  public getImageHeight(): number {
-    return this.img.height;
-  }
+  // /**
+  //  * getImageHeight
+  //  *
+  //  * @returns the current height of the image.
+  //  */
+  // public getImageHeight(): number {
+  //   return this.img.height;
+  // }
 
-  /**
-   * getImageWidth
-   *
-   * @returns the current width of the image.
-   */
-  public getImageWidth(): number {
-    return this.img.width;
-  }
+  // /**
+  //  * getImageWidth
+  //  *
+  //  * @returns the current width of the image.
+  //  */
+  // public getImageWidth(): number {
+  //   return this.img.width;
+  // }
 
-  /**
-   * getXPos
-   *
-   * @returns the current X-position
-   */
-  public getXPos(): number {
-    return this.xPos;
-  }
+  // /**
+  //  * getXPos
+  //  *
+  //  * @returns the current X-position
+  //  */
+  // public getXPos(): number {
+  //   return this.xPos;
+  // }
 
-  /**
-   * getYPos
-   *
-   * @returns the current Y-position
-   */
-  public getYPos(): number {
-    return this.yPos;
-  }
+  // /**
+  //  * getYPos
+  //  *
+  //  * @returns the current Y-position
+  //  */
+  // public getYPos(): number {
+  //   return this.yPos;
+  // }
 
   /**
    * @param ctx ctx

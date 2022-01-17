@@ -2,13 +2,13 @@ import Game from './Game.js';
 import Player from './Player.js';
 
 export default abstract class InteractingItems {
-  private img: HTMLImageElement;
+  protected img: HTMLImageElement;
 
-  private xPos: number;
+  protected xPos: number;
 
-  private yPos: number;
+  protected yPos: number;
 
-  private type:string;
+  protected type:string;
 
   /**
    *
@@ -16,8 +16,8 @@ export default abstract class InteractingItems {
    * @param yPos y position of the interacting item
    * @param type type of the interacting item
    */
-  public constructor(xPos: number, yPos: number, type:string) {
-    this.img = Game.loadNewImage('./assets/img/ButtonNeutral.png');
+  public constructor(xPos: number, yPos: number, type:string,imgSrc:string) {
+    this.img = Game.loadNewImage(imgSrc);
     this.xPos = xPos;
     this.yPos = yPos;
     this.type = type;
