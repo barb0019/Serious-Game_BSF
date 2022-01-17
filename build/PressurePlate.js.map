@@ -1,1 +1,1 @@
-{"version":3,"file":"PressurePlate.js","sourceRoot":"","sources":["../src/PressurePlate.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,OAAO,aAAa;CAEjC"}
+{"version":3,"file":"PressurePlate.js","sourceRoot":"","sources":["../src/PressurePlate.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,eAAe,CAAC;AAErC,MAAM,CAAC,OAAO,OAAO,aAAc,SAAQ,QAAQ;IAEjD,YAAmB,IAAW,EAAE,IAAW;QACzC,KAAK,CAAC,2CAA2C,EAAE,IAAI,EAAE,IAAI,EAAE,gBAAgB,CAAC,CAAC;IACnF,CAAC;CACF"}
