@@ -84,7 +84,7 @@ export default class Platform {
         const collisionBottom = this.yPos < player.getYPos();
         const collisionRight = this.xPos < player.getXPos() + player.getImageWidth() - 10;
         const collisionLeft = this.xPos + this.width > player.getXPos() + 10;
-        if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
+        if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel() + 1
             && this.xPos + this.width > player.getXPos() - player.getXVel()
             && this.yPos < player.getYPos() + player.getImageHeight()
             && this.yPos + this.height > player.getYPos()) {

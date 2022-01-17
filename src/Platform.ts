@@ -164,7 +164,8 @@ export default class Platform {
     const collisionLeft = this.xPos + this.width > player.getXPos() + 10;
 
     // checks if there is collision with the entire object
-    if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel()
+    // The 1 prevents some weird bugs I don't fully understand
+    if (this.xPos < player.getXPos() + player.getImageWidth() + player.getXVel() + 1
       && this.xPos + this.width > player.getXPos() - player.getXVel()
       && this.yPos < player.getYPos() + player.getImageHeight()
       && this.yPos + this.height > player.getYPos()) {
