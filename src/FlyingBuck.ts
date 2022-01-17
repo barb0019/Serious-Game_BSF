@@ -1,7 +1,10 @@
 import Enemies from './Enemies.js';
 import Game from './Game.js';
+
 export default class FlyingBuck extends Enemies {
-  private timer: number;
+  private maxXPos: number;
+
+  private goingRight: boolean;
 
   /**
    *
@@ -11,22 +14,29 @@ export default class FlyingBuck extends Enemies {
    * @param points points that you lose of win if you collide with object
    * @param game the game of the game
    */
-  public constructor(xPos: number, yPos: number, type:string, points:number, game: Game) {
+  public constructor(xPos: number, yPos: number, type: string, points: number, game: Game) {
     super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
 
-    this.timer = 0;
+    this.goingRight = true;
+    this.maxXPos = this.xPos + game.canvas.width * 0.17;
     this.flyingSpeed += 1.50;
   }
 
   /**
    * move the flying vbucks
    */
-  public move():void {
+  public move(): void {
     this.xPos += this.flyingSpeed;
-    this.timer += 1;
-    if (this.timer > 200) {
-      this.timer = 0;
+    if (this.goingRight) {
+      if (this.xPos > this.maxXPos) {
+        this.maxXPos = this.xPos - this.game.canvas.width * 0.17;
+        this.flyingSpeed = -this.flyingSpeed;
+        this.goingRight = false;
+      }
+    } else if (this.xPos < this.maxXPos) {
+      this.maxXPos = this.xPos + this.game.canvas.width * 0.17;
       this.flyingSpeed = -this.flyingSpeed;
+      this.goingRight = true;
     }
   }
 }
