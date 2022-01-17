@@ -54,10 +54,10 @@ export default abstract class Player extends GameItem {
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
       if (boughtItems[i] === 0) {
-        this.jumpHeight *= 1.2;
+        this.jumpHeight *= 1.1;
       }
       if (boughtItems[i] === 1) {
-        this.xVel *= 1.2;
+        this.xVel *= 1.1;
       }
     }
   }
@@ -66,7 +66,6 @@ export default abstract class Player extends GameItem {
    * increases the gravity and apllies it to the player
    */
   public increaseGravity(): void {
-    // TODO The count used fucks with the gravity variable, need something else
     if (!this.onPlatform) {
       this.yPos += this.gravity;
 
