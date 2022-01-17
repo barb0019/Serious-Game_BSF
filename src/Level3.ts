@@ -65,7 +65,7 @@ export default class Level3 extends Level {
   protected objects():void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
-    this.door = new Door(width * 0.92, height * 0.115, 'DoubleDoor0');
+    this.door = new Door(width * 0.91, height * 0.11, 'DoubleDoor0');
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.88, height * 0.2, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.463, height * 0.04, 'red', -3, this.game));
@@ -78,8 +78,8 @@ export default class Level3 extends Level {
     this.scoringObjects.push(new FutPack(width * 0.7, height * 0.51, 'red', -3));
     this.scoringObjects.push(new FutPack(width * 0.7, height * 0.61, 'blue', -3));
     // other objects
-    this.scoringObjects.push(new VBucks(width * 0.015, height * 0.25, 'red', -3, this.game));
-    this.scoringObjects.push(new VBucks(width * 0.873, height * 0.6, 'blue', -3, this.game));
+    this.scoringObjects.push(new VBucks(width * 0.015, height * 0.23, 'red', -3, this.game));
+    this.scoringObjects.push(new VBucks(width * 0.873, height * 0.58, 'blue', -3, this.game));
     // Secons 'barrier'in the middle
     this.scoringObjects.push(new FutPack(width * 0.5, height * 0.81, 'red', -3));
     this.scoringObjects.push(new FutPack(width * 0.5, height * 0.71, 'red', -3));
@@ -87,7 +87,7 @@ export default class Level3 extends Level {
     this.scoringObjects.push(new FutPack(width * 0.5, height * 0.61, 'red', -3));
     // Stars
     this.scoringObjects.push(new Star(width * 0.75, height * 0.03, 'star', 1));
-    this.scoringObjects.push(new Star(width * 0.875, height * 0.66, 'star', 1));
+    this.scoringObjects.push(new Star(width * 0.875, height * 0.64, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.6, height * 0.75, 'star', 1));
   }
 
