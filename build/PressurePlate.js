@@ -1,29 +1,9 @@
 import Game from './Game.js';
-export default class PressurePlate {
-    img;
-    xPos;
-    yPos;
-    type;
+import InteractingItems from './InteractingItems.js';
+export default class PressurePlate extends InteractingItems {
     constructor(xPos, yPos, type) {
+        super(xPos, yPos, type, './assets/img/ButtonNeutral.png');
         this.img = Game.loadNewImage('./assets/img/ButtonNeutral.png');
-        this.xPos = xPos;
-        this.yPos = yPos;
-        this.type = type;
-    }
-    getType() {
-        return this.type;
-    }
-    getImageHeight() {
-        return this.img.height;
-    }
-    getImageWidth() {
-        return this.img.width;
-    }
-    getXPos() {
-        return this.xPos;
-    }
-    getYPos() {
-        return this.yPos;
     }
     draw(ctx, player) {
         if (player[0].collidesWith(this) || player[1].collidesWith(this)) {

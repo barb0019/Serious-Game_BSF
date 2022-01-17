@@ -4,8 +4,8 @@ export default class InteractingItems {
     xPos;
     yPos;
     type;
-    constructor(xPos, yPos, type) {
-        this.img = Game.loadNewImage('./assets/img/ButtonNeutral.png');
+    constructor(xPos, yPos, type, imgSrc) {
+        this.img = Game.loadNewImage(imgSrc);
         this.xPos = xPos;
         this.yPos = yPos;
         this.type = type;

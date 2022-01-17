@@ -2,7 +2,9 @@ import Enemies from './Enemies.js';
 import Game from './Game.js';
 
 export default class VBucks extends Enemies {
-  private timer: number;
+  private maxXPos: number;
+
+  private goingRight: boolean;
 
   /**
    *  initilize the vbucks
@@ -16,7 +18,8 @@ export default class VBucks extends Enemies {
   public constructor(xPos: number, yPos: number, type:string, points:number, game: Game) {
     super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
 
-    this.timer = 0;
+    this.goingRight = false;
+    this.maxXPos = this.xPos - game.canvas.width * 0.28;
     this.flyingSpeed += 4;
   }
 
@@ -25,11 +28,16 @@ export default class VBucks extends Enemies {
    */
   public move():void {
     this.xPos -= this.flyingSpeed;
-    this.timer += 1;
-    if (this.timer > 115) {
-      this.timer = 0;
-      // this.xPos = 945;
+    if (this.goingRight) {
+      if (this.xPos > this.maxXPos) {
+        this.maxXPos = this.xPos - this.game.canvas.width * 0.28;
+        this.flyingSpeed = -this.flyingSpeed;
+        this.goingRight = false;
+      }
+    } else if (this.xPos < this.maxXPos) {
+      this.maxXPos = this.xPos + this.game.canvas.width * 0.28;
       this.flyingSpeed = -this.flyingSpeed;
+      this.goingRight = true;
     }
   }
 }
