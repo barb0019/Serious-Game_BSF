@@ -75,7 +75,7 @@ export default class PressurePlate {
    */
   public draw(ctx: CanvasRenderingContext2D, player:Player[]): void {
     if (player[0].collidesWith(this) || player[1].collidesWith(this)) {
-      ctx.drawImage(Game.loadNewImage('./assets/img/titled_yellow_power_icon.png'), this.xPos, this.yPos, 75, 100);
+      ctx.drawImage(Game.loadNewImage('./assets/img/ButtonEnd.png'), this.xPos, this.yPos, 60, 32);
     } else {
       ctx.drawImage(this.img, this.xPos, this.yPos, 60, 32);
     }
