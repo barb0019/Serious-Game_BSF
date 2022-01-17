@@ -33,10 +33,10 @@ export default class Level4 extends Level {
         this.scoringObjects.push(new VBucks(width * 0.226, height * 0.15, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.456, height * 0.53, 'blue', -3, this.game));
         this.scoringObjects.push(new FlyingBuck(width * 0.358, height * 0.2, 'flyingbuck', -3, this.game));
-        this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.30, 'moneymonster', -3, this.game));
         this.scoringObjects.push(new Star(width * 0.227, height * 0.8, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.227, height * 0.22, 'star', 1));
+        this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.30, 'moneymonster', -3, this.game));
     }
     makePlatforms() {
         const { width } = this.game.canvas;

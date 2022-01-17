@@ -189,7 +189,7 @@ export default abstract class Level extends Scene {
 
     // this.scoringObjects[1].move();
     this.scoringObjects[2].move();
-    this.scoringObjects[3].moveY();
+    this.scoringObjects[6].moveY();
     // this.platform[3].moveX();
     // this.platform[5].moveY();
 
