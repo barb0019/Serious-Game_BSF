@@ -127,7 +127,7 @@ export default class Platform {
   public moveY():void {
     this.yPos += this.flyingSpeed;
     this.timer += 1;
-    if (this.timer > 60) {
+    if (this.timer > 80) {
       this.timer = 0;
       this.flyingSpeed = -this.flyingSpeed;
     }
