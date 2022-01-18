@@ -34,6 +34,9 @@ export default class Game {
     getBoughtItems() {
         return this.boughtItems;
     }
+    resetBoughtItems() {
+        this.boughtItems = [];
+    }
     getUser() {
         return this.user;
     }
@@ -65,11 +68,11 @@ export default class Game {
     }
     getCurrentLevel() {
         switch (this.user.getLevel()) {
-            case 1: return new Level5(this);
+            case 1: return new Level1(this);
             case 2: return new Level2(this);
             case 3: return new Level3(this);
             case 4: return new Level4(this);
-            case 5: return new Level1(this);
+            case 5: return new Level5(this);
             default: return null;
         }
     }

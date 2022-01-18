@@ -69,6 +69,13 @@ export default class Game {
   }
 
   /**
+   * Resets the items you bought to none
+   */
+  public resetBoughtItems(): void {
+    this.boughtItems = [];
+  }
+
+  /**
    * getUser
    *
    * @returns the user data
@@ -156,11 +163,11 @@ export default class Game {
    */
   public getCurrentLevel(): Level {
     switch (this.user.getLevel()) {
-      case 1: return new Level5(this);
+      case 1: return new Level1(this);
       case 2: return new Level2(this);
       case 3: return new Level3(this);
       case 4: return new Level4(this);
-      case 5: return new Level1(this);
+      case 5: return new Level5(this);
       default: return null;
     }
   }

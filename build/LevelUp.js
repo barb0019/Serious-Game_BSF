@@ -2,6 +2,7 @@ import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 import Scene from './Scene.js';
 import Shop from './Shop.js';
+import WinScreen from './WinScreen.js';
 export default class LevelUp extends Scene {
     shouldStart;
     levelArray;
@@ -31,6 +32,9 @@ export default class LevelUp extends Scene {
             this.game.getUser().increaseLevel();
             console.log('test');
             return this.game.getCurrentLevel();
+        }
+        if (this.shouldStart && this.game.getUser().getLevel() <= 3) {
+            return new WinScreen(this.game);
         }
         return null;
     }
