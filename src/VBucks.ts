@@ -6,6 +6,8 @@ export default class VBucks extends Enemies {
 
   private goingRight: boolean;
 
+  private timer: number;
+
   /**
    *  initilize the vbucks
    *
@@ -20,7 +22,8 @@ export default class VBucks extends Enemies {
 
     this.goingRight = false;
     this.maxXPos = this.xPos - game.canvas.width * 0.28;
-    this.flyingSpeed += 4;
+    this.flyingSpeed += 3;
+    this.timer = 0;
   }
 
   /**
@@ -38,6 +41,18 @@ export default class VBucks extends Enemies {
       this.maxXPos = this.xPos + this.game.canvas.width * 0.28;
       this.flyingSpeed = -this.flyingSpeed;
       this.goingRight = true;
+    }
+  }
+
+  /**
+   * move the flying vbucks
+   */
+   public moveY():void {
+    this.yPos += this.flyingSpeed;
+    this.timer += 1;
+    if (this.timer > 50) {
+      this.timer = 0;
+      this.flyingSpeed = -this.flyingSpeed;
     }
   }
 }
