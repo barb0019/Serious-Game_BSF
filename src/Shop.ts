@@ -45,7 +45,7 @@ export default class Shop extends Scene {
     for (let i = 0; i < this.buttons.length; i++) {
       this.buttons[i].style.position = 'absolute';
       this.buttons[i].innerHTML = 'Buy';
-      this.buttons[i].style.top = `${window.innerHeight / 1.5 + 10}px`;
+      this.buttons[i].style.top = `${window.innerHeight / 1.4 + 10}px`;
       this.buttons[i].style.fontSize = '20px';
       this.buttons[i].addEventListener('click', () => {
         this.buy(i);
@@ -94,8 +94,8 @@ export default class Shop extends Scene {
     const itemPopUpText: string[] = [
       'Usefull test yes very much yes wow amazing coolio much respeccc EPIC ÜBERhaupt BEEEEEEEEEEEEEEG JUMP',
       'Player go ZOOOOOOOOM',
-      'Dit is een foute beslissing die je hebt genomen en nu zijn de enemies moeilijker',
-      'Enemy go brrrrrrrrrrrrrr ⫖⫐',
+      'Dit kopen was nutteloos, doe dit niet',
+      'Enemies zijn nu moeilijker',
     ];
     this.itemPopUps.push(document.createElement('boughtItem'));
     const currentItem = this.itemPopUps.length - 1;
@@ -106,7 +106,7 @@ export default class Shop extends Scene {
     this.itemPopUps[currentItem].style.top = `${window.innerHeight / 2 / 1.1}px`;
     this.itemPopUps[currentItem].style.fontSize = '20px';
     this.itemPopUps[currentItem].style.maxWidth = `${window.innerWidth / this.buttons.length / 1.3}px`;
-    this.itemPopUps[currentItem].style.backgroundImage = 'url(https://media1.thehungryjpeg.com/thumbs2/ori_70842_a6fd8ffd7deeb1c56dbcdd154755b5105b7de5e7_seamless-abstract-background-png-jpg.jpg)';
+    // this.itemPopUps[currentItem].style.backgroundImage = 'url(https://media1.thehungryjpeg.com/thumbs2/ori_70842_a6fd8ffd7deeb1c56dbcdd154755b5105b7de5e7_seamless-abstract-background-png-jpg.jpg)';
 
     this.itemPopUps[currentItem].innerHTML = itemPopUpText[itemNumber];
   }
@@ -149,15 +149,16 @@ export default class Shop extends Scene {
     const shop = this.game;
     this.game.ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5, 'center', 'black');
-    shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3, 'center', 'black');
+    this.game.ctx.drawImage(Game.loadNewImage('https://e7.pngegg.com/pngimages/676/208/png-clipart-wooden-background-wooden-table-wooden-background.png'), 0, 0, canvas.width, canvas.height);
+    shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5.1, 'center', 'black');
+    shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3.4, 'center', 'black');
     shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
-    shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+    shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.4, 'center', 'black');
     // shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
-    shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+    shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.4, 'center', 'black');
     // shop.writeTextToCanvas('Y', 20, canvas.width * 0.5, canvas.height / 1.4, 'center', 'black');
-    shop.writeTextToCanvas('BIGOMEGAGIANTSUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+    shop.writeTextToCanvas('BIGOMEGAGIANTSUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.4, 'center', 'black');
     // shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
-    shop.writeTextToCanvas('Score&difficulty (w.i.p.)', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.5, 'center', 'black');
+    shop.writeTextToCanvas('Score&difficulty (w.i.p.)', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.4, 'center', 'black');
   }
 }
