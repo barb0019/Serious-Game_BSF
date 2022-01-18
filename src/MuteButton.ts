@@ -18,12 +18,12 @@ export default class MuteButton extends InteractingItems {
    *
    */
   public makeButton():void {
-    const muteButton = document.createElement('muteButton');
+    const muteButton = document.createElement('img');
     muteButton.style.position = 'absolute';
-    muteButton.style.top = `${window.innerHeight / 1.5 + 10}px`;
-    muteButton.style.right = `${window.innerWidth * 0.95}px`;
-    muteButton.style.fontSize = '20px';
-    muteButton.innerHTML = 'AAAAAAAAAAAAAA';
+    muteButton.style.top = '0px';
+    muteButton.style.right = '0px';
+    muteButton.src = './assets/img/UnMute.png';
+    muteButton.width =50;
     document.body.append(muteButton);
     muteButton.addEventListener('click', () => {
       this.MuteorUnMute();
@@ -42,6 +42,6 @@ export default class MuteButton extends InteractingItems {
    *
    */
   public MuteorUnMute():void {
-    throw new Error('Method not implemented.');
+    console.log('test');
   }
 }
