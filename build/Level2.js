@@ -63,7 +63,6 @@ export default class Level2 extends Level {
         this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     }
     allMove() {
-        this.scoringObjects[2].move();
     }
 }
 //# sourceMappingURL=Level2.js.map
