@@ -38,7 +38,7 @@ export default class Level1 extends Level {
    *
    * @param game the game of the game (legendarische tekst)(*Φ皿Φ*)
    */
-  protected speedbubbles(game: Game):void {
+  protected speedbubbles(game: Game): void {
     this.speedBubble = [];
     this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
     this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
@@ -52,18 +52,18 @@ export default class Level1 extends Level {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     if (this.player[0].collidesWith(this.pressurePlate[0])
-  || this.player[1].collidesWith(this.pressurePlate[0])) {
+      || this.player[1].collidesWith(this.pressurePlate[0])) {
       this.platform.splice(11, 1);
     } else {
       this.platform[11] = (new Platform(width * 0.1, height * 0.80, width / 8, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    // console.log(this.platform.length);
+      // console.log(this.platform.length);
     }
   }
 
   /**
    *
    */
-  protected players():void {
+  protected players(): void {
     this.player = [];
     this.player.push(new PlayerRed(150, this.game.canvas.height, this.game));
     this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
@@ -83,7 +83,7 @@ export default class Level1 extends Level {
   /**
    *
    */
-  protected objects():void {
+  protected objects(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     console.log(width);
@@ -100,6 +100,13 @@ export default class Level1 extends Level {
     this.scoringObjects.push(new Star(width * 0.45, height * 0.53, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.12, height * 0.39, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.75, height * 0.26, 'star', 1));
+
+    const boughtItems = this.game.getBoughtItems();
+    for (let i = 0; i < boughtItems.length; i++) {
+      if (boughtItems[i] === 2) {
+        // enemies here
+      }
+    }
   }
 
   /**
