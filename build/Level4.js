@@ -36,7 +36,7 @@ export default class Level4 extends Level {
         this.scoringObjects.push(new FutPack(width * 0.41, height * 0.5, 'blue', -3));
         this.scoringObjects.push(new Shootingbuck(width * 0.358, height * 0.21, 'red', -3, this.game));
         this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.155, 'moneymonster', -3, this.game));
-        this.scoringObjects.push(new FlyingBuck(width * 0.75, height * 0.21, 'finalboss', -3, this.game));
+        this.scoringObjects.push(new FlyingBuck(width * 0.75, height * 0.2, 'finalboss', -3, this.game));
         this.scoringObjects.push(new FutPack(width * 0.51, height * 0.5, 'red', -3));
         this.scoringObjects.push(new FutPack(width * 0.61, height * 0.5, 'blue', -3));
         this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
