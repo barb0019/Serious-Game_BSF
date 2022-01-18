@@ -9,6 +9,7 @@ import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
+import Shootingbuck from './ShootingBucks.js';
 
 export default class Level4 extends Level {
   /**
@@ -64,7 +65,7 @@ export default class Level4 extends Level {
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.226, height * 0.15, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.456, height * 0.53, 'blue', -3, this.game));
-    this.scoringObjects.push(new VBucks(width * 0.358, height * 0.10, 'red', -3, this.game));
+    this.scoringObjects.push(new Shootingbuck(width * 0.358, height * 0.10, 'red', -3, this.game));
     this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.155, 'moneymonster', -3, this.game));
     this.scoringObjects.push(new FlyingBuck(width * 0.75, height * 0.13, 'finalboss', -3, this.game));
     // this.scoringObjects.push(new VBucks(width * 0.15, height * 0.65, 'red', -3, this.game));
