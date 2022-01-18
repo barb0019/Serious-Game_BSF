@@ -31,10 +31,13 @@ export default class InstructionScreen extends Scene {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
         const centerX = this.game.canvas.width / 2;
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/star.png'), 310, 150);
-        this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken', 20, 300, 200, 'center', 'black');
+        this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken en samen naar de deur te gaan', 20, 300, 200, 'center', 'black');
         this.game.writeTextToCanvas('➡️', 20, 275, 175, 'center', 'black');
         this.game.writeTextToCanvas('uitleg instructies', 128, centerX, 110, 'center', 'black');
         this.game.writeTextToCanvas('⬅️', 20, 375, 175, 'center', 'black');
+        this.game.writeTextToCanvas('➡️', 20, 275, 245, 'center', 'black');
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/DoubleDoor0.png'), 295, 215);
+        this.game.writeTextToCanvas('⬅️', 20, 375, 245, 'center', 'black');
         this.game.writeTextToCanvas(`Ready ${this.game.getUser().getName()}`, 48, centerX, 450, 'center', 'black');
         this.game.writeTextToCanvas('druk op spatie', 48, centerX, 550, 'center', 'black');
     }
