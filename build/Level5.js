@@ -35,6 +35,9 @@ export default class Level5 extends Level {
         const { height } = this.game.canvas;
         console.log(height);
         this.platform = [];
+        this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.295, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+        this.platform.push(new Platform(width * 0.425, height * 0.77, width * 0.295, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+        this.platform.push(new Platform(width * 0.720, height * 0.77, width * 0.25, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         console.log('LEVEL2');
         this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width / 4, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
@@ -42,6 +45,7 @@ export default class Level5 extends Level {
         this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     }
     allMove() {
+        this.scoringObjects[0].moveY();
     }
 }
 //# sourceMappingURL=Level5.js.map

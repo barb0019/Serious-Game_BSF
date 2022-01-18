@@ -92,7 +92,9 @@ export default class Level5 extends Level {
 
     // this.platform.push(new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // this.platform.push(new Platform(width * 0.9115, height * 0.154, width * 0.048, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    // this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.195, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.295, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.425, height * 0.77, width * 0.295, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.720, height * 0.77, width * 0.25, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // this.platform.push(new Platform(width * 0.350, height * 0.6, width * 0.2, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // // this.platform.push(new Platform(width * 0.75, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // this.platform.push(new Platform(width * 0.39, height * 0.28, width * 0.19, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
@@ -108,7 +110,7 @@ export default class Level5 extends Level {
 
   public allMove(): void {
     // this.scoringObjects[2].move();
-    // this.scoringObjects[3].moveY();
+    this.scoringObjects[0].moveY();
     // this.platform[3].moveX();
     // this.platform[0].moveY();
     // this.platform[5].moveY();
