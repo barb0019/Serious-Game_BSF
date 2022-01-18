@@ -106,7 +106,7 @@ export default class Level4 extends Level {
   public allMove(): void {
     this.scoringObjects[2].move();
     this.scoringObjects[6].moveY();
-    // this.platform[3].moveX();
+    this.platform[3].moveX();
     // this.platform[5].moveY();
     // this.scoringObjects[1].move();
   }
