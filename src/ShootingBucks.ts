@@ -36,7 +36,7 @@ export default class Shootingbuck extends Enemies {
     this.timer += 1;
     if (this.timer > 250) {
       this.timer = 0;
-      this.xPos = this.game.canvas.width * 0.75;
+      this.xPos = this.game.canvas.width * 0.70;
     }
   }
 
