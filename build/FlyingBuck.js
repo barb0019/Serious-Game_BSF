@@ -8,7 +8,7 @@ export default class FlyingBuck extends Enemies {
         this.goingRight = true;
         this.maxXPos = this.xPos + game.canvas.width * 0.17;
         this.maxYPos = this.yPos + game.canvas.width * 0.17;
-        this.flyingSpeed += 2;
+        this.flyingSpeed += 2.5;
     }
     move() {
         this.xPos += this.flyingSpeed;

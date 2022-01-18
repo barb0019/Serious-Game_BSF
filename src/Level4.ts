@@ -65,13 +65,13 @@ export default class Level4 extends Level {
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.226, height * 0.15, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.456, height * 0.53, 'blue', -3, this.game));
-    this.scoringObjects.push(new Shootingbuck(width * 0.358, height * 0.10, 'red', -3, this.game));
+    this.scoringObjects.push(new Shootingbuck(width * 0.358, height * 0.1, 'red', -3, this.game));
     this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.155, 'moneymonster', -3, this.game));
     this.scoringObjects.push(new FlyingBuck(width * 0.75, height * 0.13, 'finalboss', -3, this.game));
     // this.scoringObjects.push(new VBucks(width * 0.15, height * 0.65, 'red', -3, this.game));
     // this.scoringObjects.push(new FutPack(width * 0.2902, height * 0.6, 'blue', -3));
     // this.scoringObjects.push(new FutPack(width * 0.749, height * 0.4, 'red', -3));
-    this.scoringObjects.push(new Star(width * 0.227, height * 0.8, 'star', 1));
+    this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.227, height * 0.22, 'star', 1));
     // this.scoringObjects.push(new VBucks(width * 0.179, height * 0.8, 'red', -3, this.game));
