@@ -127,6 +127,5 @@ export default class Level1 extends Level {
  *
  */
   public allMove(): void {
-
   }
 }
