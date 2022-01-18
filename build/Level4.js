@@ -31,7 +31,7 @@ export default class Level4 extends Level {
         const { height } = this.game.canvas;
         this.door = new Door(width * 0.911, height * 0.018, 'DoubleDoor0');
         this.scoringObjects = [];
-        this.scoringObjects.push(new VBucks(width * 0.226, height * 0.15, 'blue', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.226, height * 0.22, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.456, height * 0.53, 'blue', -3, this.game));
         this.scoringObjects.push(new Shootingbuck(width * 0.358, height * 0.21, 'red', -3, this.game));
         this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.155, 'moneymonster', -3, this.game));
@@ -39,7 +39,7 @@ export default class Level4 extends Level {
         this.scoringObjects.push(new VBucks(width * 0.556, height * 0.53, 'red', -3, this.game));
         this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
-        this.scoringObjects.push(new Star(width * 0.227, height * 0.22, 'star', 1));
+        this.scoringObjects.push(new Star(width * 0.227, height * 0.15, 'star', 1));
     }
     makePlatforms() {
         const { width } = this.game.canvas;
@@ -62,6 +62,7 @@ export default class Level4 extends Level {
         this.scoringObjects[2].move();
         this.scoringObjects[3].moveY();
         this.platform[3].moveX();
+        this.platform[0].moveY();
     }
 }
 //# sourceMappingURL=Level4.js.map
