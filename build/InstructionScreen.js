@@ -1,8 +1,7 @@
 import Game from './Game.js';
-import InstructionScreen from './InstructionScreen.js';
 import KeyListener from './KeyListener.js';
 import Scene from './Scene.js';
-export default class Start extends Scene {
+export default class InstructionScreen extends Scene {
     shouldStart;
     keyboard;
     levelsArray;
@@ -24,16 +23,17 @@ export default class Start extends Scene {
             if (this.game.getCurrentLevel().hasWon()) {
                 this.levelsArray.splice(0, 1);
             }
-            return new InstructionScreen(this.game);
+            return this.game.getCurrentLevel();
         }
         return null;
     }
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
         const centerX = this.game.canvas.width / 2;
-        this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
+        this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken', 20, 300, 200, 'center', 'black');
+        this.game.writeTextToCanvas('uitleg instructies', 128, centerX, 110, 'center', 'black');
         this.game.writeTextToCanvas(`Ready ${this.game.getUser().getName()}`, 48, centerX, 450, 'center', 'black');
-        this.game.writeTextToCanvas("Type 'space' to start", 48, centerX, 550, 'center', 'black');
+        this.game.writeTextToCanvas('druk op spatie', 48, centerX, 550, 'center', 'black');
     }
 }
-//# sourceMappingURL=Start.js.map
+//# sourceMappingURL=InstructionScreen.js.map

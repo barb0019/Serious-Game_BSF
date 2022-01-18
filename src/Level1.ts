@@ -48,7 +48,7 @@ export default class Level1 extends Level {
   /**
    *
    */
-  protected checksifpressureonthePlate(): void {
+  protected checksIfPressureOnthePlate(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     if (this.player[0].collidesWith(this.pressurePlate[0])
@@ -133,5 +133,6 @@ export default class Level1 extends Level {
   /**
    *
    */
+  // eslint-disable-next-line class-methods-use-this
   public allMove(): void {}
 }
