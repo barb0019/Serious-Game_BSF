@@ -101,16 +101,13 @@ export default class Level2 extends Level {
     this.platform.push(new Platform(width / 2, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
   }
-<<<<<<< HEAD
-  allMove(): void {
-    this.scoringObjects[2].move();
-=======
+
+
 
   /**
    *
    */
   public allMove(): void {
->>>>>>> cfb068584db1c7bf01874e3383c4bfee53901657
-
+    this.scoringObjects[2].move();
   }
 }
