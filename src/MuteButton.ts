@@ -3,6 +3,8 @@ import InteractingItems from './InteractingItems.js';
 import Player from './Player.js';
 
 export default class MuteButton extends InteractingItems {
+  private muted:boolean;
+
   /**
    *
    * @param xPos x position of the mute button
@@ -12,6 +14,7 @@ export default class MuteButton extends InteractingItems {
   public constructor(xPos: number, yPos: number, type:string) {
     super(xPos, yPos, type, './assets/img/UnMute.png');
     this.makeButton();
+    this.muted = false;
   }
 
   /**
@@ -26,12 +29,15 @@ export default class MuteButton extends InteractingItems {
     muteButton.width = 50;
     document.body.append(muteButton);
     muteButton.addEventListener('click', () => {
-      this.muteorUnMute();
-      muteButton.src = './assets/img/UnMute.png';
-      muteButton.style.position = 'absolute';
-      muteButton.style.top = '0px';
-      muteButton.style.right = '0px';
-      muteButton.innerHTML = 'verminkte pinguin';
+      if (this.muted === true) {
+        muteButton.src = './assets/img/UnMuteV2.png';
+        this.muted = false;
+        Game.play();
+      } else {
+        Game.pause();
+        muteButton.src = './assets/img/UnMute.png';
+        this.muted = true;
+      }
     });
   }
 
@@ -41,14 +47,5 @@ export default class MuteButton extends InteractingItems {
    */
   public draw(ctx: CanvasRenderingContext2D): void {
     ctx.drawImage(Game.loadNewImage('./assets/img/UnMute.png'), this.xPos, this.yPos, 60, 32);
-  }
-
-  /**
-   *
-   */
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  // eslint-disable-next-line class-methods-use-this
-  public muteorUnMute():void {
-    Game.pause();
   }
 }

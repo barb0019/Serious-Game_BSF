@@ -47,7 +47,6 @@ export default class Game {
     const { height } = this.canvas;
 
     this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
-
   }
 
   /**
