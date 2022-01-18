@@ -41,6 +41,20 @@ export default abstract class ScoringObject extends GameItem {
    * the object moves
    */
   // eslint-disable-next-line class-methods-use-this
+  public move1(): void {
+  }
+
+  /**
+   * the object moves
+   */
+  // eslint-disable-next-line class-methods-use-this
+  public move2(): void {
+  }
+
+  /**
+   * the object moves
+   */
+  // eslint-disable-next-line class-methods-use-this
   public moveY(): void {
   }
 

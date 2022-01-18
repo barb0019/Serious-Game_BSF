@@ -43,6 +43,30 @@ export default class Shootingbuck extends Enemies {
   /**
    * move the flying vbucks
    */
+  public move1():void {
+    this.xPos += this.flyingSpeed;
+    this.timer += 1;
+    if (this.timer > 150) {
+      this.timer = 0;
+      this.xPos = this.game.canvas.width * 0.228;
+    }
+  }
+
+  /**
+   * move the flying vbucks
+   */
+  public move2():void {
+    this.xPos += this.flyingSpeed;
+    this.timer += 1;
+    if (this.timer > 200) {
+      this.timer = 50;
+      this.xPos = this.game.canvas.width * 0.228;
+    }
+  }
+
+  /**
+   * move the flying vbucks
+   */
   public moveY():void {
     this.yPos += this.flyingSpeed;
     this.timer += 1;

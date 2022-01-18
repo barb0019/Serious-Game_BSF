@@ -12,6 +12,10 @@ export default class ScoringObject extends GameItem {
     }
     move() {
     }
+    move1() {
+    }
+    move2() {
+    }
     moveY() {
     }
     moveY2() {
