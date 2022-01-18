@@ -94,7 +94,7 @@ export default class Shop extends Scene {
     const itemPopUpText: string[] = [
       'Usefull test yes very much yes wow amazing coolio much respeccc EPIC ÜBERhaupt BEEEEEEEEEEEEEEG JUMP',
       'Player go ZOOOOOOOOM',
-      'Dit kopen was nutteloos, doe dit niet',
+      'Dit kopen was nutteloos, doe dit niet', // maybe add enemies when selected
       'Enemies zijn nu moeilijker',
     ];
     this.itemPopUps.push(document.createElement('boughtItem'));
