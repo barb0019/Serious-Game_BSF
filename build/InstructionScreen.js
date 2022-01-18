@@ -30,6 +30,8 @@ export default class InstructionScreen extends Scene {
     render() {
         this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
         const centerX = this.game.canvas.width / 2;
+        const { width } = this.game.canvas;
+        const { height } = this.game.canvas;
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/star.png'), 310, 150);
         this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken en samen naar de deur te gaan', 20, 300, 200, 'center', 'black');
         this.game.writeTextToCanvas('➡️', 20, 275, 175, 'center', 'black');
