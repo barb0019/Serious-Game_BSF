@@ -50,7 +50,7 @@ export default class VBucks extends Enemies {
   public moveY():void {
     this.yPos += this.flyingSpeed;
     this.timer += 1;
-    if (this.timer > 50) {
+    if (this.timer > 55) {
       this.timer = 0;
       this.flyingSpeed = -this.flyingSpeed;
     }
@@ -62,7 +62,7 @@ export default class VBucks extends Enemies {
   public moveY2():void {
     this.yPos -= this.flyingSpeed;
     this.timer += 1;
-    if (this.timer > 50) {
+    if (this.timer > 55) {
       this.timer = 0;
       this.flyingSpeed = -this.flyingSpeed;
     }

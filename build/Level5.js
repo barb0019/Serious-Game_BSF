@@ -29,11 +29,11 @@ export default class Level5 extends Level {
         const { height } = this.game.canvas;
         this.door = new Door(width * 0.911, height * 0.018, 'DoubleDoor0');
         this.scoringObjects = [];
-        this.scoringObjects.push(new VBucks(width * 0.226, height * 0.528, 'blue', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.226, height * 0.51, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.326, height * 0.71, 'red', -3, this.game));
-        this.scoringObjects.push(new VBucks(width * 0.426, height * 0.528, 'blue', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.426, height * 0.51, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.526, height * 0.70, 'red', -3, this.game));
-        this.scoringObjects.push(new VBucks(width * 0.626, height * 0.528, 'blue', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.626, height * 0.51, 'blue', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.726, height * 0.71, 'red', -3, this.game));
         this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
