@@ -1,4 +1,5 @@
 import Game from './Game.js';
+import MuteButton from './MuteButton.js';
 
 /**
  * A superclass for objects that must be able to be animated by a `GameLoop`.

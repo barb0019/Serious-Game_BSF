@@ -6,6 +6,7 @@ import Start from './Start.js';
 import UserData from './UserData.js';
 import Level3 from './Level3.js';
 import Level4 from './Level4.js';
+import MuteButton from './MuteButton.js';
 
 export default class Game {
   // Necessary canvas attributes
@@ -20,6 +21,8 @@ export default class Game {
   static music:HTMLAudioElement;
 
   private boughtItems: number[];
+
+   private button:MuteButton;
 
   /**
    * Initialize the game
@@ -39,6 +42,12 @@ export default class Game {
     // Start the game cycle
     this.gameLoop = new GameLoop();
     this.gameLoop.start(new Start(this));
+
+    const { width } = this.canvas;
+    const { height } = this.canvas;
+
+    this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
+
   }
 
   /**
@@ -128,7 +137,7 @@ export default class Game {
   static play():void {
     this.music.play();
     this.music.loop = true;
- this.music.muted = false;
+    this.music.muted = false;
   }
 
   /**

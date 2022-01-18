@@ -123,9 +123,9 @@ export default class Level1 extends Level {
     this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
   }
 
-/**
- *
- */
+  /**
+   *
+   */
   public allMove(): void {
   }
 }

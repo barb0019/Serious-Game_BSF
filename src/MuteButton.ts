@@ -22,11 +22,16 @@ export default class MuteButton extends InteractingItems {
     muteButton.style.position = 'absolute';
     muteButton.style.top = '0px';
     muteButton.style.right = '0px';
-    muteButton.src = './assets/img/UnMute.png';
+    muteButton.src = './assets/img/UnMuteV2.png';
     muteButton.width = 50;
     document.body.append(muteButton);
     muteButton.addEventListener('click', () => {
       this.muteorUnMute();
+      muteButton.src = './assets/img/UnMute.png';
+      muteButton.style.position = 'absolute';
+      muteButton.style.top = '0px';
+      muteButton.style.right = '0px';
+      muteButton.innerHTML = 'verminkte pinguin';
     });
   }
 
