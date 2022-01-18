@@ -24,7 +24,7 @@ export default class Level1 extends Level {
         this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
         this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
     }
-    checksifpressureonthePlate() {
+    checksIfPressureOnthePlate() {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
         if (this.player[0].collidesWith(this.pressurePlate[0])
