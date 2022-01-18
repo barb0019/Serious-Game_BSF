@@ -7,6 +7,7 @@ import UserData from './UserData.js';
 import Level3 from './Level3.js';
 import Level4 from './Level4.js';
 import MuteButton from './MuteButton.js';
+import Level5 from './Level5.js';
 
 export default class Game {
   // Necessary canvas attributes
@@ -159,6 +160,7 @@ export default class Game {
       case 2: return new Level2(this);
       case 3: return new Level3(this);
       case 4: return new Level4(this);
+      case 5: return new Level5(this);
       default: return null;
     }
   }
