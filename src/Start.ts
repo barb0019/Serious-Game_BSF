@@ -11,6 +11,8 @@ export default class Start extends Scene {
 
   private levelsArray: Level[];
 
+  private instructionscreen:boolean;
+
   /**
    * Creates a new instance of this class
    *
@@ -21,6 +23,7 @@ export default class Start extends Scene {
     game.reset();
     this.keyboard = new KeyListener();
     this.shouldStart = false;
+    this.instructionscreen = false;
     // this.levelsArray = [new Level1(game), new Level2(game)];
     console.log(this.game.getCurrentLevel());
   }
@@ -31,6 +34,10 @@ export default class Start extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
       this.shouldStart = true;
+      Game.play();
+    }
+    if (this.keyboard.isKeyDown(KeyListener.KEY_W)) {
+      this.instructionscreen = true;
       Game.play();
     }
   }
@@ -55,10 +62,27 @@ export default class Start extends Scene {
         this.levelsArray.splice(0, 1);
         // this.levelsArray.hasWon = false;
       }
+      return this.game.getCurrentLevel();
+    }
+     if (this.instructionscreen) {
+      if (this.game.getCurrentLevel().hasWon()) {
+        this.levelsArray.splice(0, 1);
+        // this.levelsArray.hasWon = false;
+      }
       return new InstructionScreen(this.game);
     }
+
     return null;
   }
+  //   if (this.instructionscreen) {
+  //     if (this.game.getCurrentLevel().hasWon()) {
+  //       this.levelsArray.splice(0, 1);
+  //       // this.levelsArray.hasWon = false;
+  //       return new InstructionScreen(this.game);
+  //   }
+  //   return null;
+  // }
+  // }
 
   /**
    * Draw the game so the player can see what happened
@@ -71,7 +95,9 @@ export default class Start extends Scene {
     this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
     this.game.writeTextToCanvas(`Ready ${this.game.getUser().getName()}`, 48, centerX,
       450, 'center', 'black');
-    this.game.writeTextToCanvas("Type 'space' to start", 48, centerX,
+    this.game.writeTextToCanvas("Type 'space' om te beginnen", 48, centerX,
       550, 'center', 'black');
+    this.game.writeTextToCanvas("Type 'w' om naar uitleg te gaan", 48, centerX,
+      650, 'center', 'black');
   }
 }

@@ -72,8 +72,9 @@ export default class InstructionScreen extends Scene {
     const { height } = this.game.canvas;
     // this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
 
-    this.game.writeTextToCanvas('uitleg instructies', 128, centerX, height * 0.15, 'center', 'black');
 
+    this.game.ctx.drawImage(Game.loadNewImage('https://e7.pngegg.com/pngimages/676/208/png-clipart-wooden-background-wooden-table-wooden-background.png'), 0, 0, width, height);
+    this.game.writeTextToCanvas('uitleg instructies', 128, centerX, height * 0.15, 'center', 'black');
     this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken en samen door de deur te gaan', height * 0.027, width * 0.26, height * 0.26, 'center', 'black');
     this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.18, height * 0.23, 'center', 'black');
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/star.png'), width * 0.2, height * 0.2);
