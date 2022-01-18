@@ -124,6 +124,18 @@ export default class Platform {
   /**
    * move the flying vbucks
    */
+  public moveX2():void {
+    this.xPos += this.flyingSpeed;
+    this.timer += 1;
+    if (this.timer > 230) {
+      this.timer = 0;
+      this.flyingSpeed = -this.flyingSpeed;
+    }
+  }
+
+  /**
+   * move the flying vbucks
+   */
   public moveY():void {
     this.yPos += this.flyingSpeed;
     this.timer += 1;

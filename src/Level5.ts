@@ -80,7 +80,7 @@ export default class Level5 extends Level {
     // // this.scoringObjects.push(new FutPack(width * 0.749, height * 0.4, 'red', -3));
     this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
-    this.scoringObjects.push(new Star(width * 0.227, height * 0.15, 'star', 1));
+    this.scoringObjects.push(new Star(width * 0.07, height * 0.35, 'star', 1));
     // this.scoringObjects.push(new VBucks(width * 0.179, height * 0.8, 'red', -3, this.game));
     // this.scoringObjects.push(new FutPack(width * 0.273, height * 0.8, 'red', -3));
   }
@@ -102,8 +102,8 @@ export default class Level5 extends Level {
     this.platform.push(new Platform(width * 0.720, height * 0.77, width * 0.25, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // this.platform.push(new Platform(width * 0.350, height * 0.6, width * 0.2, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.8, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.39, height * 0.40, width * 0.19, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.1, height * 0.40, width * 0.12, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.32, height * 0.40, width * 0.19, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.035, height * 0.40, width * 0.16, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // this.platform.push(new Platform(width * 0.75, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
     console.log('LEVEL2');
@@ -122,7 +122,7 @@ export default class Level5 extends Level {
     this.scoringObjects[3].moveY2();
     this.scoringObjects[4].moveY();
     this.scoringObjects[5].moveY2();
-    // this.platform[3].moveX();
+    this.platform[4].moveX2();
     // this.platform[0].moveY();
     // this.platform[5].moveY();
     // this.scoringObjects[1].move();
