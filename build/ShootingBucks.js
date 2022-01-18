@@ -9,7 +9,7 @@ export default class Shootingbuck extends Enemies {
         this.goingRight = true;
         this.maxXPos = this.xPos + game.canvas.width * 0.17;
         this.maxYPos = this.yPos + game.canvas.width * 0.17;
-        this.flyingSpeed += 6;
+        this.flyingSpeed += 5;
         this.timer = 0;
     }
     move() {
