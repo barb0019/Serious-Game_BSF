@@ -41,7 +41,7 @@ export default class Level2 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
-    this.speedBubble.push(new SpeedBubble(game, 'dit is een vliegende vbuck pas dus op', 120, 600, 100, 500));
+    this.speedBubble.push(new SpeedBubble(game, 'dit is een vliegende vbuck ! Pas dus op.', 120, 600, 100, 500));
   }
 
   /**
