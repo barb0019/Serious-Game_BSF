@@ -67,11 +67,11 @@ export default class InstructionScreen extends Scene {
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
     // Show score
     const centerX = this.game.canvas.width / 2;
-    this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
-    this.game.writeTextToCanvas('hoe doel van het spel is om drie sterren per level te pakken', 20, 69, 50, 'center', 'black');
-    this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
-    this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
-    this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
+    // this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
+    this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken', 20, 300, 200, 'center', 'black');
+    this.game.writeTextToCanvas('uitleg instructies', 128, centerX, 110, 'center', 'black');
+    // this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
+    // this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
 
     this.game.writeTextToCanvas(`Ready ${this.game.getUser().getName()}`, 48, centerX,
       450, 'center', 'black');
