@@ -32,11 +32,13 @@ export default class InstructionScreen extends Scene {
         const centerX = this.game.canvas.width / 2;
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/star.png'), 310, 150);
-        this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken', 20, 300, 200, 'center', 'black');
-        this.game.writeTextToCanvas('➡️', 20, 275, 175, 'center', 'black');
-        this.game.writeTextToCanvas('uitleg instructies', 128, centerX, 110, 'center', 'black');
-        this.game.writeTextToCanvas('⬅️', 20, 375, 175, 'center', 'black');
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/star.png'), width * 0.2, height * 0.2);
+        this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken en samen naar de deur te gaan', height * 0.027, width * 0.26, height * 0.26, 'center', 'black');
+        this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.18, height * 0.23, 'center', 'black');
+        this.game.writeTextToCanvas('uitleg instructies', 128, centerX, height * 0.15, 'center', 'black');
+        this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.24, height * 0.23, 'center', 'black');
+        this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.18, height * 0.32, 'center', 'black');
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/DoubleDoor0.png'), width * 0.19, height * 0.29);
         this.game.writeTextToCanvas(`Ready ${this.game.getUser().getName()}`, 48, centerX, 450, 'center', 'black');
         this.game.writeTextToCanvas('druk op spatie', 48, centerX, 550, 'center', 'black');
     }
