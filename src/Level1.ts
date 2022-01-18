@@ -133,5 +133,6 @@ export default class Level1 extends Level {
   /**
    *
    */
+  // eslint-disable-next-line class-methods-use-this
   public allMove(): void {}
 }

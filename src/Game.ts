@@ -23,7 +23,7 @@ export default class Game {
 
   private boughtItems: number[];
 
-   private button:MuteButton;
+  private button:MuteButton;
 
   /**
    * Initialize the game
