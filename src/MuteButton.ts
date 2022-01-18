@@ -23,10 +23,10 @@ export default class MuteButton extends InteractingItems {
     muteButton.style.top = '0px';
     muteButton.style.right = '0px';
     muteButton.src = './assets/img/UnMute.png';
-    muteButton.width =50;
+    muteButton.width = 50;
     document.body.append(muteButton);
     muteButton.addEventListener('click', () => {
-      this.MuteorUnMute();
+      this.muteorUnMute();
     });
   }
 
@@ -41,7 +41,9 @@ export default class MuteButton extends InteractingItems {
   /**
    *
    */
-  public MuteorUnMute():void {
-    console.log('test');
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  // eslint-disable-next-line class-methods-use-this
+  public muteorUnMute():void {
+    Game.pause();
   }
 }

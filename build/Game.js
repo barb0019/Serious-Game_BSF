@@ -50,8 +50,10 @@ export default class Game {
     static play() {
         this.music.play();
         this.music.loop = true;
+        this.music.muted = false;
     }
     static pause() {
+        this.music.muted = true;
         this.music.pause();
     }
     getCurrentLevel() {
