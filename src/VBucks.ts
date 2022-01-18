@@ -22,7 +22,7 @@ export default class VBucks extends Enemies {
 
     this.goingRight = false;
     this.maxXPos = this.xPos - game.canvas.width * 0.28;
-    this.flyingSpeed += 3;
+    this.flyingSpeed += 3.5;
     this.timer = 0;
   }
 
