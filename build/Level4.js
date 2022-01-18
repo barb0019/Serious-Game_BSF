@@ -59,6 +59,7 @@ export default class Level4 extends Level {
     allMove() {
         this.scoringObjects[2].move();
         this.scoringObjects[6].moveY();
+        this.platform[3].moveX();
     }
 }
 //# sourceMappingURL=Level4.js.map

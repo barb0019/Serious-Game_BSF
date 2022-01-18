@@ -105,7 +105,7 @@ export default class Level2 extends Level {
   /**
    *
    */
-  public allMove(): void {
-
+  allMove(): void {
+    this.scoringObjects[2].move();
   }
 }
