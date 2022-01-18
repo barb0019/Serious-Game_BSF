@@ -30,11 +30,11 @@ export default class Level5 extends Level {
         this.door = new Door(width * 0.911, height * 0.018, 'DoubleDoor0');
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(width * 0.226, height * 0.52, 'blue', -3, this.game));
-        this.scoringObjects.push(new VBucks(width * 0.326, height * 0.52, 'red', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.326, height * 0.70, 'red', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.426, height * 0.52, 'blue', -3, this.game));
-        this.scoringObjects.push(new VBucks(width * 0.526, height * 0.52, 'red', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.526, height * 0.70, 'red', -3, this.game));
         this.scoringObjects.push(new VBucks(width * 0.626, height * 0.52, 'blue', -3, this.game));
-        this.scoringObjects.push(new VBucks(width * 0.726, height * 0.52, 'red', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.726, height * 0.70, 'red', -3, this.game));
         this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.227, height * 0.15, 'star', 1));
@@ -55,11 +55,11 @@ export default class Level5 extends Level {
     }
     allMove() {
         this.scoringObjects[0].moveY();
-        this.scoringObjects[1].moveY();
+        this.scoringObjects[1].moveY2();
         this.scoringObjects[2].moveY();
-        this.scoringObjects[3].moveY();
+        this.scoringObjects[3].moveY2();
         this.scoringObjects[4].moveY();
-        this.scoringObjects[5].moveY();
+        this.scoringObjects[5].moveY2();
     }
 }
 //# sourceMappingURL=Level5.js.map
