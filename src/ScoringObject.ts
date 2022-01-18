@@ -45,6 +45,13 @@ export default abstract class ScoringObject extends GameItem {
   }
 
   /**
+   * the object moves
+   */
+  // eslint-disable-next-line class-methods-use-this
+  public moveY2(): void {
+  }
+
+  /**
    * get alive
    *
    * @returns true or false

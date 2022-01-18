@@ -2,6 +2,7 @@ import Scene from './Scene.js';
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 import Level from './Level.js';
+import WinScreen from './WinScreen.js';
 
 export default class Shop extends Scene {
   private keyboard: KeyListener;
@@ -126,6 +127,14 @@ export default class Shop extends Scene {
         this.itemPopUps[i].innerHTML = '';
       }
       return this.game.getCurrentLevel();
+    } if (this.continueGame && this.game.getUser().getLevel() <= 3) {
+      for (let i = 0; i < this.buttons.length; i++) {
+        this.buttons[i].innerHTML = '';
+      }
+      for (let i = 0; i < this.itemPopUps.length; i++) {
+        this.itemPopUps[i].innerHTML = '';
+      }
+      return new WinScreen(this.game);
     }
     return null;
   }

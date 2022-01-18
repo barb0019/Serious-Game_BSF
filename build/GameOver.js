@@ -18,6 +18,7 @@ export default class GameOver extends Scene {
     }
     update() {
         if (this.shouldStart) {
+            this.game.resetBoughtItems();
             return new Start(this.game);
         }
         return null;
