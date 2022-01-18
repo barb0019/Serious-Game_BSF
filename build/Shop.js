@@ -102,7 +102,7 @@ export default class Shop extends Scene {
             }
             return this.game.getCurrentLevel();
         }
-        if (this.continueGame && this.game.getUser().getLevel() <= 3) {
+        if (this.continueGame && this.game.getUser().getLevel() < 4) {
             for (let i = 0; i < this.buttons.length; i++) {
                 this.buttons[i].innerHTML = '';
             }

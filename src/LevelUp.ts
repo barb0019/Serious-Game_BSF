@@ -64,7 +64,7 @@ export default class LevelUp extends Scene {
       this.game.getUser().increaseLevel();
       console.log('test');
       return this.game.getCurrentLevel();
-    } if (this.shouldStart && this.game.getUser().getLevel() <= 3) {
+    } if (this.shouldStart && this.game.getUser().getLevel() < 4) {
       return new WinScreen(this.game);
     }
     return null;
