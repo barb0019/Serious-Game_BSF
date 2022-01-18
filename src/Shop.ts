@@ -23,7 +23,7 @@ export default class Shop extends Scene {
    */
   public constructor(game: Game, levelArray: Level) {
     super(game);
-    this.credits = 2;
+    this.credits = 1;
     this.levelArray = levelArray;
     this.keyboard = new KeyListener();
     this.continueGame = false;

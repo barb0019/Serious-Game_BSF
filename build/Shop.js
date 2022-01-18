@@ -11,7 +11,7 @@ export default class Shop extends Scene {
     credits;
     constructor(game, levelArray) {
         super(game);
-        this.credits = 2;
+        this.credits = 1;
         this.levelArray = levelArray;
         this.keyboard = new KeyListener();
         this.continueGame = false;
