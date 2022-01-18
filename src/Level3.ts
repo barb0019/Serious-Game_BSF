@@ -30,6 +30,9 @@ export default class Level3 extends Level {
     // this.countUntilNextItem = 300;
   }
 
+  /**
+   *
+   */
   protected makePressurePlates(): void {
     this.pressurePlate = [];
     const { width } = this.game.canvas;
@@ -119,7 +122,11 @@ export default class Level3 extends Level {
     this.platform.push(new Platform(width * 0.5, height - 50, width / 4, height * 0.06, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.75, height - 50, width / 4, height * 0.06, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
   }
- public allMove(): void {
 
+  /**
+   *
+   */
+  public allMove(): void {
+    this.scoringObjects[2].move();
   }
 }
