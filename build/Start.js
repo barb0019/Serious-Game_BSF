@@ -22,7 +22,6 @@ export default class Start extends Scene {
         if (this.shouldStart) {
             if (this.game.getCurrentLevel().hasWon()) {
                 this.levelsArray.splice(0, 1);
-                this.levelsArray.hasWon = false;
             }
             return this.game.getCurrentLevel();
         }
