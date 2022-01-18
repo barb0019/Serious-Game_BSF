@@ -60,6 +60,11 @@ export default class Level1 extends Level {
         this.scoringObjects.push(new Star(width * 0.45, height * 0.53, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.12, height * 0.39, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.75, height * 0.26, 'star', 1));
+        const boughtItems = this.game.getBoughtItems();
+        for (let i = 0; i < boughtItems.length; i++) {
+            if (boughtItems[i] === 2) {
+            }
+        }
     }
     makePlatforms() {
         const { width } = this.game.canvas;
