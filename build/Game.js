@@ -4,6 +4,7 @@ import Start from './Start.js';
 import UserData from './UserData.js';
 import Level3 from './Level3.js';
 import Level4 from './Level4.js';
+import MuteButton from './MuteButton.js';
 export default class Game {
     canvas;
     ctx;
@@ -11,6 +12,7 @@ export default class Game {
     gameLoop;
     static music;
     boughtItems;
+    button;
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
@@ -20,6 +22,9 @@ export default class Game {
         this.boughtItems = [];
         this.gameLoop = new GameLoop();
         this.gameLoop.start(new Start(this));
+        const { width } = this.canvas;
+        const { height } = this.canvas;
+        this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
     }
     setBoughtItems(itemNumber) {
         this.boughtItems.push(itemNumber);
