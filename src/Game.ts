@@ -128,12 +128,14 @@ export default class Game {
   static play():void {
     this.music.play();
     this.music.loop = true;
+ this.music.muted = false;
   }
 
   /**
    * pause the music
    */
   static pause():void {
+    this.music.muted = true;
     this.music.pause();
   }
 

@@ -14,14 +14,14 @@ export default class MuteButton extends InteractingItems {
         muteButton.width = 50;
         document.body.append(muteButton);
         muteButton.addEventListener('click', () => {
-            this.MuteorUnMute();
+            this.muteorUnMute();
         });
     }
     draw(ctx) {
         ctx.drawImage(Game.loadNewImage('./assets/img/UnMute.png'), this.xPos, this.yPos, 60, 32);
     }
-    MuteorUnMute() {
-        console.log('test');
+    muteorUnMute() {
+        Game.pause();
     }
 }
 //# sourceMappingURL=MuteButton.js.map
