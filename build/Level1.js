@@ -33,6 +33,7 @@ export default class Level1 extends Level {
         }
         else {
             this.platform[11] = (new Platform(width * 0.1, height * 0.80, width / 8, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+            console.log(this.platform.length);
         }
     }
     players() {
