@@ -57,10 +57,10 @@ export default class Game {
     }
     getCurrentLevel() {
         switch (this.user.getLevel()) {
-            case 1: return new Level4(this);
+            case 1: return new Level1(this);
             case 2: return new Level2(this);
             case 3: return new Level3(this);
-            case 4: return new Level1(this);
+            case 4: return new Level4(this);
             default: return null;
         }
     }
