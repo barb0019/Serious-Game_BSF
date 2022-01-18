@@ -47,8 +47,20 @@ export default class VBucks extends Enemies {
   /**
    * move the flying vbucks
    */
-   public moveY():void {
+  public moveY():void {
     this.yPos += this.flyingSpeed;
+    this.timer += 1;
+    if (this.timer > 50) {
+      this.timer = 0;
+      this.flyingSpeed = -this.flyingSpeed;
+    }
+  }
+
+  /**
+   * move the flying vbucks
+   */
+  public moveYY():void {
+    this.yPos -= this.flyingSpeed;
     this.timer += 1;
     if (this.timer > 50) {
       this.timer = 0;

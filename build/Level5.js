@@ -58,6 +58,8 @@ export default class Level5 extends Level {
         this.scoringObjects[1].moveY();
         this.scoringObjects[2].moveY();
         this.scoringObjects[3].moveY();
+        this.scoringObjects[4].moveY();
+        this.scoringObjects[5].moveY();
     }
 }
 //# sourceMappingURL=Level5.js.map

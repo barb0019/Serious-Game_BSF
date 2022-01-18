@@ -33,5 +33,13 @@ export default class VBucks extends Enemies {
             this.flyingSpeed = -this.flyingSpeed;
         }
     }
+    moveYY() {
+        this.yPos -= this.flyingSpeed;
+        this.timer += 1;
+        if (this.timer > 50) {
+            this.timer = 0;
+            this.flyingSpeed = -this.flyingSpeed;
+        }
+    }
 }
 //# sourceMappingURL=VBucks.js.map
