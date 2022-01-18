@@ -48,7 +48,7 @@ export default class Level extends Scene {
             this.player[i].move(this.game.canvas);
         }
     }
-    checksifpressureonthePlate() { }
+    checksIfPressureOnthePlate() { }
     update(elapsed) {
         this.allCollides();
         if (this.countUntilNextItem <= 0) {
@@ -69,7 +69,7 @@ export default class Level extends Scene {
         this.player.forEach((element) => {
             element.increaseGravity();
         });
-        this.checksifpressureonthePlate();
+        this.checksIfPressureOnthePlate();
         for (let i = 0; i < this.platform.length; i++) {
             this.platform[i].collidesWith(this.player[0]);
             this.platform[i].collidesWith(this.player[1]);
