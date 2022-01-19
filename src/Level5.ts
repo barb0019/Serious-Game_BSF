@@ -72,13 +72,9 @@ export default class Level5 extends Level {
     this.scoringObjects.push(new FlyingBuck(width * 0.16, height * 0.36, 'finalbossright', -3, this.game));
     this.scoringObjects.push(new Shootingbuck(width * 0.358, height * 0.3, 'red', -3, this.game));
     this.scoringObjects.push(new Shootingbuck(width * 0.258, height * 0.3, 'blue', -3, this.game));
-    // this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.155, 'moneymonster', -3, this.game));
-    // this.scoringObjects.push(new FlyingBuck(width * 0.75, height * 0.2, 'finalboss', -3, this.game));
-    // this.scoringObjects.push(new FutPack(width * 0.51, height * 0.5, 'red', -3));
-    // this.scoringObjects.push(new FutPack(width * 0.61, height * 0.5, 'blue', -3));
-    // // this.scoringObjects.push(new VBucks(width * 0.15, height * 0.65, 'red', -3, this.game));
-    // // this.scoringObjects.push(new FutPack(width * 0.2902, height * 0.6, 'blue', -3));
-    // // this.scoringObjects.push(new FutPack(width * 0.749, height * 0.4, 'red', -3));
+    this.scoringObjects.push(new VBucks(width * 0.07, height * 0.39, 'black', -3, this.game));
+    this.scoringObjects.push(new VBucks(width * 0.07, height * 0.29, 'black', -3, this.game));
+    this.scoringObjects.push(new VBucks(width * 0.07, height * 0.19, 'black', -3, this.game));
     this.scoringObjects.push(new Star(width * 0.84, height * 0.1, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.05, height * 0.39, 'star', 1));
@@ -109,7 +105,8 @@ export default class Level5 extends Level {
     this.platform.push(new Platform(width * 0.035, height * 0.44, width * 0.16, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.550, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.850, height * 0.15, width * 0.15, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.850, height * 0.15, width * 0.2, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.015, height * 0.15, width * 0.05, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')))
 
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
