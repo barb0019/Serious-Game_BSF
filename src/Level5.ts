@@ -118,6 +118,21 @@ export default class Level5 extends Level {
   /**
    *
    */
+   protected checksIfPressureOnthePlate(): void {
+    const { width } = this.game.canvas;
+    const { height } = this.game.canvas;
+    if (this.player[0].collidesWith(this.pressurePlate[0])
+      || this.player[1].collidesWith(this.pressurePlate[0])) {
+      this.platform.splice(11, 1);
+    } else {
+      this.platform[12] = (new Platform(width * 0.1, height * 0.80, width / 8, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+      console.log(this.platform.length);
+    }
+  }
+
+  /**
+   *
+   */
   public allMove(): void {
     // this.scoringObjects[2].move();
     this.scoringObjects[0].moveY();
