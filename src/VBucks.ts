@@ -10,6 +10,8 @@ export default class VBucks extends Enemies {
 
   private timer: number;
 
+  private minYPos: number;
+
   /**
    *  initilize the vbucks
    *
@@ -19,12 +21,13 @@ export default class VBucks extends Enemies {
    * @param points points you get if you got hit
    * @param game the game of the game
    */
-  public constructor(xPos: number, yPos: number, type:string, points:number, game: Game) {
+  public constructor(xPos: number, yPos: number, type: string, points: number, game: Game) {
     super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
 
     this.goingRight = false;
     this.maxXPos = this.xPos - game.canvas.width * 0.28;
-    this.maxYPos = this.yPos - game.canvas.width * 0.226;
+    this.maxYPos = this.yPos - game.canvas.height * 0.3;
+    this.minYPos = this.yPos + game.canvas.height * 0.3;
     this.flyingSpeed += 3.5;
     this.timer = 0;
   }
@@ -32,7 +35,7 @@ export default class VBucks extends Enemies {
   /**
    * move the vbucks
    */
-  public move():void {
+  public move(): void {
     this.xPos -= this.flyingSpeed;
     if (this.goingRight) {
       if (this.xPos > this.maxXPos) {
@@ -50,25 +53,47 @@ export default class VBucks extends Enemies {
   /**
    * move the flying vbucks
    */
-  public moveY():void {
+  public moveY(): void {
     this.yPos += this.flyingSpeed;
-    if (this.goingRight) {
-      if (this.yPos > this.maxYPos) {
-        this.maxYPos = this.yPos - this.game.canvas.width * 0.226;
-        this.flyingSpeed = -this.flyingSpeed;
-        this.goingRight = false;
-      }
-    } else if (this.yPos < this.maxYPos) {
-      this.maxYPos = this.yPos + this.game.canvas.width * 0.226;
+    console.log(`min: ${this.minYPos}`);
+    console.log(`max: ${this.maxYPos}`);
+    console.log(this.yPos);
+
+    if (this.yPos > this.minYPos) {
+      console.log(this.minYPos);
+      // this.minYPos = this.yPos + this.game.canvas.width * 0.28;
+      this.flyingSpeed = -this.flyingSpeed;
+      this.goingRight = false;
+    }
+    if (this.yPos < this.maxYPos) {
+      // this.maxYPos = this.yPos - this.game.canvas.width * 0.28;
       this.flyingSpeed = -this.flyingSpeed;
       this.goingRight = true;
     }
+
+
+
+    // this.yPos += this.flyingSpeed;
+    // console.log(`max: ${this.maxYPos}`);
+    // console.log(this.yPos);
+
+    // if (this.goingRight) {
+    //   if (this.yPos < this.maxYPos) {
+    //     this.maxYPos = this.yPos - this.game.canvas.height * 0.5;
+    //     this.flyingSpeed = -this.flyingSpeed;
+    //     this.goingRight = false;
+    //   }
+    // } else if (this.yPos > this.maxYPos) {
+    //   this.maxYPos = this.yPos + this.game.canvas.height * 0.5;
+    //   this.flyingSpeed = -this.flyingSpeed;
+    //   this.goingRight = true;
+    // }
   }
 
   /**
    * move the flying vbucks
    */
-  public moveY2():void {
+  public moveY2(): void {
     this.yPos -= this.flyingSpeed;
     this.timer += 1;
     if (this.timer > 55) {
