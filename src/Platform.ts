@@ -134,7 +134,7 @@ export default class Platform {
   }
 
   /**
-   * move the flying vbucks
+   * move the flying vbucks vertically
    */
   public moveY():void {
     this.yPos += this.flyingSpeed;

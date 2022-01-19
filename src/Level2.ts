@@ -62,6 +62,7 @@ export default class Level2 extends Level {
     const { height } = this.game.canvas;
     this.door = new Door(width * 0.911, height * 0.018, 'DoubleDoor0');
     this.scoringObjects = [];
+    // creates the objects
     this.scoringObjects.push(new VBucks(width * 0.226, height * 0.15, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.456, height * 0.53, 'blue', -3, this.game));
     this.scoringObjects.push(new FlyingBuck(width * 0.358, height * 0.2, 'FlyingBuckBlack', -3, this.game));

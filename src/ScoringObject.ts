@@ -52,14 +52,14 @@ export default abstract class ScoringObject extends GameItem {
   }
 
   /**
-   * the object moves
+   * the object moves vertically
    */
   // eslint-disable-next-line class-methods-use-this
   public moveY(): void {
   }
 
   /**
-   * the object moves
+   * the object moves vertically
    */
   // eslint-disable-next-line class-methods-use-this
   public moveY2(): void {
