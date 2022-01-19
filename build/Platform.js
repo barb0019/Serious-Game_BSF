@@ -65,7 +65,7 @@ export default class Platform {
     moveX2() {
         this.xPos += this.flyingSpeed;
         this.timer += 1;
-        if (this.timer > 230) {
+        if (this.timer > 270) {
             this.timer = 0;
             this.flyingSpeed = -this.flyingSpeed;
         }
