@@ -117,7 +117,7 @@ export default class Shop extends Scene {
    * @returns The level
    */
   public update(): Scene {
-    if (this.continueGame && this.game.getUser().getLevel() <= 2) {
+    if (this.continueGame && this.game.getUser().getLevel() <= 4) {
       // this.levelArray.splice(0, 1);
       this.game.getUser().increaseLevel();
       for (let i = 0; i < this.buttons.length; i++) {
