@@ -4,11 +4,13 @@ export default class VBucks extends Enemies {
     maxYPos;
     goingRight;
     timer;
+    minYPos;
     constructor(xPos, yPos, type, points, game) {
         super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
         this.goingRight = false;
         this.maxXPos = this.xPos - game.canvas.width * 0.28;
-        this.maxYPos = this.yPos - game.canvas.width * 0.226;
+        this.maxYPos = this.yPos - game.canvas.height * 0.3;
+        this.minYPos = this.yPos + game.canvas.height * 0.3;
         this.flyingSpeed += 3.5;
         this.timer = 0;
     }
@@ -29,15 +31,15 @@ export default class VBucks extends Enemies {
     }
     moveY() {
         this.yPos += this.flyingSpeed;
-        if (this.goingRight) {
-            if (this.yPos > this.maxYPos) {
-                this.maxYPos = this.yPos - this.game.canvas.width * 0.226;
-                this.flyingSpeed = -this.flyingSpeed;
-                this.goingRight = false;
-            }
+        console.log(`min: ${this.minYPos}`);
+        console.log(`max: ${this.maxYPos}`);
+        console.log(this.yPos);
+        if (this.yPos > this.minYPos) {
+            console.log(this.minYPos);
+            this.flyingSpeed = -this.flyingSpeed;
+            this.goingRight = false;
         }
-        else if (this.yPos < this.maxYPos) {
-            this.maxYPos = this.yPos + this.game.canvas.width * 0.226;
+        if (this.yPos < this.maxYPos) {
             this.flyingSpeed = -this.flyingSpeed;
             this.goingRight = true;
         }
