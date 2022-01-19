@@ -26,8 +26,8 @@ export default class VBucks extends Enemies {
 
     this.goingRight = false;
     this.maxXPos = this.xPos - game.canvas.width * 0.28;
-    this.maxYPos = this.yPos - game.canvas.height * 0.3;
-    this.minYPos = this.yPos + game.canvas.height * 0.3;
+    this.maxYPos = this.yPos - game.canvas.height * 0.05;
+    this.minYPos = this.yPos + game.canvas.height * 0.35;
     this.flyingSpeed += 3.5;
     this.timer = 0;
   }
@@ -55,9 +55,6 @@ export default class VBucks extends Enemies {
    */
   public moveY(): void {
     this.yPos += this.flyingSpeed;
-    console.log(`min: ${this.minYPos}`);
-    console.log(`max: ${this.maxYPos}`);
-    console.log(this.yPos);
 
     if (this.yPos > this.minYPos) {
       console.log(this.minYPos);
