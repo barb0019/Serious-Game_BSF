@@ -41,8 +41,10 @@ export default class Level1 extends Level {
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
     // this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
-    // this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
-    // this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
+    // this.speedBubble.push(new SpeedBubble(game,
+    // 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
+    // this.speedBubble.push(new SpeedBubble(game,
+    // 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
   }
 
   /**
@@ -119,8 +121,8 @@ export default class Level1 extends Level {
     this.platform.push(new Platform(width * 0.1, height * 0.46, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.87, height * 0.19, width * 0.1, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.36, height * 0.59, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.4, height * 0.22, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.71, height * 0.33, width * 0.16, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.4, height * 0.27, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.71, height * 0.37, width * 0.16, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.65, height / 1.5, width * 0.05, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.81, height / 1.5, width * 0.065, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // the ground
