@@ -98,8 +98,6 @@ export default class Level5 extends Level {
     this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.295, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.425, height * 0.77, width * 0.295, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.720, height * 0.77, width * 0.3, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    // this.platform.push(new Platform(width * 0.350,
-    // height * 0.6, width * 0.2, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // creates the middle platforms
     this.platform.push(new Platform(width * 0.8, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.20, height * 0.44, width * 0.19, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
@@ -160,7 +158,6 @@ export default class Level5 extends Level {
    * makes all of the platforms and object move
    */
   public allMove(): void {
-    // this.scoringObjects[2].move();
     this.scoringObjects[0].moveY();
     this.scoringObjects[1].moveY2();
     this.scoringObjects[2].moveY();
@@ -170,8 +167,5 @@ export default class Level5 extends Level {
     this.platform[4].moveX2();
     this.scoringObjects[7].move1();
     this.scoringObjects[8].move2();
-    // this.platform[0].moveY();
-    // this.platform[5].moveY();
-    // this.scoringObjects[1].move();
   }
 }
