@@ -18,7 +18,8 @@ export default class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
-        Game.music = new Audio('./assets/game-music-7408.mp3');
+        Game.music = [];
+        this.makemusic();
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.boughtItems = [];
@@ -27,6 +28,13 @@ export default class Game {
         const { width } = this.canvas;
         const { height } = this.canvas;
         this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
+    }
+    makemusic() {
+        Game.music.push(new Audio('./assets/music/04 - Overworld Day.mp3'));
+        Game.music.push(new Audio('./assets/music/07 - Overworld Night.mp3'));
+        Game.music.push(new Audio('./assets/music/09 - Underground.mp3'));
+        Game.music.push(new Audio('./assets/music/21 - Boss 3.mp3'));
+        Game.music.push(new Audio(`./assets/music/22 - Old One's Army.mp3`));
     }
     setBoughtItems(itemNumber) {
         this.boughtItems.push(itemNumber);
@@ -58,13 +66,13 @@ export default class Game {
         return Math.round(Math.random() * (max - min) + min);
     }
     static play() {
-        this.music.play();
-        this.music.loop = true;
-        this.music.muted = false;
+        this.music[0].play();
+        this.music[0].loop = true;
+        this.music[0].muted = false;
     }
     static pause() {
-        this.music.muted = true;
-        this.music.pause();
+        this.music[0].muted = true;
+        this.music[0].pause();
     }
     getCurrentLevel() {
         switch (this.user.getLevel()) {

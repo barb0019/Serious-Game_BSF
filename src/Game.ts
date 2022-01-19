@@ -19,7 +19,7 @@ export default class Game {
 
   private gameLoop: GameLoop;
 
-  static music:HTMLAudioElement;
+  static music:HTMLAudioElement[];
 
   private boughtItems: number[];
 
@@ -34,8 +34,8 @@ export default class Game {
   public constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
-    Game.music = new Audio('./assets/game-music-7408.mp3');
-
+    Game.music = [];
+    this.makemusic();
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
     this.boughtItems = [];
@@ -48,6 +48,18 @@ export default class Game {
     const { height } = this.canvas;
 
     this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
+  }
+
+  /**
+   *
+   */
+  // eslint-disable-next-line class-methods-use-this
+  public makemusic():void {
+    Game.music.push(new Audio('./assets/music/04 - Overworld Day.mp3'));
+    Game.music.push(new Audio('./assets/music/07 - Overworld Night.mp3'));
+    Game.music.push(new Audio('./assets/music/09 - Underground.mp3'));
+    Game.music.push(new Audio('./assets/music/21 - Boss 3.mp3'));
+    Game.music.push(new Audio(`./assets/music/22 - Old One's Army.mp3`));
   }
 
   /**
@@ -144,17 +156,17 @@ export default class Game {
    * plays the music
    */
   static play():void {
-    this.music.play();
-    this.music.loop = true;
-    this.music.muted = false;
+    this.music[0].play();
+    this.music[0].loop = true;
+    this.music[0].muted = false;
   }
 
   /**
    * pause the music
    */
   static pause():void {
-    this.music.muted = true;
-    this.music.pause();
+    this.music[0].muted = true;
+    this.music[0].pause();
   }
 
   /**
