@@ -3,7 +3,6 @@ import Platform from './Platform.js';
 import VBucks from './VBucks.js';
 import PlayerRed from './PlayerRed.js';
 import PlayerBlue from './PlayerBlue.js';
-import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
@@ -43,7 +42,6 @@ export default class Level5 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
-    // this.speedBubble.push(new SpeedBubble(game, 'dit is een vliegende vbuck pas dus op', 120, 600, 100, 500));
   }
 
   /**
@@ -113,7 +111,7 @@ export default class Level5 extends Level {
   }
 
   /**
-   *
+   * checks if the pressureplates are hit
    */
   protected checksIfPressureOnthePlate(): void {
     const { width } = this.game.canvas;
@@ -140,7 +138,7 @@ export default class Level5 extends Level {
   }
 
   /**
-   *
+   * makes the presure plates
    */
   protected makePressurePlates(): void {
     this.pressurePlate = [];
