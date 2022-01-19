@@ -56,6 +56,7 @@ export default class Game {
    * @param itemNumber The number of the item, each number represents a different item
    */
   public setBoughtItems(itemNumber: number): void {
+    // push the boughtItems to the Array of the boughtItems
     this.boughtItems.push(itemNumber);
   }
 
@@ -72,6 +73,7 @@ export default class Game {
    * Resets the items you bought to none
    */
   public resetBoughtItems(): void {
+    // empty the array of bought items
     this.boughtItems = [];
   }
 
