@@ -97,7 +97,7 @@ export default class Level2 extends Level {
 
     // creates the top left platform
     this.platform.push(new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    // creates the platform on the bottom left
+    // creates the platform the door is standing on
     this.platform.push(new Platform(width * 0.9115, height * 0.154, width * 0.048, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // creates the bottom left platform
     this.platform.push(new Platform(width * 0.130, height * 0.7, width * 0.195, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
