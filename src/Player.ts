@@ -25,6 +25,18 @@ export default abstract class Player extends GameItem {
 
   protected game: Game;
 
+  private walkingLeftRed: string[];
+
+  private walkingRightRed: string[];
+
+  private walkingLeftBlue: string[];
+
+  private walkingRightBlue: string[];
+
+  private animationFrameRed: number;
+
+  private animationFrameBlue: number;
+
   /**
    * @param imageSrc imageSrc, the actual image used for the player
    * @param maxX the max value of the X positiond
@@ -43,8 +55,59 @@ export default abstract class Player extends GameItem {
     this.yPosPrevious = [];
     this.xPosPrevious.push(0);
     this.yPosPrevious.push(0);
+    this.animationFrameRed = 0;
+    this.animationFrameBlue = 0;
+    this.createAnimationArray();
     this.gravity = 0;
+
     this.checkBoughtItems();
+  }
+
+  private createAnimationArray() {
+    this.walkingLeftRed = [
+      './assets/img/animations/RedKidAnimation.png',
+      './assets/img/animations/RedKidAnimation1.png',
+      './assets/img/animations/RedKidAnimation2.png',
+      './assets/img/animations/RedKidAnimation3.png',
+      './assets/img/animations/RedKidAnimation4.png',
+      './assets/img/animations/RedKidAnimation5.png',
+      './assets/img/animations/RedKidAnimation6.png',
+      './assets/img/animations/RedKidAnimation7.png',
+      './assets/img/animations/RedKidAnimation8.png',
+    ];
+    this.walkingRightRed = [
+      './assets/img/animations/RedKidAnimationRight.png',
+      './assets/img/animations/RedKidAnimationRight1.png',
+      './assets/img/animations/RedKidAnimationRight2.png',
+      './assets/img/animations/RedKidAnimationRight3.png',
+      './assets/img/animations/RedKidAnimationRight4.png',
+      './assets/img/animations/RedKidAnimationRight5.png',
+      './assets/img/animations/RedKidAnimationRight6.png',
+      './assets/img/animations/RedKidAnimationRight7.png',
+      './assets/img/animations/RedKidAnimationRight8.png',
+    ];
+    this.walkingLeftBlue = [
+      './assets/img/animations/GirlAnimation1',
+      './assets/img/animations/GirlAnimation2',
+      './assets/img/animations/GirlAnimation3',
+      './assets/img/animations/GirlAnimation4',
+      './assets/img/animations/GirlAnimation5',
+      './assets/img/animations/GirlAnimation6',
+      './assets/img/animations/GirlAnimation7',
+      './assets/img/animations/GirlAnimation8',
+      './assets/img/animations/GirlAnimation9',
+    ];
+    this.walkingRightBlue = [
+      './assets/img/animations/GirlAnimationRigth1',
+      './assets/img/animations/GirlAnimationRigth2',
+      './assets/img/animations/GirlAnimationRigth3',
+      './assets/img/animations/GirlAnimationRigth4',
+      './assets/img/animations/GirlAnimationRigth5',
+      './assets/img/animations/GirlAnimationRigth6',
+      './assets/img/animations/GirlAnimationRigth7',
+      './assets/img/animations/GirlAnimationRigth8',
+      './assets/img/animations/GirlAnimationRigth9',
+    ];
   }
 
   /**
@@ -221,8 +284,12 @@ export default abstract class Player extends GameItem {
       this.xPos += this.xVel;
       if (this.getType() === 'blue') {
         this.setImage('./assets/img/BlueKidLookRight.png');
-      } else {
-        this.setImage('./assets/img/RedKidLookRight.png');
+      } else this.animationFrameRed += 1;
+      if (this.animationFrameRed % 10 === 0) {
+        if (this.animationFrameRed / 10 >= this.walkingLeftRed.length) {
+          this.animationFrameRed = 0;
+        }
+        this.setImage(this.walkingRightRed[this.animationFrameRed / 10]);
       }
       // Limit to the max value
       if (this.xPos > maxX) {
@@ -235,8 +302,12 @@ export default abstract class Player extends GameItem {
       this.xPos -= this.xVel;
       if (this.getType() === 'blue') {
         this.setImage('./assets/img/BlueKid2.png');
-      } else {
-        this.setImage('./assets/img/RedKid2.png');
+      } else this.animationFrameRed += 1;
+      if (this.animationFrameRed % 10 === 0) {
+        if (this.animationFrameRed / 10 >= this.walkingLeftRed.length) {
+          this.animationFrameRed = 0;
+        }
+        this.setImage(this.walkingLeftRed[this.animationFrameRed / 10]);
       }
       // Limit to the max value
       if (this.xPos < minX) {
