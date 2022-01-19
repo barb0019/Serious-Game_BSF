@@ -130,8 +130,8 @@ export default class Shop extends Scene {
         shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.4, 'center', 'black');
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + 65, (canvas.height / 1.2) * 0 + 200);
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + 400, (canvas.height / 1.2) * 0 + 200);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + 800, (canvas.height / 1.2) * 0 + 200);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/Bird.png'), (canvas.width / this.buttons.length) * 0 + 1200, (canvas.height / 1.2) * 0 + 200);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + 800, (canvas.height / 1.2) * 0 + 200, 150, 150);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/Bird.png'), (canvas.width / this.buttons.length) * 0 + 1100, (canvas.height / 1.2) * 0 + 200, 150, 150);
         shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.4, 'center', 'black');
         shop.writeTextToCanvas('BIGOMEGAGIANTSUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.4, 'center', 'black');
         shop.writeTextToCanvas('Score&difficulty (w.i.p.)', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.4, 'center', 'black');
