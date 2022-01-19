@@ -1,11 +1,13 @@
 import Game from './Game.js';
 import InteractingItems from './InteractingItems.js';
 export default class MuteButton extends InteractingItems {
-    muted;
-    constructor(xPos, yPos, type) {
+    static muted;
+    game;
+    constructor(xPos, yPos, type, game) {
         super(xPos, yPos, type, './assets/img/UnMute.png');
         this.makeButton();
-        this.muted = false;
+        MuteButton.muted = false;
+        this.game = game;
     }
     makeButton() {
         const muteButton = document.createElement('img');
@@ -16,15 +18,15 @@ export default class MuteButton extends InteractingItems {
         muteButton.width = 50;
         document.body.append(muteButton);
         muteButton.addEventListener('click', () => {
-            if (this.muted === true) {
+            if (MuteButton.muted === true) {
                 muteButton.src = './assets/img/UnMuteV2.png';
-                this.muted = false;
-                Game.play();
+                MuteButton.muted = false;
+                Game.play(this.game.getUser().getLevel() - 1);
             }
             else {
-                Game.pause();
+                Game.pause(this.game.getUser().getLevel() - 1);
                 muteButton.src = './assets/img/UnMute.png';
-                this.muted = true;
+                MuteButton.muted = true;
             }
         });
     }

@@ -3,6 +3,7 @@ import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 import Level from './Level.js';
 import WinScreen from './WinScreen.js';
+import MuteButton from './MuteButton.js';
 
 export default class Shop extends Scene {
   private keyboard: KeyListener;
@@ -149,6 +150,9 @@ export default class Shop extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {
       this.continueGame = true;
+      if(MuteButton.muted === false) {
+      Game.play(this.game.getUser().getLevel()+1);
+      }
     }
   }
 

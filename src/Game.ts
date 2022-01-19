@@ -47,7 +47,7 @@ export default class Game {
     const { width } = this.canvas;
     const { height } = this.canvas;
 
-    this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
+    this.button = new MuteButton(width * 0.75, height * 0.56, 'button',this);
   }
 
   /**
@@ -155,18 +155,18 @@ export default class Game {
   /**
    * plays the music
    */
-  static play():void {
-    this.music[0].play();
-    this.music[0].loop = true;
-    this.music[0].muted = false;
+  static play(i:number):void {
+    this.music[i].play();
+    this.music[i].loop = true;
+    this.music[i].muted = false;
   }
 
   /**
    * pause the music
    */
-  static pause():void {
-    this.music[0].muted = true;
-    this.music[0].pause();
+  static pause(i:number):void {
+    this.music[i].muted = true;
+    this.music[i].pause();
   }
 
   /**

@@ -1,5 +1,6 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
+import MuteButton from './MuteButton.js';
 import Scene from './Scene.js';
 export default class InstructionScreen extends Scene {
     shouldStart;
@@ -15,7 +16,9 @@ export default class InstructionScreen extends Scene {
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
             this.shouldStart = true;
-            Game.play();
+            if (MuteButton.muted === false) {
+                Game.play(this.game.getUser().getLevel() - 1);
+            }
         }
     }
     update() {

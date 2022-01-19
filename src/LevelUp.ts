@@ -1,6 +1,7 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 import Level from './Level.js';
+import MuteButton from './MuteButton.js';
 import Scene from './Scene.js';
 import Shop from './Shop.js';
 import WinScreen from './WinScreen.js';
@@ -36,7 +37,7 @@ export default class LevelUp extends Scene {
     }
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
       this.toShop = true;
-      Game.pause();
+      Game.pause(this.game.getUser().getLevel()-1);
     }
   }
 
@@ -60,9 +61,11 @@ export default class LevelUp extends Scene {
     }
     if (this.shouldStart && this.game.getUser().getLevel() + 1 <= 2) {
       // this.levelArray.splice(0, 1);
-      console.log(this.game.getUser().getLevel());
+      Game.pause(this.game.getUser().getLevel()-1);
       this.game.getUser().increaseLevel();
-      console.log('test');
+      if(MuteButton.muted === false) {
+      Game.play(this.game.getUser().getLevel()-1);
+      }
       return this.game.getCurrentLevel();
     } if (this.shouldStart && this.game.getUser().getLevel() < 4) {
       return new WinScreen(this.game);

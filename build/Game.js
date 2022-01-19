@@ -27,7 +27,7 @@ export default class Game {
         this.gameLoop.start(new Start(this));
         const { width } = this.canvas;
         const { height } = this.canvas;
-        this.button = new MuteButton(width * 0.75, height * 0.56, 'button');
+        this.button = new MuteButton(width * 0.75, height * 0.56, 'button', this);
     }
     makemusic() {
         Game.music.push(new Audio('./assets/music/04 - Overworld Day.mp3'));
@@ -65,14 +65,14 @@ export default class Game {
     static randomNumber(min, max) {
         return Math.round(Math.random() * (max - min) + min);
     }
-    static play() {
-        this.music[0].play();
-        this.music[0].loop = true;
-        this.music[0].muted = false;
+    static play(i) {
+        this.music[i].play();
+        this.music[i].loop = true;
+        this.music[i].muted = false;
     }
-    static pause() {
-        this.music[0].muted = true;
-        this.music[0].pause();
+    static pause(i) {
+        this.music[i].muted = true;
+        this.music[i].pause();
     }
     getCurrentLevel() {
         switch (this.user.getLevel()) {
