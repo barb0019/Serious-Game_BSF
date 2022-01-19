@@ -46,7 +46,7 @@ export default class Level5 extends Level {
         this.scoringObjects.push(new VBucks(width * 0.07, height * 0.19, 'black', -3, this.game));
         this.scoringObjects.push(new Star(width * 0.84, height * 0.1, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
-        this.scoringObjects.push(new Star(width * 0.05, height * 0.39, 'star', 1));
+        this.scoringObjects.push(new Star(width * 0.04, height * 0.39, 'star', 1));
     }
     makePlatforms() {
         const { width } = this.game.canvas;
@@ -70,11 +70,13 @@ export default class Level5 extends Level {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
         if (this.player[0].collidesWith(this.pressurePlate[0])
-            || this.player[1].collidesWith(this.pressurePlate[0])) {
-            this.platform[12] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+            || this.player[1].collidesWith(this.pressurePlate[0])
+            || this.player[0].collidesWith(this.pressurePlate[1])
+            || this.player[1].collidesWith(this.pressurePlate[1])) {
+            this.platform[13] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         }
         else {
-            this.platform.splice(12, 1);
+            this.platform.splice(13, 1);
             console.log(this.platform.length);
         }
     }
@@ -83,6 +85,7 @@ export default class Level5 extends Level {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
         this.pressurePlate.push(new PressurePlate(width * 0.88, height * 0.46, 'pressure plate'));
+        this.pressurePlate.push(new PressurePlate(width * 0.77, height * 0.11, 'pressure plate'));
     }
     allMove() {
         this.scoringObjects[0].moveY();
