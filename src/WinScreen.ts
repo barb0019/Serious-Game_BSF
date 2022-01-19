@@ -10,7 +10,7 @@ export default class WinScreen extends Scene {
   private keyboard: KeyListener;
 
   /**
-   * @param game
+   * @param game game
    */
   public constructor(game: Game) {
     super(game);
