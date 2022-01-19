@@ -46,7 +46,7 @@ export default class Level5 extends Level {
         this.scoringObjects.push(new VBucks(width * 0.07, height * 0.19, 'black', -3, this.game));
         this.scoringObjects.push(new Star(width * 0.84, height * 0.1, 'star', 1));
         this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
-        this.scoringObjects.push(new Star(width * 0.05, height * 0.39, 'star', 1));
+        this.scoringObjects.push(new Star(width * 0.04, height * 0.39, 'star', 1));
     }
     makePlatforms() {
         const { width } = this.game.canvas;
