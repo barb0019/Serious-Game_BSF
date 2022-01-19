@@ -20,7 +20,7 @@ export default class Shop extends Scene {
     }
     makingButtons() {
         this.buttons = [];
-        const shoplist = ['jumpboost', 'speedboost', 'w.i.p.', 'score & enemy'];
+        const shoplist = ['jumpboost', 'speedboost', 'enemyIncrease', 'enemyBuff'];
         this.buttons.push(document.createElement('item1'));
         this.buttons.push(document.createElement('item2'));
         this.buttons.push(document.createElement('item3'));

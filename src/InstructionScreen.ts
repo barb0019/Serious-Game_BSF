@@ -77,7 +77,7 @@ export default class InstructionScreen extends Scene {
 
     this.game.ctx.drawImage(Game.loadNewImage('https://media1.thehungryjpeg.com/thumbs2/ori_70842_a6fd8ffd7deeb1c56dbcdd154755b5105b7de5e7_seamless-abstract-background-png-jpg.jpg'), 0, 0, width, height);
     this.game.writeTextToCanvas('uitleg instructies', 128, centerX, height * 0.15, 'center', 'black');
-    this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken en samen door de deur te gaan', height * 0.027, width * 0.30, height * 0.26, 'center', 'black');
+    this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken en samen door de deur te gaan', height * 0.027, width * 0.32, height * 0.28, 'center', 'black');
     this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.18, height * 0.23, 'center', 'black');
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/star.png'), width * 0.2, height * 0.2);
     this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.24, height * 0.23, 'center', 'black');
@@ -95,7 +95,7 @@ export default class InstructionScreen extends Scene {
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/red.png'), width * 0.90, height * 0.29);
     this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.94, height * 0.32, 'center', 'black');
     this.game.writeTextToCanvas('deze vijanden zijn in echte games geldeenheden  of lootboxen', height * 0.027, width * 0.79, height * 0.50, 'center', 'black');
-    this.game.writeTextToCanvas('je mag alleen de vijanden raken als je dezelfde kleur hebt als deze vijand', height * 0.027, width * 0.79, height * 0.60, 'center', 'black');
+    this.game.writeTextToCanvas('je mag alleen de vijanden raken als je dezelfde kleur hebt als deze vijand', height * 0.027, width * 0.76, height * 0.60, 'center', 'black');
     this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.82, height * 0.69, 'center', 'black');
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/BlueKidLookRight.png'), width * 0.79, height * 0.65);
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/packred.png'), width * 0.70, height * 0.65);
@@ -110,10 +110,10 @@ export default class InstructionScreen extends Scene {
 
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/RedKid2.png'), width * 0.20, height * 0.67);
     this.game.writeTextToCanvas('je bestuurt het rode poppetje met', height * 0.027, width * 0.23, height * 0.79, 'center', 'black');
-    this.game.writeTextToCanvas('⬆', height * 0.035, width * 0.21, height * 0.82, 'center', 'dark red');
-    this.game.writeTextToCanvas('⬅  ➡', height * 0.035, width * 0.21, height * 0.86, 'center', 'dark red');
+    this.game.writeTextToCanvas('⬆', height * 0.035, width * 0.21, height * 0.82, 'center', 'black');
+    this.game.writeTextToCanvas('⬅  ➡', height * 0.035, width * 0.21, height * 0.86, 'center', 'black');
 
     this.game.writeTextToCanvas('druk op spatie om verder te gaan', height * 0.040, width / 2,
-      height * 0.88, 'center', 'white');
+      height * 0.88, 'center', 'black');
   }
 }
