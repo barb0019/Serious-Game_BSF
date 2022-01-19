@@ -6,6 +6,8 @@ export default abstract class Enemies extends ScoringObject {
 
   protected game: Game;
 
+  protected flyingSpeed1: number;
+
   /**
    * @param imageSrc the image source of the enemy
    * @param xPos the x position of the enemy
@@ -20,6 +22,7 @@ export default abstract class Enemies extends ScoringObject {
     super(imageSrc, xPos, yPos, score, type, alive);
     this.game = game;
     this.flyingSpeed = 0;
+    this.flyingSpeed1 = 0;
     this.checkBoughtItems();
   }
 
