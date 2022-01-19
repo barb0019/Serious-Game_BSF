@@ -165,10 +165,10 @@ export default class Shop extends Scene {
     shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3.4, 'center', 'black');
     shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
     shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.4, 'center', 'black');
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + 65, (canvas.height / 1.2) * 0 + 200);
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + 400, (canvas.height / 1.2) * 0 + 200);
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + 800, (canvas.height / 1.2) * 0 + 200, 150, 150);
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/Bird.png'), (canvas.width / this.buttons.length) * 0 + 1100, (canvas.height / 1.2) * 0 + 200, 150, 150);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + 65, (canvas.height / 1.2) * 0 + 300);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + 400, (canvas.height / 1.2) * 0 + 300);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + 800, (canvas.height / 1.2) * 0 + 300, 150, 150);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/Bird.png'), (canvas.width / this.buttons.length) * 0 + 1100, (canvas.height / 1.2) * 0 + 300, 150, 150);
 
     // shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.4, 'center', 'black');
