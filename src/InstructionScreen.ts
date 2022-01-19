@@ -29,6 +29,7 @@ export default class InstructionScreen extends Scene {
    */
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
+      // when you press Space, the game will start
       this.shouldStart = true;
       Game.play();
     }
@@ -51,6 +52,8 @@ export default class InstructionScreen extends Scene {
   public update(): Scene {
     if (this.shouldStart) {
       if (this.game.getCurrentLevel().hasWon()) {
+        // if you've won the level, remove the level from the levelsArray.
+        // You will then start the next level.
         this.levelsArray.splice(0, 1);
         // this.levelsArray.hasWon = false;
       }
@@ -71,7 +74,6 @@ export default class InstructionScreen extends Scene {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     // this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
-
 
     this.game.ctx.drawImage(Game.loadNewImage('https://e7.pngegg.com/pngimages/676/208/png-clipart-wooden-background-wooden-table-wooden-background.png'), 0, 0, width, height);
     this.game.writeTextToCanvas('uitleg instructies', 128, centerX, height * 0.15, 'center', 'black');
@@ -106,12 +108,10 @@ export default class InstructionScreen extends Scene {
     this.game.writeTextToCanvas('W', height * 0.035, width * 0.21, height * 0.60, 'center', 'blue');
     this.game.writeTextToCanvas('A    D', height * 0.035, width * 0.21, height * 0.64, 'center', 'blue');
 
-
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/RedKid2.png'), width * 0.20, height * 0.67);
     this.game.writeTextToCanvas('je bestuurt het rode poppetje met', height * 0.027, width * 0.23, height * 0.79, 'center', 'black');
     this.game.writeTextToCanvas('⬆', height * 0.035, width * 0.21, height * 0.82, 'center', 'dark red');
     this.game.writeTextToCanvas('⬅  ➡', height * 0.035, width * 0.21, height * 0.86, 'center', 'dark red');
-
 
     this.game.writeTextToCanvas('druk op spatie om verder te gaan', height * 0.040, width / 2,
       height * 0.88, 'center', 'white');

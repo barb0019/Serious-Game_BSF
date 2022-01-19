@@ -155,9 +155,8 @@ export default abstract class Level extends Scene {
    *   current scene, just return `null`
    */
   public update(elapsed: number): Scene {
-
     this.allCollides();
-  // Create new items if necessary
+    // Create new items if necessary
     if (this.countUntilNextItem <= 0) {
       // const choice = Game.randomNumber(0, 10);
 
