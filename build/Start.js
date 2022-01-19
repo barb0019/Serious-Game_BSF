@@ -13,7 +13,6 @@ export default class Start extends Scene {
         this.keyboard = new KeyListener();
         this.shouldStart = false;
         this.instructionscreen = false;
-        console.log(this.game.getCurrentLevel());
     }
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
