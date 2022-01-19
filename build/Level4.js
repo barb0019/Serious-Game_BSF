@@ -10,6 +10,7 @@ import FlyingBuck from './FlyingBuck.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 import Shootingbuck from './ShootingBucks.js';
+import PressurePlate from './PressurePlate.js';
 export default class Level4 extends Level {
     constructor(game) {
         super(game);
@@ -17,6 +18,7 @@ export default class Level4 extends Level {
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
+        this.checksIfPressureOnthePlate();
     }
     speedbubbles(game) {
         this.speedBubble = [];
@@ -53,7 +55,6 @@ export default class Level4 extends Level {
         const { height } = this.game.canvas;
         console.log(height);
         this.platform = [];
-        this.platform.push(new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.9115, height * 0.154, width * 0.048, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.195, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.350, height * 0.6, width * 0.2, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
@@ -64,12 +65,29 @@ export default class Level4 extends Level {
         this.platform.push(new Platform(width / 4, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width / 2, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+        this.platform.push(new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    }
+    checksIfPressureOnthePlate() {
+        const { width } = this.game.canvas;
+        const { height } = this.game.canvas;
+        if (this.player[0].collidesWith(this.pressurePlate[0])
+            || this.player[1].collidesWith(this.pressurePlate[0])) {
+            this.platform[10] = (new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+        }
+        else {
+            this.platform.splice(10, 1);
+        }
+    }
+    makePressurePlates() {
+        this.pressurePlate = [];
+        const { width } = this.game.canvas;
+        const { height } = this.game.canvas;
+        this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.56, 'pressure plate'));
     }
     allMove() {
         this.scoringObjects[2].move();
         this.scoringObjects[3].moveY();
-        this.platform[3].moveX();
-        this.platform[0].moveY();
+        this.platform[2].moveX();
     }
 }
 //# sourceMappingURL=Level4.js.map
