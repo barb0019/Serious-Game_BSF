@@ -93,10 +93,10 @@ export default class Shop extends Scene {
   private makeItemPopUp(itemNumber: number) {
     const canvasOffshoot = 10;
     const itemPopUpText: string[] = [
-      'Usefull test yes very much yes wow amazing coolio much respeccc EPIC ÜBERhaupt BEEEEEEEEEEEEEEG JUMP',
-      'Player go ZOOOOOOOOM',
-      'Dit kopen was nutteloos, doe dit niet', // maybe add enemies when selected
-      'Enemies zijn nu moeilijker',
+      'Klaar om op te stijgen!',
+      'Speedy gonzales modus is ingeschakeld!',
+      'Oei miskoop, koop niks waarvan je niet weet wat eruit komt. Je gokt!', // maybe add enemies when selected
+      'De vijanden zijn nu moeilijker om te verslaan!',
     ];
     this.itemPopUps.push(document.createElement('boughtItem'));
     const currentItem = this.itemPopUps.length - 1;
