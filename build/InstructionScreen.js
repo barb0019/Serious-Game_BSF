@@ -40,7 +40,7 @@ export default class InstructionScreen extends Scene {
         this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.24, height * 0.23, 'center', 'black');
         this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.18, height * 0.32, 'center', 'black');
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/DoubleDoor0.png'), width * 0.19, height * 0.29);
-        this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.27, height * 0.32, 'center', 'black');
+        this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.24, height * 0.32, 'center', 'black');
         this.game.writeTextToCanvas('op je pad vind je vijanden probeer deze ten alle tijden te vermijden!', height * 0.027, width * 0.80, height * 0.26, 'center', 'black');
         this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.73, height * 0.32, 'center', 'black');
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/blue.png'), width * 0.75, height * 0.29);
