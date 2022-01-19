@@ -63,6 +63,7 @@ export default class Level4 extends Level {
     const { height } = this.game.canvas;
     this.door = new Door(width * 0.911, height * 0.018, 'DoubleDoor0');
     this.scoringObjects = [];
+    // creates the obstacles
     this.scoringObjects.push(new VBucks(width * 0.226, height * 0.22, 'blue', -3, this.game));
     this.scoringObjects.push(new FutPack(width * 0.41, height * 0.5, 'blue', -3));
     this.scoringObjects.push(new Shootingbuck(width * 0.358, height * 0.21, 'red', -3, this.game));
