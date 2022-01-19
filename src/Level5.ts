@@ -64,23 +64,25 @@ export default class Level5 extends Level {
     const { height } = this.game.canvas;
     this.door = new Door(width * 0.911, height * 0.018, 'DoubleDoor0');
     this.scoringObjects = [];
+    // creates the moving vbucks
     this.scoringObjects.push(new VBucks(width * 0.226, height * 0.48, 'black', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.326, height * 0.72, 'black', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.426, height * 0.47, 'black', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.526, height * 0.72, 'black', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.626, height * 0.47, 'black', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.726, height * 0.72, 'black', -3, this.game));
+    // creates the finalboss and the projectiles it shoots
     this.scoringObjects.push(new FlyingBuck(width * 0.16, height * 0.36, 'finalbossright', -3, this.game));
     this.scoringObjects.push(new Shootingbuck(width * 0.358, height * 0.3, 'red', -3, this.game));
     this.scoringObjects.push(new Shootingbuck(width * 0.258, height * 0.3, 'blue', -3, this.game));
+    // creates the barrier of vbucks
     this.scoringObjects.push(new VBucks(width * 0.07, height * 0.39, 'black', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.07, height * 0.29, 'black', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.07, height * 0.19, 'black', -3, this.game));
+    // creates the stars
     this.scoringObjects.push(new Star(width * 0.84, height * 0.1, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.04, height * 0.39, 'star', 1));
-    // this.scoringObjects.push(new VBucks(width * 0.179, height * 0.8, 'red', -3, this.game));
-    // this.scoringObjects.push(new FutPack(width * 0.273, height * 0.8, 'red', -3));
   }
 
   /**
@@ -92,25 +94,16 @@ export default class Level5 extends Level {
 
     this.platform = [];
 
-    // this.platform.push(new Platform(width * 0.163, height * 0.28,
-    // width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    // this.platform.push(new Platform(width * 0.9115,
-    // height * 0.154, width * 0.048, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    // creates the top platforms
     this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.295, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.425, height * 0.77, width * 0.295, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.720, height * 0.77, width * 0.3, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    // this.platform.push(new Platform(width * 0.350,
-    // height * 0.6, width * 0.2, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    // creates the middle platforms
     this.platform.push(new Platform(width * 0.8, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.20, height * 0.44, width * 0.19, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.035, height * 0.44, width * 0.16, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.60, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.850, height * 0.15, width * 0.2, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-
-
-// this.platform.push((new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png'))));
-
-
 
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
@@ -138,10 +131,9 @@ export default class Level5 extends Level {
       || this.player[1].collidesWith(this.pressurePlate[2])
       || this.player[0].collidesWith(this.pressurePlate[3])
       || this.player[1].collidesWith(this.pressurePlate[3])) {
-        this.platform.splice(13, 1);
+      this.platform.splice(13, 1);
     } else {
       this.platform[12] = (new Platform(width * 0.014, height * 0.15, width * 0.05, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-
 
       // console.log(this.platform.length);
     }
@@ -163,10 +155,9 @@ export default class Level5 extends Level {
   }
 
   /**
-   *
+   * makes all of the platforms and object move
    */
   public allMove(): void {
-    // this.scoringObjects[2].move();
     this.scoringObjects[0].moveY();
     this.scoringObjects[1].moveY2();
     this.scoringObjects[2].moveY();
@@ -176,8 +167,5 @@ export default class Level5 extends Level {
     this.platform[4].moveX2();
     this.scoringObjects[7].move1();
     this.scoringObjects[8].move2();
-    // this.platform[0].moveY();
-    // this.platform[5].moveY();
-    // this.scoringObjects[1].move();
   }
 }

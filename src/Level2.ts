@@ -64,7 +64,7 @@ export default class Level2 extends Level {
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.226, height * 0.15, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.456, height * 0.53, 'blue', -3, this.game));
-    this.scoringObjects.push(new FlyingBuck(width * 0.358, height * 0.2, 'flyingbuck', -3, this.game));
+    this.scoringObjects.push(new FlyingBuck(width * 0.358, height * 0.2, 'FlyingBuckBlack', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.15, height * 0.65, 'red', -3, this.game));
     this.scoringObjects.push(new FutPack(width * 0.2902, height * 0.6, 'blue', -3));
     this.scoringObjects.push(new FutPack(width * 0.749, height * 0.4, 'red', -3));
