@@ -72,14 +72,10 @@ export default class Level4 extends Level {
     this.scoringObjects.push(new FlyingBuck(width * 0.75, height * 0.2, 'finalboss', -3, this.game));
     this.scoringObjects.push(new FutPack(width * 0.51, height * 0.5, 'red', -3));
     this.scoringObjects.push(new FutPack(width * 0.61, height * 0.5, 'blue', -3));
-    // this.scoringObjects.push(new VBucks(width * 0.15, height * 0.65, 'red', -3, this.game));
-    // this.scoringObjects.push(new FutPack(width * 0.2902, height * 0.6, 'blue', -3));
-    // this.scoringObjects.push(new FutPack(width * 0.749, height * 0.4, 'red', -3));
+    // creates the stars
     this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.227, height * 0.15, 'star', 1));
-    // this.scoringObjects.push(new VBucks(width * 0.179, height * 0.8, 'red', -3, this.game));
-    // this.scoringObjects.push(new FutPack(width * 0.273, height * 0.8, 'red', -3));
 
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
