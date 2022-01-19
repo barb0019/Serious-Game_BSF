@@ -16,7 +16,6 @@ export default class LevelUp extends Scene {
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_P)) {
             this.shouldStart = true;
-            Game.pause();
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
             this.toShop = true;
