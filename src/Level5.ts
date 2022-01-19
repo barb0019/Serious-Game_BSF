@@ -122,7 +122,9 @@ export default class Level5 extends Level {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     if (this.player[0].collidesWith(this.pressurePlate[0])
-      || this.player[1].collidesWith(this.pressurePlate[0])) {
+      || this.player[1].collidesWith(this.pressurePlate[0])
+      ||this.player[0].collidesWith(this.pressurePlate[1])
+      || this.player[1].collidesWith(this.pressurePlate[1])) {
         this.platform[13] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     } else {
       this.platform.splice(13, 1);
@@ -139,6 +141,7 @@ export default class Level5 extends Level {
       const { height } = this.game.canvas;
 
       this.pressurePlate.push(new PressurePlate(width * 0.88, height * 0.46, 'pressure plate'));
+      this.pressurePlate.push(new PressurePlate(width * 0.77, height * 0.11, 'pressure plate'));
     }
 
   /**
