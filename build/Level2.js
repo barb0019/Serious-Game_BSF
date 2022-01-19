@@ -43,6 +43,11 @@ export default class Level2 extends Level {
         this.scoringObjects.push(new Star(width * 0.227, height * 0.22, 'star', 1));
         this.scoringObjects.push(new VBucks(width * 0.179, height * 0.8, 'red', -3, this.game));
         this.scoringObjects.push(new FutPack(width * 0.273, height * 0.8, 'red', -3));
+        const boughtItems = this.game.getBoughtItems();
+        for (let i = 0; i < boughtItems.length; i++) {
+            if (boughtItems[i] === 2) {
+            }
+        }
     }
     makePlatforms() {
         const { width } = this.game.canvas;
