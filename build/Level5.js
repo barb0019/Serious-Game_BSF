@@ -71,10 +71,10 @@ export default class Level5 extends Level {
         const { height } = this.game.canvas;
         if (this.player[0].collidesWith(this.pressurePlate[0])
             || this.player[1].collidesWith(this.pressurePlate[0])) {
-            this.platform[12] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+            this.platform[13] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         }
         else {
-            this.platform.splice(12, 1);
+            this.platform.splice(13, 1);
             console.log(this.platform.length);
         }
     }
