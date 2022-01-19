@@ -77,7 +77,7 @@ export default class InstructionScreen extends Scene {
 
     this.game.ctx.drawImage(Game.loadNewImage('https://media1.thehungryjpeg.com/thumbs2/ori_70842_a6fd8ffd7deeb1c56dbcdd154755b5105b7de5e7_seamless-abstract-background-png-jpg.jpg'), 0, 0, width, height);
     this.game.writeTextToCanvas('uitleg instructies', 128, centerX, height * 0.15, 'center', 'black');
-    this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken en samen door de deur te gaan', height * 0.027, width * 0.26, height * 0.26, 'center', 'black');
+    this.game.writeTextToCanvas('het doel van het spel is om drie sterren per level te pakken en samen door de deur te gaan', height * 0.027, width * 0.30, height * 0.26, 'center', 'black');
     this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.18, height * 0.23, 'center', 'black');
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/star.png'), width * 0.2, height * 0.2);
     this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.24, height * 0.23, 'center', 'black');
@@ -101,7 +101,7 @@ export default class InstructionScreen extends Scene {
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/packred.png'), width * 0.70, height * 0.65);
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/packblue.png'), width * 0.83, height * 0.65);
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/RedKid2.png'), width * 0.74, height * 0.65);
-    this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.73, height * 0.69, 'center', 'black');
+    this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.77, height * 0.69, 'center', 'black');
 
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/BlueKid2.png'), width * 0.20, height * 0.45);
     this.game.writeTextToCanvas('je bestuurt het blauwe poppetje met', height * 0.027, width * 0.23, height * 0.57, 'center', 'black');
