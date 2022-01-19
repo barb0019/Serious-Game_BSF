@@ -108,14 +108,15 @@ export default class Level5 extends Level {
     this.platform.push(new Platform(width * 0.850, height * 0.15, width * 0.2, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
 
 
-    this.platform.push(new Platform(width * 0.014, height * 0.15, width * 0.05, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')))
+// this.platform.push((new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png'))));
+
 
 
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width / 4, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width / 2, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width / 2, height - 150, width / 8, 500, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 1.5, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
   }
 
   /**
@@ -128,9 +129,20 @@ export default class Level5 extends Level {
       || this.player[1].collidesWith(this.pressurePlate[0])
       || this.player[0].collidesWith(this.pressurePlate[1])
       || this.player[1].collidesWith(this.pressurePlate[1])) {
-      this.platform[13] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+      this.platform[11] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     } else {
-      this.platform.splice(13, 1);
+      this.platform.splice(12, 1);
+      // console.log(this.platform.length);
+    }
+    if (this.player[0].collidesWith(this.pressurePlate[2])
+      || this.player[1].collidesWith(this.pressurePlate[2])
+      || this.player[0].collidesWith(this.pressurePlate[3])
+      || this.player[1].collidesWith(this.pressurePlate[3])) {
+        this.platform.splice(13, 1);
+    } else {
+      this.platform[12] = (new Platform(width * 0.014, height * 0.15, width * 0.05, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+
+
       // console.log(this.platform.length);
     }
   }
@@ -145,6 +157,9 @@ export default class Level5 extends Level {
 
     this.pressurePlate.push(new PressurePlate(width * 0.88, height * 0.46, 'pressure plate'));
     this.pressurePlate.push(new PressurePlate(width * 0.77, height * 0.11, 'pressure plate'));
+
+    this.pressurePlate.push(new PressurePlate(width * 0.11, height * 0.40, 'pressure plate'));
+    this.pressurePlate.push(new PressurePlate(width * 0.30, height * 0.90, 'pressure plate'));
   }
 
   /**
