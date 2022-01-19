@@ -47,8 +47,6 @@ export default class Level1 extends Level {
     // 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
   }
 
-
-
   /**
    *
    */
@@ -57,8 +55,6 @@ export default class Level1 extends Level {
     this.player.push(new PlayerRed(150, this.game.canvas.height, this.game));
     this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
   }
-
-
 
   /**
    *
