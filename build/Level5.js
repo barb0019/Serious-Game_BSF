@@ -77,7 +77,6 @@ export default class Level5 extends Level {
         }
         else {
             this.platform.splice(13, 1);
-            console.log(this.platform.length);
         }
     }
     makePressurePlates() {
