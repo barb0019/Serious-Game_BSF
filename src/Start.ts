@@ -25,7 +25,6 @@ export default class Start extends Scene {
     this.shouldStart = false;
     this.instructionscreen = false;
     // this.levelsArray = [new Level1(game), new Level2(game)];
-    console.log(this.game.getCurrentLevel());
   }
 
   /**
