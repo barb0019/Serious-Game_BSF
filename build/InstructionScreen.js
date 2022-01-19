@@ -64,13 +64,13 @@ export default class InstructionScreen extends Scene {
         this.game.writeTextToCanvas('je bestuurt het rode poppetje met', height * 0.027, width * 0.23, height * 0.79, 'center', 'black');
         this.game.writeTextToCanvas('⬆', height * 0.035, width * 0.21, height * 0.82, 'center', 'black');
         this.game.writeTextToCanvas('⬅  ➡', height * 0.035, width * 0.21, height * 0.86, 'center', 'black');
-        this.game.writeTextToCanvas('druk op ➡️', height * 0.027, width * 0.63, height * 0.82, 'center', 'black');
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/UnMuteV2.png'), width * 0.67, height * 0.77, 50, 50);
+        this.game.writeTextToCanvas('druk op ➡️', height * 0.027, width * 0.60, height * 0.82, 'center', 'black');
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/UnMuteV2.png'), width * 0.65, height * 0.77, 50, 50);
         this.game.writeTextToCanvas('rechtsboven in om het geluid te dempen', height * 0.027, width * 0.82, height * 0.82, 'center', 'black');
-        this.game.writeTextToCanvas('druk op ➡️', height * 0.027, width * 0.63, height * 0.88, 'center', 'black');
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/UnMute.png'), width * 0.67, height * 0.85, 50, 50);
+        this.game.writeTextToCanvas('druk op ➡️', height * 0.027, width * 0.60, height * 0.88, 'center', 'black');
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/UnMute.png'), width * 0.65, height * 0.85, 50, 50);
         this.game.writeTextToCanvas('rechtsboven in om het geluid weer aan te zetten', height * 0.027, width * 0.82, height * 0.88, 'center', 'black');
-        this.game.writeTextToCanvas('druk op spatie om verder te gaan', height * 0.040, width / 2 - 100, height * 0.88, 'center', 'black');
+        this.game.writeTextToCanvas('druk op spatie om verder te gaan', height * 0.040, width / 2 - 150, height * 0.88, 'center', 'red');
     }
 }
 //# sourceMappingURL=InstructionScreen.js.map
