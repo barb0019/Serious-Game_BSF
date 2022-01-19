@@ -7,7 +7,6 @@ import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
 import Level from './Level.js';
-import PressurePlate from './PressurePlate.js';
 export default class Level1 extends Level {
     constructor(game) {
         super(game);
@@ -20,28 +19,10 @@ export default class Level1 extends Level {
     speedbubbles(game) {
         this.speedBubble = [];
     }
-    checksIfPressureOnthePlate() {
-        const { width } = this.game.canvas;
-        const { height } = this.game.canvas;
-        if (this.player[0].collidesWith(this.pressurePlate[0])
-            || this.player[1].collidesWith(this.pressurePlate[0])) {
-            this.platform.splice(11, 1);
-        }
-        else {
-            this.platform[11] = (new Platform(width * 0.1, height * 0.80, width / 8, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-            console.log(this.platform.length);
-        }
-    }
     players() {
         this.player = [];
         this.player.push(new PlayerRed(150, this.game.canvas.height, this.game));
         this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
-    }
-    makePressurePlates() {
-        this.pressurePlate = [];
-        const { width } = this.game.canvas;
-        const { height } = this.game.canvas;
-        this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.56, 'pressure plate'));
     }
     objects() {
         const { width } = this.game.canvas;

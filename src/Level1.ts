@@ -47,20 +47,7 @@ export default class Level1 extends Level {
     // 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
   }
 
-  /**
-   *
-   */
-  protected checksIfPressureOnthePlate(): void {
-    const { width } = this.game.canvas;
-    const { height } = this.game.canvas;
-    if (this.player[0].collidesWith(this.pressurePlate[0])
-      || this.player[1].collidesWith(this.pressurePlate[0])) {
-      this.platform.splice(11, 1);
-    } else {
-      this.platform[11] = (new Platform(width * 0.1, height * 0.80, width / 8, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-      console.log(this.platform.length);
-    }
-  }
+
 
   /**
    *
@@ -71,16 +58,7 @@ export default class Level1 extends Level {
     this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
   }
 
-  /**
-   *
-   */
-  protected makePressurePlates(): void {
-    this.pressurePlate = [];
-    const { width } = this.game.canvas;
-    const { height } = this.game.canvas;
 
-    this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.56, 'pressure plate'));
-  }
 
   /**
    *
