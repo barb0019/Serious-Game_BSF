@@ -48,6 +48,8 @@ export default class Shop extends Scene {
       this.buttons[i].innerHTML = 'Buy';
       this.buttons[i].style.top = `${window.innerHeight / 1.4 + 10}px`;
       this.buttons[i].style.fontSize = '20px';
+      this.buttons[i].style.fontWeight = 'bold';
+      this.buttons[i].style.backgroundColor = 'yellow';
       this.buttons[i].addEventListener('click', () => {
         this.buy(i);
       });
