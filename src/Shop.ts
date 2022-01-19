@@ -98,7 +98,7 @@ export default class Shop extends Scene {
       'Klaar om op te stijgen!',
       'Speedy gonzales modus is ingeschakeld!',
       'Oei miskoop, koop niks waarvan je niet weet wat eruit komt. Je gokt!', // maybe add enemies when selected
-      'De vijanden zijn nu moeilijker om te verslaan!',
+      'De vijanden zijn nu moeilijker om te ontwijken!',
     ];
     this.itemPopUps.push(document.createElement('boughtItem'));
     const currentItem = this.itemPopUps.length - 1;
@@ -109,6 +109,7 @@ export default class Shop extends Scene {
     this.itemPopUps[currentItem].style.top = `${window.innerHeight / 2 / 1.1}px`;
     this.itemPopUps[currentItem].style.fontSize = '20px';
     this.itemPopUps[currentItem].style.maxWidth = `${window.innerWidth / this.buttons.length / 1.3}px`;
+    this.itemPopUps[currentItem].style.fontWeight = 'bold';
     // this.itemPopUps[currentItem].style.backgroundImage = 'url(https://media1.thehungryjpeg.com/thumbs2/ori_70842_a6fd8ffd7deeb1c56dbcdd154755b5105b7de5e7_seamless-abstract-background-png-jpg.jpg)';
 
     this.itemPopUps[currentItem].innerHTML = itemPopUpText[itemNumber];
@@ -165,16 +166,16 @@ export default class Shop extends Scene {
     shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3.4, 'center', 'black');
     shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
     shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.4, 'center', 'black');
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + 65, (canvas.height / 1.2) * 0 + 300);
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + 400, (canvas.height / 1.2) * 0 + 300);
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + 800, (canvas.height / 1.2) * 0 + 300, 150, 150);
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/Bird.png'), (canvas.width / this.buttons.length) * 0 + 1100, (canvas.height / 1.2) * 0 + 300, 150, 150);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.31, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.57, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/Bird.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.81, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
 
     // shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.4, 'center', 'black');
     // shop.writeTextToCanvas('Y', 20, canvas.width * 0.5, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('BIGOMEGAGIANTSUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.4, 'center', 'black');
     // shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
-    shop.writeTextToCanvas('Score&difficulty (w.i.p.)', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.4, 'center', 'black');
+    shop.writeTextToCanvas('Speedy "E"s', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.4, 'center', 'black');
   }
 }
