@@ -95,9 +95,9 @@ export default class Start extends Scene {
     this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
     this.game.writeTextToCanvas(`Ready ${this.game.getUser().getName()}`, 48, centerX,
       450, 'center', 'black');
-    this.game.writeTextToCanvas("Type 'space' om te beginnen", 48, centerX,
+    this.game.writeTextToCanvas("druk 'space' om te beginnen", 48, centerX,
       550, 'center', 'black');
-    this.game.writeTextToCanvas("Type 'w' om naar uitleg te gaan", 48, centerX,
-      650, 'center', 'black');
+    this.game.writeTextToCanvas("druk 'w' om naar uitleg te gaan", 48, centerX,
+      625, 'center', 'black');
   }
 }
