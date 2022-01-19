@@ -64,7 +64,7 @@ export default class InstructionScreen extends Scene {
         this.game.writeTextToCanvas('je bestuurt het rode poppetje met', height * 0.027, width * 0.23, height * 0.79, 'center', 'black');
         this.game.writeTextToCanvas('⬆', height * 0.035, width * 0.21, height * 0.82, 'center', 'dark red');
         this.game.writeTextToCanvas('⬅  ➡', height * 0.035, width * 0.21, height * 0.86, 'center', 'dark red');
-        this.game.writeTextToCanvas('druk op spatie om verder te gaan', height * 0.040, width / 2, height * 0.88, 'center', 'white');
+        this.game.writeTextToCanvas('druk op spatie om verder te gaan', height * 0.040, width / 2, height * 0.88, 'center', 'black');
     }
 }
 //# sourceMappingURL=InstructionScreen.js.map
