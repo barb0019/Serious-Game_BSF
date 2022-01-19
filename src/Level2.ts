@@ -94,7 +94,6 @@ export default class Level2 extends Level {
 
     this.platform = [];
 
-
     // creates the top left platform
     this.platform.push(new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // creates the platform the door is standing on
@@ -118,7 +117,7 @@ export default class Level2 extends Level {
   }
 
   /**
-   ** makes all of the platforms and object move
+   * makes all of the platforms and object move
    */
   allMove(): void {
     this.scoringObjects[2].move();
