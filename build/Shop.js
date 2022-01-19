@@ -92,7 +92,7 @@ export default class Shop extends Scene {
         this.itemPopUps[currentItem].innerHTML = itemPopUpText[itemNumber];
     }
     update() {
-        if (this.continueGame && this.game.getUser().getLevel() <= 2) {
+        if (this.continueGame && this.game.getUser().getLevel() <= 4) {
             this.game.getUser().increaseLevel();
             for (let i = 0; i < this.buttons.length; i++) {
                 this.buttons[i].innerHTML = '';
