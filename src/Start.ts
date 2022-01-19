@@ -38,7 +38,6 @@ export default class Start extends Scene {
     }
     if (this.keyboard.isKeyDown(KeyListener.KEY_W)) {
       this.instructionscreen = true;
-      Game.play();
     }
   }
 
