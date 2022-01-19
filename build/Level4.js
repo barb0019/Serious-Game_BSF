@@ -65,24 +65,28 @@ export default class Level4 extends Level {
         this.platform.push(new Platform(width / 4, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width / 2, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+        this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     }
     checksIfPressureOnthePlate() {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
         if (this.player[0].collidesWith(this.pressurePlate[0])
-            || this.player[1].collidesWith(this.pressurePlate[0])) {
-            this.platform[10] = (new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+            || this.player[1].collidesWith(this.pressurePlate[0])
+            || this.player[0].collidesWith(this.pressurePlate[1])
+            || this.player[1].collidesWith(this.pressurePlate[1])) {
+            this.platform[9] = (new Platform(width * 0.163, height * 0.50, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         }
         else {
-            this.platform.splice(10, 1);
+            this.platform.splice(9, 1);
         }
     }
     makePressurePlates() {
         this.pressurePlate = [];
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
-        this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.56, 'pressure plate'));
+        this.pressurePlate.push(new PressurePlate(width * 0.75, height * 0.90, 'pressure plate'));
+        this.pressurePlate.push(new PressurePlate(width * 0.83, height * 0.24, 'pressure plate'));
     }
     allMove() {
         this.scoringObjects[2].move();
