@@ -70,6 +70,7 @@ export default class Level2 extends Level {
     this.scoringObjects.push(new FutPack(width * 0.2902, height * 0.6, 'blue', -3));
     this.scoringObjects.push(new FutPack(width * 0.749, height * 0.4, 'red', -3));
     this.scoringObjects.push(new FlyingBuck(width * 0.657, height * 0.77, 'moneymonster', -3, this.game));
+    // creates the stars
     this.scoringObjects.push(new Star(width * 0.227, height * 0.8, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.227, height * 0.22, 'star', 1));
