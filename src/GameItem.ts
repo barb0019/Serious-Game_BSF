@@ -64,6 +64,11 @@ export default abstract class GameItem {
     return this.xPos;
   }
 
+  /**
+   * set the x position of the game item
+   *
+   * @param speed the speed of the game item
+   */
   public setXPos(speed:number): void {
     this.xPos += speed;
   }
@@ -87,7 +92,7 @@ export default abstract class GameItem {
   }
 
   /**
-   * draw
+   * draw the game item
    *
    * @param ctx the rendering context to draw on
    */
@@ -96,7 +101,7 @@ export default abstract class GameItem {
   }
 
   /**
-   * gwt the type
+   * get the type
    *
    * @returns the type color od the object
    */

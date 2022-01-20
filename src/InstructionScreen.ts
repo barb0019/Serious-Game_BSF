@@ -66,7 +66,7 @@ export default class InstructionScreen extends Scene {
   }
 
   /**
-   * Draw the game so the player can see what happened
+   * Draw the instructionscreen so the player can see what happened
    */
   public render(): void {
     // Clear the screen
