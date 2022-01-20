@@ -33,12 +33,12 @@ export default class LevelUp extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_P)) {
       this.shouldStart = true;
-      Game.pause(this.game.getUser().getLevel() - 1);
+      Game.pause(this.game.getUser().getLevel()-1);
     }
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
       this.toShop = true;
       for (let i = 0; i < 5; i++) {
-        Game.pause(i);
+       Game.pause(i);
       }
     }
   }
@@ -63,10 +63,12 @@ export default class LevelUp extends Scene {
     }
     if (this.shouldStart && this.game.getUser().getLevel() + 1 <= 5) {
       // this.levelArray.splice(0, 1);
-      Game.pause(this.game.getUser().getLevel() - 1);
-      if (MuteButton.muted === false) {
-        Game.play(this.game.getUser().getLevel() + 1);
+      for (let i = 0; i < 5; i++) {
+       Game.pause(i);
       }
+      if(MuteButton.muted === false) {
+        Game.play(this.game.getUser().getLevel()+1);
+        }
       this.game.getUser().increaseLevel();
 
       return this.game.getCurrentLevel();
