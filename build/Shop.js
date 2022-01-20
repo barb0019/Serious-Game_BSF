@@ -70,7 +70,7 @@ export default class Shop extends Scene {
         console.log(`item bought, number ${itemNumber}`);
         this.game.setBoughtItems(itemNumber);
         this.credits -= 1;
-        this.buttons[itemNumber].innerHTML = 'Gekocht!';
+        this.buttons[itemNumber].innerHTML = 'Gekcht!';
         this.makeItemPopUp(itemNumber);
         if (itemNumber === 2) {
             this.buttons[itemNumber].innerHTML = 'hehe';
@@ -89,7 +89,7 @@ export default class Shop extends Scene {
         document.body.appendChild(this.itemPopUps[currentItem]);
         this.itemPopUps[currentItem].style.position = 'absolute';
         this.itemPopUps[currentItem].style.left = `${(window.innerWidth / this.buttons.length) * itemNumber + 150 - canvasOffshoot}px`;
-        this.itemPopUps[currentItem].style.top = `${window.innerHeight / 5 / 1.1}px`;
+        this.itemPopUps[currentItem].style.top = `${window.innerHeight / 2 / 1.1}px`;
         this.itemPopUps[currentItem].style.fontSize = '20px';
         this.itemPopUps[currentItem].style.maxWidth = `${window.innerWidth / this.buttons.length / 1.3}px`;
         this.itemPopUps[currentItem].style.fontWeight = 'bold';
