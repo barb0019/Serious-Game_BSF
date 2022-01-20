@@ -200,7 +200,6 @@ export default abstract class Level extends Scene {
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
     }
-
   }
 
   /**
