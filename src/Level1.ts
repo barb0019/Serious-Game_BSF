@@ -64,13 +64,12 @@ export default class Level1 extends Level {
     const { height } = this.game.canvas;
     console.log(width);
     console.log(height);
+    // makes the door
     this.door = new Door(width * 0.91, 50, 'DoubleDoor0');
     this.scoringObjects = [];
+    // makes the objects
     this.scoringObjects.push(new VBucks(width * 0.5, height * 0.16, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.78, height * 0.26, 'red', -3, this.game));
-    // this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3, this.game));
-    // this.scoringObjects.push(new VBucks(500, 400, 'moneymonster', -1, this.game));
-    // this.scoringObjects.push(new VBucks(950, 200, 'finalboss', -3));
     this.scoringObjects.push(new FutPack(width * 0.19, height * 0.37, 'red', -3));
     this.scoringObjects.push(new FutPack(width * 0.39, height * 0.51, 'blue', -3));
     this.scoringObjects.push(new Star(width * 0.45, height * 0.53, 'star', 1));
@@ -92,13 +91,19 @@ export default class Level1 extends Level {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     this.platform = [];
+    // makes the most left platform
     this.platform.push(new Platform(width * 0.1, height * 0.46, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    // makes the platform the door is on
     this.platform.push(new Platform(width * 0.87, height * 0.19, width * 0.1, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    // makes the bottom left platform
     this.platform.push(new Platform(width * 0.36, height * 0.59, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    // creates the top middle platform
     this.platform.push(new Platform(width * 0.4, height * 0.27, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    // makes the middle right platform before to door
     this.platform.push(new Platform(width * 0.71, height * 0.37, width * 0.16, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    // makes the bottom rifht platform
     this.platform.push(new Platform(width * 0.65, height / 1.5, width * 0.05, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.81, height / 1.5, width * 0.065, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    // this.platform.push(new Platform(width * 0.81, height / 1.5, width * 0.065, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.25, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
@@ -107,7 +112,7 @@ export default class Level1 extends Level {
   }
 
   /**
-   *
+   * makes the obecjcts and platforms move
    */
   // eslint-disable-next-line class-methods-use-this
   public allMove(): void {}

@@ -45,11 +45,10 @@ export default class Level2 extends Level {
   }
 
   /**
-   *
+   * Creates the players
    */
   protected players(): void {
     this.player = [];
-    // Create player
     this.player.push(new PlayerRed(150, this.game.canvas.height, this.game));
     this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
   }
