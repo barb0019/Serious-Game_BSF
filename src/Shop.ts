@@ -150,8 +150,8 @@ export default class Shop extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {
       this.continueGame = true;
-      if(MuteButton.muted === false) {
-      Game.play(this.game.getUser().getLevel()+1);
+      if (MuteButton.muted === false) {
+        Game.play(this.game.getUser().getLevel() + 1);
       }
     }
   }
@@ -167,7 +167,7 @@ export default class Shop extends Scene {
 
     this.game.ctx.drawImage(Game.loadNewImage('https://e7.pngegg.com/pngimages/676/208/png-clipart-wooden-background-wooden-table-wooden-background.png'), 0, 0, canvas.width, canvas.height);
     shop.writeTextToCanvas('SHOP', 90, canvas.width / 2, canvas.height / 5.1, 'center', 'black');
-    shop.writeTextToCanvas('Press enter to leave', 70, canvas.width / 2, canvas.height / 3.4, 'center', 'black');
+    shop.writeTextToCanvas('druk op "enter" om de shop te verlaten', 70, canvas.width / 2, canvas.height / 3.4, 'center', 'black');
     shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
     shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.4, 'center', 'black');
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
@@ -182,4 +182,17 @@ export default class Shop extends Scene {
     // shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('Speedy "E"s', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.4, 'center', 'black');
   }
+}
+/**
+ * @param arg0
+ * @param enter
+ * @param arg2
+ * @param arg3
+ * @param arg4
+ * @param arg5
+ * @param arg6
+ * @param arg7
+ */
+function enter(arg0: string, enter: any, arg2: string, arg3: number, arg4: number, arg5: number, arg6: string, arg7: string) {
+  throw new Error('Function not implemented.');
 }
