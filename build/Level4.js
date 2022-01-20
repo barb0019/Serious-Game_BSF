@@ -7,6 +7,7 @@ import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
+import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 import Shootingbuck from './ShootingBucks.js';
 import PressurePlate from './PressurePlate.js';
@@ -22,6 +23,9 @@ export default class Level4 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
+        this.speedBubble.push(new SpeedBubble(game, 'in-game aankopen zijn niet altijd slecht', 230, 260, 100, 500));
+        this.speedBubble.push(new SpeedBubble(game, 'Soms maken ze de game-ervaring leuker', 50, 1150, 100, 500));
+        this.speedBubble.push(new SpeedBubble(game, 'Maar let wel op wat je uitgeeft!!', 350, 1250, 100, 500));
     }
     players() {
         this.player = [];
