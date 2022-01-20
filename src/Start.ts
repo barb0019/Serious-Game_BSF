@@ -25,7 +25,6 @@ export default class Start extends Scene {
     this.keyboard = new KeyListener();
     this.shouldStart = false;
     this.instructionscreen = false;
-    // this.levelsArray = [new Level1(game), new Level2(game)];
   }
 
   /**
@@ -75,15 +74,6 @@ export default class Start extends Scene {
 
     return null;
   }
-  //   if (this.instructionscreen) {
-  //     if (this.game.getCurrentLevel().hasWon()) {
-  //       this.levelsArray.splice(0, 1);
-  //       // this.levelsArray.hasWon = false;
-  //       return new InstructionScreen(this.game);
-  //   }
-  //   return null;
-  // }
-  // }
 
   /**
    * Draw the game so the player can see what happened

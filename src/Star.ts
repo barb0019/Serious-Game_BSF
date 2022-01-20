@@ -9,6 +9,7 @@ export default class Star extends ScoringObject {
   private width: number;
 
   /**
+   * intilize the class star
    *
    * @param xPos the max value of the X position
    * @param yPos the max value of the Y position
