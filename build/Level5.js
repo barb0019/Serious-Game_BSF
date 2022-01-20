@@ -16,7 +16,7 @@ export default class Level5 extends Level {
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
-        document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/ForestBackground.jpg)';
+        document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/ForestBackground.jpg)';
     }
     speedbubbles(game) {
         this.speedBubble = [];

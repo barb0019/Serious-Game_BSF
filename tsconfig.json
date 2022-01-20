@@ -11,7 +11,7 @@
     },
     "include": [
         "src/**/*"
-    ],
+, "assets/img/background/Level1.ts", "assets/img/shop/Shop.ts", "assets/img/enemies/FutPack.ts"    ],
     "exclude": [
         "node_modules",
         "**/*.spec.ts"
