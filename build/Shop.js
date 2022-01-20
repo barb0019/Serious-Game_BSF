@@ -58,19 +58,17 @@ export default class Shop extends Scene {
     }
     buy(itemNumber) {
         if (this.credits <= 0) {
-            console.log('Niet genoeg credits!');
             return;
         }
         for (let i = 0; i < this.buttons.length; i++) {
             if (itemNumber === this.game.getBoughtItems()[i]) {
-                console.log(`item number ${itemNumber} has already been bought`);
                 return;
             }
         }
         console.log(`item bought, number ${itemNumber}`);
         this.game.setBoughtItems(itemNumber);
         this.credits -= 1;
-        this.buttons[itemNumber].innerHTML = 'Gekcht!';
+        this.buttons[itemNumber].innerHTML = 'Gekocht!';
         this.makeItemPopUp(itemNumber);
         if (itemNumber === 2) {
             this.buttons[itemNumber].innerHTML = 'hehe';
