@@ -1,7 +1,7 @@
 import Player from './Player.js';
 export default class PlayerBlue extends Player {
     constructor(maxX, maxY, game) {
-        super('./assets/img/BlueKid2.png', maxX - 76, maxY - 92, 'blue', game);
+        super('./assets/img/player/BlueKid2.png', maxX - 76, maxY - 92, 'blue', game);
     }
     collidesWith(other) {
         return this.xPos < other.getXPos() + other.getImageWidth()
