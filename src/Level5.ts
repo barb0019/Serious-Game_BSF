@@ -56,7 +56,7 @@ export default class Level5 extends Level {
   protected objects(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
-    this.door = new Door(width * 0.911, height * 0.018, 'DoubleDoor0');
+    this.door = new Door(width * 0.911, height * 0.015, 'DoubleDoor0');
     this.scoringObjects = [];
     // creates the moving vbucks
     this.scoringObjects.push(new VBucks(width * 0.226, height * 0.48, 'black', -3, this.game));
@@ -142,7 +142,7 @@ export default class Level5 extends Level {
     this.pressurePlate.push(new PressurePlate(width * 0.77, height * 0.11, 'pressure plate'));
 
     this.pressurePlate.push(new PressurePlate(width * 0.11, height * 0.40, 'pressure plate'));
-    this.pressurePlate.push(new PressurePlate(width * 0.30, height * 0.90, 'pressure plate'));
+    this.pressurePlate.push(new PressurePlate(width * 0.30, height * 0.885, 'pressure plate'));
   }
 
   /**
