@@ -3,6 +3,7 @@ import KeyListener from './KeyListener.js';
 import SpeedBubble from './SpeedBubble.js';
 import Game from './Game.js';
 import InteractingItems from './InteractingItems.js';
+import MuteButton from './MuteButton.js';
 
 export default abstract class Player extends GameItem {
   protected xVel: number;
@@ -152,7 +153,9 @@ export default abstract class Player extends GameItem {
     if (!this.onPlatform) {
       this.yPos -= this.jumpHeight;
     } else {
-      this.jumpMusic();
+      if (MuteButton.muted === false) {
+        this.jumpMusic();
+      }
       this.isJumping = false;
     }
   }
@@ -282,27 +285,7 @@ export default abstract class Player extends GameItem {
     // Moving right
     if (this.keyBoard.isKeyDown(keys[0]) && this.xPos < maxX) {
       this.xPos += this.xVel;
-      if (this.getType() === 'blue' && this.onPlatform) {
-        this.animationFrameBlue += 1;
-        if (this.animationFrameBlue % 10 === 0) {
-          if (this.animationFrameBlue / 10 >= this.walkingRightBlue.length) {
-            this.animationFrameBlue = 0;
-          }
-          this.setImage(this.walkingRightBlue[this.animationFrameBlue / 10]);
-        }
-      } else if (this.getType() === 'blue' && !this.onPlatform) {
-        this.setImage(this.walkingRightBlue[0]);
-      } else if (this.getType() === 'red' && this.onPlatform) {
-        this.animationFrameRed += 1;
-        if (this.animationFrameRed % 10 === 0) {
-          if (this.animationFrameRed / 10 >= this.walkingRightRed.length) {
-            this.animationFrameRed = 0;
-          }
-          this.setImage(this.walkingRightRed[this.animationFrameRed / 10]);
-        }
-      } else if (this.getType() === 'red' && !this.onPlatform) {
-        this.setImage(this.walkingRightRed[0]);
-      }
+      this.animateRight();
       // Limit to the max value
       if (this.xPos > maxX) {
         this.xPos = maxX;
@@ -312,27 +295,7 @@ export default abstract class Player extends GameItem {
     // Moving left
     if (this.keyBoard.isKeyDown(keys[1]) && this.xPos > minX) {
       this.xPos -= this.xVel;
-      if (this.getType() === 'blue' && this.onPlatform) {
-        this.animationFrameBlue += 1;
-        if (this.animationFrameBlue % 10 === 0) {
-          if (this.animationFrameBlue / 10 >= this.walkingLeftBlue.length) {
-            this.animationFrameBlue = 0;
-          }
-          this.setImage(this.walkingLeftBlue[this.animationFrameBlue / 10]);
-        }
-      } else if (this.getType() === 'blue' && !this.onPlatform) {
-        this.setImage(this.walkingLeftBlue[0]);
-      } else if (this.getType() === 'red' && this.onPlatform) {
-        this.animationFrameRed += 1;
-        if (this.animationFrameRed % 10 === 0) {
-          if (this.animationFrameRed / 10 >= this.walkingLeftRed.length) {
-            this.animationFrameRed = 0;
-          }
-          this.setImage(this.walkingLeftRed[this.animationFrameRed / 10]);
-        }
-      } else if (!this.onPlatform) {
-        this.setImage(this.walkingLeftRed[0]);
-      }
+      this.animateLeft();
       // Limit to the max value
       if (this.xPos < minX) {
         this.xPos = minX;
@@ -353,6 +316,54 @@ export default abstract class Player extends GameItem {
       if (this.yPos < minY) {
         this.yPos = minY;
       }
+    }
+  }
+
+  private animateRight() {
+    if (this.getType() === 'blue' && this.onPlatform) {
+      this.animationFrameBlue += 1;
+      if (this.animationFrameBlue % 10 === 0) {
+        if (this.animationFrameBlue / 10 >= this.walkingRightBlue.length) {
+          this.animationFrameBlue = 0;
+        }
+        this.setImage(this.walkingRightBlue[this.animationFrameBlue / 10]);
+      }
+    } else if (this.getType() === 'blue' && !this.onPlatform) {
+      this.setImage(this.walkingRightBlue[0]);
+    } else if (this.getType() === 'red' && this.onPlatform) {
+      this.animationFrameRed += 1;
+      if (this.animationFrameRed % 10 === 0) {
+        if (this.animationFrameRed / 10 >= this.walkingRightRed.length) {
+          this.animationFrameRed = 0;
+        }
+        this.setImage(this.walkingRightRed[this.animationFrameRed / 10]);
+      }
+    } else if (this.getType() === 'red' && !this.onPlatform) {
+      this.setImage(this.walkingRightRed[0]);
+    }
+  }
+
+  private animateLeft() {
+    if (this.getType() === 'blue' && this.onPlatform) {
+      this.animationFrameBlue += 1;
+      if (this.animationFrameBlue % 10 === 0) {
+        if (this.animationFrameBlue / 10 >= this.walkingLeftBlue.length) {
+          this.animationFrameBlue = 0;
+        }
+        this.setImage(this.walkingLeftBlue[this.animationFrameBlue / 10]);
+      }
+    } else if (this.getType() === 'blue' && !this.onPlatform) {
+      this.setImage(this.walkingLeftBlue[0]);
+    } else if (this.getType() === 'red' && this.onPlatform) {
+      this.animationFrameRed += 1;
+      if (this.animationFrameRed % 10 === 0) {
+        if (this.animationFrameRed / 10 >= this.walkingLeftRed.length) {
+          this.animationFrameRed = 0;
+        }
+        this.setImage(this.walkingLeftRed[this.animationFrameRed / 10]);
+      }
+    } else if (!this.onPlatform) {
+      this.setImage(this.walkingLeftRed[0]);
     }
   }
 }

@@ -4,6 +4,7 @@ import Player from './Player.js';
 
 export default class Door extends InteractingItems {
   /**
+   * intilize the class door
    *
    * @param xPos x position of the door
    * @param yPos y position of the door
@@ -14,6 +15,8 @@ export default class Door extends InteractingItems {
   }
 
   /**
+   * dra the image door
+   *
    * @param ctx ctx
    * @param player the array of players
    */

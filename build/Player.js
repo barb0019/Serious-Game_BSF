@@ -1,5 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
+import MuteButton from './MuteButton.js';
 export default class Player extends GameItem {
     xVel;
     keyBoard;
@@ -102,7 +103,9 @@ export default class Player extends GameItem {
             this.yPos -= this.jumpHeight;
         }
         else {
-            this.jumpMusic();
+            if (MuteButton.muted === false) {
+                this.jumpMusic();
+            }
             this.isJumping = false;
         }
     }
@@ -157,60 +160,14 @@ export default class Player extends GameItem {
         const minY = 0;
         if (this.keyBoard.isKeyDown(keys[0]) && this.xPos < maxX) {
             this.xPos += this.xVel;
-            if (this.getType() === 'blue' && this.onPlatform) {
-                this.animationFrameBlue += 1;
-                if (this.animationFrameBlue % 10 === 0) {
-                    if (this.animationFrameBlue / 10 >= this.walkingRightBlue.length) {
-                        this.animationFrameBlue = 0;
-                    }
-                    this.setImage(this.walkingRightBlue[this.animationFrameBlue / 10]);
-                }
-            }
-            else if (this.getType() === 'blue' && !this.onPlatform) {
-                this.setImage(this.walkingRightBlue[0]);
-            }
-            else if (this.getType() === 'red' && this.onPlatform) {
-                this.animationFrameRed += 1;
-                if (this.animationFrameRed % 10 === 0) {
-                    if (this.animationFrameRed / 10 >= this.walkingRightRed.length) {
-                        this.animationFrameRed = 0;
-                    }
-                    this.setImage(this.walkingRightRed[this.animationFrameRed / 10]);
-                }
-            }
-            else if (this.getType() === 'red' && !this.onPlatform) {
-                this.setImage(this.walkingRightRed[0]);
-            }
+            this.animateRight();
             if (this.xPos > maxX) {
                 this.xPos = maxX;
             }
         }
         if (this.keyBoard.isKeyDown(keys[1]) && this.xPos > minX) {
             this.xPos -= this.xVel;
-            if (this.getType() === 'blue' && this.onPlatform) {
-                this.animationFrameBlue += 1;
-                if (this.animationFrameBlue % 10 === 0) {
-                    if (this.animationFrameBlue / 10 >= this.walkingLeftBlue.length) {
-                        this.animationFrameBlue = 0;
-                    }
-                    this.setImage(this.walkingLeftBlue[this.animationFrameBlue / 10]);
-                }
-            }
-            else if (this.getType() === 'blue' && !this.onPlatform) {
-                this.setImage(this.walkingLeftBlue[0]);
-            }
-            else if (this.getType() === 'red' && this.onPlatform) {
-                this.animationFrameRed += 1;
-                if (this.animationFrameRed % 10 === 0) {
-                    if (this.animationFrameRed / 10 >= this.walkingLeftRed.length) {
-                        this.animationFrameRed = 0;
-                    }
-                    this.setImage(this.walkingLeftRed[this.animationFrameRed / 10]);
-                }
-            }
-            else if (!this.onPlatform) {
-                this.setImage(this.walkingLeftRed[0]);
-            }
+            this.animateLeft();
             if (this.xPos < minX) {
                 this.xPos = minX;
             }
@@ -226,6 +183,58 @@ export default class Player extends GameItem {
             if (this.yPos < minY) {
                 this.yPos = minY;
             }
+        }
+    }
+    animateRight() {
+        if (this.getType() === 'blue' && this.onPlatform) {
+            this.animationFrameBlue += 1;
+            if (this.animationFrameBlue % 10 === 0) {
+                if (this.animationFrameBlue / 10 >= this.walkingRightBlue.length) {
+                    this.animationFrameBlue = 0;
+                }
+                this.setImage(this.walkingRightBlue[this.animationFrameBlue / 10]);
+            }
+        }
+        else if (this.getType() === 'blue' && !this.onPlatform) {
+            this.setImage(this.walkingRightBlue[0]);
+        }
+        else if (this.getType() === 'red' && this.onPlatform) {
+            this.animationFrameRed += 1;
+            if (this.animationFrameRed % 10 === 0) {
+                if (this.animationFrameRed / 10 >= this.walkingRightRed.length) {
+                    this.animationFrameRed = 0;
+                }
+                this.setImage(this.walkingRightRed[this.animationFrameRed / 10]);
+            }
+        }
+        else if (this.getType() === 'red' && !this.onPlatform) {
+            this.setImage(this.walkingRightRed[0]);
+        }
+    }
+    animateLeft() {
+        if (this.getType() === 'blue' && this.onPlatform) {
+            this.animationFrameBlue += 1;
+            if (this.animationFrameBlue % 10 === 0) {
+                if (this.animationFrameBlue / 10 >= this.walkingLeftBlue.length) {
+                    this.animationFrameBlue = 0;
+                }
+                this.setImage(this.walkingLeftBlue[this.animationFrameBlue / 10]);
+            }
+        }
+        else if (this.getType() === 'blue' && !this.onPlatform) {
+            this.setImage(this.walkingLeftBlue[0]);
+        }
+        else if (this.getType() === 'red' && this.onPlatform) {
+            this.animationFrameRed += 1;
+            if (this.animationFrameRed % 10 === 0) {
+                if (this.animationFrameRed / 10 >= this.walkingLeftRed.length) {
+                    this.animationFrameRed = 0;
+                }
+                this.setImage(this.walkingLeftRed[this.animationFrameRed / 10]);
+            }
+        }
+        else if (!this.onPlatform) {
+            this.setImage(this.walkingLeftRed[0]);
         }
     }
 }
