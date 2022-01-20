@@ -133,7 +133,7 @@ export default class Shop extends Scene {
         shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.4, 'center', 'black');
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.31, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.57, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/enemies/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.57, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/Bird.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.81, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
         shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.4, 'center', 'black');
         shop.writeTextToCanvas('SUPER-WOW-BIG-COOL-OMEGA-GIANT-SUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.4, 'center', 'black');
