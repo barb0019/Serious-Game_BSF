@@ -13,6 +13,7 @@ export default class SpeedBubble extends Enemies {
   private height:number;
 
   /**
+   * intilize the class speedBubble
    *
    * @param game the game of the game
    * @param text the text of the speedbubble
@@ -32,7 +33,7 @@ export default class SpeedBubble extends Enemies {
   }
 
   /**
-   * render
+   * render the speedBubble rang when you can see the text
    *
    */
   public render(): void {

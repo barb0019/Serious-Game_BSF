@@ -3,6 +3,7 @@ import ScoringObject from './ScoringObject.js';
 
 export default class PowerUp extends ScoringObject {
   /**
+   * inilize the class powerup
    *
    * @param maxX the max value of the X position
    * @param maxY the max value of the X position

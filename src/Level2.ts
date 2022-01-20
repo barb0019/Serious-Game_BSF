@@ -26,12 +26,6 @@ export default class Level2 extends Level {
     this.makePlatforms();
     // make speedbubbles
     this.speedbubbles(game);
-    // Take about 5 seconds on a decent computer to show next item
-    // this.countUntilNextItem = 300;
-
-    // Take about 5 seconds on a decent computer to show next item
-    // this.countUntilNextItem = 300;
-    // console.log('level 2');
   }
 
   /**
@@ -54,7 +48,7 @@ export default class Level2 extends Level {
   }
 
   /**
-   *
+   * makes the objects in the game
    */
   protected objects(): void {
     const { width } = this.game.canvas;

@@ -27,12 +27,6 @@ export default class Level5 extends Level {
     this.makePlatforms();
     // make speedbubbles
     this.speedbubbles(game);
-    // Take about 5 seconds on a decent computer to show next item
-    // this.countUntilNextItem = 300;
-
-    // Take about 5 seconds on a decent computer to show next item
-    // this.countUntilNextItem = 300;
-    // console.log('level 2');
   }
 
   /**
@@ -45,7 +39,7 @@ export default class Level5 extends Level {
   }
 
   /**
-   *
+   * makes the players
    */
   protected players(): void {
     this.player = [];
@@ -55,7 +49,7 @@ export default class Level5 extends Level {
   }
 
   /**
-   *
+   * makes the objects
    */
   protected objects(): void {
     const { width } = this.game.canvas;
@@ -93,21 +87,21 @@ export default class Level5 extends Level {
     this.platform = [];
 
     // creates the top platforms
-    this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.295, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.425, height * 0.77, width * 0.295, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.720, height * 0.77, width * 0.3, 40, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.130, height * 0.77, width * 0.295, 40, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width * 0.425, height * 0.77, width * 0.295, 40, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width * 0.720, height * 0.77, width * 0.3, 40, Game.loadNewImage('./assets/img/TileMapForest.png')));
     // creates the middle platforms
-    this.platform.push(new Platform(width * 0.8, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.20, height * 0.44, width * 0.19, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.035, height * 0.44, width * 0.16, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.60, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 0.850, height * 0.15, width * 0.2, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(width * 0.8, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width * 0.20, height * 0.44, width * 0.19, 25, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width * 0.035, height * 0.44, width * 0.16, 25, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width * 0.60, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width * 0.850, height * 0.15, width * 0.2, 25, Game.loadNewImage('./assets/img/TileMapForest.png')));
 
     // the ground
-    this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width / 4, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width / 2, height - 150, width / 8, 500, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    this.platform.push(new Platform(width * 1.5, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+    this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width / 4, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width / 2, height - 150, width / 8, 500, Game.loadNewImage('./assets/img/TileMapForest.png')));
+    this.platform.push(new Platform(width * 1.5, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
   }
 
   /**
@@ -120,20 +114,17 @@ export default class Level5 extends Level {
       || this.player[1].collidesWith(this.pressurePlate[0])
       || this.player[0].collidesWith(this.pressurePlate[1])
       || this.player[1].collidesWith(this.pressurePlate[1])) {
-      this.platform[11] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+      this.platform[11] = (new Platform(width * 0.275, height * 0.15, width * 0.33, 25, Game.loadNewImage('./assets/img/TileMapForest.png')));
     } else {
       this.platform.splice(12, 1);
-      // console.log(this.platform.length);
     }
     if (this.player[0].collidesWith(this.pressurePlate[2])
       || this.player[1].collidesWith(this.pressurePlate[2])
       || this.player[0].collidesWith(this.pressurePlate[3])
       || this.player[1].collidesWith(this.pressurePlate[3])) {
-      this.platform[12] = (new Platform(width * 0.014, height * 0.15, width * 0.05, 25, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
+      this.platform[12] = (new Platform(width * 0.014, height * 0.15, width * 0.05, 25, Game.loadNewImage('./assets/img/TileMapForest.png')));
     } else {
       this.platform.splice(12, 1);
-// console.log('test');
-      // console.log(this.platform.length);
     }
   }
 

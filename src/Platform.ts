@@ -23,6 +23,8 @@ export default class Platform {
   private gameItem: GameItem;
 
   /**
+   * intilize the class Platform
+   *
    * @param xPos the x position of the platform on the canvas
    * @param yPos the y position of the platform on the canvas
    * @param width the width of the image on the canvas
@@ -92,7 +94,6 @@ export default class Platform {
       && this.yPos + this.height > player.getYPos()) {
       player.setGravity(0);
       player.setOnPlatform(true);
-      // console.log('platform');
       return true;
     }
     return false;
@@ -156,7 +157,6 @@ export default class Platform {
     && this.xPos + this.width > player.getXPos() - player.getXVel() - 1
     && this.yPos < player.getYPos() + player.getImageHeight() + 1
     && this.yPos + this.height > player.getYPos() - 1) {
-      // console.log('close');
       return true;
     }
     return false;
@@ -187,7 +187,6 @@ export default class Platform {
         // moves you up, so prevents you from going through the top
         // collision top
         player.setYPos(this.yPos - player.getImageHeight());
-        console.log('top');
         player.xPosPrevious.splice(0, 1);
         player.yPosPrevious.splice(0, 1);
         return true;
@@ -209,17 +208,14 @@ export default class Platform {
         // moves you left, so prevents you from going through the left
         // collision left
         player.setXPos(player.xPosPrevious[1] - player.getXVel());
-        console.log('left');
       }
       if (collisionRight) {
         // moves you right, so prevents you from going through the right
         // collision right
         player.setXPos(player.xPosPrevious[1] + player.getXVel());
-        console.log('right');
       }
       if (collisionRight && collisionLeft) {
         player.setXPos(player.xPosPrevious[1] - player.getXVel());
-        console.log('corner');
       }
       // removes the previous position of the player so it can add a new previous position
       player.xPosPrevious.splice(0, 1);
@@ -233,7 +229,9 @@ export default class Platform {
   }
 
   /**
-   * @param ctx ctx
+   * draw the platform
+   *
+   * @param ctx ctx of the game
    */
   public draw(ctx: CanvasRenderingContext2D): void {
     ctx.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);

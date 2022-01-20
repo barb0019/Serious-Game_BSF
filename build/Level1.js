@@ -6,6 +6,7 @@ import PlayerBlue from './PlayerBlue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
+import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 import PopUp from './PopUp.js';
 export default class Level1 extends Level {
@@ -23,6 +24,9 @@ export default class Level1 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
+        this.speedBubble.push(new SpeedBubble(game, 'kinderen geven soms €200 uit aan skins op fortnite', 75, 1000, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen speelt fortnite voor meer dan 6 uur ', 300, 900, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen geeft geld uit aan skins, lootboxes en andere dingen', 500, 200, 300, 100));
     }
     players() {
         this.player = [];

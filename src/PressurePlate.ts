@@ -4,6 +4,7 @@ import Player from './Player.js';
 
 export default class PressurePlate extends InteractingItems {
   /**
+   * intilize the class pressure plate
    *
    * @param xPos x position of the door
    * @param yPos y position of the door
@@ -15,7 +16,9 @@ export default class PressurePlate extends InteractingItems {
   }
 
   /**
-   * @param ctx ctx
+   * draw the pressure plate
+   *
+   * @param ctx ctx of the game
    * @param player the array of players
    */
   public draw(ctx: CanvasRenderingContext2D, player:Player[]): void {

@@ -9,6 +9,8 @@ export default abstract class Enemies extends ScoringObject {
   protected flyingSpeed1: number;
 
   /**
+   * intilize the enemies
+   *
    * @param imageSrc the image source of the enemy
    * @param xPos the x position of the enemy
    * @param yPos the y position of the enemy

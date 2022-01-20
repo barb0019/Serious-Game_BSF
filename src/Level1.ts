@@ -47,15 +47,13 @@ export default class Level1 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
-    // this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
-    // this.speedBubble.push(new SpeedBubble(game,
-    // 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
-    // this.speedBubble.push(new SpeedBubble(game,
-    // 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, 'kinderen geven soms €200 uit aan skins op fortnite', 75, 1000, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen speelt fortnite voor meer dan 6 uur ', 300, 900, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen geeft geld uit aan skins, lootboxes en andere dingen', 500, 200, 300, 100));
   }
 
   /**
-   *
+   * makes the players
    */
   protected players(): void {
     this.player = [];
@@ -64,7 +62,7 @@ export default class Level1 extends Level {
   }
 
   /**
-   *
+   * make objects in the game
    */
   protected objects(): void {
     const { width } = this.game.canvas;
@@ -78,6 +76,7 @@ export default class Level1 extends Level {
     this.scoringObjects.push(new VBucks(width * 0.78, height * 0.26, 'red', -3, this.game));
     this.scoringObjects.push(new FutPack(width * 0.19, height * 0.37, 'red', -3));
     this.scoringObjects.push(new FutPack(width * 0.39, height * 0.51, 'blue', -3));
+    // makes the stars
     this.scoringObjects.push(new Star(width * 0.45, height * 0.53, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.12, height * 0.39, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.75, height * 0.26, 'star', 1));
@@ -109,7 +108,6 @@ export default class Level1 extends Level {
     this.platform.push(new Platform(width * 0.71, height * 0.37, width * 0.16, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // makes the bottom rifht platform
     this.platform.push(new Platform(width * 0.65, height / 1.5, width * 0.05, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    // this.platform.push(new Platform(width * 0.81, height / 1.5, width * 0.065, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width * 0.25, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
@@ -118,7 +116,7 @@ export default class Level1 extends Level {
   }
 
   /**
-   * makes the obecjcts and platforms move
+   * makes the objects and platforms move
    */
   // eslint-disable-next-line class-methods-use-this
   public allMove(): void { }

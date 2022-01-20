@@ -2,6 +2,7 @@ import ScoringObject from './ScoringObject.js';
 
 export default class FutPack extends ScoringObject {
   /**
+   *intilize the class Futpack
    *
    * @param xPos the max value of the X position
    * @param yPos the max value of the Y position

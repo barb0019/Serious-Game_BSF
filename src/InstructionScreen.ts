@@ -32,8 +32,8 @@ export default class InstructionScreen extends Scene {
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
       // when you press Space, the game will start
       this.shouldStart = true;
-      if(MuteButton.muted === false) {
-      Game.play(this.game.getUser().getLevel()-1);
+      if (MuteButton.muted === false) {
+        Game.play(this.game.getUser().getLevel() - 1);
       }
     }
   }
@@ -66,7 +66,7 @@ export default class InstructionScreen extends Scene {
   }
 
   /**
-   * Draw the game so the player can see what happened
+   * Draw the instruction screen so the player can see what happened
    */
   public render(): void {
     // Clear the screen
@@ -125,8 +125,6 @@ export default class InstructionScreen extends Scene {
 
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/UnMute.png'), width * 0.65, height * 0.85, 50, 50);
     this.game.writeTextToCanvas('rechtsboven in om het geluid weer aan te zetten', height * 0.027, width * 0.82, height * 0.88, 'center', 'black');
-
-    // this.game.writeTextToCanvas('⬅️', height * 0.027, width * 0.77, height * 0.82, 'center', 'black');
 
     this.game.writeTextToCanvas('druk op spatie om verder te gaan', height * 0.040, width / 2 - 150,
       height * 0.88, 'center', 'red');

@@ -8,6 +8,8 @@ export default class MuteButton extends InteractingItems {
   private game:Game;
 
   /**
+   * intilize the class MuteButton
+   *
    *@param game the game
    * @param xPos x position of the mute button
    * @param yPos y position of the door
@@ -45,10 +47,9 @@ export default class MuteButton extends InteractingItems {
   }
 
   /**
-   * @param ctx ctx
-   * @param player the array of players
+   * draw the mute Button
+   *
    */
-  public draw(ctx: CanvasRenderingContext2D): void {
-    ctx.drawImage(Game.loadNewImage('./assets/img/UnMute.png'), this.xPos, this.yPos, 60, 32);
+  public draw(): void {
   }
 }

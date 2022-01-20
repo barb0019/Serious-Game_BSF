@@ -6,7 +6,6 @@ import LevelUp from './LevelUp.js';
 import MuteButton from './MuteButton.js';
 import Platform from './Platform.js';
 import Player from './Player.js';
-import PopUp from './PopUp.js';
 import PowerUp from './PowerUp.js';
 import PressurePlate from './PressurePlate.js';
 import Scene from './Scene.js';
@@ -31,8 +30,6 @@ export default abstract class Level extends Scene {
   protected door: Door;
 
   protected pressurePlate: PressurePlate[] = [];
-
-  protected popUps: PopUp[] = [];
 
   /**
    * Creates a new instance of this class
@@ -59,7 +56,7 @@ export default abstract class Level extends Scene {
    * make pressure plates
    */
   // eslint-disable-next-line class-methods-use-this
-  protected makePressurePlates(): void { }
+  protected makePressurePlates():void {}
 
   /**
    *makes de speedbubbles
@@ -139,7 +136,7 @@ export default abstract class Level extends Scene {
    * check if the player collide with pressure plate
    */
   // eslint-disable-next-line class-methods-use-this
-  protected checksIfPressureOnthePlate(): void { }
+  protected checksIfPressureOnthePlate():void {}
 
   /**
    * Advances the game simulation one step. It may run AI and physics (usually
@@ -185,9 +182,15 @@ export default abstract class Level extends Scene {
     return null;
   }
 
-  abstract allMove(): void;
+/**
+ * calls al objects that moves
+ */
+  abstract allMove():void;
 
-  private allCollides(): void {
+  /**
+   * calls all collides in the levels
+   */
+  private allCollides() :void {
     this.player.forEach((element) => {
       element.increaseGravity();
     });
@@ -202,10 +205,6 @@ export default abstract class Level extends Scene {
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
     }
-
-    for (let i = 0; i < this.popUps.length; i++) {
-      this.popUps[i].collidesPopUpWithPlayer();
-    }
   }
 
   /**
@@ -214,8 +213,6 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-
-    // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
 
     // Show score
     const score = `Sterren: ${this.game.getUser().getScore()}`;
@@ -232,12 +229,10 @@ export default abstract class Level extends Scene {
     for (let i = 0; i < this.pressurePlate.length; i++) {
       this.pressurePlate[i].draw(this.game.ctx, this.player);
     }
-    // this.button.draw(this.game.ctx);
     this.door.draw(this.game.ctx, this.player);
     for (let i = 0; i < this.speedBubble.length; i++) {
       if (this.player[0].collidesWith(this.speedBubble[i])
         || this.player[1].collidesWith(this.speedBubble[i])) {
-        // console.log(this.speedBubble);
         this.speedBubble[i].render();
       }
     }
