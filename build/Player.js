@@ -20,6 +20,7 @@ export default class Player extends GameItem {
     animationFrameRed;
     animationFrameBlue;
     static animationSpeed = 7;
+    jumpSoundCooldown = 0;
     constructor(imageSrc, maxX, maxY, type, game) {
         super(imageSrc, maxX - 76, maxY - 92, type);
         this.game = game;
@@ -155,6 +156,9 @@ export default class Player extends GameItem {
     }
     move(canvas) {
         this.loadImages();
+        if (this.jumpSoundCooldown < 30) {
+            this.jumpSoundCooldown += 1;
+        }
         let keys = [];
         const klisten = KeyListener;
         if (this.getType() === 'blue') {
@@ -183,7 +187,10 @@ export default class Player extends GameItem {
         if (this.keyBoard.isKeyDown(keys[2]) && this.yPos > minY) {
             if (this.onPlatform) {
                 if (MuteButton.muted === false) {
-                    this.jumpMusic();
+                    if (this.jumpSoundCooldown % 30 === 0) {
+                        this.jumpMusic();
+                        this.jumpSoundCooldown = 0;
+                    }
                 }
                 this.isJumping = true;
                 this.setOnPlatform(false);
