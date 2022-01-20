@@ -52,7 +52,7 @@ export default class VBucks extends Enemies {
   }
 
   /**
-   * move the flying vbucks
+   * move the flying vbucks vertically
    */
   public moveY(): void {
     this.yPos += this.flyingSpeed1;
@@ -91,7 +91,7 @@ export default class VBucks extends Enemies {
   }
 
   /**
-   * move the flying vbucks
+   * move the flying vbucks vertically
    */
   public moveY2(): void {
     this.yPos -= this.flyingSpeed1;
