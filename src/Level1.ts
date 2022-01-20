@@ -71,6 +71,7 @@ export default class Level1 extends Level {
     this.scoringObjects.push(new VBucks(width * 0.78, height * 0.26, 'red', -3, this.game));
     this.scoringObjects.push(new FutPack(width * 0.19, height * 0.37, 'red', -3));
     this.scoringObjects.push(new FutPack(width * 0.39, height * 0.51, 'blue', -3));
+    // makes the stars
     this.scoringObjects.push(new Star(width * 0.45, height * 0.53, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.12, height * 0.39, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.75, height * 0.26, 'star', 1));
