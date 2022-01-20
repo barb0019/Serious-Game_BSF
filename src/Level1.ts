@@ -28,9 +28,6 @@ export default class Level1 extends Level {
     this.makePlatforms();
     // make speedbubbles
     this.speedbubbles(game);
-
-    // Take about 5 seconds on a decent computer to show next item
-    // this.countUntilNextItem = 300;
   }
 
   /**
@@ -46,7 +43,7 @@ export default class Level1 extends Level {
   }
 
   /**
-   *
+   * makes the players
    */
   protected players(): void {
     this.player = [];
@@ -55,7 +52,7 @@ export default class Level1 extends Level {
   }
 
   /**
-   *
+   * make objects in the game
    */
   protected objects(): void {
     const { width } = this.game.canvas;
@@ -109,7 +106,7 @@ export default class Level1 extends Level {
   }
 
   /**
-   * makes the obecjcts and platforms move
+   * makes the objects and platforms move
    */
   // eslint-disable-next-line class-methods-use-this
   public allMove(): void {}
