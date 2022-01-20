@@ -37,9 +37,9 @@ export default class Level1 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
-    this.speedBubble.push(new SpeedBubble(game, 'kinderen geven soms €200 aan skins op fortnite', 75, 550, 300, 100));
-    this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen speelt meer dan 6 uur fortnite ', 300, 770, 300, 100));
-    this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen geven wekelijks geld uit aan fortnite', 500, 200, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, 'kinderen geven soms €200 uit aan skins op fortnite', 75, 550, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen speelt fortnite voor meer dan 6 uur ', 300, 770, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen geeft geld uit aan skinds andere dingen', 500, 200, 300, 100));
   }
 
   /**
