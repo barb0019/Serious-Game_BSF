@@ -33,7 +33,7 @@ export default class Shop extends Scene {
         }
         for (let i = 0; i < this.buttons.length; i++) {
             this.buttons[i].style.position = 'absolute';
-            this.buttons[i].innerHTML = 'Buy';
+            this.buttons[i].innerHTML = 'Koop';
             this.buttons[i].style.top = `${window.innerHeight / 1.4 + 10}px`;
             this.buttons[i].style.fontSize = '20px';
             this.buttons[i].style.fontWeight = 'bold';
@@ -43,7 +43,7 @@ export default class Shop extends Scene {
             });
             for (let j = 0; j < this.game.getBoughtItems().length; j++) {
                 if (i === this.game.getBoughtItems()[j]) {
-                    this.buttons[i].innerHTML = 'Bought';
+                    this.buttons[i].innerHTML = 'Gekocht!';
                 }
             }
             document.body.appendChild(this.buttons[i]);
@@ -58,7 +58,7 @@ export default class Shop extends Scene {
     }
     buy(itemNumber) {
         if (this.credits <= 0) {
-            console.log('not enough credits');
+            console.log('Niet genoeg credits!');
             return;
         }
         for (let i = 0; i < this.buttons.length; i++) {
@@ -70,7 +70,7 @@ export default class Shop extends Scene {
         console.log(`item bought, number ${itemNumber}`);
         this.game.setBoughtItems(itemNumber);
         this.credits -= 1;
-        this.buttons[itemNumber].innerHTML = 'Bought';
+        this.buttons[itemNumber].innerHTML = 'Gekocht!';
         this.makeItemPopUp(itemNumber);
         if (itemNumber === 2) {
             this.buttons[itemNumber].innerHTML = 'hehe';
@@ -89,7 +89,7 @@ export default class Shop extends Scene {
         document.body.appendChild(this.itemPopUps[currentItem]);
         this.itemPopUps[currentItem].style.position = 'absolute';
         this.itemPopUps[currentItem].style.left = `${(window.innerWidth / this.buttons.length) * itemNumber + 150 - canvasOffshoot}px`;
-        this.itemPopUps[currentItem].style.top = `${window.innerHeight / 2 / 1.1}px`;
+        this.itemPopUps[currentItem].style.top = `${window.innerHeight / 5 / 1.1}px`;
         this.itemPopUps[currentItem].style.fontSize = '20px';
         this.itemPopUps[currentItem].style.maxWidth = `${window.innerWidth / this.buttons.length / 1.3}px`;
         this.itemPopUps[currentItem].style.fontWeight = 'bold';

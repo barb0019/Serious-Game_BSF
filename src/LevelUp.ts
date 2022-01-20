@@ -37,7 +37,7 @@ export default class LevelUp extends Scene {
     }
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
       this.toShop = true;
-      Game.pause(this.game.getUser().getLevel()-1);
+      Game.pause(this.game.getUser().getLevel() - 1);
     }
   }
 
@@ -61,10 +61,10 @@ export default class LevelUp extends Scene {
     }
     if (this.shouldStart && this.game.getUser().getLevel() + 1 <= 2) {
       // this.levelArray.splice(0, 1);
-      Game.pause(this.game.getUser().getLevel()-1);
+      Game.pause(this.game.getUser().getLevel() - 1);
       this.game.getUser().increaseLevel();
-      if(MuteButton.muted === false) {
-      Game.play(this.game.getUser().getLevel()-1);
+      if (MuteButton.muted === false) {
+        Game.play(this.game.getUser().getLevel() - 1);
       }
       return this.game.getCurrentLevel();
     } if (this.shouldStart && this.game.getUser().getLevel() < 4) {
