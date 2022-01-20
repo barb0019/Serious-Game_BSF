@@ -19,9 +19,9 @@ export default class Level1 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
-        this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
-        this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
-        this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, 'kinderen geven soms €200 aan skins op fortnite', 100, 550, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen speelt meer dan 6 uur fortnite ', 350, 770, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, '40% van de kinderen geven wekelijks geld uit aan fortnite', 350, 1100, 300, 100));
     }
     players() {
         this.player = [];
