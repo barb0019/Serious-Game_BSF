@@ -45,11 +45,10 @@ export default class Level2 extends Level {
   }
 
   /**
-   *
+   * Creates the players
    */
   protected players(): void {
     this.player = [];
-    // Create player
     this.player.push(new PlayerRed(150, this.game.canvas.height, this.game));
     this.player.push(new PlayerBlue(200, this.game.canvas.height, this.game));
   }
@@ -91,7 +90,7 @@ export default class Level2 extends Level {
   public makePlatforms(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
-    console.log(height);
+
 
     this.platform = [];
 
@@ -109,7 +108,6 @@ export default class Level2 extends Level {
     this.platform.push(new Platform(width * 0.75, height * 0.2, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     // creates the bottom right platform
     this.platform.push(new Platform(width * 0.75, height * 0.5, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-    console.log('LEVEL2');
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
     this.platform.push(new Platform(width / 4, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));

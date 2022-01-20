@@ -22,7 +22,7 @@ export default class MuteButton extends InteractingItems {
 
 
   /**
-   *
+   * makes the mute button
    */
   public makeButton():void {
     const muteButton = document.createElement('img');

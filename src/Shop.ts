@@ -150,6 +150,7 @@ export default class Shop extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {
       this.continueGame = true;
+
       if (MuteButton.muted === false) {
         Game.play(this.game.getUser().getLevel() + 1);
       }
