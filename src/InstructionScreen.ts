@@ -99,7 +99,7 @@ export default class InstructionScreen extends Scene {
     this.game.writeTextToCanvas('deze vijanden zijn in echte games geldeenheden  of lootboxen', height * 0.027, width * 0.79, height * 0.50, 'center', 'black');
     this.game.writeTextToCanvas('je mag alleen de vijanden raken als je dezelfde kleur hebt als deze vijand', height * 0.027, width * 0.76, height * 0.60, 'center', 'black');
     this.game.writeTextToCanvas('➡️', height * 0.027, width * 0.82, height * 0.69, 'center', 'black');
-    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/playerBlueKidLookRight.png'), width * 0.79, height * 0.65);
+    this.game.ctx.drawImage(Game.loadNewImage('./assets/img/player/BlueKidLookRight.png'), width * 0.79, height * 0.65);
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/enemies/packred.png'), width * 0.70, height * 0.65);
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/enemies/packblue.png'), width * 0.83, height * 0.65);
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/player/RedKid2.png'), width * 0.74, height * 0.65);
