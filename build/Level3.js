@@ -18,9 +18,9 @@ export default class Level3 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
-        this.speedBubble.push(new SpeedBubble(game, 'Zijn in-game aankopen je geld wel waard?', 520, 290, 100, 500));
-        this.speedBubble.push(new SpeedBubble(game, 'Ookal zijn games zoals fortnite gratis geven 10-12 jarige er veel geld aan uit  ', 520, 290, 100, 500));
-        this.speedBubble.push(new SpeedBubble(game, 'Zijn alle in-game aankopen slecht', 520, 290, 100, 500));
+        this.speedBubble.push(new SpeedBubble(game, 'Zijn alle in-game aankopen je geld wel waard?', 520, 290, 100, 500));
+        this.speedBubble.push(new SpeedBubble(game, 'Games als Fortnite zijn gratis, en toch geven mensen er meer geld aan uit dan een nieuwe game?!', 520, 290, 100, 500));
+        this.speedBubble.push(new SpeedBubble(game, 'Door te gamen leren kinderen 23% effectiever dan boeken te lezen!', 520, 290, 100, 500));
     }
     players() {
         this.player = [];
