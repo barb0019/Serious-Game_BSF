@@ -84,7 +84,7 @@ export default class UserData {
    *
    * @param boolean true or false
    */
-  public setDeadorNot(boolean:boolean):void {
+  public setDeadOrNot(boolean:boolean):void {
     this.alive = boolean;
   }
 }

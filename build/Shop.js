@@ -65,7 +65,6 @@ export default class Shop extends Scene {
                 return;
             }
         }
-        console.log(`item bought, number ${itemNumber}`);
         this.game.setBoughtItems(itemNumber);
         this.credits -= 1;
         this.buttons[itemNumber].innerHTML = 'Gekocht!';

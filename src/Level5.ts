@@ -107,7 +107,7 @@ export default class Level5 extends Level {
   /**
    * checks if the pressureplates are hit
    */
-  protected checksIfPressureOnthePlate(): void {
+  protected checksIfPressureOnThePlate(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     if (this.player[0].collidesWith(this.pressurePlate[0])

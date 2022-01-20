@@ -7,13 +7,13 @@ export default class Start extends Scene {
     shouldStart;
     keyboard;
     levelsArray;
-    instructionscreen;
+    instructionScreen;
     constructor(game) {
         super(game);
         game.reset();
         this.keyboard = new KeyListener();
         this.shouldStart = false;
-        this.instructionscreen = false;
+        this.instructionScreen = false;
     }
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
@@ -23,7 +23,7 @@ export default class Start extends Scene {
             }
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_W)) {
-            this.instructionscreen = true;
+            this.instructionScreen = true;
         }
     }
     update() {
@@ -33,7 +33,7 @@ export default class Start extends Scene {
             }
             return this.game.getCurrentLevel();
         }
-        if (this.instructionscreen) {
+        if (this.instructionScreen) {
             if (this.game.getCurrentLevel().hasWon()) {
                 this.levelsArray.splice(0, 1);
             }
