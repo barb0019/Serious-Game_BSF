@@ -30,8 +30,7 @@ export default class MuteButton extends InteractingItems {
             }
         });
     }
-    draw(ctx) {
-        ctx.drawImage(Game.loadNewImage('./assets/img/UnMute.png'), this.xPos, this.yPos, 60, 32);
+    draw() {
     }
 }
 //# sourceMappingURL=MuteButton.js.map
