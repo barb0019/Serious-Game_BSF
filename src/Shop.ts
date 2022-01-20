@@ -193,6 +193,3 @@ export default class Shop extends Scene {
  * @param arg6
  * @param arg7
  */
-function enter(arg0: string, enter: any, arg2: string, arg3: number, arg4: number, arg5: number, arg6: string, arg7: string) {
-  throw new Error('Function not implemented.');
-}
