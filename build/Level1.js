@@ -8,7 +8,6 @@ import Star from './Star.js';
 import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
-import PopUp from './PopUp.js';
 export default class Level1 extends Level {
     constructor(game) {
         super(game);
@@ -21,7 +20,6 @@ export default class Level1 extends Level {
         document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/Desert-BackgroundStart.png)';
     }
     createPopUps() {
-        this.popUps.push(new PopUp(100, window.innerHeight * 0.9, 'cats are neat', this.game, this.player));
     }
     speedbubbles(game) {
         this.speedBubble = [];

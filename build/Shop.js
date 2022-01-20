@@ -94,26 +94,24 @@ export default class Shop extends Scene {
         this.itemPopUps[currentItem].style.textShadow = '1px 1px 1px white';
     }
     update() {
-        if (this.continueGame && this.game.getUser().getLevel() <= 4) {
+        if (this.continueGame && this.game.getUser().getLevel() <= 5) {
             this.game.getUser().increaseLevel();
-            for (let i = 0; i < this.buttons.length; i++) {
-                this.buttons[i].innerHTML = '';
-            }
-            for (let i = 0; i < this.itemPopUps.length; i++) {
-                this.itemPopUps[i].innerHTML = '';
-            }
+            this.resetText();
             return this.game.getCurrentLevel();
         }
-        if (this.continueGame && this.game.getUser().getLevel() < 4) {
-            for (let i = 0; i < this.buttons.length; i++) {
-                this.buttons[i].innerHTML = '';
-            }
-            for (let i = 0; i < this.itemPopUps.length; i++) {
-                this.itemPopUps[i].innerHTML = '';
-            }
+        if (this.continueGame) {
+            this.resetText();
             return new WinScreen(this.game);
         }
         return null;
+    }
+    resetText() {
+        for (let i = 0; i < this.buttons.length; i++) {
+            this.buttons[i].innerHTML = '';
+        }
+        for (let i = 0; i < this.itemPopUps.length; i++) {
+            this.itemPopUps[i].innerHTML = '';
+        }
     }
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {

@@ -40,7 +40,7 @@ export default class LevelUp extends Scene {
             this.game.getUser().increaseLevel();
             return this.game.getCurrentLevel();
         }
-        if (this.shouldStart && this.game.getUser().getLevel() < 5) {
+        if (this.shouldStart) {
             return new WinScreen(this.game);
         }
         return null;
