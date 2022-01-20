@@ -252,11 +252,11 @@ export default abstract class Player extends GameItem {
   }
 
   // abstract move(canvas: HTMLCanvasElement): void;
-/**
- *checks if it the player collides with a object
- *
- * @param other game items
- */
+  /**
+   *checks if it the player collides with a object
+   *
+   * @param other game items
+   */
   abstract collidesWith(other: GameItem | SpeedBubble | InteractingItems): boolean;
 
   /**

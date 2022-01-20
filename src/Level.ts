@@ -182,9 +182,9 @@ export default abstract class Level extends Scene {
     return null;
   }
 
-/**
- * calls al objects that moves
- */
+  /**
+   * calls al objects that moves
+   */
   abstract allMove():void;
 
   /**
