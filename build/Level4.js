@@ -18,6 +18,7 @@ export default class Level4 extends Level {
         this.makePlatforms();
         this.speedbubbles(game);
         this.checksIfPressureOnthePlate();
+        document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/ForestBackground.jpg)';
     }
     speedbubbles(game) {
         this.speedBubble = [];
