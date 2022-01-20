@@ -29,6 +29,8 @@ export default class Level4 extends Level {
     // make speedbubbles
     this.speedbubbles(game);
     this.checksIfPressureOnthePlate();
+
+    document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/ForestBackground.jpg)';
     // Take about 5 seconds on a decent computer to show next item
     // this.countUntilNextItem = 300;
 
