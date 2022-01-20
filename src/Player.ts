@@ -40,6 +40,8 @@ export default abstract class Player extends GameItem {
 
   private static readonly animationSpeed: number = 7;
 
+  private jumpSoundCooldown: number = 0;
+
   /**
    * intilize the class player
    *
@@ -283,6 +285,9 @@ export default abstract class Player extends GameItem {
    */
   public move(canvas: HTMLCanvasElement): void {
     this.loadImages();
+    if (this.jumpSoundCooldown < 30) {
+      this.jumpSoundCooldown += 1;
+    }
     let keys = [];
     const klisten = KeyListener;
     if (this.getType() === 'blue') {
@@ -320,7 +325,10 @@ export default abstract class Player extends GameItem {
     if (this.keyBoard.isKeyDown(keys[2]) && this.yPos > minY) {
       if (this.onPlatform) {
         if (MuteButton.muted === false) {
-          this.jumpMusic();
+          if (this.jumpSoundCooldown % 30 === 0) {
+            this.jumpMusic();
+            this.jumpSoundCooldown = 0;
+          }
         }
         this.isJumping = true;
         this.setOnPlatform(false);
