@@ -27,8 +27,6 @@ export default class Level1 extends Level {
     objects() {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
-        console.log(width);
-        console.log(height);
         this.door = new Door(width * 0.91, 50, 'DoubleDoor0');
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(width * 0.5, height * 0.16, 'blue', -3, this.game));

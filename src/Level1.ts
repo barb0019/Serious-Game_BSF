@@ -62,8 +62,7 @@ export default class Level1 extends Level {
   protected objects(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
-    console.log(width);
-    console.log(height);
+
     // makes the door
     this.door = new Door(width * 0.91, 50, 'DoubleDoor0');
     this.scoringObjects = [];
