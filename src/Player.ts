@@ -153,8 +153,8 @@ export default abstract class Player extends GameItem {
     if (!this.onPlatform) {
       this.yPos -= this.jumpHeight;
     } else {
-      if(MuteButton.muted ===false){
-      this.jumpMusic();
+      if (MuteButton.muted === false) {
+        this.jumpMusic();
       }
       this.isJumping = false;
     }
