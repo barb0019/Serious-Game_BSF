@@ -25,7 +25,7 @@ export default class Level1 extends Level {
         this.speedBubble = [];
         this.speedBubble.push(new SpeedBubble(game, 'Wist je dat 10-12 jarigen elk jaar gemiddeld €200 uitgeven aan in-game aankopen?', this.game.canvas.height * 0.2, this.game.canvas.width * 0.13, 100, 500));
         this.speedBubble.push(new SpeedBubble(game, 'Wist je dat bijna de helft van alle fortnite spelers meer dan 6 uur achter elkaar speelt?', this.game.canvas.height * 0.13, this.game.canvas.width * 0.73, 300, 100));
-        this.speedBubble.push(new SpeedBubble(game, 'Wist je dat, van alle gamers, kinderen het vaakst in-game aankopen doen?', this.game.canvas.height * 0.32, this.game.canvas.width * 0.42, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, 'Wist je dat, van alle gamers, kinderen het vaakst in-game aankopen doen?', this.game.canvas.height * 0.32, this.game.canvas.width * 0.36, 300, 100));
     }
     players() {
         this.player = [];
