@@ -34,8 +34,8 @@ export default class Start extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
       this.shouldStart = true;
-      if(MuteButton.muted === false) {
-      Game.play(this.game.getUser().getLevel()-1);
+      if (MuteButton.muted === false) {
+        Game.play(this.game.getUser().getLevel() - 1);
       }
     }
     if (this.keyboard.isKeyDown(KeyListener.KEY_W)) {
@@ -65,7 +65,7 @@ export default class Start extends Scene {
       }
       return this.game.getCurrentLevel();
     }
-     if (this.instructionscreen) {
+    if (this.instructionscreen) {
       if (this.game.getCurrentLevel().hasWon()) {
         this.levelsArray.splice(0, 1);
         // this.levelsArray.hasWon = false;
