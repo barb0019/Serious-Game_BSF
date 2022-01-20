@@ -14,7 +14,7 @@ export default class Platform {
 
   private player: Player;
 
-  private walljumpCheck: number;
+  private wallJumpCheck: number;
 
   private timer: number;
 
@@ -42,7 +42,7 @@ export default class Platform {
     this.height = height;
     this.img = img;
     // walljumping is off by default
-    this.walljumpCheck = 10;
+    this.wallJumpCheck = 10;
     this.timer = 0;
     this.flyingSpeed = 2;
   }
@@ -88,8 +88,8 @@ export default class Platform {
   private checkPixelAbovePlatform(player: Player): boolean {
     // the 1 checks for the pixel above the platform
     if (this.xPos < player.getXPos() + player.getImageWidth()
-      + player.getXVel() - this.walljumpCheck
-      && this.xPos + this.width > player.getXPos() - player.getXVel() + this.walljumpCheck
+      + player.getXVel() - this.wallJumpCheck
+      && this.xPos + this.width > player.getXPos() - player.getXVel() + this.wallJumpCheck
       && this.yPos < player.getYPos() + player.getImageHeight() + 1
       && this.yPos + this.height > player.getYPos()) {
       player.setGravity(0);
@@ -106,8 +106,8 @@ export default class Platform {
    */
   public wallJumping(onOrOff: boolean): void {
     if (onOrOff) {
-      this.walljumpCheck = 0;
-    } else this.walljumpCheck = 10;
+      this.wallJumpCheck = 0;
+    } else this.wallJumpCheck = 10;
   }
 
   /**

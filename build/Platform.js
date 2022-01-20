@@ -5,7 +5,7 @@ export default class Platform {
     height;
     img;
     player;
-    walljumpCheck;
+    wallJumpCheck;
     timer;
     flyingSpeed;
     gameItem;
@@ -15,7 +15,7 @@ export default class Platform {
         this.width = width;
         this.height = height;
         this.img = img;
-        this.walljumpCheck = 10;
+        this.wallJumpCheck = 10;
         this.timer = 0;
         this.flyingSpeed = 2;
     }
@@ -37,8 +37,8 @@ export default class Platform {
     }
     checkPixelAbovePlatform(player) {
         if (this.xPos < player.getXPos() + player.getImageWidth()
-            + player.getXVel() - this.walljumpCheck
-            && this.xPos + this.width > player.getXPos() - player.getXVel() + this.walljumpCheck
+            + player.getXVel() - this.wallJumpCheck
+            && this.xPos + this.width > player.getXPos() - player.getXVel() + this.wallJumpCheck
             && this.yPos < player.getYPos() + player.getImageHeight() + 1
             && this.yPos + this.height > player.getYPos()) {
             player.setGravity(0);
@@ -49,10 +49,10 @@ export default class Platform {
     }
     wallJumping(onOrOff) {
         if (onOrOff) {
-            this.walljumpCheck = 0;
+            this.wallJumpCheck = 0;
         }
         else
-            this.walljumpCheck = 10;
+            this.wallJumpCheck = 10;
     }
     moveX() {
         this.xPos += this.flyingSpeed;

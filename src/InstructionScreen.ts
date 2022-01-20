@@ -76,7 +76,6 @@ export default class InstructionScreen extends Scene {
 
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
-    // this.game.writeTextToCanvas('Monsters and Legends', 128, centerX, 250, 'center', 'black');
 
     this.game.ctx.drawImage(Game.loadNewImage('https://media1.thehungryjpeg.com/thumbs2/ori_70842_a6fd8ffd7deeb1c56dbcdd154755b5105b7de5e7_seamless-abstract-background-png-jpg.jpg'), 0, 0, width, height);
     this.game.writeTextToCanvas('uitleg instructies', 128, centerX, height * 0.15, 'center', 'black');

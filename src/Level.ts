@@ -103,7 +103,7 @@ export default abstract class Level extends Scene {
         const collides = player.collidesWith(element);
         if (collides) {
           this.game.getUser().addScore(element.getScore());
-          this.game.getUser().setDeadorNot(element.getAlive());
+          this.game.getUser().setDeadOrNot(element.getAlive());
           if (element instanceof PowerUp) {
             const powerUp = element as PowerUp;
             powerUp.applyTo(player);
@@ -139,7 +139,7 @@ export default abstract class Level extends Scene {
    * check if the player collide with pressure plate
    */
   // eslint-disable-next-line class-methods-use-this
-  protected checksIfPressureOnthePlate():void {}
+  protected checksIfPressureOnThePlate():void {}
 
   /**
    * Advances the game simulation one step. It may run AI and physics (usually
@@ -197,7 +197,7 @@ export default abstract class Level extends Scene {
     this.player.forEach((element) => {
       element.increaseGravity();
     });
-    this.checksIfPressureOnthePlate();
+    this.checksIfPressureOnThePlate();
 
     for (let i = 0; i < this.platform.length; i++) {
       this.platform[i].collidesWith(this.player[0]);

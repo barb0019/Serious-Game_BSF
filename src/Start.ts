@@ -12,7 +12,7 @@ export default class Start extends Scene {
 
   private levelsArray: Level[];
 
-  private instructionscreen:boolean;
+  private instructionScreen:boolean;
 
   /**
    * Creates a new instance of this class
@@ -24,7 +24,7 @@ export default class Start extends Scene {
     game.reset();
     this.keyboard = new KeyListener();
     this.shouldStart = false;
-    this.instructionscreen = false;
+    this.instructionScreen = false;
   }
 
   /**
@@ -38,7 +38,7 @@ export default class Start extends Scene {
       }
     }
     if (this.keyboard.isKeyDown(KeyListener.KEY_W)) {
-      this.instructionscreen = true;
+      this.instructionScreen = true;
     }
   }
 
@@ -64,7 +64,7 @@ export default class Start extends Scene {
       }
       return this.game.getCurrentLevel();
     }
-    if (this.instructionscreen) {
+    if (this.instructionScreen) {
       if (this.game.getCurrentLevel().hasWon()) {
         this.levelsArray.splice(0, 1);
         // this.levelsArray.hasWon = false;

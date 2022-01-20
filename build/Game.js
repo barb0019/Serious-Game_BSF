@@ -19,7 +19,7 @@ export default class Game {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         Game.music = [];
-        this.makemusic();
+        this.makeMusic();
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.boughtItems = [];
@@ -29,7 +29,7 @@ export default class Game {
         const { height } = this.canvas;
         this.button = new MuteButton(width * 0.75, height * 0.56, 'button', this);
     }
-    makemusic() {
+    makeMusic() {
         Game.music.push(new Audio('./assets/music/04 - Overworld Day.mp3'));
         Game.music.push(new Audio('./assets/music/07 - Overworld Night.mp3'));
         Game.music.push(new Audio('./assets/music/09 - Underground.mp3'));
