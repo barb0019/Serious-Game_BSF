@@ -26,7 +26,7 @@ export default class Player extends GameItem {
         this.game = game;
         Player.gravityIncrease = game.canvas.height * 0.00025;
         this.jumpHeight = Player.gravityIncrease * 50;
-        this.xVel = 5;
+        this.xVel = this.game.canvas.width * 0.00326;
         this.keyBoard = new KeyListener();
         this.xPosPrevious = [];
         this.yPosPrevious = [];
