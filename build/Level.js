@@ -1,7 +1,6 @@
 import Game from './Game.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
-import PowerUp from './PowerUp.js';
 import Scene from './Scene.js';
 export default class Level extends Scene {
     scoringObjects;
@@ -32,10 +31,6 @@ export default class Level extends Scene {
             if (collides) {
                 this.game.getUser().addScore(element.getScore());
                 this.game.getUser().setDeadOrNot(element.getAlive());
-                if (element instanceof PowerUp) {
-                    const powerUp = element;
-                    powerUp.applyTo(player);
-                }
             }
             return !collides;
         });

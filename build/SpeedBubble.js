@@ -6,7 +6,7 @@ export default class SpeedBubble extends Enemies {
     width;
     height;
     constructor(game, text, yCoordinate, xCoordinate, width, height) {
-        super('./assets/img/textcloud.png', xCoordinate, yCoordinate, 0, 'speedbubble', true, game);
+        super('./assets/img/interactingitems/textcloud.png', xCoordinate, yCoordinate, 0, 'speedbubble', true, game);
         this.text = text;
         this.width = width;
         this.height = height;

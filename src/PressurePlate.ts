@@ -11,8 +11,8 @@ export default class PressurePlate extends InteractingItems {
    * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
-    super(xPos, yPos, type, './assets/img/ButtonNeutralYellow.png');
-    this.img = Game.loadNewImage('./assets/img/ButtonNeutralYellow.png');
+    super(xPos, yPos, type, './assets/img/interactingitems/ButtonNeutralYellow.png');
+    this.img = Game.loadNewImage('./assets/img/interactingitems/ButtonNeutralYellow.png');
   }
 
   /**
@@ -23,7 +23,7 @@ export default class PressurePlate extends InteractingItems {
    */
   public draw(ctx: CanvasRenderingContext2D, player:Player[]): void {
     if (player[0].collidesWith(this) || player[1].collidesWith(this)) {
-      ctx.drawImage(Game.loadNewImage('./assets/img/ButtonEndForest.png'), this.xPos, this.yPos, 60, 32);
+      ctx.drawImage(Game.loadNewImage('./assets/img/interactingitems/ButtonEndForest.png'), this.xPos, this.yPos, 60, 32);
     } else {
       ctx.drawImage(this.img, this.xPos, this.yPos, 60, 32);
     }
