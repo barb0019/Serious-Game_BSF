@@ -96,7 +96,7 @@ export default class Player extends GameItem {
         const boughtItems = this.game.getBoughtItems();
         for (let i = 0; i < boughtItems.length; i++) {
             if (boughtItems[i] === 0) {
-                this.jumpHeight *= 1.1;
+                this.jumpHeight *= 1.075;
             }
             if (boughtItems[i] === 1) {
                 this.xVel *= 1.1;
