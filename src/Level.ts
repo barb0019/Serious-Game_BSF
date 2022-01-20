@@ -182,8 +182,14 @@ export default abstract class Level extends Scene {
     return null;
   }
 
+/**
+ * calls al objects that moves
+ */
   abstract allMove():void;
 
+  /**
+   * calls al collides in the levels
+   */
   private allCollides() :void {
     this.player.forEach((element) => {
       element.increaseGravity();
@@ -208,8 +214,6 @@ export default abstract class Level extends Scene {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
 
-    // console.log(this.speedBubble.getXPos(),this.speedBubble.getYPos())
-
     // Show score
     const score = `Sterren: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);
@@ -225,12 +229,10 @@ export default abstract class Level extends Scene {
     for (let i = 0; i < this.pressurePlate.length; i++) {
       this.pressurePlate[i].draw(this.game.ctx, this.player);
     }
-    // this.button.draw(this.game.ctx);
     this.door.draw(this.game.ctx, this.player);
     for (let i = 0; i < this.speedBubble.length; i++) {
       if (this.player[0].collidesWith(this.speedBubble[i])
         || this.player[1].collidesWith(this.speedBubble[i])) {
-        // console.log(this.speedBubble);
         this.speedBubble[i].render();
       }
     }
