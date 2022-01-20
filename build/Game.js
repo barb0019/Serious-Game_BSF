@@ -34,7 +34,7 @@ export default class Game {
         Game.music.push(new Audio('./assets/music/07 - Overworld Night.mp3'));
         Game.music.push(new Audio('./assets/music/09 - Underground.mp3'));
         Game.music.push(new Audio('./assets/music/21 - Boss 3.mp3'));
-        Game.music.push(new Audio(`./assets/music/22 - Old One's Army.mp3`));
+        Game.music.push(new Audio('./assets/music/22 - Old One\'s Army.mp3'));
     }
     setBoughtItems(itemNumber) {
         this.boughtItems.push(itemNumber);
