@@ -27,7 +27,7 @@ export default abstract class Enemies extends ScoringObject {
   }
 
   /**
-   *
+   * check if you bought the items
    */
   public checkBoughtItems(): void {
     const boughtItems = this.game.getBoughtItems();
@@ -39,7 +39,7 @@ export default abstract class Enemies extends ScoringObject {
   }
 
   /**
-   *
+   * move the enemies
    */
   // eslint-disable-next-line class-methods-use-this
   public move(): void {}
