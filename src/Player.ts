@@ -274,7 +274,7 @@ export default abstract class Player extends GameItem {
    */
   // eslint-disable-next-line class-methods-use-this
   protected jumpMusic(): void {
-    const jumpMusic = new Audio('./assets/jumpMusic.mp3');
+    const jumpMusic = new Audio('./assets/music/jumpMusic.mp3');
     jumpMusic.play();
   }
 

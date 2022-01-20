@@ -151,7 +151,7 @@ export default class Player extends GameItem {
         this.xVel += size;
     }
     jumpMusic() {
-        const jumpMusic = new Audio('./assets/jumpMusic.mp3');
+        const jumpMusic = new Audio('./assets/music/jumpMusic.mp3');
         jumpMusic.play();
     }
     move(canvas) {
