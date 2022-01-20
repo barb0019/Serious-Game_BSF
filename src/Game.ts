@@ -47,7 +47,7 @@ export default class Game {
     const { width } = this.canvas;
     const { height } = this.canvas;
 
-    this.button = new MuteButton(width * 0.75, height * 0.56, 'button',this);
+    this.button = new MuteButton(width * 0.75, height * 0.56, 'button', this);
   }
 
   /**
@@ -59,7 +59,7 @@ export default class Game {
     Game.music.push(new Audio('./assets/music/07 - Overworld Night.mp3'));
     Game.music.push(new Audio('./assets/music/09 - Underground.mp3'));
     Game.music.push(new Audio('./assets/music/21 - Boss 3.mp3'));
-    Game.music.push(new Audio(`./assets/music/22 - Old One's Army.mp3`));
+    Game.music.push(new Audio('./assets/music/22 - Old One\'s Army.mp3'));
   }
 
   /**
@@ -154,6 +154,8 @@ export default class Game {
 
   /**
    * plays the music
+   *
+   * @param i
    */
   static play(i:number):void {
     this.music[i].play();
@@ -163,6 +165,8 @@ export default class Game {
 
   /**
    * pause the music
+   *
+   * @param i
    */
   static pause(i:number):void {
     this.music[i].muted = true;
@@ -177,7 +181,7 @@ export default class Game {
    */
   public getCurrentLevel(): Level {
     switch (this.user.getLevel()) {
-      case 1: return new Level1(this);
+      case 1: return new Level5(this);
       case 2: return new Level2(this);
       case 3: return new Level3(this);
       case 4: return new Level4(this);

@@ -35,6 +35,9 @@ export default class WinScreen extends Scene {
    */
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {
+      for (let i = 0; i < 5; i++) {
+        Game.pause(i);
+       }
       this.continueGame = true;
     }
   }

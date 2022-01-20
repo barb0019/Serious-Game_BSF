@@ -27,8 +27,6 @@ export default class Level1 extends Level {
     objects() {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
-        console.log(width);
-        console.log(height);
         this.door = new Door(width * 0.91, 50, 'DoubleDoor0');
         this.scoringObjects = [];
         this.scoringObjects.push(new VBucks(width * 0.5, height * 0.16, 'blue', -3, this.game));
@@ -54,7 +52,6 @@ export default class Level1 extends Level {
         this.platform.push(new Platform(width * 0.4, height * 0.27, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.71, height * 0.37, width * 0.16, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.65, height / 1.5, width * 0.05, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
-        this.platform.push(new Platform(width * 0.81, height / 1.5, width * 0.065, 100, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.25, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));
         this.platform.push(new Platform(width * 0.5, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapDesert2.png')));

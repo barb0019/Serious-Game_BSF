@@ -91,7 +91,6 @@ export default class Level4 extends Level {
   public makePlatforms(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
-    console.log(height);
 
     this.platform = [];
     this.platform.push(new Platform(width * 0.9115, height * 0.154, width * 0.048, 25, Game.loadNewImage('./assets/img/TileMapForest.png')));
@@ -104,7 +103,6 @@ export default class Level4 extends Level {
     // creates the platform before the door
     this.platform.push(new Platform(width * 0.75, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
 
-    console.log('LEVEL2');
     // the ground
     this.platform.push(new Platform(0, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
     this.platform.push(new Platform(width / 4, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
@@ -115,7 +113,7 @@ export default class Level4 extends Level {
   }
 
   /**
-   *
+   *checks if the presureplate is hit
    */
   protected checksIfPressureOnthePlate(): void {
     const { width } = this.game.canvas;
@@ -126,15 +124,12 @@ export default class Level4 extends Level {
       || this.player[1].collidesWith(this.pressurePlate[1])) {
       this.platform[9] = (new Platform(width * 0.163, height * 0.50, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
     } else {
-      // console.log('test');
       this.platform.splice(9, 1);
-      // console.log(this.platform[11])
-      // console.log(this.platform.length);
     }
   }
 
   /**
-   *
+   *makes the pressureplates
    */
   protected makePressurePlates(): void {
     this.pressurePlate = [];
@@ -146,7 +141,7 @@ export default class Level4 extends Level {
   }
 
   /**
-   *moves the platforms
+   *makes the obecjcts and platforms move
    */
   public allMove(): void {
     this.scoringObjects[2].move();

@@ -69,8 +69,6 @@ export default class Level3 extends Level {
     this.scoringObjects = [];
     this.scoringObjects.push(new VBucks(width * 0.88, height * 0.2, 'blue', -3, this.game));
     this.scoringObjects.push(new VBucks(width * 0.463, height * 0.04, 'red', -3, this.game));
-    // this.scoringObjects.push(new FlyingBuck(550, 350, 'flyingbuck', -3, this.game));
-    // this.scoringObjects.push(new VBucks(500, 400, 'moneymonster', -1, this.game));
     this.scoringObjects.push(new VBucks(width * 0.7, height * 0.36, 'finalboss', -3, this.game));
     // First 'barrier' in the middle
     this.scoringObjects.push(new FutPack(width * 0.7, height * 0.81, 'blue', -3));
@@ -128,7 +126,7 @@ export default class Level3 extends Level {
   }
 
   /**
-   *
+   *makes the obecjcts and platforms move
    */
   public allMove(): void {
     this.scoringObjects[2].move();
