@@ -19,6 +19,8 @@ export default class Shop extends Scene {
   private credits: number;
 
   /**
+   * intilize the class shop
+   *
    * @param game THE game
    * @param levelArray the array of the levels within
    */
@@ -32,6 +34,9 @@ export default class Shop extends Scene {
     this.makingButtons();
   }
 
+  /**
+   * makes the buttons
+   */
   private makingButtons(): void {
     this.buttons = [];
     const shoplist = ['jumpboost', 'speedboost', 'enemyIncrease', 'enemyBuff'];
@@ -64,6 +69,9 @@ export default class Shop extends Scene {
     this.buttonPos();
   }
 
+  /**
+   * set the position on the right spot in the shop
+   */
   private buttonPos() {
     const canvasOffshoot = 10;
     for (let i = 0; i < this.buttons.length; i++) {
@@ -71,28 +79,36 @@ export default class Shop extends Scene {
     }
   }
 
+  /**
+   * checks if you can buy an item
+   *
+   * @param itemNumber number of the item
+   */
   // eslint-disable-next-line class-methods-use-this
   private buy(itemNumber: number): void {
     if (this.credits <= 0) {
-      console.log('Niet genoeg credits!');
       return;
     }
     for (let i = 0; i < this.buttons.length; i++) {
       if (itemNumber === this.game.getBoughtItems()[i]) {
-        console.log(`item number ${itemNumber} has already been bought`);
         return;
       }
     }
     console.log(`item bought, number ${itemNumber}`);
     this.game.setBoughtItems(itemNumber);
     this.credits -= 1;
-    this.buttons[itemNumber].innerHTML = 'Gekcht!';
+    this.buttons[itemNumber].innerHTML = 'Gekocht!';
     this.makeItemPopUp(itemNumber);
     if (itemNumber === 2) {
       this.buttons[itemNumber].innerHTML = 'hehe';
     }
   }
 
+  /**
+   * if you buy something you will get some text about the item you bought
+   *
+   * @param itemNumber number of the item
+   */
   private makeItemPopUp(itemNumber: number) {
     const canvasOffshoot = 10;
     const itemPopUpText: string[] = [
@@ -111,12 +127,11 @@ export default class Shop extends Scene {
     this.itemPopUps[currentItem].style.fontSize = '20px';
     this.itemPopUps[currentItem].style.maxWidth = `${window.innerWidth / this.buttons.length / 1.3}px`;
     this.itemPopUps[currentItem].style.fontWeight = 'bold';
-    // this.itemPopUps[currentItem].style.backgroundImage = 'url(https://media1.thehungryjpeg.com/thumbs2/ori_70842_a6fd8ffd7deeb1c56dbcdd154755b5105b7de5e7_seamless-abstract-background-png-jpg.jpg)';
-
     this.itemPopUps[currentItem].innerHTML = itemPopUpText[itemNumber];
   }
 
   /**
+   *update the shop
    *
    * @returns The level
    */
@@ -158,7 +173,7 @@ export default class Shop extends Scene {
   }
 
   /**
-   *
+   * render the shop
    */
   public render(): void {
     const { canvas } = this.game;
@@ -176,21 +191,8 @@ export default class Shop extends Scene {
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.57, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
     this.game.ctx.drawImage(Game.loadNewImage('./assets/img/Bird.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.81, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
 
-    // shop.writeTextToCanvas('T', 20, canvas.width / 4, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.4, 'center', 'black');
-    // shop.writeTextToCanvas('Y', 20, canvas.width * 0.5, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('SUPER-WOW-BIG-COOL-OMEGA-GIANT-SUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.4, 'center', 'black');
-    // shop.writeTextToCanvas('U', 20, canvas.width * 0.75, canvas.height / 1.4, 'center', 'black');
     shop.writeTextToCanvas('Speedy "E"s', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.4, 'center', 'black');
   }
 }
-/**
- * @param arg0
- * @param enter
- * @param arg2
- * @param arg3
- * @param arg4
- * @param arg5
- * @param arg6
- * @param arg7
- */
