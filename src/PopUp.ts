@@ -15,7 +15,7 @@ export default class PopUp {
   private text: string;
 
   /**
-   * @param xPos
+   * @param xPos the x position of  pop up
    * @param yPos
    * @param text
    * @param game
