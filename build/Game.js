@@ -34,7 +34,7 @@ export default class Game {
         Game.music.push(new Audio('./assets/music/07 - Overworld Night.mp3'));
         Game.music.push(new Audio('./assets/music/09 - Underground.mp3'));
         Game.music.push(new Audio('./assets/music/21 - Boss 3.mp3'));
-        Game.music.push(new Audio('./assets/music/22 - Old One\'s Army.mp3'));
+        Game.music.push(new Audio(`./assets/music/22 - Old One's Army.mp3`));
     }
     setBoughtItems(itemNumber) {
         this.boughtItems.push(itemNumber);
@@ -65,14 +65,14 @@ export default class Game {
     static randomNumber(min, max) {
         return Math.round(Math.random() * (max - min) + min);
     }
-    static play(numb) {
-        this.music[numb].play();
-        this.music[numb].loop = true;
-        this.music[numb].muted = false;
+    static play(i) {
+        this.music[i].play();
+        this.music[i].loop = true;
+        this.music[i].muted = false;
     }
-    static pause(number) {
-        this.music[number].muted = true;
-        this.music[number].pause();
+    static pause(i) {
+        this.music[i].muted = true;
+        this.music[i].pause();
     }
     getCurrentLevel() {
         switch (this.user.getLevel()) {
