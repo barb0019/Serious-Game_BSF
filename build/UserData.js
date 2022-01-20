@@ -31,7 +31,7 @@ export default class UserData {
     getAlive() {
         return this.alive;
     }
-    setDeadorNot(boolean) {
+    setDeadOrNot(boolean) {
         this.alive = boolean;
     }
 }

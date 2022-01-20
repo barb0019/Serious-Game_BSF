@@ -63,7 +63,7 @@ export default class Level5 extends Level {
         this.platform.push(new Platform(width / 2, height - 150, width / 8, 500, Game.loadNewImage('./assets/img/TileMapForest.png')));
         this.platform.push(new Platform(width * 1.5, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
     }
-    checksIfPressureOnthePlate() {
+    checksIfPressureOnThePlate() {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
         if (this.player[0].collidesWith(this.pressurePlate[0])

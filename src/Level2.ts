@@ -35,7 +35,8 @@ export default class Level2 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
-    // this.speedBubble.push(new SpeedBubble(game, 'dit is een vliegende vbuck ! Pas dus op.', 120, 600, 100, 500));
+    this.speedBubble.push(new SpeedBubble(game, 'Skins voegen niks toe aan je game-ervaring ', 520, 290, 100, 500));
+    this.speedBubble.push(new SpeedBubble(game, 'Extra missies of mappen voegen wel wat toe aan je game-ervaring ', 200, 1100, 100, 500));
   }
 
   /**

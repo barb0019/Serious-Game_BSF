@@ -17,7 +17,7 @@ export default class Level4 extends Level {
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
-        this.checksIfPressureOnthePlate();
+        this.checksIfPressureOnThePlate();
         document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/ForestBackground.jpg)';
     }
     speedbubbles(game) {
@@ -65,7 +65,7 @@ export default class Level4 extends Level {
         this.platform.push(new Platform(width * 0.75, height - 50, width / 4, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
         this.platform.push(new Platform(width * 0.163, height * 0.28, width * 0.13, 50, Game.loadNewImage('./assets/img/TileMapForest.png')));
     }
-    checksIfPressureOnthePlate() {
+    checksIfPressureOnThePlate() {
         const { width } = this.game.canvas;
         const { height } = this.game.canvas;
         if (this.player[0].collidesWith(this.pressurePlate[0])

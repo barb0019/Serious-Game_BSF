@@ -31,7 +31,7 @@ export default class Level extends Scene {
             const collides = player.collidesWith(element);
             if (collides) {
                 this.game.getUser().addScore(element.getScore());
-                this.game.getUser().setDeadorNot(element.getAlive());
+                this.game.getUser().setDeadOrNot(element.getAlive());
                 if (element instanceof PowerUp) {
                     const powerUp = element;
                     powerUp.applyTo(player);
@@ -49,7 +49,7 @@ export default class Level extends Scene {
             this.player[i].move(this.game.canvas);
         }
     }
-    checksIfPressureOnthePlate() { }
+    checksIfPressureOnThePlate() { }
     update(elapsed) {
         this.allCollides();
         if (this.countUntilNextItem <= 0) {
@@ -70,7 +70,7 @@ export default class Level extends Scene {
         this.player.forEach((element) => {
             element.increaseGravity();
         });
-        this.checksIfPressureOnthePlate();
+        this.checksIfPressureOnThePlate();
         for (let i = 0; i < this.platform.length; i++) {
             this.platform[i].collidesWith(this.player[0]);
             this.platform[i].collidesWith(this.player[1]);

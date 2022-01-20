@@ -28,7 +28,7 @@ export default class Level4 extends Level {
     this.makePlatforms();
     // make speedbubbles
     this.speedbubbles(game);
-    this.checksIfPressureOnthePlate();
+    this.checksIfPressureOnThePlate();
 
     document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/ForestBackground.jpg)';
     // Take about 5 seconds on a decent computer to show next item
@@ -117,7 +117,7 @@ export default class Level4 extends Level {
   /**
    *checks if the presureplate is hit
    */
-  protected checksIfPressureOnthePlate(): void {
+  protected checksIfPressureOnThePlate(): void {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
     if (this.player[0].collidesWith(this.pressurePlate[0])
