@@ -4,6 +4,7 @@ import Player from './Player.js';
 
 export default class PlayerBlue extends Player {
   /**
+   * intilize the player blue
    *
    * @param maxX the max value of the X position
    * @param maxY the max value of the X position
@@ -14,6 +15,7 @@ export default class PlayerBlue extends Player {
   }
 
   /**
+   *checks player blue collides with an other object
    *
    * @param other the other GameItem
    * @returns true if this object collides with the specified other object
