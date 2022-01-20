@@ -37,11 +37,9 @@ export default class Level1 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
-    // this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
-    // this.speedBubble.push(new SpeedBubble(game,
-    // 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
-    // this.speedBubble.push(new SpeedBubble(game,
-    // 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
+    this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
   }
 
   /**
