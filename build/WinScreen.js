@@ -1,4 +1,5 @@
 import Scene from './Scene.js';
+import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 import Start from './Start.js';
 export default class WinScreen extends Scene {
@@ -16,6 +17,9 @@ export default class WinScreen extends Scene {
     }
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {
+            for (let i = 0; i < 5; i++) {
+                Game.pause(i);
+            }
             this.continueGame = true;
         }
     }
