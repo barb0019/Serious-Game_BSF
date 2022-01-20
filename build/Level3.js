@@ -15,11 +15,6 @@ export default class Level3 extends Level {
         this.makePlatforms();
         this.speedbubbles(game);
     }
-    makePressurePlates() {
-        this.pressurePlate = [];
-        const { width } = this.game.canvas;
-        const { height } = this.game.canvas;
-    }
     speedbubbles(game) {
         this.speedBubble = [];
     }
