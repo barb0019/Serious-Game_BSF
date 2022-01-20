@@ -136,26 +136,28 @@ export default class Shop extends Scene {
    * @returns The level
    */
   public update(): Scene {
-    if (this.continueGame && this.game.getUser().getLevel() <= 4) {
+    if (this.continueGame && this.game.getUser().getLevel() <= 5) {
       // this.levelArray.splice(0, 1);
       this.game.getUser().increaseLevel();
-      for (let i = 0; i < this.buttons.length; i++) {
-        this.buttons[i].innerHTML = '';
-      }
-      for (let i = 0; i < this.itemPopUps.length; i++) {
-        this.itemPopUps[i].innerHTML = '';
-      }
+      this.resetText();
       return this.game.getCurrentLevel();
-    } if (this.continueGame && this.game.getUser().getLevel() < 4) {
-      for (let i = 0; i < this.buttons.length; i++) {
-        this.buttons[i].innerHTML = '';
-      }
-      for (let i = 0; i < this.itemPopUps.length; i++) {
-        this.itemPopUps[i].innerHTML = '';
-      }
+    } if (this.continueGame) {
+      this.resetText();
       return new WinScreen(this.game);
     }
     return null;
+  }
+
+  /**
+   * resets the text when going to the next level so it isn't visible
+   */
+  private resetText() {
+    for (let i = 0; i < this.buttons.length; i++) {
+      this.buttons[i].innerHTML = '';
+    }
+    for (let i = 0; i < this.itemPopUps.length; i++) {
+      this.itemPopUps[i].innerHTML = '';
+    }
   }
 
   /**

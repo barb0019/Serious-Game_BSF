@@ -67,13 +67,13 @@ export default class LevelUp extends Scene {
         Game.pause(i);
       }
       if (MuteButton.muted === false) {
-        Game.play(this.game.getUser().getLevel() );
+        Game.play(this.game.getUser().getLevel());
       }
       this.game.getUser().increaseLevel();
 
       return this.game.getCurrentLevel();
     }
-    if (this.shouldStart && this.game.getUser().getLevel() < 5) {
+    if (this.shouldStart) {
       return new WinScreen(this.game);
     }
     return null;

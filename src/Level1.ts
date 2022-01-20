@@ -39,7 +39,7 @@ export default class Level1 extends Level {
   }
 
   private createPopUps() {
-    this.popUps.push(new PopUp(100, window.innerHeight * 0.9, 'cats are neat', this.game, this.player));
+    // this.popUps.push(new PopUp(100, window.innerHeight * 0.9, 'cats are neat', this.game, this.player));
   }
 
   /**
