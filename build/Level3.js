@@ -6,6 +6,7 @@ import PlayerBlue from './PlayerBlue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
+import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 export default class Level3 extends Level {
     constructor(game) {
@@ -17,6 +18,9 @@ export default class Level3 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
+        this.speedBubble.push(new SpeedBubble(game, 'Zijn in-game aankopen je geld wel waard?', 520, 290, 100, 500));
+        this.speedBubble.push(new SpeedBubble(game, 'Ookal zijn games zoals fortnite gratis geven 10-12 jarige er veel geld aan uit  ', 520, 290, 100, 500));
+        this.speedBubble.push(new SpeedBubble(game, 'Zijn alle in-game aankopen slecht', 520, 290, 100, 500));
     }
     players() {
         this.player = [];

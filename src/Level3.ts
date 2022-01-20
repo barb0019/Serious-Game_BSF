@@ -35,6 +35,9 @@ export default class Level3 extends Level {
    */
   protected speedbubbles(game: Game):void {
     this.speedBubble = [];
+    this.speedBubble.push(new SpeedBubble(game, 'Zijn in-game aankopen je geld wel waard?', 520, 290, 100, 500));
+    this.speedBubble.push(new SpeedBubble(game, 'Ookal zijn games zoals fortnite gratis geven 10-12 jarige er veel geld aan uit  ', 520, 290, 100, 500));
+    this.speedBubble.push(new SpeedBubble(game, 'Zijn alle in-game aankopen slecht', 520, 290, 100, 500));
   }
 
   /**
