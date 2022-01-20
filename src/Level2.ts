@@ -91,7 +91,6 @@ export default class Level2 extends Level {
     const { width } = this.game.canvas;
     const { height } = this.game.canvas;
 
-
     this.platform = [];
 
     // creates the top left platform

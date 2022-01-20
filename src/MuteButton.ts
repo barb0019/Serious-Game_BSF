@@ -8,18 +8,17 @@ export default class MuteButton extends InteractingItems {
   private game:Game;
 
   /**
-   *
+   *@param game the game
    * @param xPos x position of the mute button
    * @param yPos y position of the door
    * @param type type of the door
    */
-  public constructor(xPos: number, yPos: number, type:string,game:Game) {
+  public constructor(xPos: number, yPos: number, type:string, game:Game) {
     super(xPos, yPos, type, './assets/img/UnMute.png');
     this.makeButton();
     MuteButton.muted = false;
     this.game = game;
   }
-
 
   /**
    * makes the mute button
@@ -36,9 +35,9 @@ export default class MuteButton extends InteractingItems {
       if (MuteButton.muted === true) {
         muteButton.src = './assets/img/UnMuteV2.png';
         MuteButton.muted = false;
-        Game.play(this.game.getUser().getLevel()-1);
+        Game.play(this.game.getUser().getLevel() - 1);
       } else {
-        Game.pause(this.game.getUser().getLevel()-1);
+        Game.pause(this.game.getUser().getLevel() - 1);
         muteButton.src = './assets/img/UnMute.png';
         MuteButton.muted = true;
       }
