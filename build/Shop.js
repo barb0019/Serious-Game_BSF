@@ -21,11 +21,12 @@ export default class Shop extends Scene {
     }
     makingButtons() {
         this.buttons = [];
-        const shoplist = ['jumpboost', 'speedboost', 'enemyIncrease', 'enemyBuff'];
+        const shoplist = ['jumpboost', 'speedboost', 'badSuprisebox', 'enemyBuff', 'skin'];
         this.buttons.push(document.createElement('item1'));
         this.buttons.push(document.createElement('item2'));
         this.buttons.push(document.createElement('item3'));
         this.buttons.push(document.createElement('item4'));
+        this.buttons.push(document.createElement('item5'));
         for (let i = 0; i < this.buttons.length; i++) {
             if (shoplist[i] !== undefined) {
                 this.buttons[i].id = shoplist[i];
@@ -80,6 +81,7 @@ export default class Shop extends Scene {
             'Speedy gonzales modus is ingeschakeld!',
             'Oei miskoop, koop niks waarvan je niet weet wat eruit komt. Je gokt!',
             'De vijanden zijn nu moeilijker om te ontwijken!',
+            'Skins zijn nutteloos niet kopen tenzij je het echt wil',
         ];
         this.itemPopUps.push(document.createElement('boughtItem'));
         const currentItem = this.itemPopUps.length - 1;
@@ -132,12 +134,14 @@ export default class Shop extends Scene {
         shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
         shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.4, 'center', 'black');
         this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.31, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/enemies/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.57, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/Bird.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.81, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 1 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/enemies/lootboxenemy.png'), (canvas.width / this.buttons.length) * 2 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/Bird.png'), (canvas.width / this.buttons.length) * 3 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/player/SkinPurple.png'), (canvas.width / this.buttons.length) * 4 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
         shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.4, 'center', 'black');
-        shop.writeTextToCanvas('SUPER-WOW-BIG-COOL-OMEGA-GIANT-SUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.4, 'center', 'black');
-        shop.writeTextToCanvas('Speedy "E"s', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.4, 'center', 'black');
+        shop.writeTextToCanvas('SUPER-COOL-OMEGA-GIANT-SUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.4, 'center', 'black');
+        shop.writeTextToCanvas('Speedy "E"s', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide + canvas.width * 0.01, canvas.height / 1.4, 'center', 'black');
+        shop.writeTextToCanvas('Skin', 20, (canvas.width / this.buttons.length) * 4 + offLeftSide, canvas.height / 1.4, 'center', 'black');
     }
 }
 //# sourceMappingURL=Shop.js.map

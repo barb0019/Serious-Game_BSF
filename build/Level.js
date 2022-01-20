@@ -10,7 +10,6 @@ export default class Level extends Scene {
     countUntilNextItem;
     door;
     pressurePlate = [];
-    popUps = [];
     constructor(game) {
         super(game);
         this.makePressurePlates();
@@ -72,9 +71,6 @@ export default class Level extends Scene {
         }
         for (let i = 0; i < this.player.length; i++) {
             this.checksIfHit(this.player[i]);
-        }
-        for (let i = 0; i < this.popUps.length; i++) {
-            this.popUps[i].collidesPopUpWithPlayer();
         }
     }
     render() {
