@@ -118,6 +118,10 @@ export default abstract class Player extends GameItem {
     ];
 
     // Pre-loads the images to be changed instantly
+    this.loadImages();
+  }
+
+  private loadImages() {
     for (let i = 0; i < this.walkingLeftRed.length; i++) {
       Game.loadNewImage(this.walkingLeftRed[i]);
       Game.loadNewImage(this.walkingLeftBlue[i]);
@@ -282,6 +286,7 @@ export default abstract class Player extends GameItem {
    * @param canvas the canvas of the game
    */
   public move(canvas: HTMLCanvasElement): void {
+    this.loadImages();
     let keys = [];
     const klisten = KeyListener;
     if (this.getType() === 'blue') {

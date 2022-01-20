@@ -81,6 +81,9 @@ export default class Player extends GameItem {
             './assets/img/animations/GirlAnimationRight8.png',
             './assets/img/animations/GirlAnimationRight9.png',
         ];
+        this.loadImages();
+    }
+    loadImages() {
         for (let i = 0; i < this.walkingLeftRed.length; i++) {
             Game.loadNewImage(this.walkingLeftRed[i]);
             Game.loadNewImage(this.walkingLeftBlue[i]);
@@ -154,6 +157,7 @@ export default class Player extends GameItem {
         jumpMusic.play();
     }
     move(canvas) {
+        this.loadImages();
         let keys = [];
         const klisten = KeyListener;
         if (this.getType() === 'blue') {
