@@ -20,7 +20,7 @@ export default class Shootingbuck extends Enemies {
    * @param game the game of the game
    */
   public constructor(xPos: number, yPos: number, type: string, points: number, game: Game) {
-    super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
+    super(`./assets/img/enemies/${type}.png`, xPos, yPos, points, type, false, game);
 
     this.goingRight = true;
     this.maxXPos = this.xPos + game.canvas.width * 0.17;
