@@ -7,6 +7,7 @@ import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
+import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 export default class Level2 extends Level {
     constructor(game) {
@@ -18,6 +19,8 @@ export default class Level2 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
+        this.speedBubble.push(new SpeedBubble(game, 'Skins voegen niks toe aan je game-ervaring ', 120, 600, 100, 500));
+        this.speedBubble.push(new SpeedBubble(game, 'Extra missies of mappen voegen wel wat toe aan je game-ervaring ', 220, 600, 100, 500));
     }
     players() {
         this.player = [];
