@@ -50,6 +50,7 @@ export default class MuteButton extends InteractingItems {
    * draw the mute Button
    *
    */
+  // eslint-disable-next-line class-methods-use-this
   public draw(): void {
   }
 }
