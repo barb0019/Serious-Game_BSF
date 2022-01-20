@@ -2,8 +2,8 @@ import Game from './Game.js';
 import InteractingItems from './InteractingItems.js';
 export default class PressurePlate extends InteractingItems {
     constructor(xPos, yPos, type) {
-        super(xPos, yPos, type, './assets/img/ButtonForest.png');
-        this.img = Game.loadNewImage('./assets/img/ButtonForest.png');
+        super(xPos, yPos, type, './assets/img/ButtonNeutralYellow.png');
+        this.img = Game.loadNewImage('./assets/img/ButtonNeutralYellow.png');
     }
     draw(ctx, player) {
         if (player[0].collidesWith(this) || player[1].collidesWith(this)) {

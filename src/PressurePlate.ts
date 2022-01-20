@@ -11,8 +11,8 @@ export default class PressurePlate extends InteractingItems {
    * @param type type of the door
    */
   public constructor(xPos: number, yPos: number, type:string) {
-    super(xPos, yPos, type, './assets/img/ButtonForest.png');
-    this.img = Game.loadNewImage('./assets/img/ButtonForest.png');
+    super(xPos, yPos, type, './assets/img/ButtonNeutralYellow.png');
+    this.img = Game.loadNewImage('./assets/img/ButtonNeutralYellow.png');
   }
 
   /**
