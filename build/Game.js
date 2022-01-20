@@ -1,4 +1,5 @@
 import GameLoop from './GameLoop.js';
+import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import Start from './Start.js';
 import UserData from './UserData.js';
@@ -33,7 +34,7 @@ export default class Game {
         Game.music.push(new Audio('./assets/music/07 - Overworld Night.mp3'));
         Game.music.push(new Audio('./assets/music/09 - Underground.mp3'));
         Game.music.push(new Audio('./assets/music/21 - Boss 3.mp3'));
-        Game.music.push(new Audio('./assets/music/22 - Old One\'s Army.mp3'));
+        Game.music.push(new Audio(`./assets/music/22 - Old One's Army.mp3`));
     }
     setBoughtItems(itemNumber) {
         this.boughtItems.push(itemNumber);
@@ -64,18 +65,18 @@ export default class Game {
     static randomNumber(min, max) {
         return Math.round(Math.random() * (max - min) + min);
     }
-    static play(numb) {
-        this.music[numb].play();
-        this.music[numb].loop = true;
-        this.music[numb].muted = false;
+    static play(i) {
+        this.music[i].play();
+        this.music[i].loop = true;
+        this.music[i].muted = false;
     }
-    static pause(number) {
-        this.music[number].muted = true;
-        this.music[number].pause();
+    static pause(i) {
+        this.music[i].muted = true;
+        this.music[i].pause();
     }
     getCurrentLevel() {
         switch (this.user.getLevel()) {
-            case 1: return new Level3(this);
+            case 1: return new Level1(this);
             case 2: return new Level2(this);
             case 3: return new Level3(this);
             case 4: return new Level4(this);
