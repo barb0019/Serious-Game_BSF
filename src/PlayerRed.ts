@@ -11,7 +11,7 @@ export default class PlayerRed extends Player {
    * @param game the game of the game
    */
   public constructor(maxX: number, maxY: number, game: Game) {
-    super('./assets/img/RedKid2.png', maxX - 76, maxY - 92, 'red', game);
+    super('./assets/img/player/RedKid2.png', maxX - 76, maxY - 92, 'red', game);
   }
 
   /**
