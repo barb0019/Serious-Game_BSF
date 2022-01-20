@@ -9,7 +9,6 @@ import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 import PressurePlate from './PressurePlate.js';
-import PopUp from './PopUp.js';
 
 export default class Level1 extends Level {
   /**
