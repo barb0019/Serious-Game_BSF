@@ -6,7 +6,7 @@ export default class VBucks extends Enemies {
     timer;
     minYPos;
     constructor(xPos, yPos, type, points, game) {
-        super(`./assets/img/${type}.png`, xPos, yPos, points, type, false, game);
+        super(`./assets/img/enemies/${type}.png`, xPos, yPos, points, type, false, game);
         this.goingRight = false;
         this.maxXPos = this.xPos - game.canvas.width * 0.28;
         this.maxYPos = this.yPos - game.canvas.height * 0.05;
