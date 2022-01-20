@@ -10,6 +10,6 @@ export default class FutPack extends ScoringObject {
    * @param points points that you get of lose if you collide with the object
    */
   public constructor(xPos: number, yPos: number, type:string, points:number) {
-    super(`./assets/img/pack${type}.png`, xPos, yPos, points, type, false);
+    super(`./assets/img/enemies/pack${type}.png`, xPos, yPos, points, type, false);
   }
 }
