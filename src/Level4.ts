@@ -46,6 +46,9 @@ export default class Level4 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
+    this.speedBubble.push(new SpeedBubble(game, 'in-game aankopen zijn niet altijd slecht', 230, 260, 100, 500));
+    this.speedBubble.push(new SpeedBubble(game, 'Soms maken ze de game-ervaring leuker', 50, 1150, 100, 500));
+    this.speedBubble.push(new SpeedBubble(game, 'Maar let wel op wat je uitgeeft!!', 350, 1250, 100, 500));
   }
 
   /**
