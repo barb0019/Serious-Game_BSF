@@ -13,6 +13,7 @@ export default class SpeedBubble extends Enemies {
   private height:number;
 
   /**
+   * intilize the class speedBubble
    *
    * @param game the game of the game
    * @param text the text of the speedbubble
@@ -32,10 +33,10 @@ export default class SpeedBubble extends Enemies {
   }
 
   /**
-   * render
+   * render the speedBubble rang when you can see the text
    *
    */
   public render(): void {
-    this.game.writeTextToCanvas(this.text, 15, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', 'black');
+    this.game.writeTextToCanvas(this.text, 15, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', 'blue');
   }
 }

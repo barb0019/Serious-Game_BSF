@@ -1,5 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
+import Game from './Game.js';
 import MuteButton from './MuteButton.js';
 export default class Player extends GameItem {
     xVel;
@@ -80,6 +81,12 @@ export default class Player extends GameItem {
             './assets/img/animations/GirlAnimationRight8.png',
             './assets/img/animations/GirlAnimationRight9.png',
         ];
+        for (let i = 0; i < this.walkingLeftRed.length; i++) {
+            Game.loadNewImage(this.walkingLeftRed[i]);
+            Game.loadNewImage(this.walkingLeftBlue[i]);
+            Game.loadNewImage(this.walkingRightRed[i]);
+            Game.loadNewImage(this.walkingRightBlue[i]);
+        }
     }
     checkBoughtItems() {
         const boughtItems = this.game.getBoughtItems();

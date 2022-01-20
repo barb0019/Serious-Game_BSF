@@ -11,6 +11,7 @@ export default class Shootingbuck extends Enemies {
   private timer: number;
 
   /**
+   * intilize the class shootingbucks
    *
    * @param xPos the max value of the X position
    * @param yPos the max value of the Y position
@@ -29,7 +30,7 @@ export default class Shootingbuck extends Enemies {
   }
 
   /**
-   * move the flying vbucks
+   * move the shooting bucks horinzontal
    */
   public move():void {
     this.xPos -= this.flyingSpeed;
@@ -41,7 +42,7 @@ export default class Shootingbuck extends Enemies {
   }
 
   /**
-   * move the flying vbucks
+   * move the shooting bucks from left to right position
    */
   public move1():void {
     this.xPos += this.flyingSpeed;
@@ -53,7 +54,7 @@ export default class Shootingbuck extends Enemies {
   }
 
   /**
-   * move the flying vbucks
+   * move the shooting bucks from right to left position
    */
   public move2():void {
     this.xPos += this.flyingSpeed;
@@ -65,7 +66,7 @@ export default class Shootingbuck extends Enemies {
   }
 
   /**
-   * move the flying vbucks
+   * move the shooting buks from high to a low position
    */
   public moveY():void {
     this.yPos += this.flyingSpeed;

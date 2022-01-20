@@ -8,6 +8,7 @@ import Star from './Star.js';
 import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
+import PopUp from './PopUp.js';
 export default class Level1 extends Level {
     constructor(game) {
         super(game);
@@ -16,12 +17,16 @@ export default class Level1 extends Level {
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
+        this.createPopUps();
+    }
+    createPopUps() {
+        this.popUps.push(new PopUp(100, window.innerHeight * 0.9, 'cats are neat', this.game, this.player));
     }
     speedbubbles(game) {
         this.speedBubble = [];
-        this.speedBubble.push(new SpeedBubble(game, 'hallo', 100, 550, 300, 100));
-        this.speedBubble.push(new SpeedBubble(game, 'Alleen de blauwe speler kan blauw aanraken', 350, 770, 300, 100));
-        this.speedBubble.push(new SpeedBubble(game, 'Alleen de rode speler kan rood aanraken', 350, 1100, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, 'kinderen geven soms €200 of meer uit aan skins op fortnite', 75, 1000, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, 'bijna de helft van de kinderen spelen meer dan 6 uur fortnite ', 250, 600, 300, 100));
+        this.speedBubble.push(new SpeedBubble(game, 'bijna de helft van de kinderen geeft geld uit aan skins, lootboxes en andere dingen', 175, 175, 300, 100));
     }
     players() {
         this.player = [];

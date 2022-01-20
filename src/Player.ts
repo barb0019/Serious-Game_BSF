@@ -39,6 +39,8 @@ export default abstract class Player extends GameItem {
   private animationFrameBlue: number;
 
   /**
+   * intilize the class player
+   *
    * @param imageSrc imageSrc, the actual image used for the player
    * @param maxX the max value of the X positiond
    * @param maxY the max value of the X position
@@ -64,6 +66,10 @@ export default abstract class Player extends GameItem {
     this.checkBoughtItems();
   }
 
+  /**
+   * creat an array of amages for the animation.
+   * This is for the both players
+   */
   private createAnimationArray() {
     this.walkingLeftRed = [
       './assets/img/animations/RedKidAnimation.png',
@@ -76,6 +82,7 @@ export default abstract class Player extends GameItem {
       './assets/img/animations/RedKidAnimation7.png',
       './assets/img/animations/RedKidAnimation8.png',
     ];
+
     this.walkingRightRed = [
       './assets/img/animations/RedKidAnimationRight.png',
       './assets/img/animations/RedKidAnimationRight1.png',
@@ -109,10 +116,18 @@ export default abstract class Player extends GameItem {
       './assets/img/animations/GirlAnimationRight8.png',
       './assets/img/animations/GirlAnimationRight9.png',
     ];
+
+    // Pre-loads the images to be changed instantly
+    for (let i = 0; i < this.walkingLeftRed.length; i++) {
+      Game.loadNewImage(this.walkingLeftRed[i]);
+      Game.loadNewImage(this.walkingLeftBlue[i]);
+      Game.loadNewImage(this.walkingRightRed[i]);
+      Game.loadNewImage(this.walkingRightBlue[i]);
+    }
   }
 
   /**
-   *
+   * checks if you bought the Items
    */
   public checkBoughtItems(): void {
     const boughtItems = this.game.getBoughtItems();
@@ -132,14 +147,7 @@ export default abstract class Player extends GameItem {
   public increaseGravity(): void {
     if (!this.onPlatform) {
       this.yPos += this.gravity;
-
       this.gravity += Player.gravityIncrease;
-
-      // Breaks it, don't use
-      // max speed for the gravity
-      // if (this.gravity > Player.maxGravity) {
-      // this.gravity = Player.maxGravity;
-      // }
     }
   }
 
@@ -252,7 +260,11 @@ export default abstract class Player extends GameItem {
   }
 
   // abstract move(canvas: HTMLCanvasElement): void;
-
+  /**
+   *checks if it the player collides with a object
+   *
+   * @param other game items
+   */
   abstract collidesWith(other: GameItem | SpeedBubble | InteractingItems): boolean;
 
   /**

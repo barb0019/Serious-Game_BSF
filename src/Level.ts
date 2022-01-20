@@ -6,6 +6,7 @@ import LevelUp from './LevelUp.js';
 import MuteButton from './MuteButton.js';
 import Platform from './Platform.js';
 import Player from './Player.js';
+import PopUp from './PopUp.js';
 import PowerUp from './PowerUp.js';
 import PressurePlate from './PressurePlate.js';
 import Scene from './Scene.js';
@@ -30,6 +31,8 @@ export default abstract class Level extends Scene {
   protected door: Door;
 
   protected pressurePlate: PressurePlate[] = [];
+
+  protected popUps: PopUp[] = [];
 
   /**
    * Creates a new instance of this class
@@ -182,9 +185,9 @@ export default abstract class Level extends Scene {
     return null;
   }
 
-/**
- * calls al objects that moves
- */
+  /**
+   * calls al objects that moves
+   */
   abstract allMove():void;
 
   /**
@@ -205,6 +208,10 @@ export default abstract class Level extends Scene {
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
     }
+
+    for (let i = 0; i < this.popUps.length; i++) {
+      this.popUps[i].collidesPopUpWithPlayer();
+    }
   }
 
   /**
@@ -213,7 +220,6 @@ export default abstract class Level extends Scene {
   public render(): void {
     // Clear the screen
     this.game.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
-
     // Show score
     const score = `Sterren: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);

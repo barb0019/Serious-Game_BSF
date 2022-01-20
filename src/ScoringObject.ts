@@ -6,6 +6,7 @@ export default abstract class ScoringObject extends GameItem {
   private alive:boolean;
 
   /**
+   * intilize the class ScoringObject
    *
    * @param imageSrc the src of the image
    * @param xPos x position of the object
