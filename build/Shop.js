@@ -131,10 +131,10 @@ export default class Shop extends Scene {
         shop.writeTextToCanvas('Druk op "enter" om de shop te verlaten', 70, canvas.width / 2, canvas.height / 3.4, 'center', 'black');
         shop.writeTextToCanvas(`Credits: ${this.credits}`, 50, canvas.width / 2, canvas.height / 2.5, 'center', 'black');
         shop.writeTextToCanvas('Jumpboost', 20, (canvas.width / this.buttons.length) * 0 + offLeftSide, canvas.height / 1.4, 'center', 'black');
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.31, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.57, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
-        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/Bird.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.81, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/jumpBoost.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.05, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/SpeedBoost2.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.31, (canvas.height / 1.2) * 0 + canvas.height * 0.42);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/enemies/lootboxenemy.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.57, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
+        this.game.ctx.drawImage(Game.loadNewImage('./assets/img/shop/Bird.png'), (canvas.width / this.buttons.length) * 0 + canvas.width * 0.81, (canvas.height / 1.2) * 0 + canvas.height * 0.42, 150, 150);
         shop.writeTextToCanvas('Speed', 20, (canvas.width / this.buttons.length) * 1 + offLeftSide, canvas.height / 1.4, 'center', 'black');
         shop.writeTextToCanvas('SUPER-WOW-BIG-COOL-OMEGA-GIANT-SUPRISEBOX', 20, (canvas.width / this.buttons.length) * 2 + offLeftSide, canvas.height / 1.4, 'center', 'black');
         shop.writeTextToCanvas('Speedy "E"s', 20, (canvas.width / this.buttons.length) * 3 + offLeftSide, canvas.height / 1.4, 'center', 'black');
