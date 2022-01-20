@@ -37,7 +37,7 @@ export default class WinScreen extends Scene {
     if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {
       for (let i = 0; i < 5; i++) {
         Game.pause(i);
-       }
+      }
       this.continueGame = true;
     }
   }

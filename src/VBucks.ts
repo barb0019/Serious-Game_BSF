@@ -61,33 +61,6 @@ export default class VBucks extends Enemies {
       this.timer = 0;
       this.flyingSpeed1 = -this.flyingSpeed1;
     }
-    // this.yPos += this.flyingSpeed;
-    // if (this.yPos > this.minYPos) {
-    //   // this.minYPos = this.yPos + this.game.canvas.width * 0.28;
-    //   this.flyingSpeed = -this.flyingSpeed;
-    //   this.goingRight = false;
-    // }
-    // if (this.yPos < this.maxYPos) {
-    //   // this.maxYPos = this.yPos - this.game.canvas.width * 0.28;
-    //   this.flyingSpeed = -this.flyingSpeed;
-    //   this.goingRight = true;
-    // }
-
-    // this.yPos += this.flyingSpeed;
-    // console.log(`max: ${this.maxYPos}`);
-    // console.log(this.yPos);
-
-    // if (this.goingRight) {
-    //   if (this.yPos < this.maxYPos) {
-    //     this.maxYPos = this.yPos - this.game.canvas.height * 0.5;
-    //     this.flyingSpeed = -this.flyingSpeed;
-    //     this.goingRight = false;
-    //   }
-    // } else if (this.yPos > this.maxYPos) {
-    //   this.maxYPos = this.yPos + this.game.canvas.height * 0.5;
-    //   this.flyingSpeed = -this.flyingSpeed;
-    //   this.goingRight = true;
-    // }
   }
 
   /**
