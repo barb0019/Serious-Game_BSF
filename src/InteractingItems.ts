@@ -11,6 +11,7 @@ export default abstract class InteractingItems {
   protected type:string;
 
   /**
+   * intilize the class interactingItems
    *
    * @param xPos x position of the interacting item
    * @param yPos y position of the interacting item
@@ -70,7 +71,9 @@ export default abstract class InteractingItems {
   }
 
   /**
-   * @param ctx ctx
+   * draw the interacting items
+   *
+   * @param ctx ctx of the game
    * @param player the array of players
    */
   abstract draw(ctx: CanvasRenderingContext2D, player:Player[]): void;
