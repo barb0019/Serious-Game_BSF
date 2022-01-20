@@ -6,7 +6,6 @@ import LevelUp from './LevelUp.js';
 import MuteButton from './MuteButton.js';
 import Platform from './Platform.js';
 import Player from './Player.js';
-import PopUp from './PopUp.js';
 import PressurePlate from './PressurePlate.js';
 import Scene from './Scene.js';
 import ScoringObject from './ScoringObject.js';
@@ -30,8 +29,6 @@ export default abstract class Level extends Scene {
   protected door: Door;
 
   protected pressurePlate: PressurePlate[] = [];
-
-  protected popUps: PopUp[] = [];
 
   /**
    * Creates a new instance of this class
@@ -202,10 +199,6 @@ export default abstract class Level extends Scene {
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
-    }
-
-    for (let i = 0; i < this.popUps.length; i++) {
-      this.popUps[i].collidesPopUpWithPlayer();
     }
   }
 
