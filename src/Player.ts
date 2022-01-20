@@ -3,6 +3,7 @@ import KeyListener from './KeyListener.js';
 import SpeedBubble from './SpeedBubble.js';
 import Game from './Game.js';
 import InteractingItems from './InteractingItems.js';
+import MuteButton from './MuteButton.js';
 
 export default abstract class Player extends GameItem {
   protected xVel: number;
@@ -152,7 +153,9 @@ export default abstract class Player extends GameItem {
     if (!this.onPlatform) {
       this.yPos -= this.jumpHeight;
     } else {
+      if(MuteButton.muted ===false){
       this.jumpMusic();
+      }
       this.isJumping = false;
     }
   }

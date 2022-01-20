@@ -1,5 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
+import MuteButton from './MuteButton.js';
 export default class Player extends GameItem {
     xVel;
     keyBoard;
@@ -102,7 +103,9 @@ export default class Player extends GameItem {
             this.yPos -= this.jumpHeight;
         }
         else {
-            this.jumpMusic();
+            if (MuteButton.muted === false) {
+                this.jumpMusic();
+            }
             this.isJumping = false;
         }
     }
