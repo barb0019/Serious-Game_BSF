@@ -9,6 +9,7 @@ import Door from './Door.js';
 import SpeedBubble from './SpeedBubble.js';
 import Level from './Level.js';
 import PressurePlate from './PressurePlate.js';
+import PopUp from './PopUp.js';
 
 export default class Level1 extends Level {
   /**
@@ -28,6 +29,15 @@ export default class Level1 extends Level {
     this.makePlatforms();
     // make speedbubbles
     this.speedbubbles(game);
+
+    this.createPopUps();
+
+    // Take about 5 seconds on a decent computer to show next item
+    // this.countUntilNextItem = 300;
+  }
+
+  private createPopUps() {
+    this.popUps.push(new PopUp(100, window.innerHeight * 0.9, 'cats are neat', this.game, this.player));
   }
 
   /**
@@ -109,5 +119,5 @@ export default class Level1 extends Level {
    * makes the objects and platforms move
    */
   // eslint-disable-next-line class-methods-use-this
-  public allMove(): void {}
+  public allMove(): void { }
 }
