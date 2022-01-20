@@ -9,6 +9,7 @@ export default class FlyingBuck extends Enemies {
   private goingRight: boolean;
 
   /**
+   * intilize the class flyingBuck
    *
    * @param xPos the max value of the X position
    * @param yPos the max value of the Y position

@@ -15,7 +15,7 @@ export default class Door extends InteractingItems {
   }
 
   /**
-   * dra the image door
+   * draw the image door
    *
    * @param ctx ctx
    * @param player the array of players
