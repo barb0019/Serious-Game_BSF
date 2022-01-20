@@ -188,7 +188,7 @@ export default abstract class Level extends Scene {
   abstract allMove():void;
 
   /**
-   * calls al collides in the levels
+   * calls all collides in the levels
    */
   private allCollides() :void {
     this.player.forEach((element) => {
