@@ -98,7 +98,6 @@ export default class Platform {
             && this.yPos + this.height > player.getYPos()) {
             if (collisionTop && collisionRight && collisionLeft) {
                 player.setYPos(this.yPos - player.getImageHeight());
-                console.log('top');
                 player.xPosPrevious.splice(0, 1);
                 player.yPosPrevious.splice(0, 1);
                 return true;
@@ -114,15 +113,12 @@ export default class Platform {
             }
             if (collisionLeft) {
                 player.setXPos(player.xPosPrevious[1] - player.getXVel());
-                console.log('left');
             }
             if (collisionRight) {
                 player.setXPos(player.xPosPrevious[1] + player.getXVel());
-                console.log('right');
             }
             if (collisionRight && collisionLeft) {
                 player.setXPos(player.xPosPrevious[1] - player.getXVel());
-                console.log('corner');
             }
             player.xPosPrevious.splice(0, 1);
             player.yPosPrevious.splice(0, 1);

@@ -47,7 +47,7 @@ export default class Level4 extends Level {
   }
 
   /**
-   *
+   * makes the players
    */
   protected players(): void {
     this.player = [];
@@ -57,7 +57,7 @@ export default class Level4 extends Level {
   }
 
   /**
-   *
+   * makes the objects
    */
   protected objects(): void {
     const { width } = this.game.canvas;
