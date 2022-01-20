@@ -47,11 +47,11 @@ export default class Game {
     const { width } = this.canvas;
     const { height } = this.canvas;
 
-    this.button = new MuteButton(width * 0.75, height * 0.56, 'button', this);
+    this.button = new MuteButton(width * 0.75, height * 0.56, 'button',this);
   }
 
   /**
-   * make the music
+   *
    */
   // eslint-disable-next-line class-methods-use-this
   public makemusic():void {
@@ -59,7 +59,7 @@ export default class Game {
     Game.music.push(new Audio('./assets/music/07 - Overworld Night.mp3'));
     Game.music.push(new Audio('./assets/music/09 - Underground.mp3'));
     Game.music.push(new Audio('./assets/music/21 - Boss 3.mp3'));
-    Game.music.push(new Audio('./assets/music/22 - Old One\'s Army.mp3'));
+    Game.music.push(new Audio(`./assets/music/22 - Old One's Army.mp3`));
   }
 
   /**
@@ -154,23 +154,19 @@ export default class Game {
 
   /**
    * plays the music
-   *
-   * @param numb number of the play list
    */
-  static play(numb:number):void {
-    this.music[numb].play();
-    this.music[numb].loop = true;
-    this.music[numb].muted = false;
+  static play(i:number):void {
+    this.music[i].play();
+    this.music[i].loop = true;
+    this.music[i].muted = false;
   }
 
   /**
    * pause the music
-   *
-   * @param number of the play list
    */
-  static pause(number:number):void {
-    this.music[number].muted = true;
-    this.music[number].pause();
+  static pause(i:number):void {
+    this.music[i].muted = true;
+    this.music[i].pause();
   }
 
   /**
