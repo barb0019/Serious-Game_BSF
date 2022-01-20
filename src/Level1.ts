@@ -32,6 +32,8 @@ export default class Level1 extends Level {
 
     this.createPopUps();
 
+    document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/Desert-BackgroundStart.png)';
+
     // Take about 5 seconds on a decent computer to show next item
     // this.countUntilNextItem = 300;
   }
