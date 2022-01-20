@@ -113,9 +113,6 @@ export default class Player extends GameItem {
             this.yPos -= this.jumpHeight;
         }
         else {
-            if (MuteButton.muted === false) {
-                this.jumpMusic();
-            }
             this.isJumping = false;
         }
     }
@@ -185,6 +182,9 @@ export default class Player extends GameItem {
         }
         if (this.keyBoard.isKeyDown(keys[2]) && this.yPos > minY) {
             if (this.onPlatform) {
+                if (MuteButton.muted === false) {
+                    this.jumpMusic();
+                }
                 this.isJumping = true;
                 this.setOnPlatform(false);
             }
