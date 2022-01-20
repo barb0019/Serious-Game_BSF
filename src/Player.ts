@@ -109,6 +109,14 @@ export default abstract class Player extends GameItem {
       './assets/img/animations/GirlAnimationRight8.png',
       './assets/img/animations/GirlAnimationRight9.png',
     ];
+
+    // Pre-loads the images to be changed instantly
+    for (let i = 0; i < this.walkingLeftRed.length; i++) {
+      Game.loadNewImage(this.walkingLeftRed[i]);
+      Game.loadNewImage(this.walkingLeftBlue[i]);
+      Game.loadNewImage(this.walkingRightRed[i]);
+      Game.loadNewImage(this.walkingRightBlue[i]);
+    }
   }
 
   /**

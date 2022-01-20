@@ -6,6 +6,7 @@ import LevelUp from './LevelUp.js';
 import MuteButton from './MuteButton.js';
 import Platform from './Platform.js';
 import Player from './Player.js';
+import PopUp from './PopUp.js';
 import PowerUp from './PowerUp.js';
 import PressurePlate from './PressurePlate.js';
 import Scene from './Scene.js';
@@ -30,6 +31,8 @@ export default abstract class Level extends Scene {
   protected door: Door;
 
   protected pressurePlate: PressurePlate[] = [];
+
+  protected popUps: PopUp[] = [];
 
   /**
    * Creates a new instance of this class
@@ -56,7 +59,7 @@ export default abstract class Level extends Scene {
    * make pressure plates
    */
   // eslint-disable-next-line class-methods-use-this
-  protected makePressurePlates():void {}
+  protected makePressurePlates(): void { }
 
   /**
    *makes de speedbubbles
@@ -136,7 +139,7 @@ export default abstract class Level extends Scene {
    * check if the player collide with pressure plate
    */
   // eslint-disable-next-line class-methods-use-this
-  protected checksIfPressureOnthePlate():void {}
+  protected checksIfPressureOnthePlate(): void { }
 
   /**
    * Advances the game simulation one step. It may run AI and physics (usually
@@ -182,9 +185,9 @@ export default abstract class Level extends Scene {
     return null;
   }
 
-  abstract allMove():void;
+  abstract allMove(): void;
 
-  private allCollides() :void {
+  private allCollides(): void {
     this.player.forEach((element) => {
       element.increaseGravity();
     });
@@ -198,6 +201,10 @@ export default abstract class Level extends Scene {
     // Player removes objects
     for (let i = 0; i < this.player.length; i++) {
       this.checksIfHit(this.player[i]);
+    }
+
+    for (let i = 0; i < this.popUps.length; i++) {
+      this.popUps[i].collidesPopUpWithPlayer();
     }
   }
 
