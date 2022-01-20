@@ -17,25 +17,28 @@ export default class LevelUp extends Scene {
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_P)) {
             this.shouldStart = true;
+            Game.pause(this.game.getUser().getLevel() - 1);
         }
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
             this.toShop = true;
-            Game.pause(this.game.getUser().getLevel() - 1);
+            for (let i = 0; i < 5; i++) {
+                Game.pause(i);
+            }
         }
     }
     update() {
         if (this.toShop) {
             return new Shop(this.game, this.game.getCurrentLevel());
         }
-        if (this.shouldStart && this.game.getUser().getLevel() + 1 <= 2) {
+        if (this.shouldStart && this.game.getUser().getLevel() + 1 <= 5) {
             Game.pause(this.game.getUser().getLevel() - 1);
-            this.game.getUser().increaseLevel();
             if (MuteButton.muted === false) {
-                Game.play(this.game.getUser().getLevel() - 1);
+                Game.play(this.game.getUser().getLevel() + 1);
             }
+            this.game.getUser().increaseLevel();
             return this.game.getCurrentLevel();
         }
-        if (this.shouldStart && this.game.getUser().getLevel() < 4) {
+        if (this.shouldStart && this.game.getUser().getLevel() < 5) {
             return new WinScreen(this.game);
         }
         return null;
