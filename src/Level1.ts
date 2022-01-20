@@ -32,6 +32,8 @@ export default class Level1 extends Level {
 
     this.createPopUps();
 
+    document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/Desert-BackgroundStart.png)';
+
     // Take about 5 seconds on a decent computer to show next item
     // this.countUntilNextItem = 300;
   }
@@ -69,7 +71,7 @@ export default class Level1 extends Level {
     const { height } = this.game.canvas;
 
     // makes the door
-    this.door = new Door(width * 0.91, 50, 'DoubleDoor0');
+    this.door = new Door(width * 0.91,height*0.05, 'DoubleDoor0');
     this.scoringObjects = [];
     // makes the objects
     this.scoringObjects.push(new VBucks(width * 0.5, height * 0.16, 'blue', -3, this.game));

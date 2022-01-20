@@ -19,6 +19,7 @@ export default class Player extends GameItem {
     walkingRightBlue;
     animationFrameRed;
     animationFrameBlue;
+    static animationSpeed = 7;
     constructor(imageSrc, maxX, maxY, type, game) {
         super(imageSrc, maxX - 76, maxY - 92, type);
         this.game = game;
@@ -81,7 +82,6 @@ export default class Player extends GameItem {
             './assets/img/animations/GirlAnimationRight8.png',
             './assets/img/animations/GirlAnimationRight9.png',
         ];
-        this.loadImages();
     }
     loadImages() {
         for (let i = 0; i < this.walkingLeftRed.length; i++) {
@@ -199,11 +199,11 @@ export default class Player extends GameItem {
     animateRight() {
         if (this.getType() === 'blue' && this.onPlatform) {
             this.animationFrameBlue += 1;
-            if (this.animationFrameBlue % 10 === 0) {
-                if (this.animationFrameBlue / 10 >= this.walkingRightBlue.length) {
+            if (this.animationFrameBlue % Player.animationSpeed === 0) {
+                if (this.animationFrameBlue / Player.animationSpeed >= this.walkingRightBlue.length) {
                     this.animationFrameBlue = 0;
                 }
-                this.setImage(this.walkingRightBlue[this.animationFrameBlue / 10]);
+                this.setImage(this.walkingRightBlue[this.animationFrameBlue / Player.animationSpeed]);
             }
         }
         else if (this.getType() === 'blue' && !this.onPlatform) {
@@ -211,11 +211,11 @@ export default class Player extends GameItem {
         }
         else if (this.getType() === 'red' && this.onPlatform) {
             this.animationFrameRed += 1;
-            if (this.animationFrameRed % 10 === 0) {
-                if (this.animationFrameRed / 10 >= this.walkingRightRed.length) {
+            if (this.animationFrameRed % Player.animationSpeed === 0) {
+                if (this.animationFrameRed / Player.animationSpeed >= this.walkingRightRed.length) {
                     this.animationFrameRed = 0;
                 }
-                this.setImage(this.walkingRightRed[this.animationFrameRed / 10]);
+                this.setImage(this.walkingRightRed[this.animationFrameRed / Player.animationSpeed]);
             }
         }
         else if (this.getType() === 'red' && !this.onPlatform) {
@@ -225,11 +225,11 @@ export default class Player extends GameItem {
     animateLeft() {
         if (this.getType() === 'blue' && this.onPlatform) {
             this.animationFrameBlue += 1;
-            if (this.animationFrameBlue % 10 === 0) {
-                if (this.animationFrameBlue / 10 >= this.walkingLeftBlue.length) {
+            if (this.animationFrameBlue % Player.animationSpeed === 0) {
+                if (this.animationFrameBlue / Player.animationSpeed >= this.walkingLeftBlue.length) {
                     this.animationFrameBlue = 0;
                 }
-                this.setImage(this.walkingLeftBlue[this.animationFrameBlue / 10]);
+                this.setImage(this.walkingLeftBlue[this.animationFrameBlue / Player.animationSpeed]);
             }
         }
         else if (this.getType() === 'blue' && !this.onPlatform) {
@@ -237,11 +237,11 @@ export default class Player extends GameItem {
         }
         else if (this.getType() === 'red' && this.onPlatform) {
             this.animationFrameRed += 1;
-            if (this.animationFrameRed % 10 === 0) {
-                if (this.animationFrameRed / 10 >= this.walkingLeftRed.length) {
+            if (this.animationFrameRed % Player.animationSpeed === 0) {
+                if (this.animationFrameRed / Player.animationSpeed >= this.walkingLeftRed.length) {
                     this.animationFrameRed = 0;
                 }
-                this.setImage(this.walkingLeftRed[this.animationFrameRed / 10]);
+                this.setImage(this.walkingLeftRed[this.animationFrameRed / Player.animationSpeed]);
             }
         }
         else if (!this.onPlatform) {
