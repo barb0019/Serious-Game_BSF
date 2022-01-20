@@ -94,7 +94,10 @@ export default class Shop extends Scene {
         this.itemPopUps[currentItem].style.textShadow = '1px 1px 1px white';
     }
     update() {
-        if (this.continueGame && this.game.getUser().getLevel() <= 5) {
+        if (this.continueGame && this.game.getUser().getLevel() + 1 <= 5) {
+            if (MuteButton.muted === false) {
+                Game.play(this.game.getUser().getLevel());
+            }
             this.game.getUser().increaseLevel();
             this.resetText();
             return this.game.getCurrentLevel();
@@ -116,9 +119,6 @@ export default class Shop extends Scene {
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {
             this.continueGame = true;
-            if (MuteButton.muted === false) {
-                Game.play(this.game.getUser().getLevel() + 1);
-            }
         }
     }
     render() {

@@ -136,7 +136,10 @@ export default class Shop extends Scene {
    * @returns The level
    */
   public update(): Scene {
-    if (this.continueGame && this.game.getUser().getLevel() <= 5) {
+    if (this.continueGame && this.game.getUser().getLevel() + 1 <= 5) {
+      if (MuteButton.muted === false) {
+        Game.play(this.game.getUser().getLevel());
+      }
       // this.levelArray.splice(0, 1);
       this.game.getUser().increaseLevel();
       this.resetText();
@@ -167,10 +170,6 @@ export default class Shop extends Scene {
   public processInput(): void {
     if (this.keyboard.isKeyDown(KeyListener.KEY_ENTER)) {
       this.continueGame = true;
-
-      if (MuteButton.muted === false) {
-        Game.play(this.game.getUser().getLevel() + 1);
-      }
     }
   }
 
