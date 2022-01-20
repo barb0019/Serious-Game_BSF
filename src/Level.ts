@@ -7,7 +7,6 @@ import MuteButton from './MuteButton.js';
 import Platform from './Platform.js';
 import Player from './Player.js';
 import PopUp from './PopUp.js';
-import PowerUp from './PowerUp.js';
 import PressurePlate from './PressurePlate.js';
 import Scene from './Scene.js';
 import ScoringObject from './ScoringObject.js';
@@ -104,10 +103,6 @@ export default abstract class Level extends Scene {
         if (collides) {
           this.game.getUser().addScore(element.getScore());
           this.game.getUser().setDeadOrNot(element.getAlive());
-          if (element instanceof PowerUp) {
-            const powerUp = element as PowerUp;
-            powerUp.applyTo(player);
-          }
         }
         return !collides;
       },
