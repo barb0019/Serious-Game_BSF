@@ -12,7 +12,9 @@ export default class GameOver extends Scene {
     }
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_SPACE)) {
-            Game.pause(this.game.getUser().getLevel() - 1);
+            for (let i = 0; i < 5; i++) {
+                Game.pause(i);
+            }
             this.shouldStart = true;
         }
     }

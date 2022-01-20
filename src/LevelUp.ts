@@ -63,7 +63,9 @@ export default class LevelUp extends Scene {
     }
     if (this.shouldStart && this.game.getUser().getLevel() + 1 <= 5) {
       // this.levelArray.splice(0, 1);
-      Game.pause(this.game.getUser().getLevel()-1);
+      for (let i = 0; i < 5; i++) {
+       Game.pause(i);
+      }
       if(MuteButton.muted === false) {
         Game.play(this.game.getUser().getLevel()+1);
         }
