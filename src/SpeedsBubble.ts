@@ -1,7 +1,7 @@
 import Game from './Game.js';
 import Enemies from './Enemies.js';
 
-export default class SpeedBubble extends Enemies {
+export default class SpeedsBubble extends Enemies {
   private text:string;
 
   private xCoordinate:number;

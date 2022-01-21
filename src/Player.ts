@@ -1,6 +1,6 @@
 import GameItem from './GameItem.js';
 import KeyListener from './KeyListener.js';
-import SpeedBubble from './SpeedBubble.js';
+import SpeedsBubble from './SpeedsBubble.js';
 import Game from './Game.js';
 import InteractingItems from './InteractingItems.js';
 import MuteButton from './MuteButton.js';
@@ -267,7 +267,7 @@ export default abstract class Player extends GameItem {
    *
    * @param other game items
    */
-  abstract collidesWith(other: GameItem | SpeedBubble | InteractingItems): boolean;
+  abstract collidesWith(other: GameItem | SpeedsBubble | InteractingItems): boolean;
 
   /**
    * plays the music of the person jumping

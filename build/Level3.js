@@ -6,7 +6,7 @@ import PlayerBlue from './PlayerBlue.js';
 import FutPack from './FutPack.js';
 import Star from './Star.js';
 import Door from './Door.js';
-import SpeedBubble from './SpeedBubble.js';
+import SpeedsBubble from './SpeedsBubble.js';
 import Level from './Level.js';
 export default class Level3 extends Level {
     constructor(game) {
@@ -18,9 +18,9 @@ export default class Level3 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
-        this.speedBubble.push(new SpeedBubble(game, 'Zijn alle in-game aankopen je geld wel waard?', this.game.canvas.height * 0.685, this.game.canvas.width * 0.5, 100, 500));
-        this.speedBubble.push(new SpeedBubble(game, 'Games als Fortnite zijn gratis, maar toch geven mensen er meer geld aan uit dan een nieuwe game?!', this.game.canvas.height * 0.4, this.game.canvas.width * 0.7, 100, 500));
-        this.speedBubble.push(new SpeedBubble(game, 'Door te gamen leren kinderen 23% effectiever dan boeken te lezen!', this.game.canvas.height * 0.05, this.game.canvas.width * 0.6, 100, 500));
+        this.speedBubble.push(new SpeedsBubble(game, 'Zijn alle in-game aankopen je geld wel waard?', this.game.canvas.height * 0.685, this.game.canvas.width * 0.5, 100, 500));
+        this.speedBubble.push(new SpeedsBubble(game, 'Games als Fortnite zijn gratis, maar toch geven mensen er meer geld aan uit dan een nieuwe game?!', this.game.canvas.height * 0.4, this.game.canvas.width * 0.7, 100, 500));
+        this.speedBubble.push(new SpeedsBubble(game, 'Door te gamen leren kinderen 23% effectiever dan boeken te lezen!', this.game.canvas.height * 0.05, this.game.canvas.width * 0.6, 100, 500));
     }
     players() {
         this.player = [];

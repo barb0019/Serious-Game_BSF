@@ -155,7 +155,7 @@ export default class Game {
   /**
    * plays the music
    *
-   * @param i
+   * @param i number of the array
    */
   static play(i:number):void {
     this.music[i].play();
@@ -166,7 +166,7 @@ export default class Game {
   /**
    * pause the music
    *
-   * @param i
+   * @param i number of the array
    */
   static pause(i:number):void {
     this.music[i].muted = true;

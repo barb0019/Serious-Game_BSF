@@ -1,6 +1,5 @@
 import Game from './Game.js';
 import InteractingItems from './InteractingItems.js';
-import Player from './Player.js';
 
 export default class MuteButton extends InteractingItems {
   static muted:boolean;
@@ -10,10 +9,10 @@ export default class MuteButton extends InteractingItems {
   /**
    * intilize the class MuteButton
    *
-   *@param game the game
    * @param xPos x position of the mute button
    * @param yPos y position of the door
    * @param type type of the door
+   * @param game the game
    */
   public constructor(xPos: number, yPos: number, type:string, game:Game) {
     super(xPos, yPos, type, './assets/img/sound-image/UnMute.png');

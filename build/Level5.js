@@ -6,7 +6,7 @@ import PlayerBlue from './PlayerBlue.js';
 import Star from './Star.js';
 import Door from './Door.js';
 import FlyingBuck from './FlyingBuck.js';
-import SpeedBubble from './SpeedBubble.js';
+import SpeedsBubble from './SpeedsBubble.js';
 import Level from './Level.js';
 import Shootingbuck from './ShootingBucks.js';
 import PressurePlate from './PressurePlate.js';
@@ -21,9 +21,9 @@ export default class Level5 extends Level {
     }
     speedbubbles(game) {
         this.speedBubble = [];
-        this.speedBubble.push(new SpeedBubble(game, 'In veel landen zijn het kopen van lootboxen verboden', this.game.canvas.height * 0.55, this.game.canvas.width * 0.05, 100, 500));
-        this.speedBubble.push(new SpeedBubble(game, 'Van lootboxen krijg je vaak niets nuttigs', this.game.canvas.height * 0.01, this.game.canvas.width * 0.6, 100, 500));
-        this.speedBubble.push(new SpeedBubble(game, 'van teveel in-game aankopen kan je in geld problemen komen', this.game.canvas.height * 0.3, this.game.canvas.width * 0.75, 100, 500));
+        this.speedBubble.push(new SpeedsBubble(game, 'In veel landen zijn het kopen van lootboxen verboden', this.game.canvas.height * 0.55, this.game.canvas.width * 0.05, 100, 500));
+        this.speedBubble.push(new SpeedsBubble(game, 'Van lootboxen krijg je vaak niets nuttigs', this.game.canvas.height * 0.01, this.game.canvas.width * 0.6, 100, 500));
+        this.speedBubble.push(new SpeedsBubble(game, 'van teveel in-game aankopen kan je in geld problemen komen', this.game.canvas.height * 0.3, this.game.canvas.width * 0.75, 100, 500));
     }
     players() {
         this.player = [];

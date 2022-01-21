@@ -3,19 +3,18 @@ import Door from './Door.js';
 import Game from './Game.js';
 import GameOver from './GameOver.js';
 import LevelUp from './LevelUp.js';
-import MuteButton from './MuteButton.js';
 import Platform from './Platform.js';
 import Player from './Player.js';
 import PressurePlate from './PressurePlate.js';
 import Scene from './Scene.js';
 import ScoringObject from './ScoringObject.js';
-import SpeedBubble from './SpeedBubble.js';
+import SpeedsBubble from './SpeedsBubble.js';
 
 export default abstract class Level extends Scene {
   // Garbage items (the player needs to pick these up)
   protected scoringObjects: ScoringObject[];
 
-  protected speedBubble: SpeedBubble[];
+  protected speedBubble: SpeedsBubble[];
 
   // Player
   protected player: Player[];
