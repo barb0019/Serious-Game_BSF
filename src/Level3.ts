@@ -80,7 +80,9 @@ export default class Level3 extends Level {
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
       if (boughtItems[i] === 2) {
-        // enemies here
+        this.scoringObjects.push(new VBucks(width * 0.001, height * 0.54, 'blue', -3, this.game));
+        this.scoringObjects.push(new FutPack(width * 0.65, height * 0.18, 'red', -3));
+        this.scoringObjects.push(new VBucks(width * 0.6, height * 0.9, 'black', -3, this.game));
       }
     }
   }

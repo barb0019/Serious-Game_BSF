@@ -123,7 +123,7 @@ export default class Shop extends Scene {
 
     document.body.appendChild(this.itemPopUps[currentItem]);
     this.itemPopUps[currentItem].style.position = 'absolute';
-    this.itemPopUps[currentItem].style.left = `${(window.innerWidth / this.buttons.length) * itemNumber + 150 - canvasOffshoot}px`;
+    this.itemPopUps[currentItem].style.left = `${(window.innerWidth / this.buttons.length) * itemNumber + this.game.canvas.width * 0.09 - canvasOffshoot}px`;
     this.itemPopUps[currentItem].style.top = `${window.innerHeight * 0.8}px`;
     this.itemPopUps[currentItem].style.fontSize = '20px';
     this.itemPopUps[currentItem].style.maxWidth = `${window.innerWidth / this.buttons.length / 1.3}px`;

@@ -36,7 +36,7 @@ export default class Level extends Scene {
     }
     hasWon() {
         const user = this.game.getUser();
-        return user.getScore() >= user.getLevel() * 3;
+        return user.getScore() >= user.getLevel() * 1;
     }
     processInput() {
         for (let i = 0; i < this.player.length; i++) {
