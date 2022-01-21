@@ -113,7 +113,7 @@ export default abstract class Level extends Scene {
    */
   public hasWon(): boolean {
     const user = this.game.getUser();
-    return user.getScore() >= user.getLevel() * 3;
+    return user.getScore() >= user.getLevel() * 1;
   }
 
   /**

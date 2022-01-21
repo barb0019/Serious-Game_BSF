@@ -48,6 +48,9 @@ export default class Level2 extends Level {
         const boughtItems = this.game.getBoughtItems();
         for (let i = 0; i < boughtItems.length; i++) {
             if (boughtItems[i] === 2) {
+                this.scoringObjects.push(new VBucks(width * 0.81, height * 0.13, 'blue', -3, this.game));
+                this.scoringObjects.push(new VBucks(width * 0.885, height * 0.22, 'red', -3, this.game));
+                this.scoringObjects.push(new FutPack(width * 0.48, height * 0.09, 'red', -3));
             }
         }
     }

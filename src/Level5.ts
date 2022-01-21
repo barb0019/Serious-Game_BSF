@@ -80,6 +80,21 @@ export default class Level5 extends Level {
     this.scoringObjects.push(new Star(width * 0.84, height * 0.1, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.04, height * 0.39, 'star', 1));
+
+    const boughtItems = this.game.getBoughtItems();
+    for (let i = 0; i < boughtItems.length; i++) {
+      if (boughtItems[i] === 2) {
+        this.scoringObjects.push(new VBucks(width * 0.275, height * 0.48, 'red', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.475, height * 0.72, 'red', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.675, height * 0.48, 'red', -3, this.game));
+
+        this.scoringObjects.push(new VBucks(width * 0.375, height * 0.72, 'blue', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.575, height * 0.48, 'blue', -3, this.game));
+        this.scoringObjects.push(new VBucks(width * 0.775, height * 0.72, 'blue', -3, this.game));
+
+        this.scoringObjects.push(new VBucks(width * 0.975, height * 0.05, 'black', -3, this.game));
+      }
+    }
   }
 
   /**
