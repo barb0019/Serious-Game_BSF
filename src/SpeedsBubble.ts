@@ -12,6 +12,8 @@ export default class SpeedsBubble extends Enemies {
 
   private height:number;
 
+  private color: string;
+
   /**
    * intilize the class speedBubble
    *
@@ -23,13 +25,14 @@ export default class SpeedsBubble extends Enemies {
    * @param height the max height of the speedbubble
    */
   public constructor(game:Game, text:string, yCoordinate:number,
-    xCoordinate:number, width:number, height:number) {
+    xCoordinate:number, width:number, height:number, color: string) {
     super('./assets/img/interactingitems/textcloud.png', xCoordinate, yCoordinate, 0, 'speedbubble', true, game);
     this.text = text;
     this.width = width;
     this.height = height;
     this.xCoordinate = xCoordinate;
     this.yCoordinate = yCoordinate;
+    this.color = color;
   }
 
   /**
@@ -37,6 +40,6 @@ export default class SpeedsBubble extends Enemies {
    *
    */
   public render(): void {
-    this.game.writeTextToCanvas(this.text, 15, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', 'white');
+    this.game.writeTextToCanvas(this.text, 15, this.xCoordinate + this.getImageWidth() / 2, this.yCoordinate + this.getImageHeight() / 2, 'center', this.color);
   }
 }

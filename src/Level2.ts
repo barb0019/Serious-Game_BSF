@@ -35,9 +35,9 @@ export default class Level2 extends Level {
    */
   protected speedbubbles(game: Game): void {
     this.speedBubble = [];
-    this.speedBubble.push(new SpeedsBubble(game, 'Voegen skins wel iets toe aan je game-ervaring?', this.game.canvas.height * 0.68, this.game.canvas.width * 0.17, 100, 500));
-    this.speedBubble.push(new SpeedsBubble(game, 'DLCs met extra game-content maken de game vaak rijker', this.game.canvas.height * 0.25, this.game.canvas.width * 0.72, 100, 500));
-    this.speedBubble.push(new SpeedsBubble(game, 'Pas op voor de vliegende V-Bucks!', this.game.canvas.height * 0.05, this.game.canvas.width * 0.17, 100, 500));
+    this.speedBubble.push(new SpeedsBubble(game, 'Voegen skins wel iets toe aan je game-ervaring?', this.game.canvas.height * 0.68, this.game.canvas.width * 0.17, 100, 500, 'blue'));
+    this.speedBubble.push(new SpeedsBubble(game, 'DLCs met extra game-content maken de game vaak rijker', this.game.canvas.height * 0.25, this.game.canvas.width * 0.72, 100, 500, 'blue'));
+    this.speedBubble.push(new SpeedsBubble(game, 'Pas op voor de vliegende V-Bucks!', this.game.canvas.height * 0.05, this.game.canvas.width * 0.17, 100, 500, 'blue'));
   }
 
   /**
