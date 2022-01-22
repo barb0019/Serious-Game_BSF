@@ -23,6 +23,7 @@ export default class SpeedsBubble extends Enemies {
    * @param xCoordinate x coordinate
    * @param width the max width of the speedbubbles
    * @param height the max height of the speedbubble
+   * @param color the color of the text
    */
   public constructor(game:Game, text:string, yCoordinate:number,
     xCoordinate:number, width:number, height:number, color: string) {

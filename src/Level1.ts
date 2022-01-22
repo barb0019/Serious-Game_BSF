@@ -8,7 +8,6 @@ import Star from './Star.js';
 import Door from './Door.js';
 import SpeedsBubble from './SpeedsBubble.js';
 import Level from './Level.js';
-import PressurePlate from './PressurePlate.js';
 
 export default class Level1 extends Level {
   /**
@@ -29,17 +28,10 @@ export default class Level1 extends Level {
     // make speedbubbles
     this.speedbubbles(game);
 
-    this.createPopUps();
-
     document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/Desert-BackgroundStart.png)';
-
 
     // Take about 5 seconds on a decent computer to show next item
     // this.countUntilNextItem = 300;
-  }
-
-  private createPopUps() {
-    // this.popUps.push(new PopUp(100, window.innerHeight * 0.9, 'cats are neat', this.game, this.player));
   }
 
   /**

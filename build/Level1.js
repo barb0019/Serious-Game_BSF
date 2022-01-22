@@ -16,10 +16,7 @@ export default class Level1 extends Level {
         this.players();
         this.makePlatforms();
         this.speedbubbles(game);
-        this.createPopUps();
         document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/Desert-BackgroundStart.png)';
-    }
-    createPopUps() {
     }
     speedbubbles(game) {
         this.speedBubble = [];
