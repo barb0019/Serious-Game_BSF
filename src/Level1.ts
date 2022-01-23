@@ -26,12 +26,9 @@ export default class Level1 extends Level {
     // create platforms
     this.makePlatforms();
     // make speedbubbles
-    this.speedbubbles(game);
-
+    this.speedsbubbles(game);
+    // change the background
     document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/Desert-BackgroundStart.png)';
-
-    // Take about 5 seconds on a decent computer to show next item
-    // this.countUntilNextItem = 300;
   }
 
   /**
@@ -39,7 +36,7 @@ export default class Level1 extends Level {
    *
    * @param game the game of the game (legendarische tekst)(*Φ皿Φ*)
    */
-  protected speedbubbles(game: Game): void {
+  protected speedsbubbles(game: Game): void {
     this.speedBubble = [];
     this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat 10-12 jarigen elk jaar gemiddeld €200 uitgeven aan in-game aankopen?', this.game.canvas.height * 0.2, this.game.canvas.width * 0.13, 100, 500, 'blue'));
     this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat bijna de helft van alle fortnite spelers meer dan 6 uur achter elkaar speelt?', this.game.canvas.height * 0.13, this.game.canvas.width * 0.7, 300, 100, 'blue'));
@@ -78,7 +75,7 @@ export default class Level1 extends Level {
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
       if (boughtItems[i] === 2) {
-        // enemies here
+
       }
     }
   }

@@ -27,28 +27,22 @@ export default class Level4 extends Level {
     // create platforms
     this.makePlatforms();
     // make speedbubbles
-    this.speedbubbles(game);
+    this.speedsbubbles(game);
     this.checksIfPressureOnThePlate();
-
+    // change the background
     document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/ForestBackground.jpg)';
-    // Take about 5 seconds on a decent computer to show next item
-    // this.countUntilNextItem = 300;
-
-    // Take about 5 seconds on a decent computer to show next item
-    // this.countUntilNextItem = 300;
-    // console.log('level 2');
   }
 
   /**
-   * makes the speedbubbles
+   * makes the speedsbubbles
    *
    * @param game the game of the game
    */
-  protected speedbubbles(game: Game): void {
+  protected speedsbubbles(game: Game): void {
     this.speedBubble = [];
     this.speedBubble.push(new SpeedsBubble(game, '2 op de 5 kinderen koopt wekelijks iets in een game.', this.game.canvas.height * 0.05, this.game.canvas.width * 0.71, 100, 500, 'white'));
-    this.speedBubble.push(new SpeedsBubble(game, 'De helft van alle ouders weten niks over hetgame gedrag zijn hun kinderen', this.game.canvas.height * 0.37, this.game.canvas.width * 0.67, 100, 500, 'white'));
-    this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat FUT packs binnenkort misschien worden weggehaald', this.game.canvas.height * 0.27, this.game.canvas.width * 0.17, 100, 500, 'white'));
+    this.speedBubble.push(new SpeedsBubble(game, 'De helft van alle ouders weten niks over het game gedrag van hun kinderen', this.game.canvas.height * 0.30, this.game.canvas.width * 0.72, 100, 500, 'white'));
+    this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat FUT packs binnenkort misschien worden weggehaald', this.game.canvas.height * 0.23, this.game.canvas.width * 0.17, 100, 500, 'white'));
   }
 
   /**
@@ -81,7 +75,7 @@ export default class Level4 extends Level {
     this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.227, height * 0.15, 'star', 1));
-
+    // create extra enemies if you bought the wrong product in the shop
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
       if (boughtItems[i] === 2) {

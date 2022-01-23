@@ -14,12 +14,13 @@ export default class Level3 extends Level {
         this.objects();
         this.players();
         this.makePlatforms();
-        this.speedbubbles(game);
+        this.speedsbubbles(game);
     }
-    speedbubbles(game) {
+    speedsbubbles(game) {
         this.speedBubble = [];
-        this.speedBubble.push(new SpeedsBubble(game, 'Zijn alle in-game aankopen je geld wel waard?', this.game.canvas.height * 0.685, this.game.canvas.width * 0.5, 100, 500, 'blue'));
-        this.speedBubble.push(new SpeedsBubble(game, 'Games als Fortnite zijn gratis, maar toch geven mensen er meer geld aan uit dan een nieuwe game?!', this.game.canvas.height * 0.4, this.game.canvas.width * 0.7, 100, 500, 'blue'));
+        this.speedBubble.push(new SpeedsBubble(game, 'Zijn alle in-game aankopen je geld wel waard?', this.game.canvas.height * 0.685, this.game.canvas.width * 0.525, 100, 500, 'blue'));
+        this.speedBubble.push(new SpeedsBubble(game, 'Games als Fortnite zijn gratis', this.game.canvas.height * 0.36, this.game.canvas.width * 0.75, 100, 500, 'blue'));
+        this.speedBubble.push(new SpeedsBubble(game, ',maar toch geven mensen er meer geld aan uit dan een nieuwe game?!', this.game.canvas.height * 0.38, this.game.canvas.width * 0.75, 100, 500, 'blue'));
         this.speedBubble.push(new SpeedsBubble(game, 'Door te gamen leren kinderen 23% effectiever dan boeken te lezen!', this.game.canvas.height * 0.05, this.game.canvas.width * 0.6, 100, 500, 'blue'));
     }
     players() {

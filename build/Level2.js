@@ -15,13 +15,13 @@ export default class Level2 extends Level {
         this.objects();
         this.players();
         this.makePlatforms();
-        this.speedbubbles(game);
+        this.speedsbubbles(game);
     }
-    speedbubbles(game) {
+    speedsbubbles(game) {
         this.speedBubble = [];
-        this.speedBubble.push(new SpeedsBubble(game, 'Voegen skins wel iets toe aan je game-ervaring?', this.game.canvas.height * 0.68, this.game.canvas.width * 0.17, 100, 500, 'blue'));
-        this.speedBubble.push(new SpeedsBubble(game, 'DLCs met extra game-content maken de game vaak rijker', this.game.canvas.height * 0.25, this.game.canvas.width * 0.72, 100, 500, 'blue'));
-        this.speedBubble.push(new SpeedsBubble(game, 'Pas op voor de vliegende V-Bucks!', this.game.canvas.height * 0.05, this.game.canvas.width * 0.17, 100, 500, 'blue'));
+        this.speedBubble.push(new SpeedsBubble(game, 'Voegen skins wel iets toe aan je game-ervaring?', this.game.canvas.height * 0.66, this.game.canvas.width * 0.17, 100, 500, 'blue'));
+        this.speedBubble.push(new SpeedsBubble(game, 'DLCs met extra game-content stellen meestal teleur', this.game.canvas.height * 0.25, this.game.canvas.width * 0.72, 100, 500, 'blue'));
+        this.speedBubble.push(new SpeedsBubble(game, 'Pas op voor de vliegende V-Bucks!', this.game.canvas.height * 0.02, this.game.canvas.width * 0.17, 100, 500, 'blue'));
     }
     players() {
         this.player = [];

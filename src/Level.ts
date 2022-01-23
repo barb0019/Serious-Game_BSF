@@ -44,7 +44,7 @@ export default abstract class Level extends Scene {
     // create platforms
     this.makePlatforms();
     // make speedbubbles
-    this.speedbubbles(game);
+    this.speedsbubbles(game);
 
     // Take about 5 seconds on a decent computer to show next item
     this.countUntilNextItem = 300;
@@ -62,7 +62,7 @@ export default abstract class Level extends Scene {
    * @param game the game of the game
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected speedbubbles(game: Game): void { }
+  protected speedsbubbles(game: Game): void { }
 
   /**
    *
@@ -210,6 +210,7 @@ export default abstract class Level extends Scene {
     // Show score
     const score = `Sterren: ${this.game.getUser().getScore()}`;
     this.game.writeTextToCanvas(score, 36, 120, 50);
+    // draw the objects
     this.scoringObjects.forEach((element) => {
       element.draw(this.game.ctx);
     });

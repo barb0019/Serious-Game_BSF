@@ -16,11 +16,11 @@ export default class Level extends Scene {
         this.objects();
         this.players();
         this.makePlatforms();
-        this.speedbubbles(game);
+        this.speedsbubbles(game);
         this.countUntilNextItem = 300;
     }
     makePressurePlates() { }
-    speedbubbles(game) { }
+    speedsbubbles(game) { }
     players() { }
     objects() { }
     makePlatforms() { }

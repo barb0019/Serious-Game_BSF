@@ -15,10 +15,10 @@ export default class Level1 extends Level {
         this.objects();
         this.players();
         this.makePlatforms();
-        this.speedbubbles(game);
+        this.speedsbubbles(game);
         document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/Desert-BackgroundStart.png)';
     }
-    speedbubbles(game) {
+    speedsbubbles(game) {
         this.speedBubble = [];
         this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat 10-12 jarigen elk jaar gemiddeld €200 uitgeven aan in-game aankopen?', this.game.canvas.height * 0.2, this.game.canvas.width * 0.13, 100, 500, 'blue'));
         this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat bijna de helft van alle fortnite spelers meer dan 6 uur achter elkaar speelt?', this.game.canvas.height * 0.13, this.game.canvas.width * 0.7, 300, 100, 'blue'));

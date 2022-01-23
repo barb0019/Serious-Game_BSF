@@ -17,15 +17,15 @@ export default class Level4 extends Level {
         this.objects();
         this.players();
         this.makePlatforms();
-        this.speedbubbles(game);
+        this.speedsbubbles(game);
         this.checksIfPressureOnThePlate();
         document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/ForestBackground.jpg)';
     }
-    speedbubbles(game) {
+    speedsbubbles(game) {
         this.speedBubble = [];
         this.speedBubble.push(new SpeedsBubble(game, '2 op de 5 kinderen koopt wekelijks iets in een game.', this.game.canvas.height * 0.05, this.game.canvas.width * 0.71, 100, 500, 'white'));
-        this.speedBubble.push(new SpeedsBubble(game, 'De helft van alle ouders weten niks over hetgame gedrag zijn hun kinderen', this.game.canvas.height * 0.37, this.game.canvas.width * 0.67, 100, 500, 'white'));
-        this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat FUT packs binnenkort misschien worden weggehaald', this.game.canvas.height * 0.27, this.game.canvas.width * 0.17, 100, 500, 'white'));
+        this.speedBubble.push(new SpeedsBubble(game, 'De helft van alle ouders weten niks over het game gedrag van hun kinderen', this.game.canvas.height * 0.30, this.game.canvas.width * 0.72, 100, 500, 'white'));
+        this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat FUT packs binnenkort misschien worden weggehaald', this.game.canvas.height * 0.23, this.game.canvas.width * 0.17, 100, 500, 'white'));
     }
     players() {
         this.player = [];

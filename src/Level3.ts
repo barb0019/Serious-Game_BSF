@@ -24,7 +24,7 @@ export default class Level3 extends Level {
     // create platforms
     this.makePlatforms();
     // make speedbubbles
-    this.speedbubbles(game);
+    this.speedsbubbles(game);
   }
 
   /**
@@ -32,10 +32,11 @@ export default class Level3 extends Level {
    *
    * @param game the game of the game (legendarische tekst)(*Φ皿Φ*)
    */
-  protected speedbubbles(game: Game):void {
+  protected speedsbubbles(game: Game):void {
     this.speedBubble = [];
-    this.speedBubble.push(new SpeedsBubble(game, 'Zijn alle in-game aankopen je geld wel waard?', this.game.canvas.height * 0.685, this.game.canvas.width * 0.5, 100, 500, 'blue'));
-    this.speedBubble.push(new SpeedsBubble(game, 'Games als Fortnite zijn gratis, maar toch geven mensen er meer geld aan uit dan een nieuwe game?!', this.game.canvas.height * 0.4, this.game.canvas.width * 0.7, 100, 500, 'blue'));
+    this.speedBubble.push(new SpeedsBubble(game, 'Zijn alle in-game aankopen je geld wel waard?', this.game.canvas.height * 0.685, this.game.canvas.width * 0.525, 100, 500, 'blue'));
+    this.speedBubble.push(new SpeedsBubble(game, 'Games als Fortnite zijn gratis', this.game.canvas.height * 0.36, this.game.canvas.width * 0.75, 100, 500, 'blue'));
+    this.speedBubble.push(new SpeedsBubble(game, ',maar toch geven mensen er meer geld aan uit dan een nieuwe game?!', this.game.canvas.height * 0.38, this.game.canvas.width * 0.75, 100, 500, 'blue'));
     this.speedBubble.push(new SpeedsBubble(game, 'Door te gamen leren kinderen 23% effectiever dan boeken te lezen!', this.game.canvas.height * 0.05, this.game.canvas.width * 0.6, 100, 500, 'blue'));
   }
 
@@ -76,7 +77,7 @@ export default class Level3 extends Level {
     this.scoringObjects.push(new Star(width * 0.75, height * 0.03, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.875, height * 0.64, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.6, height * 0.75, 'star', 1));
-
+    // create more enemies if you bought the wrong product in the shop
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
       if (boughtItems[i] === 2) {

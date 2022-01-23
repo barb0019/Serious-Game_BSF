@@ -1,6 +1,5 @@
 import Game from './Game.js';
 import KeyListener from './KeyListener.js';
-import MuteButton from './MuteButton.js';
 import Scene from './Scene.js';
 import Start from './Start.js';
 

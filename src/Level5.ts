@@ -26,7 +26,7 @@ export default class Level5 extends Level {
     // create platforms
     this.makePlatforms();
     // make speedbubbles
-    this.speedbubbles(game);
+    this.speedsbubbles(game);
     // make background
     document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/ForestBackground.jpg)';
   }
@@ -36,7 +36,7 @@ export default class Level5 extends Level {
    *
    * @param game the game of the game
    */
-  protected speedbubbles(game: Game): void {
+  protected speedsbubbles(game: Game): void {
     this.speedBubble = [];
     this.speedBubble.push(new SpeedsBubble(game, 'In veel landen zijn het kopen van lootboxen verboden', this.game.canvas.height * 0.55, this.game.canvas.width * 0.05, 100, 500, 'white'));
     this.speedBubble.push(new SpeedsBubble(game, 'Van lootboxen krijg je vaak niets nuttigs', this.game.canvas.height * 0.01, this.game.canvas.width * 0.6, 100, 500, 'white'));
@@ -80,7 +80,7 @@ export default class Level5 extends Level {
     this.scoringObjects.push(new Star(width * 0.84, height * 0.1, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.04, height * 0.39, 'star', 1));
-
+    // create more enemies if you bought the wrong product in the shop
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
       if (boughtItems[i] === 2) {

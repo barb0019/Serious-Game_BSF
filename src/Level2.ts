@@ -25,7 +25,7 @@ export default class Level2 extends Level {
     // create platforms
     this.makePlatforms();
     // make speedbubbles
-    this.speedbubbles(game);
+    this.speedsbubbles(game);
   }
 
   /**
@@ -33,11 +33,11 @@ export default class Level2 extends Level {
    *
    * @param game the game of the game
    */
-  protected speedbubbles(game: Game): void {
+  protected speedsbubbles(game: Game): void {
     this.speedBubble = [];
-    this.speedBubble.push(new SpeedsBubble(game, 'Voegen skins wel iets toe aan je game-ervaring?', this.game.canvas.height * 0.68, this.game.canvas.width * 0.17, 100, 500, 'blue'));
-    this.speedBubble.push(new SpeedsBubble(game, 'DLCs met extra game-content maken de game vaak rijker', this.game.canvas.height * 0.25, this.game.canvas.width * 0.72, 100, 500, 'blue'));
-    this.speedBubble.push(new SpeedsBubble(game, 'Pas op voor de vliegende V-Bucks!', this.game.canvas.height * 0.05, this.game.canvas.width * 0.17, 100, 500, 'blue'));
+    this.speedBubble.push(new SpeedsBubble(game, 'Voegen skins wel iets toe aan je game-ervaring?', this.game.canvas.height * 0.66, this.game.canvas.width * 0.17, 100, 500, 'blue'));
+    this.speedBubble.push(new SpeedsBubble(game, 'DLCs met extra game-content stellen meestal teleur', this.game.canvas.height * 0.25, this.game.canvas.width * 0.72, 100, 500, 'blue'));
+    this.speedBubble.push(new SpeedsBubble(game, 'Pas op voor de vliegende V-Bucks!', this.game.canvas.height * 0.02, this.game.canvas.width * 0.17, 100, 500, 'blue'));
   }
 
   /**
@@ -71,7 +71,7 @@ export default class Level2 extends Level {
     this.scoringObjects.push(new Star(width * 0.227, height * 0.22, 'star', 1));
     this.scoringObjects.push(new VBucks(width * 0.179, height * 0.8, 'red', -3, this.game));
     this.scoringObjects.push(new FutPack(width * 0.273, height * 0.8, 'red', -3));
-
+    // create more enemies if you bought the wrong product in the shop
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
       if (boughtItems[i] === 2) {
