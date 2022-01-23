@@ -41,7 +41,7 @@ export default class Level4 extends Level {
   protected speedsbubbles(game: Game): void {
     this.speedBubble = [];
     this.speedBubble.push(new SpeedsBubble(game, '2 op de 5 kinderen koopt wekelijks iets in een game.', this.game.canvas.height * 0.05, this.game.canvas.width * 0.71, 100, 500, 'white'));
-    this.speedBubble.push(new SpeedsBubble(game, 'De helft van alle ouders weten niks over het game gedrag van hun kinderen', this.game.canvas.height * 0.30, this.game.canvas.width * 0.72, 100, 500, 'white'));
+    this.speedBubble.push(new SpeedsBubble(game, 'De helft van alle ouders weten niks over het game gedrag van hun kinderen', this.game.canvas.height * 0.30, this.game.canvas.width * 0.70, 100, 500, 'white'));
     this.speedBubble.push(new SpeedsBubble(game, 'Wist je dat FUT packs binnenkort misschien worden weggehaald', this.game.canvas.height * 0.23, this.game.canvas.width * 0.17, 100, 500, 'white'));
   }
 
