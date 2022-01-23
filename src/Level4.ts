@@ -75,7 +75,7 @@ export default class Level4 extends Level {
     this.scoringObjects.push(new Star(width * 0.84, height * 0.15, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.814, height * 0.45, 'star', 1));
     this.scoringObjects.push(new Star(width * 0.227, height * 0.15, 'star', 1));
-    // create extra enemies if you bought the wrong product in the shop
+    // create more enemies if you bought the wrong product in the shop
     const boughtItems = this.game.getBoughtItems();
     for (let i = 0; i < boughtItems.length; i++) {
       if (boughtItems[i] === 2) {
