@@ -17,6 +17,8 @@ export default class GameOver extends Scene {
     super(game);
     this.keyboard = new KeyListener();
     this.shouldStart = false;
+    // change the background
+    document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/Desert-BackgroundStart.png)';
   }
 
   /**

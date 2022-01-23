@@ -13,6 +13,7 @@ export default class LevelUp extends Scene {
         super(game);
         this.keyboard = new KeyListener();
         this.shouldStart = false;
+        document.getElementById('canvas').style.backgroundImage = 'url(./assets/img/background/Desert-BackgroundStart.png)';
     }
     processInput() {
         if (this.keyboard.isKeyDown(KeyListener.KEY_P)) {
