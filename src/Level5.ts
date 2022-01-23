@@ -40,7 +40,7 @@ export default class Level5 extends Level {
     this.speedBubble = [];
     this.speedBubble.push(new SpeedsBubble(game, 'In veel landen zijn het kopen van lootboxen verboden', this.game.canvas.height * 0.55, this.game.canvas.width * 0.05, 100, 500, 'white'));
     this.speedBubble.push(new SpeedsBubble(game, 'Van lootboxen krijg je vaak niets nuttigs', this.game.canvas.height * 0.01, this.game.canvas.width * 0.6, 100, 500, 'white'));
-    this.speedBubble.push(new SpeedsBubble(game, 'van teveel in-game aankopen kan je in geld problemen komen', this.game.canvas.height * 0.29, this.game.canvas.width * 0.75, 100, 500, 'white'));
+    this.speedBubble.push(new SpeedsBubble(game, 'van teveel in-game aankopen kan je in geld problemen komen', this.game.canvas.height * 0.28, this.game.canvas.width * 0.75, 100, 500, 'white'));
   }
 
   /**
